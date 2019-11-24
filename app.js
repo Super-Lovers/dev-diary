@@ -1,6 +1,9 @@
-const fs = require('fs');
 const m2j = require('md-2-json');
 const cheerio = require('cheerio');
+const showdown = require('showdown');
+let $ = require('jquery');
+const dirTree = require('directory-tree');
+const fsExtra = require('fs-extra');
 
 const topicsString = [];
 const topicsInstances = [];
@@ -39,10 +42,10 @@ const topicDirectories = [];
 const yearDirectories = [];
 
 const path = './blog';
-fs.readdirSync(path)
+fsExtra.readdirSync(path)
 .forEach((file) => {
     const filePath = path + '/' + file;
-    const fileStatus = fs.statSync(filePath);
+    const fileStatus = fsExtra.statSync(filePath);
 
     if (fileStatus.isDirectory()) {
         topicDirectories.push(filePath);
@@ -59,7 +62,7 @@ fs.readdirSync(path)
 });
 
 topicsInstances.forEach(element => {
-    fs.readdirSync(path + '/' + element.name)
+    fsExtra.readdirSync(path + '/' + element.name)
     .forEach(file => {
         yearDirectories.push(element + '/' + file);
         
@@ -81,7 +84,7 @@ for (let i = 0; i < topicsInstances.length; i++)
     for (let j = 0; j < topicsInstances[i].years.length; j++)
     {
         const pathToMonths = path + '/' + topicsInstances[i].name + '/' + topicsInstances[i].years[j].name;
-        fs.readdirSync(pathToMonths)
+        fsExtra.readdirSync(pathToMonths)
         .forEach(file => {
             let topic;
             for (let k = 0; k < topicsInstances.length; k++) {
@@ -109,13 +112,13 @@ for (let topic = 0; topic < topicsInstances.length; topic++)
     {
         for (let month = 0; month < topicsInstances[topic].years[year].months.length; month++)
         {
-            const pathToposts = 
+            const pathToPosts = 
                 path + '/' + 
                 topicsInstances[topic].name + '/' + 
                 topicsInstances[topic].years[year].name + '/' +
                 topicsInstances[topic].years[year].months[month].name;
 
-            fs.readdirSync(pathToposts)
+            fsExtra.readdirSync(pathToPosts)
             .forEach(file => {
                 let newTopic;
                 for (let i = 0; i < topicsInstances.length; i++) {
@@ -146,7 +149,158 @@ for (let topic = 0; topic < topicsInstances.length; topic++)
     }
 }
 
+topicsInstances.forEach(topic => {
+    if (fsExtra.exists('./dom/' + topic.name)) {
+        fsExtra.removeSync('./dom/' + topic.name);
+    }
+    fsExtra.mkdirSync('./dom/' + topic.name);
+    topic.years.forEach(year => {
+        fsExtra.mkdirSync('./dom/' + topic.name + '/' + year.name);
+        year.months.forEach(month => {
+            fsExtra.mkdirSync('./dom/' + topic.name + '/' + year.name + '/' + month.name);
+            month.posts.forEach(post => {
+                const file = path + '/' + topic.name + '/' + year.name + '/' + month.name + '/' + post.name;
+                fsExtra.readFileSync(file, 'utf8', function(err, contents) {
+                    const converter = new showdown.Converter();
+                    let postHtml = converter.makeHtml(contents);
+                    
+                    fsExtra.readFileSync('base.html', 'utf8', function(err, contents) {
+                        $ = cheerio.load(contents);
 
-fs.readFile('index.html', 'utf8', function(err, contents) {
-    const $ = cheerio.load(contents);
+                        $('.link').each(function(index) {
+                            const currentHref = $(this).attr('href');
+                            const currentSrc = $(this).attr('src');
+                            $(this).attr('href', '../../../../' + currentHref);
+                            $(this).attr('src', '../../../../' + currentSrc);
+                        });
+
+                        // $('.posts').append('<div>' + postHtml + '</div>');
+                        
+                        fsExtra.writeFileSync(
+                            './dom/' + topic.name + '/' + year.name + '/' + month.name + '/' +
+                            post.name.substring(0, post.name.length - 3) + '.html', $('html'));
+                    });
+                });
+            })
+        })
+    })
 });
+
+let rootPath = './blog';
+const domTree = dirTree(rootPath);
+
+let archiveNode = '';
+
+for (let topic = 0; topic < domTree.children.length; topic++)
+{
+    if (domTree.children.length <= 0) {
+        continue;
+    }
+
+    archiveNode += '<li>' + domTree.children[topic].name;
+    archiveNode += '<ul>';
+    for (let year = 0; year < domTree.children[topic].children.length; year++)
+    {
+        archiveNode += '<li>' + domTree.children[topic].children[year].name;
+        archiveNode += '    <ul>';
+        for (let month = 0; month < domTree.children[topic].children[year].children.length; month++)
+        {
+            archiveNode += '<li>' + domTree.children[topic].children[year].children[month].name;
+            archiveNode += '<ul>';
+            for (let post = 0; post < domTree.children[topic].children[year].children[month].children.length; post++)
+            {
+                archiveNode += '    <li>' + '<a href="../../../../dom/' + domTree.children[topic].name + '/' + domTree.children[topic].children[year].name + '/' + domTree.children[topic].children[year].children[month].name + '/' + 
+                domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + '.html">' + domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + ".html</a>";
+            }
+            
+            archiveNode += '</ul>';
+            archiveNode += '    </li>';
+        }
+        archiveNode += '    </ul>';
+        archiveNode += '</li>';
+    }
+    archiveNode += '</ul>';
+    archiveNode += '</li>';
+}
+
+topicsInstances.forEach(topic => {
+    topic.years.forEach(year => {
+        year.months.forEach(month => {
+            month.posts.forEach(post => {
+                const file = path + '/' + topic.name + '/' + year.name + '/' + month.name + '/' + post.name;
+                console.log(file);
+                fsExtra.readFile(file, 'utf8', function(err, contents) {
+                    const converter = new showdown.Converter();
+                    let postHtml = converter.makeHtml(contents);
+                    
+                    fsExtra.readFile('base.html', 'utf8', function(err, contents) {
+                        $ = cheerio.load(contents);
+
+                        $('.link').each(function(index) {
+                            const currentHref = $(this).attr('href');
+                            const currentSrc = $(this).attr('src');
+                            $(this).attr('href', '../../../../' + currentHref);
+                            $(this).attr('src', '../../../../' + currentSrc);
+                        });
+
+                        $('.posts').append('<div>' + postHtml + '</div>');
+                        
+                        $('.archive').empty();
+                        $('.archive').append(archiveNode);
+
+                        fsExtra.writeFileSync(
+                            './dom/' + topic.name + '/' + year.name + '/' + month.name + '/' +
+                            post.name.substring(0, post.name.length - 3) + '.html', $('html'));
+                    });
+                });
+            })
+        })
+    })
+});
+
+setTimeout(() =>
+{
+    archiveNode = '';
+
+    for (let topic = 0; topic < domTree.children.length; topic++)
+    {
+        if (domTree.children.length <= 0) {
+            continue;
+        }
+    
+        archiveNode += '<li>' + domTree.children[topic].name;
+        archiveNode += '<ul>';
+        for (let year = 0; year < domTree.children[topic].children.length; year++)
+        {
+            archiveNode += '<li>' + domTree.children[topic].children[year].name;
+            archiveNode += '    <ul>';
+            for (let month = 0; month < domTree.children[topic].children[year].children.length; month++)
+            {
+                archiveNode += '<li>' + domTree.children[topic].children[year].children[month].name;
+                archiveNode += '<ul>';
+                for (let post = 0; post < domTree.children[topic].children[year].children[month].children.length; post++)
+                {
+                    archiveNode += '    <li>' + '<a href="./dom/' + domTree.children[topic].name + '/' + domTree.children[topic].children[year].name + '/' + domTree.children[topic].children[year].children[month].name + '/' + 
+                    domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + '.html">' + domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + ".html</a>";
+                }
+                
+                archiveNode += '</ul>';
+                archiveNode += '    </li>';
+            }
+            archiveNode += '    </ul>';
+            archiveNode += '</li>';
+        }
+        archiveNode += '</ul>';
+        archiveNode += '</li>';
+    }
+    
+    fsExtra.readFile('base.html', 'utf8', function(err, contents) {
+        $ = cheerio.load(contents);
+    
+        $('.archive').empty();
+        $('.archive').append(archiveNode);
+    
+        fsExtra.writeFileSync(
+            'index.html', $('html'));
+    });
+}, 6000)

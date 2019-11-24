@@ -1,18 +1,32 @@
 @font-face {
     src: url('../fonts/Goudy\ Old\ Style\ Regular.ttf');
     font-family: 'Goudy Old Style Regular';
+}@font-face {
+    src: url('../fonts/PlayfairDisplay-Italic.ttf');
+    font-family: 'Playfair Display Italic';
 }
 
 * {
     font-family: 'Goudy Old Style Regular';
 }
 
-h1 {
-    font-family: 'Minion Pro';
+h1, h2 {
+    font-family: 'Playfair Display Italic';
+    /* color: rgba(0,0,0, 0.8); */
+    color: darkslategrey;
 }
 
 a {
     color: darkslategray !important;
+}
+
+a > i {
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+a > i:hover {
+    opacity: 0.4;
 }
 
 .aside {
@@ -21,13 +35,21 @@ a {
     width: 250px;
 }
 
+div.card-body {
+    margin: 10px 0 -15px 0;
+    padding: 0;
+}
+
+div.card-body > .row {
+    margin: 0px 0px 10px 0;
+}
+
 .header {
     margin: 0 0 15px 0;
 }
 
 .portrait {
-    margin: 0 0 10px 0;
-    border-radius: 5%;
+    border-radius: 5% !important;
     border: 1px solid lightgray;
     /* width: 180px; */
 }
@@ -36,7 +58,18 @@ a {
     margin: 40px 0;
 }
 
+main {
+    min-height: 400px;
+}
+
 footer {
     font-style: italic;
     color: #bcbcbc;
+}
+.container-fluid {
+    padding: 0 !important;
+}
+
+.container-fluid:not(:first-child) {
+    padding: 15px 0 !important;
 }

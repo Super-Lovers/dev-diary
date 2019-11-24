@@ -17,7 +17,9 @@ h1, h2 {
 }
 
 a {
-    color: darkslategray !important;
+    color: slategrey !important;
+    font-size: 14px;
+    letter-spacing: 0.5px;
 }
 
 a > i {
@@ -35,6 +37,15 @@ a > i:hover {
     width: 250px;
 }
 
+ul {
+    padding: 0 16px 10px 16px;
+}
+
+div.card-group {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
 div.card-body {
     margin: 10px 0 -15px 0;
     padding: 0;
@@ -44,18 +55,25 @@ div.card-body > .row {
     margin: 0px 0px 10px 0;
 }
 
+div.col-1 {
+    padding: 0 35px 0 0;
+    margin: 0 0 0 0px;
+}
+
 .header {
     margin: 0 0 15px 0;
 }
 
 .portrait {
-    border-radius: 5% !important;
     border: 1px solid lightgray;
     /* width: 180px; */
 }
 
 .container {
-    margin: 40px 0;
+    padding: 10px 30px !important;
+    margin: 20px 0;
+    height: 100%;
+    border-left: 3px dashed rgb(211, 211, 211, 0.3);
 }
 
 main {

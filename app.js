@@ -49,7 +49,6 @@ fsExtra.readdirSync(path)
 
     if (fileStatus.isDirectory()) {
         topicDirectories.push(filePath);
-        // console.log(file.substring(8, file.length));
         
         const topic = topicsString.includes(file);
         if (topic == false) {
@@ -210,7 +209,7 @@ for (let topic = 0; topic < domTree.children.length; topic++)
             for (let post = 0; post < domTree.children[topic].children[year].children[month].children.length; post++)
             {
                 archiveNode += '    <li>' + '<a href="../../../../dom/' + domTree.children[topic].name + '/' + domTree.children[topic].children[year].name + '/' + domTree.children[topic].children[year].children[month].name + '/' + 
-                domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + '.html">' + domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + ".html</a>";
+                domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + '.html"><b>' + domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + "</b></a>";
             }
             
             archiveNode += '</ul>';
@@ -228,7 +227,6 @@ topicsInstances.forEach(topic => {
         year.months.forEach(month => {
             month.posts.forEach(post => {
                 const file = path + '/' + topic.name + '/' + year.name + '/' + month.name + '/' + post.name;
-                console.log(file);
                 fsExtra.readFile(file, 'utf8', function(err, contents) {
                     const converter = new showdown.Converter();
                     let postHtml = converter.makeHtml(contents);
@@ -281,7 +279,7 @@ setTimeout(() =>
                 for (let post = 0; post < domTree.children[topic].children[year].children[month].children.length; post++)
                 {
                     archiveNode += '    <li>' + '<a href="./dom/' + domTree.children[topic].name + '/' + domTree.children[topic].children[year].name + '/' + domTree.children[topic].children[year].children[month].name + '/' + 
-                    domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + '.html">' + domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + ".html</a>";
+                    domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + '.html"><b>' + domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + "</b></a>";
                 }
                 
                 archiveNode += '</ul>';

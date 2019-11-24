@@ -1,0 +1,42 @@
+@font-face {
+    src: url('../fonts/Goudy\ Old\ Style\ Regular.ttf');
+    font-family: 'Goudy Old Style Regular';
+}
+
+* {
+    font-family: 'Goudy Old Style Regular';
+}
+
+h1 {
+    font-family: 'Minion Pro';
+}
+
+a {
+    color: darkslategray !important;
+}
+
+.aside {
+    font-style: italic;
+    font-size: 13px;
+    width: 250px;
+}
+
+.header {
+    margin: 0 0 15px 0;
+}
+
+.portrait {
+    margin: 0 0 10px 0;
+    border-radius: 5%;
+    border: 1px solid lightgray;
+    /* width: 180px; */
+}
+
+.container {
+    margin: 40px 0;
+}
+
+footer {
+    font-style: italic;
+    color: #bcbcbc;
+}

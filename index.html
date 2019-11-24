@@ -3,11 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>Nikolay's Blog</title>
+    <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
 </head>
 <body>
-    Nikolay's Blog
+    <div class="container">
+        <div class="row">
+            <div class="col aside">
+              <div class="header text-center">
+                  <img class="portrait" src="images/portrait.png" alt="">
+                  <div class="row">
+                      <div class="col-3"></div>
+                      <div class="col-2"><a href="#"><i class="fab fa-github-alt"></i></a></div>
+                      <div class="col-2"><a href="#"><i class="fab fa-linkedin-in"></i></a></div>
+                      <div class="col-2"><a href="#"><i class="fas fa-envelope"></i></a></div>
+                      <div class="col-3"></div>
+                    </div>
+                </div>
+              <p>Aenean mattis dui sed orci vehicula ornare. Quisque a arcu vel tortor ornare gravida non in velit. Integer ullamcorper rhoncus consectetur.</p>
+              
+              <hr>
+              
+              <div>
+                    <h6>Newest Posts</h6>
+                    <ul class="newest-posts"></ul>
+              </div>
+              <div>
+                    <h6>Archive</h6>
+                    <ul class="archive">ass</ul>
+              </div>
+            </div>
+            <div class="col-9">
+                <header>
+                        <h1>Welcome to Nikolay's Blog!</h1>
+                        <p>Nunc at mi efficitur, iaculis ex posuere, accumsan magna. Duis faucibus tincidunt lorem ut cursus. Phasellus ac condimentum libero. Nulla luctus sapien mollis ipsum suscipit venenatis. Etiam est leo, posuere vitae ornare fringilla, laoreet a sapien. Vestibulum in condimentum erat. Aliquam pulvinar lorem ac ex pretium, et efficitur nibh vulputate. Etiam hendrerit urna eget sodales congue. </p>
+                </header>
+                <footer class="row">
+                    <div class="col-8"></div>
+                    <div class="col-4 text-right">Made by Nikolay Vaskov Ivanov</div>
+                </footer>
+                <hr>
+            </div>
+          </div>
+    </div>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

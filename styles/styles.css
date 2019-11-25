@@ -36,14 +36,14 @@ a>i:hover {
 .aside {
     font-style: italic;
     font-size: 13px;
-    width: 250px;
+    max-width: 340px !important;
 }
 
 ul {
     padding: 0 16px 10px 16px;
 }
 
-div.card-group {
+div.card-group, .posts-container {
     max-width: 300px;
     margin: 0 auto;
 }
@@ -83,6 +83,11 @@ div.col-1 {
 
 .container-fluid:not(:first-child) {
     padding: 15px 0 !important;
+}
+
+.custom-col {
+    margin: 0 auto !important;
+    padding: 0 !important;
 }
 
 main {

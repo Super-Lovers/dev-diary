@@ -25,7 +25,7 @@ a {
 }
 
 a>i {
-    font-size: 14px;
+    font-size: 13px;
     transition: 0.2s;
 }
 
@@ -77,6 +77,14 @@ div.col-1 {
     border-left: 3px dashed rgb(211, 211, 211, 0.3);
 }
 
+.container-fluid {
+    padding: 0 !important;
+}
+
+.container-fluid:not(:first-child) {
+    padding: 15px 0 !important;
+}
+
 main {
     min-height: 400px;
 }
@@ -86,10 +94,11 @@ footer {
     color: #bcbcbc;
 }
 
-.container-fluid {
-    padding: 0 !important;
-}
-
-.container-fluid:not(:first-child) {
-    padding: 15px 0 !important;
-}
+hr.style14 { 
+    border: 0; 
+    height: 1px; 
+    background-image: -webkit-linear-gradient(left, #ffffff, #bcbcbc, #ffffff);
+    background-image: -moz-linear-gradient(left, #ffffff, #bcbcbc, #ffffff);
+    background-image: -ms-linear-gradient(left, #ffffff, #bcbcbc, #ffffff);
+    background-image: -o-linear-gradient(left, #ffffff, #bcbcbc, #ffffff);  
+} 

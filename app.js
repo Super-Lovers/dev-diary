@@ -43,107 +43,98 @@ const yearDirectories = [];
 
 const path = './blog';
 fsExtra.readdirSync(path)
-.forEach((file) => {
-    const filePath = path + '/' + file;
-    const fileStatus = fsExtra.statSync(filePath);
+    .forEach((file) => {
+        const filePath = path + '/' + file;
+        const fileStatus = fsExtra.statSync(filePath);
 
-    if (fileStatus.isDirectory()) {
-        topicDirectories.push(filePath);
-        
-        const topic = topicsString.includes(file);
-        if (topic == false) {
-            const newTopic = new Topic(file);
-            topicsInstances.push(newTopic);
+        if (fileStatus.isDirectory()) {
+            topicDirectories.push(filePath);
 
-            topicsString.push(file);
-        }
-    }
-});
+            const topic = topicsString.includes(file);
+            if (topic == false) {
+                const newTopic = new Topic(file);
+                topicsInstances.push(newTopic);
 
-topicsInstances.forEach(element => {
-    fsExtra.readdirSync(path + '/' + element.name)
-    .forEach(file => {
-        yearDirectories.push(element + '/' + file);
-        
-        for (let i = 0; i < topicsInstances.length; i++) {
-            if (topicsInstances[i].name == element.name) {
-                const topic = topicsInstances[i];
-                const newYear = new Year(file);
-                if (!topic.years.includes(newYear))
-                {
-                    topic.years.push(newYear);
-                }
+                topicsString.push(file);
             }
         }
     });
+
+topicsInstances.forEach(element => {
+    fsExtra.readdirSync(path + '/' + element.name)
+        .forEach(file => {
+            yearDirectories.push(element + '/' + file);
+
+            for (let i = 0; i < topicsInstances.length; i++) {
+                if (topicsInstances[i].name == element.name) {
+                    const topic = topicsInstances[i];
+                    const newYear = new Year(file);
+                    if (!topic.years.includes(newYear)) {
+                        topic.years.push(newYear);
+                    }
+                }
+            }
+        });
 });
 
-for (let i = 0; i < topicsInstances.length; i++)
-{
-    for (let j = 0; j < topicsInstances[i].years.length; j++)
-    {
+for (let i = 0; i < topicsInstances.length; i++) {
+    for (let j = 0; j < topicsInstances[i].years.length; j++) {
         const pathToMonths = path + '/' + topicsInstances[i].name + '/' + topicsInstances[i].years[j].name;
         fsExtra.readdirSync(pathToMonths)
-        .forEach(file => {
-            let topic;
-            for (let k = 0; k < topicsInstances.length; k++) {
-                if (topicsInstances[k].name == topicsInstances[i].name) {
-                    topic = topicsInstances[k];
+            .forEach(file => {
+                let topic;
+                for (let k = 0; k < topicsInstances.length; k++) {
+                    if (topicsInstances[k].name == topicsInstances[i].name) {
+                        topic = topicsInstances[k];
+                    }
                 }
-            }
 
-            let year;
-            for (let k = 0; k < topic.years.length; k++)
-            {
-                if (topic.years[k].name == topicsInstances[i].years[j].name) {
-                    year = topicsInstances[i].years[j];
+                let year;
+                for (let k = 0; k < topic.years.length; k++) {
+                    if (topic.years[k].name == topicsInstances[i].years[j].name) {
+                        year = topicsInstances[i].years[j];
+                    }
                 }
-            }
-            
-            year.months.push(new Month(file));
-        });
+
+                year.months.push(new Month(file));
+            });
     }
 }
 
-for (let topic = 0; topic < topicsInstances.length; topic++)
-{
-    for (let year = 0; year < topicsInstances[topic].years.length; year++)
-    {
-        for (let month = 0; month < topicsInstances[topic].years[year].months.length; month++)
-        {
-            const pathToPosts = 
-                path + '/' + 
-                topicsInstances[topic].name + '/' + 
+for (let topic = 0; topic < topicsInstances.length; topic++) {
+    for (let year = 0; year < topicsInstances[topic].years.length; year++) {
+        for (let month = 0; month < topicsInstances[topic].years[year].months.length; month++) {
+            const pathToPosts =
+                path + '/' +
+                topicsInstances[topic].name + '/' +
                 topicsInstances[topic].years[year].name + '/' +
                 topicsInstances[topic].years[year].months[month].name;
 
             fsExtra.readdirSync(pathToPosts)
-            .forEach(file => {
-                let newTopic;
-                for (let i = 0; i < topicsInstances.length; i++) {
-                    if (topicsInstances[i].name == topicsInstances[topic].name) {
-                        newTopic = topicsInstances[i];
+                .forEach(file => {
+                    let newTopic;
+                    for (let i = 0; i < topicsInstances.length; i++) {
+                        if (topicsInstances[i].name == topicsInstances[topic].name) {
+                            newTopic = topicsInstances[i];
+                        }
                     }
-                }
 
-                let newYear;
-                for (let i = 0; i < newTopic.years.length; i++)
-                {
-                    if (newTopic.years[i].name == topicsInstances[topic].years[year].name) {
-                        newYear = topicsInstances[topic].years[year];
+                    let newYear;
+                    for (let i = 0; i < newTopic.years.length; i++) {
+                        if (newTopic.years[i].name == topicsInstances[topic].years[year].name) {
+                            newYear = topicsInstances[topic].years[year];
+                        }
                     }
-                }
 
-                let newMonth;
-                for (let i = 0; i < newYear.months.length; i++)
-                {
-                    if (newYear.months[i].name == topicsInstances[topic].years[year].months[month].name) {
-                        newMonth = topicsInstances[topic].years[year].months[month];
+                    let newMonth;
+                    for (let i = 0; i < newYear.months.length; i++) {
+                        if (newYear.months[i].name == topicsInstances[topic].years[year].months[month].name) {
+                            newMonth = topicsInstances[topic].years[year].months[month];
+                        }
                     }
-                }
-                
-                newMonth.posts.push(new Post(file));
-            });
+
+                    newMonth.posts.push(new Post(file));
+                });
         }
     }
 }
@@ -159,14 +150,14 @@ topicsInstances.forEach(topic => {
             fsExtra.mkdirSync('./dom/' + topic.name + '/' + year.name + '/' + month.name);
             month.posts.forEach(post => {
                 const file = path + '/' + topic.name + '/' + year.name + '/' + month.name + '/' + post.name;
-                fsExtra.readFileSync(file, 'utf8', function(err, contents) {
+                fsExtra.readFileSync(file, 'utf8', function (err, contents) {
                     const converter = new showdown.Converter();
                     let postHtml = converter.makeHtml(contents);
-                    
-                    fsExtra.readFileSync('base.html', 'utf8', function(err, contents) {
+
+                    fsExtra.readFileSync('base.html', 'utf8', function (err, contents) {
                         $ = cheerio.load(contents);
 
-                        $('.link').each(function(index) {
+                        $('.link').each(function (index) {
                             const currentHref = $(this).attr('href');
                             const currentSrc = $(this).attr('src');
                             $(this).attr('href', '../../../../' + currentHref);
@@ -174,7 +165,7 @@ topicsInstances.forEach(topic => {
                         });
 
                         // $('.posts').append('<div>' + postHtml + '</div>');
-                        
+
                         fsExtra.writeFileSync(
                             './dom/' + topic.name + '/' + year.name + '/' + month.name + '/' +
                             post.name.substring(0, post.name.length - 3) + '.html', $('html'));
@@ -190,28 +181,24 @@ const domTree = dirTree(rootPath);
 
 let archiveNode = '';
 
-for (let topic = 0; topic < domTree.children.length; topic++)
-{
+for (let topic = 0; topic < domTree.children.length; topic++) {
     if (domTree.children.length <= 0) {
         continue;
     }
 
     archiveNode += '<li>' + domTree.children[topic].name;
     archiveNode += '<ul>';
-    for (let year = 0; year < domTree.children[topic].children.length; year++)
-    {
+    for (let year = 0; year < domTree.children[topic].children.length; year++) {
         archiveNode += '<li>' + domTree.children[topic].children[year].name;
         archiveNode += '    <ul>';
-        for (let month = 0; month < domTree.children[topic].children[year].children.length; month++)
-        {
+        for (let month = 0; month < domTree.children[topic].children[year].children.length; month++) {
             archiveNode += '<li>' + domTree.children[topic].children[year].children[month].name;
             archiveNode += '<ul>';
-            for (let post = 0; post < domTree.children[topic].children[year].children[month].children.length; post++)
-            {
-                archiveNode += '    <li>' + '<a href="../../../../dom/' + domTree.children[topic].name + '/' + domTree.children[topic].children[year].name + '/' + domTree.children[topic].children[year].children[month].name + '/' + 
-                domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + '.html"><b>' + domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + "</b></a>";
+            for (let post = 0; post < domTree.children[topic].children[year].children[month].children.length; post++) {
+                archiveNode += '    <li>' + '<a href="../../../../dom/' + domTree.children[topic].name + '/' + domTree.children[topic].children[year].name + '/' + domTree.children[topic].children[year].children[month].name + '/' +
+                    domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + '.html"><b>' + domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + "</b></a>";
             }
-            
+
             archiveNode += '</ul>';
             archiveNode += '    </li>';
         }
@@ -227,14 +214,14 @@ topicsInstances.forEach(topic => {
         year.months.forEach(month => {
             month.posts.forEach(post => {
                 const file = path + '/' + topic.name + '/' + year.name + '/' + month.name + '/' + post.name;
-                fsExtra.readFile(file, 'utf8', function(err, contents) {
+                fsExtra.readFile(file, 'utf8', function (err, contents) {
                     const converter = new showdown.Converter();
                     let postHtml = converter.makeHtml(contents);
-                    
-                    fsExtra.readFile('base.html', 'utf8', function(err, contents) {
+
+                    fsExtra.readFile('base.html', 'utf8', function (err, contents) {
                         $ = cheerio.load(contents);
 
-                        $('.link').each(function(index) {
+                        $('.link').each(function (index) {
                             const currentHref = $(this).attr('href');
                             const currentSrc = $(this).attr('src');
                             $(this).attr('href', '../../../../' + currentHref);
@@ -242,7 +229,7 @@ topicsInstances.forEach(topic => {
                         });
 
                         $('.posts').append('<div>' + postHtml + '</div>');
-                        
+
                         $('.archive').empty();
                         $('.archive').append(archiveNode);
 
@@ -256,32 +243,27 @@ topicsInstances.forEach(topic => {
     })
 });
 
-setTimeout(() =>
-{
+setTimeout(() => {
     archiveNode = '';
 
-    for (let topic = 0; topic < domTree.children.length; topic++)
-    {
+    for (let topic = 0; topic < domTree.children.length; topic++) {
         if (domTree.children.length <= 0) {
             continue;
         }
-    
+
         archiveNode += '<li>' + domTree.children[topic].name;
         archiveNode += '<ul>';
-        for (let year = 0; year < domTree.children[topic].children.length; year++)
-        {
+        for (let year = 0; year < domTree.children[topic].children.length; year++) {
             archiveNode += '<li>' + domTree.children[topic].children[year].name;
             archiveNode += '    <ul>';
-            for (let month = 0; month < domTree.children[topic].children[year].children.length; month++)
-            {
+            for (let month = 0; month < domTree.children[topic].children[year].children.length; month++) {
                 archiveNode += '<li>' + domTree.children[topic].children[year].children[month].name;
                 archiveNode += '<ul>';
-                for (let post = 0; post < domTree.children[topic].children[year].children[month].children.length; post++)
-                {
-                    archiveNode += '    <li>' + '<a href="./dom/' + domTree.children[topic].name + '/' + domTree.children[topic].children[year].name + '/' + domTree.children[topic].children[year].children[month].name + '/' + 
-                    domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + '.html"><b>' + domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + "</b></a>";
+                for (let post = 0; post < domTree.children[topic].children[year].children[month].children.length; post++) {
+                    archiveNode += '    <li>' + '<a href="./dom/' + domTree.children[topic].name + '/' + domTree.children[topic].children[year].name + '/' + domTree.children[topic].children[year].children[month].name + '/' +
+                        domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + '.html"><b>' + domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + "</b></a>";
                 }
-                
+
                 archiveNode += '</ul>';
                 archiveNode += '    </li>';
             }
@@ -291,13 +273,13 @@ setTimeout(() =>
         archiveNode += '</ul>';
         archiveNode += '</li>';
     }
-    
-    fsExtra.readFile('base.html', 'utf8', function(err, contents) {
+
+    fsExtra.readFile('base.html', 'utf8', function (err, contents) {
         $ = cheerio.load(contents);
-    
+
         $('.archive').empty();
         $('.archive').append(archiveNode);
-    
+
         fsExtra.writeFileSync(
             'index.html', $('html'));
     });

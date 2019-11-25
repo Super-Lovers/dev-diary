@@ -1,4 +1,4 @@
-### Exploring Node.js for making a personal blog <span class="badge badge-light">New</span>
+### Exploring Node.js for making a personal blog <span class="badge badge-secondary">New</span>
 
 ##### Uploaded on 11th November, 2019
 

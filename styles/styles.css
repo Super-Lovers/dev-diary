@@ -8,6 +8,10 @@
     font-family: 'Playfair Display Italic';
 }
 
+body {
+    font-size: .94rem !important;
+}
+
 * {
     font-family: 'Goudy Old Style Regular';
 }
@@ -37,6 +41,19 @@ a>i:hover {
     font-style: italic;
     font-size: 13px;
     max-width: 340px !important;
+}
+
+.link > h6 > b > i {
+    font-size: 14px;
+}
+
+.link > h6 > b > i > i {
+    font-size: 13px;
+    color: #494c57;
+}
+
+.link:last-of-type > h6 {
+    margin: 0 0 20px 0;
 }
 
 ul {
@@ -106,4 +123,4 @@ hr.style14 {
     background-image: -moz-linear-gradient(left, #ffffff, #bcbcbc, #ffffff);
     background-image: -ms-linear-gradient(left, #ffffff, #bcbcbc, #ffffff);
     background-image: -o-linear-gradient(left, #ffffff, #bcbcbc, #ffffff);  
-} 
+}

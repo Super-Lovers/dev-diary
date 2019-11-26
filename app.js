@@ -164,6 +164,17 @@ topicsInstances.forEach(topic => {
                             $(this).attr('src', '../../../../' + currentSrc);
                         });
 
+                        const date = new Date();
+                        const dateString = "Last updated on " + 
+                        date.getUTCDate() + "/" + 
+                        (date.getUTCMonth() + 1) + "/" + 
+                        date.getUTCFullYear() + " " + 
+                        (date.getUTCHours() + 1) + ":" +
+                        date.getUTCMinutes() + ", " +
+                        Intl.DateTimeFormat().resolvedOptions().timeZone;
+                
+                        $('.update-status').text(dateString);
+
                         // $('.posts').append('<div>' + postHtml + '</div>');
 
                         fsExtra.writeFileSync(
@@ -233,6 +244,17 @@ topicsInstances.forEach(topic => {
                         $('.archive').empty();
                         $('.archive').append(archiveNode);
 
+                        const date = new Date();
+                        const dateString = "Last updated on " + 
+                        date.getUTCDate() + "/" + 
+                        (date.getUTCMonth() + 1) + "/" + 
+                        date.getUTCFullYear() + " " + 
+                        (date.getUTCHours() + 1) + ":" +
+                        date.getUTCMinutes() + ", " +
+                        Intl.DateTimeFormat().resolvedOptions().timeZone;
+                
+                        $('.update-status').text(dateString);
+
                         fsExtra.writeFileSync(
                             './dom/' + topic.name + '/' + year.name + '/' + month.name + '/' +
                             post.name.substring(0, post.name.length - 3) + '.html', $('html'));
@@ -279,6 +301,17 @@ setTimeout(() => {
 
         $('.archive').empty();
         $('.archive').append(archiveNode);
+
+        const date = new Date();
+        const dateString = "Last updated on " + 
+        date.getUTCDate() + "/" + 
+        (date.getUTCMonth() + 1) + "/" + 
+        date.getUTCFullYear() + " " + 
+        (date.getUTCHours() + 1) + ":" +
+        date.getUTCMinutes() + ", " +
+        Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+        $('.update-status').text(dateString);
 
         fsExtra.writeFileSync(
             'index.html', $('html'));

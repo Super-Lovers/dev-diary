@@ -43,11 +43,11 @@ a>i:hover {
     max-width: 340px !important;
 }
 
-.link > h6 > b > i {
+.link > h6 > b > em {
     font-size: 14px;
 }
 
-.link > h6 > b > i > i {
+.link > h6 > b > em > i {
     font-size: 13px;
     color: #494c57;
 }
@@ -83,6 +83,15 @@ div.col-1 {
     margin: 0 0 15px 0;
 }
 
+.update-status {
+    margin-left: 3px;
+    /* border-bottom: 1px solid darkslategrey; */
+}
+
+.container-fluid > p > i {
+    color: #494c57;
+}
+
 .portrait {
     border: 1px solid lightgray;
 }
@@ -96,6 +105,10 @@ div.col-1 {
 
 .container-fluid {
     padding: 0 !important;
+}
+
+.container-fluid > p {
+    margin-left: 5px;
 }
 
 .container-fluid:not(:first-child) {

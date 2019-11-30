@@ -4,6 +4,7 @@ const showdown = require('showdown');
 let $ = require('jquery');
 const dirTree = require('directory-tree');
 const fsExtra = require('fs-extra');
+const url = require('url');
 
 const topicsString = [];
 const topicsInstances = [];
@@ -112,28 +113,32 @@ for (let topic = 0; topic < topicsInstances.length; topic++) {
 
             fsExtra.readdirSync(pathToPosts)
                 .forEach(file => {
-                    let newTopic;
-                    for (let i = 0; i < topicsInstances.length; i++) {
-                        if (topicsInstances[i].name == topicsInstances[topic].name) {
-                            newTopic = topicsInstances[i];
+                    if (file.substring(file.length - 2, file.length) == "md") {
+                        let newTopic;
+                        for (let i = 0; i < topicsInstances.length; i++) {
+                            if (topicsInstances[i].name == topicsInstances[topic].name) {
+                                newTopic = topicsInstances[i];
+                            }
                         }
-                    }
-
-                    let newYear;
-                    for (let i = 0; i < newTopic.years.length; i++) {
-                        if (newTopic.years[i].name == topicsInstances[topic].years[year].name) {
-                            newYear = topicsInstances[topic].years[year];
+    
+                        let newYear;
+                        for (let i = 0; i < newTopic.years.length; i++) {
+                            if (newTopic.years[i].name == topicsInstances[topic].years[year].name) {
+                                newYear = topicsInstances[topic].years[year];
+                            }
                         }
-                    }
-
-                    let newMonth;
-                    for (let i = 0; i < newYear.months.length; i++) {
-                        if (newYear.months[i].name == topicsInstances[topic].years[year].months[month].name) {
-                            newMonth = topicsInstances[topic].years[year].months[month];
+    
+                        let newMonth;
+                        for (let i = 0; i < newYear.months.length; i++) {
+                            if (newYear.months[i].name == topicsInstances[topic].years[year].months[month].name) {
+                                newMonth = topicsInstances[topic].years[year].months[month];
+                            }
                         }
+    
+                        // console.log(newTopic.substring(newTopic.length - 2, newTopic.length));
+                        
+                        newMonth.posts.push(new Post(file));
                     }
-
-                    newMonth.posts.push(new Post(file));
                 });
         }
     }
@@ -206,10 +211,12 @@ for (let topic = 0; topic < domTree.children.length; topic++) {
             archiveNode += '<li>' + domTree.children[topic].children[year].children[month].name;
             archiveNode += '<ul>';
             for (let post = 0; post < domTree.children[topic].children[year].children[month].children.length; post++) {
-                archiveNode += '    <li>' + '<a href="../../../../dom/' + domTree.children[topic].name + '/' + domTree.children[topic].children[year].name + '/' + domTree.children[topic].children[year].children[month].name + '/' +
+                const postName = domTree.children[topic].children[year].children[month].children[post].name;
+                if (postName.substring(postName.length - 2, postName.length) == "md") {
+                    archiveNode += '    <li>' + '<a href="../../../../dom/' + domTree.children[topic].name + '/' + domTree.children[topic].children[year].name + '/' + domTree.children[topic].children[year].children[month].name + '/' +
                     domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + '.html"><b>' + domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + "</b></a>";
+                }
             }
-
             archiveNode += '</ul>';
             archiveNode += '    </li>';
         }
@@ -282,8 +289,11 @@ setTimeout(() => {
                 archiveNode += '<li>' + domTree.children[topic].children[year].children[month].name;
                 archiveNode += '<ul>';
                 for (let post = 0; post < domTree.children[topic].children[year].children[month].children.length; post++) {
-                    archiveNode += '    <li>' + '<a href="./dom/' + domTree.children[topic].name + '/' + domTree.children[topic].children[year].name + '/' + domTree.children[topic].children[year].children[month].name + '/' +
+                    const postName = domTree.children[topic].children[year].children[month].children[post].name;
+                    if (postName.substring(postName.length - 2, postName.length) == "md") {
+                        archiveNode += '    <li>' + '<a href="./dom/' + domTree.children[topic].name + '/' + domTree.children[topic].children[year].name + '/' + domTree.children[topic].children[year].children[month].name + '/' +
                         domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + '.html"><b>' + domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + "</b></a>";
+                    }
                 }
 
                 archiveNode += '</ul>';

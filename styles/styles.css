@@ -1,11 +1,16 @@
 @font-face {
-    src: url('../fonts/Goudy\ Old\ Style\ Regular.ttf');
-    font-family: 'Goudy Old Style Regular';
+    src: url("../fonts/Goudy\ Old\ Style\ Regular.ttf");
+    font-family: "Goudy Old Style Regular";
 }
 
 @font-face {
-    src: url('../fonts/PlayfairDisplay-Italic.ttf');
-    font-family: 'Playfair Display Italic';
+    src: url("../fonts/PlayfairDisplay-Italic.ttf");
+    font-family: "Playfair Display Italic";
+}
+
+@font-face {
+    src: url("../fonts/GNU\ Unifont.ttf");
+    font-family: "GNU Unifont";
 }
 
 body {
@@ -13,12 +18,23 @@ body {
 }
 
 * {
-    font-family: 'Goudy Old Style Regular';
+    font-family: "Goudy Old Style Regular";
+}
+
+pre {
+    background: rgba(0,0,0, 0.05);
+    border-radius: 5px;
+    padding: 15px;
+}
+
+code {
+    font-family: "GNU Unifont" !important;
+    font-size: 14px !important;
 }
 
 h1,
 h2 {
-    font-family: 'Playfair Display Italic';
+    font-family: "Playfair Display Italic";
     color: darkslategrey;
 }
 
@@ -58,6 +74,14 @@ a>i:hover {
 
 ul {
     padding: 0 16px 10px 16px;
+}
+
+.archive > li > ul > li,
+    .archive > li > ul > li > ul > li,
+    .archive > li > ul > li > ul > li > ul > li {
+
+    position: relative;
+    left: -8px;
 }
 
 div.card-group, .posts-container {
@@ -100,7 +124,7 @@ div.col-1 {
     padding: 10px 30px !important;
     margin: 20px 0;
     height: 300px;
-    border-left: 3px dashed rgb(211, 211, 211, 0.3);
+    /* border-left: 3px dashed rgb(211, 211, 211, 0.3); */
 }
 
 .container-fluid {

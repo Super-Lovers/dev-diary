@@ -5,6 +5,7 @@ let $ = require('jquery');
 const dirTree = require('directory-tree');
 const fsExtra = require('fs-extra');
 const url = require('url');
+const voca = require('voca');
 
 const topicsString = [];
 const topicsInstances = [];
@@ -248,6 +249,11 @@ topicsInstances.forEach(topic => {
 
                         $('.posts').append('<div>' + postHtml + '</div>');
 
+                        let newText = $('h5').text() + '. <em style="font-size:15px;color:lightslategray;"></i>Estimated reading time: ' +
+                            estimateReadingTime(postHtml) + "m</em>.";
+
+                        $('h5').html(newText);
+
                         $('.archive').empty();
                         $('.archive').append(archiveNode);
 
@@ -327,3 +333,12 @@ setTimeout(() => {
             'index.html', $('html'));
     });
 }, 6000)
+
+function estimateReadingTime(fileText) {
+    wpm = 200;
+    wordLength = 5;
+
+    let newFileText = voca.stripTags(fileText);
+    let wordcount = voca.countWords(newFileText);
+    return wordcount / wpm;
+}

@@ -9,8 +9,8 @@
 }
 
 @font-face {
-    src: url("../fonts/GNU\ Unifont.ttf");
-    font-family: "GNU Unifont";
+    src: url("../fonts/XKCD\ Script.ttf");
+    font-family: "XKCD Script";
 }
 
 body {
@@ -22,13 +22,16 @@ body {
 }
 
 pre {
+    padding: 15px;
     background: rgba(0,0,0, 0.05);
     border-radius: 5px;
-    padding: 15px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-align: justify;
 }
 
 code {
-    font-family: "GNU Unifont" !important;
+    font-family: "XKCD Script" !important;
     font-size: 14px !important;
 }
 

@@ -135,8 +135,6 @@ for (let topic = 0; topic < topicsInstances.length; topic++) {
                                 newMonth = topicsInstances[topic].years[year].months[month];
                             }
                         }
-    
-                        // console.log(newTopic.substring(newTopic.length - 2, newTopic.length));
                         
                         newMonth.posts.push(new Post(file));
                     }

@@ -43,7 +43,7 @@ class Post {
 const topicDirectories = [];
 const yearDirectories = [];
 
-const path = './blog';
+const path = './diary';
 fsExtra.readdirSync(path)
     .forEach((file) => {
         const filePath = path + '/' + file;
@@ -167,6 +167,10 @@ topicsInstances.forEach(topic => {
                             $(this).attr('href', '../../../../' + currentHref);
                             $(this).attr('src', '../../../../' + currentSrc);
                         });
+                        
+                        $favicon = $('.favicon');
+                        const currentIconHref = $favicon.attr('href');
+                        $('.favicon').attr('href', '../../../../' + currentIconHref);
 
                         const date = new Date();
                         const dateString = "Last updated on " + 
@@ -191,7 +195,7 @@ topicsInstances.forEach(topic => {
     })
 });
 
-let rootPath = './blog';
+let rootPath = './diary';
 const domTree = dirTree(rootPath);
 
 let archiveNode = '';
@@ -244,6 +248,10 @@ topicsInstances.forEach(topic => {
                             $(this).attr('href', '../../../../' + currentHref);
                             $(this).attr('src', '../../../../' + currentSrc);
                         });
+
+                        $favicon = $('.favicon');
+                        const currentIconHref = $favicon.attr('href');
+                        $('.favicon').attr('href', '../../../../' + currentIconHref);
 
                         $('.posts').append('<div>' + postHtml + '</div>');
 

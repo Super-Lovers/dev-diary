@@ -72,6 +72,10 @@ a>i:hover {
     opacity: 0.4;
 }
 
+div > i {
+    margin: 0 5px 0 0;
+}
+
 .aside {
     font-style: italic;
     font-size: 13px;

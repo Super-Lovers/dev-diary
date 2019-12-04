@@ -341,7 +341,7 @@ setTimeout(() => {
 }, 6000)
 
 function estimateReadingTime(fileText) {
-    wpm = 200;
+    wpm = 100;
     wordLength = 5;
 
     let newFileText = voca.stripTags(fileText);

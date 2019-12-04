@@ -38,6 +38,12 @@ pre {
 code {
     font-family: "Envy Code R" !important;
     font-size: 13px !important;
+    background: none !important;
+}
+
+pre > code > span {
+    font-family: "Envy Code R" !important;
+    font-size: 13px !important;
 }
 
 h1,

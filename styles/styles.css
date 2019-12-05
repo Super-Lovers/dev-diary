@@ -28,7 +28,8 @@ body {
 
 pre {
     padding: 15px;
-    background: rgba(0, 0, 0, 0.05);
+    /* background: rgba(0, 0, 0, 0.05); */
+    /* border: 1px solid rgba(211, 211, 211, 0.1); */
     border-radius: 5px;
     white-space: pre-wrap;
     word-wrap: break-word;

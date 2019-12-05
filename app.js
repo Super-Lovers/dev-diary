@@ -255,6 +255,10 @@ topicsInstances.forEach(topic => {
 
                         $('.posts').append('<div>' + postHtml + '</div>');
 
+                        $('pre').each(function (index) {
+                            $(this).addClass('shadow-sm p-3 bg-light');
+                        });
+
                         let newText = $('h5').text() + '. <em style="font-size:15px;color:lightslategray;"></i>Estimated reading time: ' +
                             estimateReadingTime(postHtml) + "m</em>.";
 

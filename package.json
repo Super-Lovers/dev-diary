@@ -15,6 +15,7 @@
     "directory-tree": "^2.2.4",
     "fs-extra": "^8.1.0",
     "jquery": "^3.4.1",
+    "jslint": "^0.12.1",
     "md-2-json": "^1.0.6",
     "showdown": "^1.9.1",
     "voca": "^1.4.0"

@@ -1,10 +1,8 @@
-const m2j = require('md-2-json');
 const cheerio = require('cheerio');
 const showdown = require('showdown');
 let $ = require('jquery');
 const dirTree = require('directory-tree');
 const fsExtra = require('fs-extra');
-const url = require('url');
 const voca = require('voca');
 
 const topicsString = [];
@@ -62,9 +60,9 @@ fsExtra.readdirSync(path)
         }
     });
 
-topicsInstances.forEach(element => {
+topicsInstances.forEach((element) => {
     fsExtra.readdirSync(path + '/' + element.name)
-        .forEach(file => {
+        .forEach((file) => {
             yearDirectories.push(element + '/' + file);
 
             for (let i = 0; i < topicsInstances.length; i++) {
@@ -121,21 +119,21 @@ for (let topic = 0; topic < topicsInstances.length; topic++) {
                                 newTopic = topicsInstances[i];
                             }
                         }
-    
+
                         let newYear;
                         for (let i = 0; i < newTopic.years.length; i++) {
                             if (newTopic.years[i].name == topicsInstances[topic].years[year].name) {
                                 newYear = topicsInstances[topic].years[year];
                             }
                         }
-    
+
                         let newMonth;
                         for (let i = 0; i < newYear.months.length; i++) {
                             if (newYear.months[i].name == topicsInstances[topic].years[year].months[month].name) {
                                 newMonth = topicsInstances[topic].years[year].months[month];
                             }
                         }
-                        
+
                         newMonth.posts.push(new Post(file));
                     }
                 });
@@ -154,195 +152,97 @@ topicsInstances.forEach(topic => {
             fsExtra.mkdirSync('./dom/' + topic.name + '/' + year.name + '/' + month.name);
             month.posts.forEach(post => {
                 const file = path + '/' + topic.name + '/' + year.name + '/' + month.name + '/' + post.name;
-                fsExtra.readFileSync(file, 'utf8', function (err, contents) {
-                    const converter = new showdown.Converter();
-                    let postHtml = converter.makeHtml(contents);
+                const postContents = fsExtra.readFileSync(file, 'utf8');
+                let contents = fsExtra.readFileSync('base.html', 'utf8');
 
-                    fsExtra.readFileSync('base.html', 'utf8', function (err, contents) {
-                        $ = cheerio.load(contents);
+                const converter = new showdown.Converter();
+                let postHtml = converter.makeHtml(postContents);
 
-                        $('.link').each(function (index) {
-                            const currentHref = $(this).attr('href');
-                            const currentSrc = $(this).attr('src');
-                            $(this).attr('href', '../../../../' + currentHref);
-                            $(this).attr('src', '../../../../' + currentSrc);
-                        });
-                        
-                        $favicon = $('.favicon');
-                        const currentIconHref = $favicon.attr('href');
-                        $('.favicon').attr('href', '../../../../' + currentIconHref);
+                $ = cheerio.load(contents);
 
-                        const date = new Date();
-                        const dateString = "Last updated on " + 
-                        date.getUTCDate() + "/" + 
-                        (date.getUTCMonth() + 1) + "/" + 
-                        date.getUTCFullYear() + " " + 
-                        (date.getUTCHours() + 1) + ":" +
-                        date.getUTCMinutes() + ", " +
-                        Intl.DateTimeFormat().resolvedOptions().timeZone;
-                
-                        $('.update-status').text(dateString);
+                const domTree = dirTree('./diary');
 
-                        // $('.posts').append('<div>' + postHtml + '</div>');
+                let archiveNode = '';
 
-                        fsExtra.writeFileSync(
-                            './dom/' + topic.name + '/' + year.name + '/' + month.name + '/' +
-                            post.name.substring(0, post.name.length - 3) + '.html', $('html'));
-                    });
-                });
-            })
-        })
-    })
-});
-
-let rootPath = './diary';
-const domTree = dirTree(rootPath);
-
-let archiveNode = '';
-
-for (let topic = 0; topic < domTree.children.length; topic++) {
-    if (domTree.children.length <= 0) {
-        continue;
-    }
-
-    archiveNode += '<li>' + domTree.children[topic].name;
-    archiveNode += '<ul>';
-    for (let year = 0; year < domTree.children[topic].children.length; year++) {
-        archiveNode += '<li>' + domTree.children[topic].children[year].name;
-        archiveNode += '    <ul>';
-        for (let month = 0; month < domTree.children[topic].children[year].children.length; month++) {
-            archiveNode += '<li>' + domTree.children[topic].children[year].children[month].name;
-            archiveNode += '<ul>';
-            for (let post = 0; post < domTree.children[topic].children[year].children[month].children.length; post++) {
-                const postName = domTree.children[topic].children[year].children[month].children[post].name;
-                if (postName.substring(postName.length - 2, postName.length) == "md") {
-                    archiveNode += '    <li>' + '<a href="../../../../dom/' + domTree.children[topic].name + '/' + domTree.children[topic].children[year].name + '/' + domTree.children[topic].children[year].children[month].name + '/' +
-                    domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + '.html"><b>' + domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + "</b></a>";
-                }
-            }
-            archiveNode += '</ul>';
-            archiveNode += '    </li>';
-        }
-        archiveNode += '    </ul>';
-        archiveNode += '</li>';
-    }
-    archiveNode += '</ul>';
-    archiveNode += '</li>';
-}
-
-topicsInstances.forEach(topic => {
-    topic.years.forEach(year => {
-        year.months.forEach(month => {
-            month.posts.forEach(post => {
-                const file = path + '/' + topic.name + '/' + year.name + '/' + month.name + '/' + post.name;
-                fsExtra.readFile(file, 'utf8', function (err, contents) {
-                    const converter = new showdown.Converter();
-                    let postHtml = converter.makeHtml(contents);
-
-                    fsExtra.readFile('base.html', 'utf8', function (err, contents) {
-                        $ = cheerio.load(contents);
-
-                        $('.link').each(function (index) {
-                            const currentHref = $(this).attr('href');
-                            const currentSrc = $(this).attr('src');
-                            $(this).attr('href', '../../../../' + currentHref);
-                            $(this).attr('src', '../../../../' + currentSrc);
-                        });
-
-                        $favicon = $('.favicon');
-                        const currentIconHref = $favicon.attr('href');
-                        $('.favicon').attr('href', '../../../../' + currentIconHref);
-
-                        $('.posts').append('<div>' + postHtml + '</div>');
-
-                        $('pre').each(function (index) {
-                            $(this).addClass('shadow-sm p-3 bg-light');
-                        });
-
-                        let newText = $('h5').text() + '. <em style="font-size:15px;color:lightslategray;"></i>Estimated reading time: ' +
-                            estimateReadingTime(postHtml) + "m</em>.";
-
-                        $('h5').html(newText);
-
-                        $('.archive').empty();
-                        $('.archive').append(archiveNode);
-
-                        const date = new Date();
-                        const dateString = "Last updated on " + 
-                        date.getUTCDate() + "/" + 
-                        (date.getUTCMonth() + 1) + "/" + 
-                        date.getUTCFullYear() + " " + 
-                        (date.getUTCHours() + 1) + ":" +
-                        date.getUTCMinutes() + ", " +
-                        Intl.DateTimeFormat().resolvedOptions().timeZone;
-                
-                        $('.update-status').text(dateString);
-
-                        fsExtra.writeFileSync(
-                            './dom/' + topic.name + '/' + year.name + '/' + month.name + '/' +
-                            post.name.substring(0, post.name.length - 3) + '.html', $('html'));
-                    });
-                });
-            })
-        })
-    })
-});
-
-setTimeout(() => {
-    archiveNode = '';
-
-    for (let topic = 0; topic < domTree.children.length; topic++) {
-        if (domTree.children.length <= 0) {
-            continue;
-        }
-
-        archiveNode += '<li>' + domTree.children[topic].name;
-        archiveNode += '<ul>';
-        for (let year = 0; year < domTree.children[topic].children.length; year++) {
-            archiveNode += '<li>' + domTree.children[topic].children[year].name;
-            archiveNode += '    <ul>';
-            for (let month = 0; month < domTree.children[topic].children[year].children.length; month++) {
-                archiveNode += '<li>' + domTree.children[topic].children[year].children[month].name;
-                archiveNode += '<ul>';
-                for (let post = 0; post < domTree.children[topic].children[year].children[month].children.length; post++) {
-                    const postName = domTree.children[topic].children[year].children[month].children[post].name;
-                    if (postName.substring(postName.length - 2, postName.length) == "md") {
-                        archiveNode += '    <li>' + '<a href="./dom/' + domTree.children[topic].name + '/' + domTree.children[topic].children[year].name + '/' + domTree.children[topic].children[year].children[month].name + '/' +
-                        domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + '.html"><b>' + domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + "</b></a>";
+                for (let topic = 0; topic < domTree.children.length; topic++) {
+                    if (domTree.children.length <= 0) {
+                        continue;
                     }
+
+                    archiveNode += '<li>' + domTree.children[topic].name;
+                    archiveNode += '<ul>';
+                    for (let year = 0; year < domTree.children[topic].children.length; year++) {
+                        archiveNode += '<li>' + domTree.children[topic].children[year].name;
+                        archiveNode += '    <ul>';
+                        for (let month = 0; month < domTree.children[topic].children[year].children.length; month++) {
+                            archiveNode += '<li>' + domTree.children[topic].children[year].children[month].name;
+                            archiveNode += '<ul>';
+                            for (let post = 0; post < domTree.children[topic].children[year].children[month].children.length; post++) {
+                                const postName = domTree.children[topic].children[year].children[month].children[post].name;
+                                if (postName.substring(postName.length - 2, postName.length) == "md") {
+                                    archiveNode += '    <li>' + '<a href="../../../../dom/' + domTree.children[topic].name + '/' + domTree.children[topic].children[year].name + '/' + domTree.children[topic].children[year].children[month].name + '/' +
+                                        domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + '.html"><b>' + domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + "</b></a>";
+                                }
+                            }
+                            archiveNode += '</ul>';
+                            archiveNode += '    </li>';
+                        }
+                        archiveNode += '    </ul>';
+                        archiveNode += '</li>';
+                    }
+                    archiveNode += '</ul>';
+                    archiveNode += '</li>';
                 }
 
-                archiveNode += '</ul>';
-                archiveNode += '    </li>';
-            }
-            archiveNode += '    </ul>';
-            archiveNode += '</li>';
-        }
-        archiveNode += '</ul>';
-        archiveNode += '</li>';
-    }
+                $('.archive').append(archiveNode);
+                $('.posts').append('<div>' + postHtml + '</div>');
 
-    fsExtra.readFile('base.html', 'utf8', function (err, contents) {
-        $ = cheerio.load(contents);
+                $('.link').each(function (index) {
+                    const currentHref = $(this).attr('href');
+                    const currentSrc = $(this).attr('src');
+                    $(this).attr('href', '../../../../' + currentHref);
+                    $(this).attr('src', '../../../../' + currentSrc);
+                });
 
-        $('.archive').empty();
-        $('.archive').append(archiveNode);
+                $favicon = $('.favicon');
+                const currentIconHref = $favicon.attr('href');
+                $('.favicon').attr('href', '../../../../' + currentIconHref);
 
-        const date = new Date();
-        const dateString = "Last updated on " + 
-        date.getUTCDate() + "/" + 
-        (date.getUTCMonth() + 1) + "/" + 
-        date.getUTCFullYear() + " " + 
-        (date.getUTCHours() + 1) + ":" +
-        date.getUTCMinutes() + ", " +
-        Intl.DateTimeFormat().resolvedOptions().timeZone;
+                const date = new Date();
+                const dateString = "Last updated on " +
+                    date.getUTCDate() + "/" +
+                    (date.getUTCMonth() + 1) + "/" +
+                    date.getUTCFullYear() + " " +
+                    (date.getUTCHours() + 1) + ":" +
+                    date.getUTCMinutes() + ", " +
+                    Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-        $('.update-status').text(dateString);
+                $('.update-status').text(dateString);
 
-        fsExtra.writeFileSync(
-            'index.html', $('html'));
-    });
-}, 6000)
+                $('pre').each(function (index) {
+                    $(this).addClass('shadow-sm p-3 bg-light');
+                });
+
+                let newText = $('h5').text() + '. <em style="font-size:15px;color:lightslategray;"></i>Estimated reading time: ' +
+                    estimateReadingTime(postHtml) + "m</em>.";
+
+                $('h5').html(newText);
+
+                fsExtra.writeFileSync(
+                    './dom/' + topic.name + '/' + year.name + '/' + month.name + '/' +
+                    post.name.substring(0, post.name.length - 3) + '.html', $('html'));
+
+                // This section updates the index page
+                contents = fsExtra.readFileSync('index.html', 'utf8');
+
+                $ = cheerio.load(contents);
+
+                $('.update-status').text(dateString);
+                fsExtra.writeFileSync('index.html', $('html'));
+            })
+        })
+    })
+});
 
 function estimateReadingTime(fileText) {
     wpm = 100;

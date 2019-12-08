@@ -65,7 +65,7 @@ fsExtra.readdirSync(path)
 
                             let game = new Game(
                                 $('h3').text(),
-                                $('p').text(),
+                                $('p:nth-of-type(2)').text(),
                                 $('h5').text().split(' ').join(''),
                                 newFilePath
                             );

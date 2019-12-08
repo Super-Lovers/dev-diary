@@ -18,6 +18,7 @@ html {
 }
 
 body {
+    padding: 15px 0 0 0;
     font-size: .94rem !important;
     background-color: #ffffff;
 }
@@ -49,7 +50,8 @@ pre > code > span {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
     font-family: "Playfair Display Italic";
     color: darkslategrey;
 }
@@ -174,7 +176,7 @@ figure {
 }
 
 .container {
-    padding: 10px 30px !important;
+    padding: 0px 30px !important;
     margin: 20px 0;
     height: 300px;
     /* border-left: 3px dashed rgb(211, 211, 211, 0.3); */

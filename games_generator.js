@@ -50,6 +50,9 @@ fsExtra.readdirSync(path)
                                 $(this).attr('src', '../../../' + currentSrc);
                             });
 
+                            const currentHref = $('.archive-link').attr('href');
+                            $('.archive-link').attr('href', currentHref.substring(3, currentHref.length));
+
                             $favicon = $('.favicon');
                             const currentIconHref = $favicon.attr('href');
                             $('.favicon').attr('href', '../../../' + currentIconHref);
@@ -61,9 +64,9 @@ fsExtra.readdirSync(path)
                             fsExtra.writeFileSync(newFilePath, $('html'));
 
                             let game = new Game(
-                                $('h1').text(),
+                                $('h3').text(),
                                 $('p').text(),
-                                $('h4').text().split(' ').join(''),
+                                $('h5').text().split(' ').join(''),
                                 newFilePath
                             );
                             games.push(game);
@@ -90,7 +93,7 @@ for (let i = 0; i < games.length; i++) {
 
     let headerPreview = games[i].path.substring(0, games[i].path.length - games[i].name.length - 5) + 'images/preview.gif';
     
-    newHtml += '<div class="col-6 game ' + games[i].genre + '">';
+    newHtml += '<div class="col-12 col-md-6 game ' + games[i].genre + '">';
     newHtml +=      '<div class="card">';
     newHtml +=          '<div class="game_preview" style="background-image:url(' + headerPreview + ')"></div>';
     newHtml += '        <div class="card-body">';

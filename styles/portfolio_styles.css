@@ -17,10 +17,12 @@
 }
 
 .btn-group > .btn.btn-light {
+    margin: 0 4px;
     transition: 0.2s;
     color: #212529;
     text-transform: uppercase;
     font-size: 14px;
+    border-radius: 3px !important;
 }
 
 .btn-group > .btn.selected {
@@ -58,12 +60,12 @@
     margin: 30px 0;
 }
 
-.games > .row > .col-6 {
+.games > .row > .col-12.col-md-6 {
     margin: 10px 0;
     padding: 0 10px;
 }
 
-.games > .row > .col-6 > .card {
+.games > .row > .col-12.col-md-6 > .card {
     box-shadow: 0px 0px 30px -23px rgba(0,0,0,0.35);
 }
 
@@ -71,13 +73,13 @@
     font-style: italic;
 }
 
-.games > .row > .col-6 > .card > .game_preview {
+.games > .row > .col-12.col-md-6 > .card > .game_preview {
     width: 100%;
     background-position: center;
     height: 180px;
 }
 
-.games > .row > .col-6 > .card > .card-body {
+.games > .row > .col-12.col-md-6 > .card > .card-body {
     padding: 0 15px 35px 15px;
     height: fit-content;
     height: -moz-max-content;

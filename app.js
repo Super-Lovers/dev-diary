@@ -180,7 +180,7 @@ topicsInstances.forEach(topic => {
                             for (let post = 0; post < domTree.children[topic].children[year].children[month].children.length; post++) {
                                 const postName = domTree.children[topic].children[year].children[month].children[post].name;
                                 if (postName.substring(postName.length - 2, postName.length) == "md") {
-                                    archiveNode += '    <li>' + '<a href="../../../../dom/' + domTree.children[topic].name + '/' + domTree.children[topic].children[year].name + '/' + domTree.children[topic].children[year].children[month].name + '/' +
+                                    archiveNode += '    <li>' + '<a class="archive-link" href="../../../../dom/' + domTree.children[topic].name + '/' + domTree.children[topic].children[year].name + '/' + domTree.children[topic].children[year].children[month].name + '/' +
                                         domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + '.html"><b>' + domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + "</b></a>";
                                 }
                             }
@@ -238,7 +238,36 @@ topicsInstances.forEach(topic => {
                 $ = cheerio.load(contents);
 
                 $('.update-status').text(dateString);
+                $('.archive').empty();
+                $('.archive').append(archiveNode);
+
+                let currentHref = $('.archive-link').attr('href');
+                $('.archive-link').attr('href', currentHref.substring(10, currentHref.length));
+
                 fsExtra.writeFileSync('index.html', $('html'));
+
+                // This section updates the portfolio page
+                contents = fsExtra.readFileSync('portfolio.html', 'utf8');
+
+                $ = cheerio.load(contents);
+
+                $('.archive').empty();
+                $('.archive').append(archiveNode);
+
+                currentHref = $('.archive-link').attr('href');
+                $('.archive-link').attr('href', currentHref.substring(10, currentHref.length));
+
+                fsExtra.writeFileSync('portfolio.html', $('html'));
+
+                // This section updates the game base page
+                contents = fsExtra.readFileSync('game_base.html', 'utf8');
+
+                $ = cheerio.load(contents);
+
+                $('.archive').empty();
+                $('.archive').append(archiveNode);
+
+                fsExtra.writeFileSync('game_Base.html', $('html'));
             })
         })
     })

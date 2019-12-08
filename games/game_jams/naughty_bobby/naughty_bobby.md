@@ -1,16 +1,16 @@
-# Naughty Bobby
-#### game jam
-
 <img class="img-fluid" src="images/intro.png" />
+
+### Naughty Bobby
+##### game jam
 
 This game was made for the Christmas Game Jam 2018 in two days. It is  about the story of a naughty boy named Bobby who goes on an adventure to defeat Santa for not giving him a present for this Christmas. 
 
-## Controls
+#### Controls
 
 [WSAD] or Arrow keys for movement**.**
 Left mouse button to use your weapons. 
 
-## Credits
+#### Credits
 
 *Game Artist* - Roger Recaldini
 *Game Designer and Artist* - Youri Mulder

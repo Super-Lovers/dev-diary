@@ -115,7 +115,7 @@ let buttonGroup = $('.btn-group');
 buttonGroup.empty();
 for (let i = 0; i < genres.length; i++) {
     buttonGroup.append(
-        '<button type="button" class="btn btn-light">' + genres[i] + '</button>'
+        '<button type="button" class="col-6 col-md-3 btn btn-light">' + genres[i] + '</button>'
     );
 }
 

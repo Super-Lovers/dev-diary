@@ -1,7 +1,7 @@
 <img class="img-fluid" src="./images/intro.png" />
 
 ### Rainy Day
-##### gamejam desktop
+##### gamejam desktop all
 
 Rainy day, a 'calm',  short point-and-click experience of coming home to three needy cats before retiring for the night.
 

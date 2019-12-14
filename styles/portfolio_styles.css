@@ -51,6 +51,22 @@
     border: none !important;
 }
 
+.pageNumber:active, .pageNumber:focus, .pageNumber {
+    outline: 0;
+    -moz-outline-style: none;
+}
+
+.pageNumber {
+    margin: 0 3px;
+    background: none;
+    border: none;
+    color: darkslategray;
+    border-bottom: 1px solid rgba(47, 79, 79, 0.3);
+}
+
+.selectedPageNumber {
+    background: rgba(235, 235, 235, 0.8);
+}
 
 .games {
     padding: 0;

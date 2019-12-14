@@ -4,11 +4,10 @@ const fsExtra = require('fs-extra');
 const cheerio = require('cheerio');
 
 class Game {
-    constructor(name, description, genre, platform,	 path) {
+    constructor(name, description, tags, path) {
         this.name = name;
         this.description = description;
-        this.genre = genre;
-        this.platform = platform;
+        this.tags = tags;
         this.path = path;
     }
 }
@@ -64,15 +63,13 @@ fsExtra.readdirSync(path)
                             newFilePath += '.html';
                             fsExtra.writeFileSync(newFilePath, $('html'));
 							
-							let h5 = $('h5').text().split(' ');
-							let genre = h5[0];
-							let platform = h5[1];
+                            let tags = $('h5').text().split(' ');
+                            // console.log(tags);
 
                             let game = new Game(
                                 $('h3').text(),
                                 $('p:nth-of-type(2)').text(),
-                                genre,
-								platform,
+                                tags,
                                 newFilePath
                             );
                             games.push(game);
@@ -99,14 +96,18 @@ for (let i = 0; i < games.length; i++) {
 
     let headerPreview = games[i].path.substring(0, games[i].path.length - games[i].name.length - 5) + 'images/preview.gif';
 
-    newHtml += '<div class="col-12 col-md-6 game ' + games[i].genre + '">';
+    newHtml += '<div class="col-12 col-md-6 game ';
+    for (let j = 0; j < games[i].tags.length; j++) {
+        newHtml += games[i].tags[j] + ' ';
+    }
+    newHtml += '">';
     newHtml +=      '<div class="card">';
 	
 	let platform = '<i class="fas fa-';
-	if (games[i].platform == "desktop") { platform += 'desktop'; }
-	else if (games[i].platform == "mobile") { platform += 'mobile-alt'; }
-	else if (games[i].platform == "vr") { platform += 'vr-cardboard'; }
-	else if (games[i].platform == "web") { platform += 'globe'; }
+	if (games[i].tags[1] == "desktop") { platform += 'desktop'; }
+	else if (games[i].tags[1] == "mobile") { platform += 'mobile-alt'; }
+	else if (games[i].tags[1] == "vr") { platform += 'vr-cardboard'; }
+	else if (games[i].tags[1] == "web") { platform += 'globe'; }
 	platform += '"></i>';
 	
 	newHtml += 			'<div class="icon">' + platform + '</div>'
@@ -118,10 +119,13 @@ for (let i = 0; i < games.length; i++) {
     newHtml +=          '</div>';
     newHtml +=      '</div>';
     newHtml += '</div>';
-    genreSet.add(games[i].genre);
+	
+    for (let j = 0; j < games[i].tags.length; j++) {
+        genreSet.add(games[i].tags[j]);
+    }
 }
 newHtml += '</div>';
-// games[i].path.substring(0, games[i].path.length - games[i].name.length - 5) + 'images/intro.png'
+
 gamesContainer.append(newHtml);
 
 let genres = Array.from(genreSet);

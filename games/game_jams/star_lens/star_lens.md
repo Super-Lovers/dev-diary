@@ -1,7 +1,7 @@
 <img class="img-fluid" src="images/intro.png" />
 
 ### Star Lens
-##### game jam
+##### gamejam web
 
 Star Lens is a game in which, due to a malfunction, you wake up from your stasis chamber a thousand year later than you were meant to. Your space ship has drifted far, far away from home and once you discover how critical your situation has become over the past years, you begin to search in stars to find a way back to Earth.
 

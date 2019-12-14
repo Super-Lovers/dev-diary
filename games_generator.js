@@ -4,10 +4,11 @@ const fsExtra = require('fs-extra');
 const cheerio = require('cheerio');
 
 class Game {
-    constructor(name, description, genre, path) {
+    constructor(name, description, genre, platform,	 path) {
         this.name = name;
         this.description = description;
         this.genre = genre;
+        this.platform = platform;
         this.path = path;
     }
 }
@@ -62,11 +63,16 @@ fsExtra.readdirSync(path)
                             let newFilePath = filePath.substring(0, filePath.length - 3);
                             newFilePath += '.html';
                             fsExtra.writeFileSync(newFilePath, $('html'));
+							
+							let h5 = $('h5').text().split(' ');
+							let genre = h5[0];
+							let platform = h5[1];
 
                             let game = new Game(
                                 $('h3').text(),
                                 $('p:nth-of-type(2)').text(),
-                                $('h5').text().split(' ').join(''),
+                                genre,
+								platform,
                                 newFilePath
                             );
                             games.push(game);
@@ -92,9 +98,18 @@ for (let i = 0; i < games.length; i++) {
     }
 
     let headerPreview = games[i].path.substring(0, games[i].path.length - games[i].name.length - 5) + 'images/preview.gif';
-    
+
     newHtml += '<div class="col-12 col-md-6 game ' + games[i].genre + '">';
     newHtml +=      '<div class="card">';
+	
+	let platform = '<i class="fas fa-';
+	if (games[i].platform == "desktop") { platform += 'desktop'; }
+	else if (games[i].platform == "mobile") { platform += 'mobile-alt'; }
+	else if (games[i].platform == "vr") { platform += 'vr-cardboard'; }
+	else if (games[i].platform == "web") { platform += 'globe'; }
+	platform += '"></i>';
+	
+	newHtml += 			'<div class="icon">' + platform + '</div>'
     newHtml +=          '<div class="game_preview" style="background-image:url(' + headerPreview + ')"></div>';
     newHtml += '        <div class="card-body">';
     newHtml +=              '<h5 class="card-title">' + games[i].name + '</h5>';

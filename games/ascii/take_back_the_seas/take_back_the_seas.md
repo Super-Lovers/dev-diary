@@ -1,7 +1,7 @@
 <img class="img-fluid" src="images/intro.png" />
 
 ### Take Back the Seas
-##### ascii
+##### ascii desktop
 
 Experience being in control of a naval fleet of two  ships. Managing its crew, weapons and various parameters that make it  stay afloat.  
 

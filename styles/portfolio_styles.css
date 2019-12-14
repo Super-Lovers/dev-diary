@@ -70,6 +70,28 @@
     box-shadow: 0px 0px 30px -23px rgba(0,0,0,0.35);
 }
 
+.games > .row > .col-12.col-md-6 > .card > .icon {
+	position: absolute;
+	margin: 0 auto;
+	top: -15px;
+	left: -15px;
+	text-align: center;
+}
+
+.games > .row > .col-12.col-md-6 > .card > .icon > i {
+	margin: 0;
+	width: 35px;
+	height: 35px;
+	background: white;
+	color: darkslategray;
+	border-radius: 50%;
+	vertical-align: middle;
+	font-size: 18px;
+	line-height: 34px;
+	box-shadow: 0px 0px 30px -23px rgba(0,0,0,0.35);
+}
+
+
 .card-title {
     font-style: italic;
 }

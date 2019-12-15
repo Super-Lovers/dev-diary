@@ -228,6 +228,8 @@ topicsInstances.forEach(topic => {
 
                 $('h5').html(newText);
 
+                let postMain = $('main').html();
+
                 fsExtra.writeFileSync(
                     './dom/' + topic.name + '/' + year.name + '/' + month.name + '/' +
                     post.name.substring(0, post.name.length - 3) + '.html', $('html'));
@@ -240,6 +242,12 @@ topicsInstances.forEach(topic => {
                 $('.update-status').text(dateString);
                 $('.archive').empty();
                 $('.archive').append(archiveNode);
+                $('main').empty().append(postMain);
+
+                $('.img-fluid').each(function (index) {
+                    const currentSrc = $(this).attr('src');
+                    $(this).attr('src', currentSrc.substring(12, currentSrc.length));
+                });
 
                 let currentHref = $('.archive-link').attr('href');
                 $('.archive-link').attr('href', currentHref.substring(10, currentHref.length));

@@ -19,7 +19,7 @@
                                 <img class="portrait card-img-top link rounded-lg" src="images/portrait2.jpg">
                                 <figcaption style="background-color: #2f4f4f;">
                                     <h2>Nikolay Vaskov Ivanov</h2>
-                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum similique repellat tenetur eveniet cum quas quia mollitia esse voluptate rem earum, magnam obcaecati a. Ut consequatur quae magni perspiciatis voluptatem.</p>
+                                    <p>Born in 3rd of march, 1998 in the Bulgarian city Pazardzhik, I studied in the school &quot;Prof. Ivan Batakliev&quot; until 8th grade and completed the specialty &quot;System Programming&quot; when I graduated 12th grade. Currently studying for a Bachelor&apos;s degree in the Netherlands.</p>
                                 </figcaption>
                             </figure>
                                 <div class="card-body">
@@ -39,9 +39,7 @@
                                             </div>
                                             <div class="col-7"></div>
                                         </div>
-                                        <p class="text-left">Aenean mattis dui sed orci vehicula ornare. Quisque a arcu vel tortor
-                                            ornare gravida non in velit.
-                                            Integer ullamcorper rhoncus consectetur.</p>
+                                        <p class="text-left">Game Programmer interning at &amp;ranj and studying Game Design and Development at Hanze University of Applied Sciences in Groningen.</p>
                                     </div>
                             
                 </div>
@@ -54,10 +52,8 @@
                             <h6><b><em><i class="fas fa-home"></i> Home</em></b></h6>
                         </a>
                         <a class="link" href="portfolio.html">
-                            <h6><b><em><i class="fas fa-star"></i> Portfolio</em></b></h6>
+                            <h6><b><em><i class="fas fa-chess-queen"></i> Games</em></b></h6>
                         </a>
-                        <h6>Newest Posts</h6>
-                        <!-- <ul class="newest-posts"></ul> -->
                     </div>
                     <div>
                         <h6>Archive</h6>
@@ -67,28 +63,40 @@
             </div>
             <div class="col-12 custom-col" style="max-width:740px">
                 <header class="container-fluid">
-                    <h1>Welcome to Nikolay&apos;s Developer Diary!</h1>
-                    <p><i class="fas fa-sync-alt"></i><em class="update-status">Last updated on 14/12/2019 13:56, Europe/Berlin</em></p>
-                    <p>Nunc at mi efficitur, iaculis ex posuere, accumsan magna. Duis faucibus tincidunt lorem ut
-                        cursus. Phasellus ac condimentum libero. Nulla luctus sapien mollis ipsum suscipit venenatis.
-                        Etiam est leo, posuere vitae ornare fringilla, laoreet a sapien. Vestibulum in condimentum erat.
-                        Aliquam pulvinar lorem ac ex pretium, et efficitur nibh vulputate. Etiam hendrerit urna eget
-                        sodales congue. </p>
-
-                    <div class="alert alert-warning" role="alert">
-                            <i class="fas fa-cogs"></i> Please keep in mind, the website is still under development. If any issues are visible please notify me!
-                    </div>
-
-                    <!-- <div class="alert alert-info" role="alert">
-                            <i class="fas fa-info-circle"></i> The website has recently finished development. If any issues are visible please notify me!
-                    </div> -->
+                    <h1>Welcome to my website <i class="fas fa-hand-peace"></i></h1>
+                    <p><i class="fas fa-sync-alt"></i><em class="update-status">Last updated on 15/12/2019 15:50, Europe/Berlin</em></p>
+                    <p>Here, you can find out about my personal and professional experiences throughout my education and personal development. This consists of <u>developer diary log posts</u> and <u>games</u> that I help develop throughout my career. I write and intend to write about game development and tools that I experienced and other software development fields as well. You can learn more about less notable work I did, not present on my website, on my <a href="https://github.com/Super-Lovers">Github</a> instead.</p>
                 </header>
 
                 <hr class="style14">
 
                 <main class="container-fluid posts">
 
-                </main>
+                <div><h3 id="narrativedevelopmenttooling">Narrative-development tooling</h3>
+<h5 id="uploadedon30thnovember2019">Uploaded on 30th November, 2019. <em style="font-size:15px;color:lightslategray;">Estimated reading time: 4.04m</em>.</h5>
+<p>I&apos;ve had the pleasure of developing two story-based games in Unity3D, the challenges that I have faced consisted mostly of creating a user-friendly system to integrate the story of the game into its plot devices. In order to do this, together, with other people proved to be harder than I thought, especially given the fact we had to work in the same project.</p>
+<p>Collaboration and tweaking in any story-based game would likely require that the narrative writers tweak things a lot, so even in a VCS environment, it will become very chaotic when we have to work within the same scene files. A Unity3D package I found that lets you write for multiple languages in a structured manner is Polyglot. Using Google excel sheets, it was easier to adapt the storyline in the second game I started developing: Fish Soup. By extracting the STRING_ID of the excel sheet, I was able to start constructing both a quest line and dialogue structure for plot actors.</p>
+<p><img class="img-fluid" src="diary/Unity3D/2019/November/no.1 images/quest-line.png"></p>
+<p>By working on the story externally, we were able to separate our workflows without causing conflicts within the project. The quests and their objectives, as well as the individual dialogue of plot actors can be extracted easily by using this excel document. By downloading it as TSV or CSV and converting it to JSON, you can then use Litjson to convert it to a JSON data object and access every quest and objective to create as your class object hierarchy:</p>
+<pre class="shadow-sm p-3 bg-light"><code class="c# language-c#">    string polyglotFile = 
+        Resources.Load&lt;TextAsset&gt;(&quot;Polyglot Story/PolyglotStoryline&quot;).text;
+
+    JsonData polyglotTojsonData = JsonMapper.ToObject(polyglotFile);
+</code></pre>
+<p>And you can then loop through every quest STRING_ID to create the class object hierarchy based on the entries in that JSON file.</p>
+<pre class="shadow-sm p-3 bg-light"><code class="json language-json">{
+      &quot;STRING ID&quot;: &quot;QUEST_1_OBJECTIVE_1&quot;,
+      &quot;DESCRIPTION&quot;: &quot;&quot;,
+      &quot;ENGLISH&quot;: &quot;I&apos;m sorry, I didn&apos;t know. He told me you were in the past&quot;,
+      &quot;FRENCH / FRAN&#xC7;AIS&quot;: &quot;&quot;,
+      &quot;SPANISH / ESPA&#xD1;OL&quot;: &quot;&quot;,
+      &quot;GERMAN / DEUTSCH&quot;: &quot;&quot;,
+      &quot;ITALIAN / ITALIANO&quot;: &quot;&quot;
+      ...
+}
+</code></pre>
+<p>In the same manner you set-up the questline, you can build a Unity editor tool that would let you auto-complete the desired dialogue line from the JSON by taking the set STRING_ID to said dialogue box and updating its text field to match the current language of the settings of a ScriptableObject or file for the game.</p>
+<p>EOF</p></div></main>
                 <hr class="style14">
                 <footer class="row container-fluid">
                     <div class="col-12 text-right">Made by Nikolay Vaskov Ivanov</div>

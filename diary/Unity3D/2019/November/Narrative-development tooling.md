@@ -1,4 +1,4 @@
-### Dev. Diary No.1 - Narrative-development tooling
+### Narrative-development tooling
 
 ##### Uploaded on 30th November, 2019
 

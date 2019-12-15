@@ -1,10 +1,4 @@
 $(document).ready(function () {
-    window.onpageshow = function (e) {
-        if (e.persisted) {
-            window.location.reload();
-        }
-    };
-
     let games = $('.game');
     let btns = $('.btn');
 
@@ -16,7 +10,7 @@ $(document).ready(function () {
         $('.games > .row').children().eq(i).hide();
     }
 
-    $('.btn').on('click', function () {
+    $('.btn-group > .btn').on('click', function () {
         for (let j = 0; j < btns.length; j++) {
             $(btns[j]).removeClass('selected');
         }

@@ -128,7 +128,7 @@ newHtml += '</div>';
 
 gamesContainer.append(newHtml);
 
-let genres = Array.from(genreSet);
+let genres = Array.from(genreSet).sort();
 
 let buttonGroup = $('.btn-group');
 buttonGroup.empty();

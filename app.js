@@ -223,7 +223,7 @@ topicsInstances.forEach(topic => {
                     $(this).addClass('shadow-sm p-3 bg-light');
                 });
 
-                let newText = $('h5').text() + '. <em style="font-size:15px;color:lightslategray;"></i>Estimated reading time: ' +
+                let newText = $('h5').text() + '. <em style="font-size:15px;color:lightslategray;"></i><i class="fas fa-hourglass-half"></i> Estimated reading time: ' +
                     estimateReadingTime(postHtml) + "m</em>.";
 
                 $('h5').html(newText);

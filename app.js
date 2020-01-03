@@ -275,7 +275,7 @@ topicsInstances.forEach(topic => {
                 $('.archive').empty();
                 $('.archive').append(archiveNode);
 
-                fsExtra.writeFileSync('game_Base.html', $('html'));
+                fsExtra.writeFileSync('game_base.html', $('html'));
             })
         })
     })

@@ -1,15 +1,15 @@
 @font-face {
-    src: url("../fonts/Goudy\ Old\ Style\ Regular.ttf");
+    src: url("../fonts/GoudyOldStyleRegular.woff2");
     font-family: "Goudy Old Style Regular";
 }
 
 @font-face {
-    src: url("../fonts/PlayfairDisplay-Italic.ttf");
+    src: url("../fonts/PlayfairDisplay-Italic.woff2");
     font-family: "Playfair Display Italic";
 }
 
 @font-face {
-    src: url("../fonts/Envy\ Code\ R.ttf");
+    src: url("../fonts/EnvyCodeR.woff2");
     font-family: "Envy Code R";
 }
 

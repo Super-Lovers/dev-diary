@@ -1,4 +1,4 @@
-<html lang="en"><head>
+<!DOCTYPE html><html lang="en"><head>
     <title>Nikolay&apos;s Games and Dev. Diary</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -102,7 +102,7 @@
             <div class="col-12 custom-col" style="max-width:740px">
                 <header class="container-fluid">
                     <h1>Nikolay&apos;s Games and Dev. Diary <i class="fas fa-hand-peace"></i></h1>
-                    <p><i class="fas fa-sync-alt"></i><em class="update-status">Last updated on 13/1/2020 18:17, Europe/Amsterdam</em></p>
+                    <p><i class="fas fa-sync-alt"></i><em class="update-status">Last updated on 13/1/2020 20:53, Europe/Berlin</em></p>
                     <p>Here, you can find out about my personal and professional experiences throughout my education and
                         personal development. This website consists of <u>developer diary log posts</u> and <u>games</u>
                         that I helped develop throughout my career. I write and intend to write about game development
@@ -115,10 +115,10 @@
                 <main class="container-fluid posts">
 
                 <div><h3 id="narrativedevelopmenttooling">Narrative-development tooling</h3>
-<h5 id="uploadedon30thnovember2019">Uploaded on 30th November, 2019. <em style="font-size:15px;color:lightslategray;"><i class="fas fa-hourglass-half"></i> Estimated reading time: 4.04m</em>.</h5>
+<h5 id="uploadedon30thnovember2019">Uploaded on 30th November, 2019. <em style="font-size:15px;color:lightslategray;"><i class="fas fa-hourglass-half"></i> Read time: 4.04m</em>.</h5>
 <p>I&apos;ve had the pleasure of developing two story-based games in Unity3D, the challenges that I have faced consisted mostly of creating a user-friendly system to integrate the story of the game into its plot devices. In order to do this, together, with other people proved to be harder than I thought, especially given the fact we had to work in the same project.</p>
 <p>Collaboration and tweaking in any story-based game would likely require that the narrative writers tweak things a lot, so even in a VCS environment, it will become very chaotic when we have to work within the same scene files. A Unity3D package I found that lets you write for multiple languages in a structured manner is Polyglot. Using Google excel sheets, it was easier to adapt the storyline in the second game I started developing: Fish Soup. By extracting the STRING_ID of the excel sheet, I was able to start constructing both a quest line and dialogue structure for plot actors.</p>
-<p><img class="img-fluid" src="../../../../diary/Unity3D/2019/November/no.1 images/quest-line.png"></p>
+<p><img class="img-fluid" src="../../../../diary/Unity3D/2019/November/no.1 images/quest-line.png" alt="An excelsheet table describing rows of dialogue for different languages indexed by a string id."></p>
 <p>By working on the story externally, we were able to separate our workflows without causing conflicts within the project. The quests and their objectives, as well as the individual dialogue of plot actors can be extracted easily by using this excel document. By downloading it as TSV or CSV and converting it to JSON, you can then use Litjson to convert it to a JSON data object and access every quest and objective to create as your class object hierarchy:</p>
 <pre class="shadow-sm p-3 bg-light"><code class="c# language-c#">    string polyglotFile = 
         Resources.Load&lt;TextAsset&gt;(&quot;Polyglot Story/PolyglotStoryline&quot;).text;
@@ -140,13 +140,20 @@
 <p>In the same manner you set-up the questline, you can build a Unity editor tool that would let you auto-complete the desired dialogue line from the JSON by taking the set STRING_ID to said dialogue box and updating its text field to match the current language of the settings of a ScriptableObject or file for the game.</p>
 <p>EOF</p></div></main>
                 <hr class="style14">
-                <footer class="row container-fluid">
-                    <div class="col-1">
+                <footer>
+                    <div>
                         <p>
                             <a href="https://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10-blue" alt="Valid XHTML 1.0!" height="31" width="88"></a>
                           </p>
                     </div>
-                    <div class="col-11 text-right">Made by Nikolay Vaskov Ivanov</div>
+                    <div>
+                        <p>
+                            <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                                <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="Valid CSS!">
+                                </a>
+                            </p>
+                    </div>
+                    <div>Made by Nikolay Ivanov</div>
                 </footer>
             </div>
         </div>

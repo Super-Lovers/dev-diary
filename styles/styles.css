@@ -56,6 +56,10 @@ h4 {
     color: darkslategrey;
 }
 
+h1 {
+    font-size: 2rem !important;
+}
+
 h5 {
     margin-bottom: 20px !important;
     color: darkslategrey;
@@ -192,6 +196,10 @@ figure {
     /* border-left: 3px dashed rgb(211, 211, 211, 0.3); */
 }
 
+.container > .row {
+    padding: 0 0 20px 0;
+}
+
 .container-fluid {
     padding: 0 !important;
 }
@@ -214,8 +222,22 @@ main {
 }
 
 footer {
+    margin: 0 0 15px 0;
+    display: inline-block;
     font-style: italic;
     color: #bcbcbc;
+}
+
+footer > div {
+    float: right;
+    margin: 0 5px;
+    width: fit-content;
+    line-height: 35px;
+}
+
+footer > div:not(:last-of-type) {
+    float: left;
+    width: 90px;
 }
 
 hr.style14 {

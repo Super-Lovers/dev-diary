@@ -68,7 +68,7 @@ fsExtra.readdirSync(path)
 
                             let newFilePath = filePath.substring(0, filePath.length - 3);
                             newFilePath += '.html';
-                            fsExtra.writeFileSync(newFilePath, $('html'));
+                            fsExtra.writeFileSync(newFilePath, $.html());
 							
                             let tags = $('h5').text().split(' ');
                             // console.log(tags);
@@ -145,4 +145,4 @@ for (let i = 0; i < genres.length; i++) {
     );
 }
 
-fsExtra.writeFileSync('portfolio.html', $('html'));
+fsExtra.writeFileSync('portfolio.html', $.html());

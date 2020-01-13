@@ -157,7 +157,6 @@ topicsInstances.forEach(topic => {
 
                 const converter = new showdown.Converter();
                 let postHtml = converter.makeHtml(postContents);
-
                 $ = cheerio.load(contents);
 
                 const domTree = dirTree('./diary');
@@ -242,7 +241,7 @@ topicsInstances.forEach(topic => {
                     $(this).addClass('shadow-sm p-3 bg-light');
                 });
 
-                let newText = $('h5').text() + '. <em style="font-size:15px;color:lightslategray;"></i><i class="fas fa-hourglass-half"></i> Estimated reading time: ' +
+                let newText = $('h5').text() + '. <em style="font-size:15px;color:lightslategray;"></i><i class="fas fa-hourglass-half"></i> Read time: ' +
                     estimateReadingTime(postHtml) + "m</em>.";
 
                 $('h5').html(newText);
@@ -251,7 +250,7 @@ topicsInstances.forEach(topic => {
 
                 fsExtra.writeFileSync(
                     './dom/' + topic.name + '/' + year.name + '/' + month.name + '/' +
-                    post.name.substring(0, post.name.length - 3) + '.html', $('html'));
+                    post.name.substring(0, post.name.length - 3) + '.html', $.html());
 
                 // This section updates the index page
                 contents = fsExtra.readFileSync('index.html', 'utf8');
@@ -278,7 +277,7 @@ topicsInstances.forEach(topic => {
                 let currentHref = $('.archive-link').attr('href');
                 $('.archive-link').attr('href', encodeURI(currentHref.substring(10, currentHref.length)));
 
-                fsExtra.writeFileSync('index.html', $('html'));
+                fsExtra.writeFileSync('index.html',$.html());
 
                 // This section updates the portfolio page
                 contents = fsExtra.readFileSync('portfolio.html', 'utf8');
@@ -291,7 +290,7 @@ topicsInstances.forEach(topic => {
                 currentHref = $('.archive-link').attr('href');
                 $('.archive-link').attr('href', encodeURI(currentHref.substring(10, currentHref.length)));
 
-                fsExtra.writeFileSync('portfolio.html', $('html'));
+                fsExtra.writeFileSync('portfolio.html', $.html());
 
                 // This section updates the game base page
                 contents = fsExtra.readFileSync('game_base.html', 'utf8');
@@ -301,7 +300,7 @@ topicsInstances.forEach(topic => {
                 $('.archive').empty();
                 $('.archive').append(archiveNode);
 
-                fsExtra.writeFileSync('game_base.html', $('html'));
+                fsExtra.writeFileSync('game_base.html', $.html());
             })
         })
     })

@@ -180,8 +180,8 @@ topicsInstances.forEach(topic => {
                             for (let post = 0; post < domTree.children[topic].children[year].children[month].children.length; post++) {
                                 const postName = domTree.children[topic].children[year].children[month].children[post].name;
                                 if (postName.substring(postName.length - 2, postName.length) == "md") {
-                                    archiveNode += '    <li>' + '<a class="archive-link" href="../../../../dom/' + domTree.children[topic].name + '/' + domTree.children[topic].children[year].name + '/' + domTree.children[topic].children[year].children[month].name + '/' +
-                                        domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + '.html"><b>' + domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + "</b></a>";
+                                    archiveNode += '    <li>' + '<a class="archive-link" href="' + '../../../../dom/' + domTree.children[topic].name + '/' + domTree.children[topic].children[year].name + '/' + domTree.children[topic].children[year].children[month].name + '/' +
+                                        domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3)+ '.html"><b>' + domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + "</b></a>";
                                 }
                             }
                             archiveNode += '</ul>';
@@ -200,13 +200,32 @@ topicsInstances.forEach(topic => {
                 $('.link').each(function (index) {
                     const currentHref = $(this).attr('href');
                     const currentSrc = $(this).attr('src');
-                    $(this).attr('href', '../../../../' + currentHref);
-                    $(this).attr('src', '../../../../' + currentSrc);
+
+                    if (currentHref !== undefined && currentHref != false) {
+                        $(this).attr('href', '../../../../' + encodeURI(currentHref));
+                    }
+                    if (currentSrc !== undefined && currentSrc != false) {
+                        $(this).attr('src', '../../../../' + encodeURI(currentSrc));
+                    }
+                });
+
+                $('.img-fluid').each(function (index) {
+                    const currentHref = $(this).attr('href');
+                    const currentSrc = $(this).attr('src');
+
+                    if (currentHref !== undefined && currentHref != false) {
+                        $(this).attr('href', currentHref);
+                    }
+                    if (currentSrc !== undefined && currentSrc != false) {
+                        $(this).attr('src', currentSrc);
+                    }
                 });
 
                 $favicon = $('.favicon');
                 const currentIconHref = $favicon.attr('href');
-                $('.favicon').attr('href', '../../../../' + currentIconHref);
+                if (currentIconHref !== undefined) {
+                    $('.favicon').attr('href', '../../../../' + encodeURI(currentIconHref));
+                }
 
                 const date = new Date();
                 const dateString = "Last updated on " +
@@ -245,12 +264,19 @@ topicsInstances.forEach(topic => {
                 $('main').empty().append(postMain);
 
                 $('.img-fluid').each(function (index) {
+                    const currentHref = $(this).attr('href');
                     const currentSrc = $(this).attr('src');
-                    $(this).attr('src', currentSrc.substring(12, currentSrc.length));
-                });
 
+                    if (currentHref !== undefined && currentHref != false) {
+                        $(this).attr('href', encodeURI(currentHref));
+                    }
+                    if (currentSrc !== undefined && currentSrc != false) {
+                        $(this).attr('src', encodeURI(currentSrc));
+                    }
+                });
+                
                 let currentHref = $('.archive-link').attr('href');
-                $('.archive-link').attr('href', currentHref.substring(10, currentHref.length));
+                $('.archive-link').attr('href', encodeURI(currentHref.substring(10, currentHref.length)));
 
                 fsExtra.writeFileSync('index.html', $('html'));
 
@@ -263,7 +289,7 @@ topicsInstances.forEach(topic => {
                 $('.archive').append(archiveNode);
 
                 currentHref = $('.archive-link').attr('href');
-                $('.archive-link').attr('href', currentHref.substring(10, currentHref.length));
+                $('.archive-link').attr('href', encodeURI(currentHref.substring(10, currentHref.length)));
 
                 fsExtra.writeFileSync('portfolio.html', $('html'));
 

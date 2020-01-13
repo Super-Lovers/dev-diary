@@ -46,18 +46,25 @@ fsExtra.readdirSync(path)
                             $('.link').each(function (index) {
                                 const currentHref = $(this).attr('href');
                                 const currentSrc = $(this).attr('src');
-                                $(this).attr('href', '../../../' + currentHref);
-                                $(this).attr('src', '../../../' + currentSrc);
+
+                                if (currentHref !== undefined && currentHref != false) {
+                                    $(this).attr('href', '../../../../' + encodeURI(currentHref.split(' ').join('%20')));
+                                }
+                                if (currentSrc !== undefined && currentSrc != false) {
+                                    $(this).attr('src', '../../../../' + encodeURI(currentSrc.split(' ').join('%20')));
+                                }
                             });
 
                             const currentHref = $('.archive-link').attr('href');
-                            $('.archive-link').attr('href', currentHref.substring(3, currentHref.length));
+                            $('.archive-link').attr('href', encodeURI(currentHref.substring(3, currentHref.length)));
 
                             $favicon = $('.favicon');
                             const currentIconHref = $favicon.attr('href');
-                            $('.favicon').attr('href', '../../../' + currentIconHref);
+                            if (currentIconHref !== undefined) {
+                                $('.favicon').attr('href', '../../../' + encodeURI(currentIconHref.split(' ').join('%20')));
+                            }
 
-                            $('.game').append('<div>' + postHtml + '</div>')
+                            $('.game').append('<div>' + postHtml + '</div>');
 
                             let newFilePath = filePath.substring(0, filePath.length - 3);
                             newFilePath += '.html';

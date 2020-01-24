@@ -3,7 +3,7 @@
 ### Asteroids in CreateJS
 ##### html5 web all
 
-*Asteroids in CreateJS* is a small arcade game that I recreated to learn how to use the CreateJS framework of tools such as EaselJS, PreloadJS, AudioJS and TweenJS. Development of the project was a little more than three days and sometimes It felt a bit like programming with PhaserJS. The game loop is simple to program and is a quick way learn, on a beginner level, how to use all CreateJS tools.
+*Asteroids in CreateJS* is a small arcade game that I recreated to learn how to use the CreateJS suite of tools such as EaselJS, PreloadJS, AudioJS and TweenJS. Development of the project was a little more than three days and sometimes It felt a bit like programming with PhaserJS. The game loop is simple to program and is a quick way learn, on a beginner level, how to use all CreateJS tools.
 
 The following are sources of assets that I used:
 * Ship explosion: [https://opengameart.org/content/explosion-3](https://opengameart.org/content/explosion-3)

@@ -4,11 +4,12 @@ const fsExtra = require('fs-extra');
 const cheerio = require('cheerio');
 
 class Game {
-    constructor(name, description, tags, path) {
+    constructor(name, description, tags, path, fileName) {
         this.name = name;
         this.description = description;
         this.tags = tags;
         this.path = path;
+        this.fileName = fileName;
     }
 }
 
@@ -77,7 +78,8 @@ fsExtra.readdirSync(path)
                                 $('h3').text(),
                                 $('p:nth-of-type(2)').text(),
                                 tags,
-                                newFilePath
+                                newFilePath,
+                                file.substring(0, file.length - 3)
                             );
                             games.push(game);
                         }
@@ -101,7 +103,7 @@ for (let i = 0; i < games.length; i++) {
          newHtml += '<div class="row">';
     }
 
-    let headerPreview = games[i].path.substring(0, games[i].path.length - games[i].name.length - 5) + 'images/preview.gif';
+    let headerPreview = games[i].path.substring(0, games[i].path.length - 5 - games[i].fileName.length) + 'images/preview.gif';
 
     newHtml += '<div class="col-12 col-md-6 game ';
     for (let j = 0; j < games[i].tags.length; j++) {

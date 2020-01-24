@@ -25,6 +25,10 @@ h5 {
     /* text-align: center; */
 }
 
+img.img-fluid {
+    border-radius: 3px;
+}
+
 img.img-fluid:first-of-type {
     margin: 0 0 15px 0;
     width: 500px !important;

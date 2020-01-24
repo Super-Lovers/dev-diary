@@ -39,6 +39,7 @@
     <!-- Main References -->
     <link rel="stylesheet" class="link" href="../../../../styles/lib/googlecode.min.css">
     <link rel="stylesheet" class="link" href="../../../../styles/styles.min.css">
+    <link rel="stylesheet" class="link" href="../../../../styles/game.min.css">
     <link rel="stylesheet" class="link" href="../../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" class="link" href="../../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" class="link" href="../../../../styles/lib/imagehover.min.css">
@@ -47,6 +48,7 @@
 <body>
     <div class="container">
         <div class="row">
+
             <div class="col aside custom-col">
                 <div class="header text-center card-group">
                     <figure class="imghvr-fade-in-up rounded-lg" style="background-color:#ffffff;">
@@ -54,9 +56,9 @@
                         <figcaption style="background-color: #2f4f4f;">
                             <h2>Nikolay Vaskov Ivanov</h2>
                             <p>Born in 3rd of march, 1998 in the Bulgarian city Pazardzhik, I studied in the school
-                                &quot;Prof. Ivan Batakliev&quot; until 8th grade and completed the specialty &quot;System Programming&quot;
-                                when I graduated 12th grade. Currently studying for a Bachelor&apos;s degree in the
-                                Netherlands.</p>
+                                &quot;Prof. Ivan Batakliev&quot; until 8th grade and completed the specialty
+                                &quot;System Programming&quot; when I graduated 12th grade. Currently studying for a
+                                Bachelor&apos;s degree in the Netherlands.</p>
                         </figcaption>
                     </figure>
                     <div class="card-body">
@@ -76,8 +78,8 @@
                             </div>
                             <div class="col-7"></div>
                         </div>
-                        <p class="text-left">Game Programmer interning at &amp;ranj and studying Game Design and Development
-                            at Hanze University of Applied Sciences in Groningen.</p>
+                        <p class="text-left">Game Programmer interning at &amp;ranj and studying Game Design and
+                            Development at Hanze University of Applied Sciences in Groningen.</p>
                     </div>
 
                 </div>
@@ -95,50 +97,27 @@
                     </div>
                     <div>
                         <h6>Posts Archive</h6>
-                        <ul class="archive"><li>Unity3D<ul><li>2019    <ul><li>November<ul>    <li><a class="archive-link" href="../../../../dom/Unity3D/2019/November/Narrative-development tooling.html"><b>Narrative-development tooling</b></a></li></ul>    </li>    </ul></li></ul></li></ul>
+                        <ul class="archive"><li>Unity3D<ul><li>2019    <ul><li>November<ul>    <li><a class="archive-link" href="../../../dom/Unity3D/2019/November/Narrative-development%20tooling.html"><b>Narrative-development tooling</b></a></li></ul>    </li>    </ul></li></ul></li></ul>
                     </div>
                 </div>
             </div>
             <div class="col-12 custom-col" style="max-width:740px">
-                <header class="container-fluid">
-                    <h1>Nikolay&apos;s Games and Dev. Diary <i class="fas fa-hand-peace"></i></h1>
-                    <p><i class="fas fa-sync-alt"></i><em class="update-status">Last updated on 24/1/2020 10:32, Europe/Amsterdam</em></p>
-                    <p>Here, you can find out about my personal and professional experiences throughout my education and
-                        personal development. This website consists of <u>developer diary log posts</u> and <u>games</u>
-                        that I helped develop throughout my career. I write and intend to write about game development
-                        and tools that I experienced and other software development fields as well. You can learn more
-                        about less notable work I did, not present on my website, on my <a href="https://github.com/Super-Lovers">Github</a> instead.</p>
-                </header>
-
-                <hr class="style14">
-
-                <main class="container-fluid posts">
-
-                <div><h3 id="narrativedevelopmenttooling">Narrative-development tooling</h3>
-<h5 id="uploadedon30thnovember2019">Uploaded on 30th November, 2019. <em style="font-size:15px;color:lightslategray;"><i class="fas fa-hourglass-half"></i> Read time: 4.04m</em>.</h5>
-<p>I&apos;ve had the pleasure of developing two story-based games in Unity3D, the challenges that I have faced consisted mostly of creating a user-friendly system to integrate the story of the game into its plot devices. In order to do this, together, with other people proved to be harder than I thought, especially given the fact we had to work in the same project.</p>
-<p>Collaboration and tweaking in any story-based game would likely require that the narrative writers tweak things a lot, so even in a VCS environment, it will become very chaotic when we have to work within the same scene files. A Unity3D package I found that lets you write for multiple languages in a structured manner is Polyglot. Using Google excel sheets, it was easier to adapt the storyline in the second game I started developing: Fish Soup. By extracting the STRING_ID of the excel sheet, I was able to start constructing both a quest line and dialogue structure for plot actors.</p>
-<p><img class="img-fluid" src="../../../../diary/Unity3D/2019/November/no.1 images/quest-line.png" alt="An excelsheet table describing rows of dialogue for different languages indexed by a string id."></p>
-<p>By working on the story externally, we were able to separate our workflows without causing conflicts within the project. The quests and their objectives, as well as the individual dialogue of plot actors can be extracted easily by using this excel document. By downloading it as TSV or CSV and converting it to JSON, you can then use Litjson to convert it to a JSON data object and access every quest and objective to create as your class object hierarchy:</p>
-<pre class="shadow-sm p-3 bg-light"><code class="c# language-c#">    string polyglotFile = 
-        Resources.Load&lt;TextAsset&gt;(&quot;Polyglot Story/PolyglotStoryline&quot;).text;
-
-    JsonData polyglotTojsonData = JsonMapper.ToObject(polyglotFile);
-</code></pre>
-<p>And you can then loop through every quest STRING_ID to create the class object hierarchy based on the entries in that JSON file.</p>
-<pre class="shadow-sm p-3 bg-light"><code class="json language-json">{
-      &quot;STRING ID&quot;: &quot;QUEST_1_OBJECTIVE_1&quot;,
-      &quot;DESCRIPTION&quot;: &quot;&quot;,
-      &quot;ENGLISH&quot;: &quot;I&apos;m sorry, I didn&apos;t know. He told me you were in the past&quot;,
-      &quot;FRENCH / FRAN&#xC7;AIS&quot;: &quot;&quot;,
-      &quot;SPANISH / ESPA&#xD1;OL&quot;: &quot;&quot;,
-      &quot;GERMAN / DEUTSCH&quot;: &quot;&quot;,
-      &quot;ITALIAN / ITALIANO&quot;: &quot;&quot;
-      ...
-}
-</code></pre>
-<p>In the same manner you set-up the questline, you can build a Unity editor tool that would let you auto-complete the desired dialogue line from the JSON by taking the set STRING_ID to said dialogue box and updating its text field to match the current language of the settings of a ScriptableObject or file for the game.</p>
-<p>EOF</p></div></main>
+                <main class="container-fluid game"><div><p><img class="img-fluid" src="images/intro.png"></p>
+<h3 id="asteroidsincreatejs">Asteroids in CreateJS</h3>
+<h5 id="html5weball">html5 web all</h5>
+<p><em>Asteroids in CreateJS</em> is a small arcade game that I recreated to learn how to use the CreateJS framework of tools such as EaselJS, PreloadJS, AudioJS and TweenJS. Development of the project was a little more than three days and sometimes It felt a bit like programming with PhaserJS. The game loop is simple to program and is a quick way learn, on a beginner level, how to use all CreateJS tools.</p>
+<p>The following are sources of assets that I used:</p>
+<ul>
+<li>Ship explosion: <a href="https://opengameart.org/content/explosion-3">https://opengameart.org/content/explosion-3</a></li>
+<li>Emojis: <a href="https://emojipedia.org/">https://emojipedia.org/</a></li>
+<li>Canvas background panel: <a href="https://opengameart.org/content/sci-fi-ui-panel">https://opengameart.org/content/sci-fi-ui-panel</a></li>
+<li>Ship and asteroids sprites: <a href="https://opengameart.org/content/shmup-ships">https://opengameart.org/content/shmup-ships</a></li>
+<li>Asteroid explosion: <a href="https://freesound.org/people/studiomandragore/sounds/401628/">https://freesound.org/people/studiomandragore/sounds/401628/</a></li>
+<li>Ship blast sound: <a href="https://freesound.org/people/kafokafo/sounds/128229/">https://freesound.org/people/kafokafo/sounds/128229/</a></li>
+<li>Ship explosion sound: <a href="https://freesound.org/people/cydon/sounds/268557/">https://freesound.org/people/cydon/sounds/268557/</a></li>
+<li>Background music: <a href="https://www.youtube.com/watch?v=JCLgHXuqayM">https://www.youtube.com/watch?v=JCLgHXuqayM</a></li>
+<li>Ship engine sound: <a href="https://freesound.org/people/hykenfreak/sounds/214663/">https://freesound.org/people/hykenfreak/sounds/214663/</a></li>
+</ul></div></main>
                 <hr class="style14">
                 <footer>
                     <div>
@@ -164,6 +143,13 @@
     <script>
         hljs.initHighlightingOnLoad();
     </script>
+
+
+
+
+
+
+
 
 
 </body></html>

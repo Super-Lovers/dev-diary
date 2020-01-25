@@ -1,11 +1,18 @@
-<img class="img-fluid" src="images/intro.png" />
+<div class="row">
+    <img class="img-fluid col-md-8" src="images/intro.png" />
+    <div class="row col-md-4">
+        <img class="img-fluid col-md-12" src="images/sidebar_1.png" />
+        <img class="img-fluid col-md-12" src="images/sidebar_2.png" />
+    </div>
+</div>
 
 ### Asteroids in CreateJS
-##### html5 web all
+##### web all
 
-*Asteroids in CreateJS* is a small arcade game that I recreated to learn how to use the CreateJS suite of tools such as EaselJS, PreloadJS, AudioJS and TweenJS. Development of the project was a little more than three days and sometimes It felt a bit like programming with PhaserJS. The game loop is simple to program and is a quick way learn, on a beginner level, how to use all CreateJS tools.
+<p class="description">Asteroids in CreateJS is a small arcade game that I recreated to learn how to use the CreateJS suite of tools such as EaselJS, PreloadJS, AudioJS and TweenJS. Development of the project was a little more than three days and sometimes It felt a bit like programming with PhaserJS. The game loop is simple to program and is a quick way learn, on a beginner level, how to use all CreateJS tools.</p>
 
-The following are sources of assets that I used:
+###### Credits
+
 * Ship explosion: [https://opengameart.org/content/explosion-3](https://opengameart.org/content/explosion-3)
 * Emojis: [https://emojipedia.org/](https://emojipedia.org/)
 * Canvas background panel: [https://opengameart.org/content/sci-fi-ui-panel](https://opengameart.org/content/sci-fi-ui-panel)

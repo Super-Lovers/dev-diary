@@ -60,9 +60,21 @@ h1 {
     font-size: 2rem !important;
 }
 
+h1 > i {
+    font-size: 24px;
+}
+
 h5 {
     margin-bottom: 20px !important;
     color: darkslategrey;
+}
+
+.posts-container > div > a > h6 {
+    margin-bottom: 3px;
+}
+
+.posts-container > div > a:last-child > h6 {
+    margin: 0 0 20px 0 !important;
 }
 
 a {

@@ -33,5 +33,3 @@ And you can then loop through every quest STRING_ID to create the class object h
 ```
 
 In the same manner you set-up the questline, you can build a Unity editor tool that would let you auto-complete the desired dialogue line from the JSON by taking the set STRING_ID to said dialogue box and updating its text field to match the current language of the settings of a ScriptableObject or file for the game.
-
-EOF

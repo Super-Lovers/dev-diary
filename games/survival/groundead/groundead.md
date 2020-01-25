@@ -1,34 +1,24 @@
-<img class="img-fluid" src="images/intro.png" />
+<div class="row">
+    <img class="img-fluid col-md-8" src="images/intro.png" />
+    <div class="row col-md-4">
+        <img class="img-fluid col-md-12" src="images/sidebar_1.png" />
+        <img class="img-fluid col-md-12" src="images/sidebar_2.png" />
+    </div>
+</div>
 
 ### Groundead
 ##### survival desktop all
 
-GrounDead is a top-down zombie survival game, wherein the player takes  control of a hunter/lumberjack/carpenter, who must survive waves of  zombies coming towards him with the use of multiple weapons, such a  hunting rifle, a knife, an axe, and by crafting a variety of different  defensive structures, such as barricades, platforms, and traps. To  control the character, the player will use a traditional keyboard and  mouse control scheme to perform actions, such as moving, attacking,  building, destroying and healing.  
+<p class="description">GrounDead is a top-down zombie survival game, wherein the player takes control of a hunter/lumberjack/carpenter, who must survive waves of zombies coming towards him with the use of multiple weapons, such a  hunting rifle, a knife, an axe, and by crafting a variety of different defensive structures, such as barricades, platforms, and traps. To control the character, the player will use a traditional keyboard and mouse control scheme to perform actions, such as moving, attacking, building, destroying and healing.
+</p>
 
-#### Controls
-
-WSAD or Arrow keys to walk
-Left Click to shoot with your weapon
-Right click on tiles to build/destroy 
-
-#### Tips
-You can build wooden platforms on top of water to walk on them. 
-
-#### Credits
-
+###### Credits
 The game was created in roughly eight weeks by the following team members:
 
-**Designers:**
-Tatiana Mansur
-Petar Petrov
-
-**Developers:** 
-Nikolay Ivanov
-
-**Artists:**
-Demi Enzerink
-Luuk van Dort
-Martin Jawahier
-
-**Sound Producers:**
-Luuk van Dort
+* Game Designer: Tatiana Mansur
+* Game Designer: Petar Petrov
+* Game Developer: Nikolay Ivanov
+* Game Artist: Demi Enzerink
+* Game Artist: Luuk van Dort
+* Game Artist: Martin Jawahier
+* Sound Producer: Luuk van Dort

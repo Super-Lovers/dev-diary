@@ -1,16 +1,16 @@
-<img class="img-fluid" src="images/intro.png" />
+<div class="row">
+    <img class="img-fluid col-md-8" src="images/intro.png" />
+    <div class="row col-md-4">
+        <img class="img-fluid col-md-12" src="images/sidebar_1.png" />
+        <img class="img-fluid col-md-12" src="images/sidebar_2.png" />
+    </div>
+</div>
 
 ### Take Back the Seas
 ##### ascii desktop all
 
-Experience being in control of a naval fleet of two  ships. Managing its crew, weapons and various parameters that make it  stay afloat.  
+<p class="description">Experience being in control of a naval fleet of two ships. Managing its crew, weapons and various parameters that make it stay afloat. Battle sea creatures such as kraken, octopods, isopods and so on! The game gives a lot of breathing room and the opportunity to explore different areas of the world in between combat. The combat itself is passive, as you manages a fleet and its potential combat capability, instead of the dictating how the battle is taking place. </p>
 
-Battle sea creatures such as kraken, octopods, isopods and so on! The  game gives a lot of breathing room and the opportunity to explore  different areas of the world in between combat. The combat itself is  passive, as you manages a fleet and its potential combat capability,  instead of the dictating how the battle is taking place. 
+###### Controls
 
-#### Controls
-
-You play the game by using the W S A D or Arrow keys to give your fleet a direction to sail in and you can stop the fleet from moving using the X or K buttons.  
-
-#### Install Instructions
-
-Unzip the downloaded file, open the new folder, and run the Take Back The Sea executable file with the blue and orange icon.
+You play the game by using the WSAD or arrow keys to give your fleet a direction to sail in and you can stop the fleet from moving using the X or K buttons.

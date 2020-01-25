@@ -67,16 +67,18 @@ fsExtra.readdirSync(path)
 
                             $('.game').append('<div>' + postHtml + '</div>');
 
+                            let tags = $('h5').text().split(' ');
+
+                            let tagsText = $('h5').text(); 
+                            $('h5').text('Tags: ' + tagsText.split(' ').join(', ').toUpperCase() + '.');
+
                             let newFilePath = filePath.substring(0, filePath.length - 3);
                             newFilePath += '.html';
                             fsExtra.writeFileSync(newFilePath, $.html());
-							
-                            let tags = $('h5').text().split(' ');
-                            // console.log(tags);
-
+                            
                             let game = new Game(
                                 $('h3').text(),
-                                $('p:nth-of-type(2)').text(),
+                                $('.description').text(),
                                 tags,
                                 newFilePath,
                                 file.substring(0, file.length - 3)
@@ -123,7 +125,7 @@ for (let i = 0; i < games.length; i++) {
     newHtml +=          '<div class="game_preview" style="background-image:url(' + headerPreview + ')"></div>';
     newHtml += '        <div class="card-body">';
     newHtml +=              '<h5 class="card-title">' + games[i].name + '</h5>';
-    newHtml +=              '<p class="card-text">' + (games[i].description.substring(0, 120) + '...') + '</p>';
+    newHtml +=              '<p class="card-text">' + (games[i].description.substring(0, 130) + '...') + '</p>';
     newHtml +=              '<a href="' + games[i].path + '" class="btn btn-light"><i class="fas fa-info-circle"></i> Learn more</a>'
     newHtml +=          '</div>';
     newHtml +=      '</div>';
@@ -143,7 +145,7 @@ let buttonGroup = $('.btn-group');
 buttonGroup.empty();
 for (let i = 0; i < genres.length; i++) {
     buttonGroup.append(
-        '<button type="button" class="col-6 col-md-3 btn btn-light">' + genres[i] + '</button>'
+        '<button type="button" class="col-6 col-md-2 btn btn-light">' + genres[i] + '</button>'
     );
 }
 

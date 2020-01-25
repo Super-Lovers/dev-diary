@@ -38,13 +38,14 @@ $(document).ready(function () {
             currentPage = 0;
             currentCount = 0;
             for (let i = 0; i < filteredGames.length; i++) {
-                currentCount++;
-                pages[currentPage].push(filteredGames[i]);
                 if (currentCount == pageCount) {
                     pages.push([]);
                     currentCount = 0;
                     currentPage++;
                 }
+                
+                currentCount++;
+                pages[currentPage].push(filteredGames[i]);
             }
 
             let newHtml = '<nav aria-label="Page navigation example"><ul class="pagination justify-content-center">';

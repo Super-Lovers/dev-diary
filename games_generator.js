@@ -44,7 +44,7 @@ fsExtra.readdirSync(path)
                             contents = fsExtra.readFileSync('game_base.html', 'utf8');
                             $ = cheerio.load(contents);
 
-                            $('.link').each(function (index) {
+                            $('.link').each(function () {
                                 const currentHref = $(this).attr('href');
                                 const currentSrc = $(this).attr('src');
 
@@ -55,11 +55,11 @@ fsExtra.readdirSync(path)
                                     $(this).attr('src', '../../../../' + encodeURI(currentSrc.split(' ').join('%20')));
                                 }
                             });
-                            
+
                             $('.archive-link').each(function() {
                                 let currentHref = $(this).attr('href');
             
-                                $(this).attr('href', encodeURI(currentHref.substring(10, currentHref.length)));
+                                $(this).attr('href', encodeURI(currentHref.substring(0, currentHref.length)));
                             });
 
                             $favicon = $('.favicon');

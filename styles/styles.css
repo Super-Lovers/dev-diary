@@ -1,3 +1,11 @@
+:root {
+    --main-font: "Goudy Old Style Regular";
+    --header-font: "Playfair Display Italic";
+    --code-font: "Envy Code R";
+    --brand-color: #2f4f4f;
+    --link-color: #708090;
+}
+
 @font-face {
     src: url("../fonts/GoudyOldStyleRegular.woff2");
     font-family: "Goudy Old Style Regular";
@@ -17,20 +25,18 @@ html {
     overflow-y: scroll;
 }
 
+* {
+    font-family: var(--main-font);
+}
+
 body {
     padding: 15px 0 0 0;
     font-size: .94rem !important;
     background-color: #ffffff;
 }
 
-* {
-    font-family: "Goudy Old Style Regular";
-}
-
 pre {
     padding: 15px;
-    /* background: rgba(0, 0, 0, 0.05); */
-    /* border: 1px solid rgba(211, 211, 211, 0.1); */
     border-radius: 5px;
     white-space: pre-wrap;
     word-wrap: break-word;
@@ -38,13 +44,13 @@ pre {
 }
 
 code {
-    font-family: "Envy Code R" !important;
+    font-family: var(--code-font) !important;
     font-size: 13px !important;
     background: none !important;
 }
 
 pre > code > span {
-    font-family: "Envy Code R" !important;
+    font-family: var(--code-font) !important;
     font-size: 13px !important;
 }
 
@@ -52,8 +58,8 @@ h1,
 h2,
 h3,
 h4 {
-    font-family: "Playfair Display Italic";
-    color: darkslategrey;
+    font-family: var(--header-font);
+    color: var(--brand-color);
 }
 
 h1 {
@@ -66,7 +72,7 @@ h1 > i {
 
 h5 {
     margin-bottom: 20px !important;
-    color: darkslategrey;
+    color: var(--brand-color);
 }
 
 .posts-container > div > a > h6 {
@@ -78,7 +84,7 @@ h5 {
 }
 
 a {
-    color: slategrey !important;
+    color: var(--link-color) !important;
     font-size: 14px;
     letter-spacing: 0.5px;
 }
@@ -93,7 +99,7 @@ a>i:hover {
 }
 
 p>a {
-    color: darkslategrey !important;
+    color: var(--brand-color) !important;
     font-weight: bold;
 }
 
@@ -113,7 +119,7 @@ div > i {
 
 .link>h6>b>em>i {
     font-size: 13px;
-    color: slategray;
+    color: var(--link-color);
 }
 
 .link:last-of-type>h6 {
@@ -159,7 +165,6 @@ div.col-1 {
 
 .update-status {
     margin-left: 3px;
-    /* border-bottom: 1px solid darkslategrey; */
 }
 
 .container-fluid>p>i {
@@ -172,7 +177,7 @@ div.col-1 {
 }
 
 figcaption {
-    background-color: #2f4f4f;
+    background-color: var(--brand-color);
     background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%23000000' fill-opacity='0.03'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");    
 }
 
@@ -189,9 +194,6 @@ figure {
 .img-fluid {
     margin: 5px 0;
     border-radius: 8px;
-    /* -webkit-box-shadow: 0px 0px 30px -23px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 30px -23px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 30px -23px rgba(0,0,0,0.75); */
 }
 
 .img-fluid.no-shadows {
@@ -205,7 +207,6 @@ figure {
     padding: 0px 30px !important;
     margin: 20px 0;
     height: 300px;
-    /* border-left: 3px dashed rgb(211, 211, 211, 0.3); */
 }
 
 .container > .row {

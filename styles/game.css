@@ -18,7 +18,8 @@ h5 {
 }
 
 .row > .col-12 {
-    margin: 0 0 20px 0;
+    margin: 0px auto;
+    padding: 3px 3px;
 }
 
 .btn {
@@ -34,8 +35,8 @@ h5 {
 }
 
 img.img-fluid {
-    padding: 5px 5px;
-    margin: 0px 0;
+    padding: 5px;
+    margin: 0px;
     box-shadow: none !important;
 }
 

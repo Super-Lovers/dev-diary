@@ -1,6 +1,6 @@
 <div class="row">
-    <img class="img-fluid col-md-8" src="images/intro.png" />
-    <div class="row col-md-4">
+    <img class="img-fluid col-12 col-md-8" src="images/intro.png" />
+    <div class="row col-12 col-md-4">
         <img class="img-fluid col-md-12" src="images/sidebar_1.png" />
         <img class="img-fluid col-md-12" src="images/sidebar_2.png" />
     </div>

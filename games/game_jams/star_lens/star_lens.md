@@ -1,13 +1,13 @@
 <div class="row">
-    <img class="img-fluid col-md-8" src="images/intro.png" />
-    <div class="row col-md-4">
+    <img class="img-fluid col-12 col-md-8" src="images/intro.png" />
+    <div class="row col-12 col-md-4">
         <img class="img-fluid col-md-12" src="images/sidebar_1.png" />
         <img class="img-fluid col-md-12" src="images/sidebar_2.png" />
     </div>
 </div>
 
 ### Star Lens
-##### gamejam desktop sci-fi all
+##### desktop gamejam sci-fi all
 
 <p class="description">Star Lens is a game in which, due to a malfunction, you wake up from your stasis chamber a thousand years later than you were meant to. Your space ship has drifted far, far away from home and once you discover how critical your situation has become over the past years, you begin to search in stars to find a way back to Earth.</p>
 

@@ -1,13 +1,13 @@
 <div class="row">
-    <img class="img-fluid col-md-8" src="images/intro.png" />
-    <div class="row col-md-4">
+    <img class="img-fluid col-12 col-md-8" src="images/intro.png" />
+    <div class="row col-12 col-md-4">
         <img class="img-fluid col-md-12" src="images/sidebar_1.png" />
         <img class="img-fluid col-md-12" src="images/sidebar_2.png" />
     </div>
 </div>
 
 ### Take Back the Seas
-##### ascii desktop all
+##### desktop ascii all
 
 <p class="description">Experience being in control of a naval fleet of two ships. Managing its crew, weapons and various parameters that make it stay afloat. Battle sea creatures such as kraken, octopods, isopods and so on! The game gives a lot of breathing room and the opportunity to explore different areas of the world in between combat. The combat itself is passive, as you manages a fleet and its potential combat capability, instead of the dictating how the battle is taking place. </p>
 

@@ -117,11 +117,13 @@ for (let i = 0; i < games.length; i++) {
     newHtml += '">';
     newHtml +=      '<div class="card">';
 	
-	let platform = '<i class="fas fa-';
-	if (games[i].tags[1] == "desktop") { platform += 'desktop'; }
-	else if (games[i].tags[1] == "mobile") { platform += 'mobile-alt'; }
-	else if (games[i].tags[1] == "vr") { platform += 'vr-cardboard'; }
-	else if (games[i].tags[1] == "web") { platform += 'globe'; }
+    let platform = '<i class="fas fa-';
+    let platformTag = games[i].tags[0];
+    
+	if (platformTag == "desktop") { platform += 'desktop'; }
+	else if (platformTag == "mobile") { platform += 'mobile-alt'; }
+	else if (platformTag == "vr") { platform += 'vr-cardboard'; }
+	else if (platformTag == "web") { platform += 'globe'; }
 	platform += '"></i>';
 	
 	newHtml += 			'<div class="icon">' + platform + '</div>'

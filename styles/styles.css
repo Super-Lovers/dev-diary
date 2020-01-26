@@ -121,7 +121,7 @@ div > i {
 }
 
 ul {
-    padding: 0 16px 10px 16px;
+    padding: 0 16px 2px 16px;
 }
 
 .archive>li>ul>li,
@@ -189,9 +189,9 @@ figure {
 .img-fluid {
     margin: 5px 0;
     border-radius: 8px;
-    -webkit-box-shadow: 0px 0px 30px -23px rgba(0,0,0,0.75);
+    /* -webkit-box-shadow: 0px 0px 30px -23px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 30px -23px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 30px -23px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 30px -23px rgba(0,0,0,0.75); */
 }
 
 .img-fluid.no-shadows {

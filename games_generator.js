@@ -55,9 +55,12 @@ fsExtra.readdirSync(path)
                                     $(this).attr('src', '../../../../' + encodeURI(currentSrc.split(' ').join('%20')));
                                 }
                             });
-
-                            const currentHref = $('.archive-link').attr('href');
-                            $('.archive-link').attr('href', encodeURI(currentHref.substring(3, currentHref.length)));
+                            
+                            $('.archive-link').each(function() {
+                                let currentHref = $(this).attr('href');
+            
+                                $(this).attr('href', encodeURI(currentHref.substring(10, currentHref.length)));
+                            });
 
                             $favicon = $('.favicon');
                             const currentIconHref = $favicon.attr('href');

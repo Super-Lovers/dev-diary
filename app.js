@@ -134,6 +134,7 @@ for (let topic = 0; topic < topicsInstances.length; topic++) {
                             }
                         }
 
+                        // console.log(new Post(file));
                         newMonth.posts.push(new Post(file));
                     }
                 });
@@ -262,7 +263,7 @@ topicsInstances.forEach(topic => {
                 $('.archive').append(archiveNode);
                 $('main').empty().append(postMain);
 
-                $('.img-fluid').each(function (index) {
+                $('.img-fluid').each(function () {
                     const currentHref = $(this).attr('href');
                     const currentSrc = $(this).attr('src');
 
@@ -274,8 +275,11 @@ topicsInstances.forEach(topic => {
                     }
                 });
                 
-                let currentHref = $('.archive-link').attr('href');
-                $('.archive-link').attr('href', encodeURI(currentHref.substring(10, currentHref.length)));
+                $('.archive-link').each(function() {
+                    let currentHref = $(this).attr('href');
+
+                    $(this).attr('href', encodeURI(currentHref.substring(10, currentHref.length)));
+                });
 
                 fsExtra.writeFileSync('index.html',$.html());
 
@@ -286,9 +290,12 @@ topicsInstances.forEach(topic => {
 
                 $('.archive').empty();
                 $('.archive').append(archiveNode);
+                
+                $('.archive-link').each(function() {
+                    let currentHref = $(this).attr('href');
 
-                currentHref = $('.archive-link').attr('href');
-                $('.archive-link').attr('href', encodeURI(currentHref.substring(10, currentHref.length)));
+                    $(this).attr('href', encodeURI(currentHref.substring(10, currentHref.length)));
+                });
 
                 fsExtra.writeFileSync('portfolio.html', $.html());
 

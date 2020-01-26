@@ -95,14 +95,14 @@
                     </div>
                     <div>
                         <h6>Posts Archive</h6>
-                        <ul class="archive"><li>Unity3D<ul><li>2019    <ul><li>November<ul>    <li><a class="archive-link" href="../../../../dom/Unity3D/2019/November/Narrative-development tooling.html"><b>Narrative-development tooling</b></a></li></ul>    </li>    </ul></li></ul></li></ul>
+                        <ul class="archive"><li>Unity3D<ul><li>2019    <ul><li>November<ul>    <li><a class="archive-link" href="../../../../dom/Unity3D/2019/November/Narrative-development tooling.html"><b>Narrative-development tooling</b></a></li></ul>    </li>    </ul></li></ul></li><li>Web<ul><li>2020    <ul><li>January<ul>    <li><a class="archive-link" href="../../../../dom/Web/2020/January/Light posts generator.html"><b>Light posts generator</b></a></li></ul>    </li>    </ul></li></ul></li></ul>
                     </div>
                 </div>
             </div>
             <div class="col-12 custom-col" style="max-width:740px">
                 <header class="container-fluid">
                     <h1>Nikolay&apos;s Games and Dev. Diary <i class="fas fa-hand-peace"></i></h1>
-                    <p><i class="fas fa-sync-alt"></i><em class="update-status">Last updated on 25/1/2020 22:27, Europe/Berlin</em></p>
+                    <p><i class="fas fa-sync-alt"></i><em class="update-status">Last updated on 26/1/2020 3:58, Europe/Berlin</em></p>
                     <p>Here, you can find out about my personal and professional experiences throughout my education and
                         personal development. This website consists of <u>developer diary log posts</u> and <u>games</u>
                         that I helped develop throughout my career. I write and intend to write about game development
@@ -118,7 +118,7 @@
 <h5 id="uploadedon30thnovember2019">Uploaded on 30th November, 2019. <em style="font-size:15px;color:lightslategray;"><i class="fas fa-hourglass-half"></i> Read time: 4.03m</em>.</h5>
 <p>I&apos;ve had the pleasure of developing two story-based games in Unity3D, the challenges that I have faced consisted mostly of creating a user-friendly system to integrate the story of the game into its plot devices. In order to do this, together, with other people proved to be harder than I thought, especially given the fact we had to work in the same project.</p>
 <p>Collaboration and tweaking in any story-based game would likely require that the narrative writers tweak things a lot, so even in a VCS environment, it will become very chaotic when we have to work within the same scene files. A Unity3D package I found that lets you write for multiple languages in a structured manner is Polyglot. Using Google excel sheets, it was easier to adapt the storyline in the second game I started developing: Fish Soup. By extracting the STRING_ID of the excel sheet, I was able to start constructing both a quest line and dialogue structure for plot actors.</p>
-<p><img class="img-fluid" src="../../../../diary/Unity3D/2019/November/no.1 images/quest-line.png" alt="An excelsheet table describing rows of dialogue for different languages indexed by a string id."></p>
+<p><img class="img-fluid" src="../../../../diary/Unity3D/2019/November/images/quest-line.png" alt="An excelsheet table describing rows of dialogue for different languages indexed by a string id."></p>
 <p>By working on the story externally, we were able to separate our workflows without causing conflicts within the project. The quests and their objectives, as well as the individual dialogue of plot actors can be extracted easily by using this excel document. By downloading it as TSV or CSV and converting it to JSON, you can then use Litjson to convert it to a JSON data object and access every quest and objective to create as your class object hierarchy:</p>
 <pre class="shadow-sm p-3 bg-light"><code class="c# language-c#">    string polyglotFile = 
         Resources.Load&lt;TextAsset&gt;(&quot;Polyglot Story/PolyglotStoryline&quot;).text;

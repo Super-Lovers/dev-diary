@@ -172,7 +172,6 @@ div.col-1 {
 }
 
 .portrait {
-    border: 1px solid lightgray;
     transition: 0.3s ease;
 }
 
@@ -186,9 +185,9 @@ figcaption > h2 {
 }
 
 figure {
-    -webkit-box-shadow: 0px 0px 30px -23px rgba(0,0,0,0.75);
+    /* -webkit-box-shadow: 0px 0px 30px -23px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 30px -23px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 30px -23px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 30px -23px rgba(0,0,0,0.75); */
 }
 
 .img-fluid {

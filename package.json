@@ -1,5 +1,5 @@
 {
-  "name": "glukoza",
+  "name": "Nikolay's developer diary and games",
   "version": "1.0.0",
   "description": "A personal blog for documenting personal development.",
   "main": "app.js",
@@ -11,20 +11,22 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2",
     "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1"
+  },
+  "devDependencies": {
     "cheerio": "^1.0.0-rc.3",
     "directory-tree": "^2.2.4",
     "fs-extra": "^8.1.0",
-    "jquery": "^3.4.1",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-minify": "^3.1.0",
+    "gulp-pngquant": "^1.0.12",
+    "gulp-rename": "^2.0.0",
+    "gulp-shell": "^0.7.1",
     "jslint": "^0.12.1",
     "md-2-json": "^1.0.6",
     "showdown": "^1.9.1",
     "voca": "^1.4.0"
-  },
-  "devDependencies": {
-    "gulp": "^4.0.2",
-    "gulp-clean-css": "^4.2.0",
-    "gulp-minify": "^3.1.0",
-    "gulp-rename": "^2.0.0",
-    "gulp-shell": "^0.7.1"
   }
 }

@@ -98,7 +98,12 @@ gulp.task('watch', function (done) {
 
   gulp.watch([
     './diary/**/*.md'
-  ], gulp.series('generate-posts'))
+  ], gulp.series('generate-posts'));
+
+  gulp.watch([
+    './games/**/*.md'
+  ], gulp.series('generate-game-pages'));
+  
   done();
 });
 

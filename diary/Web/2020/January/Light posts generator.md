@@ -2,7 +2,7 @@
 
 ##### Uploaded on 26th January, 2020
 
-I often think about writing down my thoughts about experiences and things I learn, so when I became curious of how I would do that while also sharing this information to other people, a blog or developer diary seemed obvious. I wanted to automate the process of creating my own "posts" by writing on markdown, since it is standard and easy to use, and upload it somewhere automatically so that it is easily accessible for the future. 
+<span class="drop">I</span> often think about writing down my thoughts about experiences and things I learn, so when I became curious of how I would do that while also sharing this information to other people, a blog or developer diary seemed obvious. I wanted to automate the process of creating my own "posts" by writing on markdown, since it is standard and easy to use, and upload it somewhere automatically so that it is easily accessible for the future. 
 
 After researching about the idea, I found a post from Gaby ([https://gaby.dev/posts/static-site-generator](https://gaby.dev/posts/static-site-generator)) that describes it similarly to how I imagined, although his implementation of it is much more complex and better than mine due to my lack of experience.
 

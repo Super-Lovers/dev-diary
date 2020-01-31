@@ -83,10 +83,10 @@ h5 {
     margin: 0 0 20px 0 !important;
 }
 
-.posts > div > p:first-of-type::first-letter {
+.drop {
     float: left;
-    font-size: 50px;
-    margin: -15px 5px -30px 0;
+    font-size: 55px;
+    margin: -20px 5px -25px 0;
 }
 
 a {

@@ -62,9 +62,9 @@ gulp.task('minify', gulp.series('minify-js', 'minify-main-css', 'minify-game-css
 
 gulp.task('generate-game-pages', gulp.series(shell.task("node games_generator.js")));
 
-gulp.task('generate-dev-posts', gulp.series(shell.task("node app.js")));
+gulp.task('generate-posts', gulp.series(shell.task("node app.js")));
 
-gulp.task('generate-content', gulp.series('generate-dev-posts', 'generate-game-pages'));
+gulp.task('generate-content', gulp.series('generate-posts', 'generate-game-pages'));
 
 gulp.task('compress-pngs', function (done) {
   gulp.src('./diary/**/*.png')
@@ -96,6 +96,9 @@ gulp.task('watch', function (done) {
     './scripts/portfolio.js'
   ], gulp.series('minify'));
 
+  gulp.watch([
+    './diary/**/*.md'
+  ], gulp.series('generate-posts'))
   done();
 });
 

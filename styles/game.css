@@ -7,16 +7,16 @@
 }
 
 h3 {
-    margin: 15px 0 5px 0 !important;
+    margin: 0.9375rem 0 0.3125rem 0 !important;
 }
 
 h5 {
-    margin: 5px 0 15px 0 !important;
-    font-size: 15px !important;
+    margin: 0.3125rem 0 0.9375rem 0 !important;
+    font-size: 0.9375rem !important;
 }
 
 .game {
-    margin-top: -4px;
+    margin-top: -0.25rem;
 }
 
 .game > div > h6 {
@@ -24,8 +24,8 @@ h5 {
 }
 
 .row > .col-12 {
-    margin: 0px auto;
-    padding: 3px 3px;
+    margin: 0 auto;
+    padding: 0.1875rem 0.1875rem;
 }
 
 .btn {
@@ -33,8 +33,8 @@ h5 {
 }
 
 img.img-fluid {
-    padding: 5px;
-    margin: 0px;
+    padding: 0.3125rem;
+    margin: 0;
     box-shadow: none !important;
 }
 

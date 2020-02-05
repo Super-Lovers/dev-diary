@@ -21,7 +21,8 @@
     font-family: "Envy Code R";
 }
 
-html {
+:root {
+    font-size: 1em !important;
     overflow-y: scroll;
 }
 
@@ -30,13 +31,12 @@ html {
 }
 
 body {
-    padding: 15px 0 0 0;
-    font-size: .94rem !important;
+    padding: 1rem 0 0 0;
     background-color: #ffffff;
 }
 
 pre {
-    padding: 15px;
+    padding: 1rem;
     border-radius: 5px;
     white-space: pre-wrap;
     word-wrap: break-word;
@@ -45,13 +45,13 @@ pre {
 
 code {
     font-family: var(--code-font) !important;
-    font-size: 13px !important;
+    font-size: 0.84rem !important;
     background: none !important;
 }
 
 pre > code > span {
     font-family: var(--code-font) !important;
-    font-size: 13px !important;
+    font-size: 0.84rem !important;
 }
 
 h1,
@@ -67,41 +67,50 @@ h1 {
 }
 
 h1 > i {
-    font-size: 24px;
+    font-size: 1rem;
 }
 
 h5 {
-    margin-bottom: 20px !important;
+    margin-bottom: 1.25rem !important;
     color: var(--brand-color);
 }
 
 .posts-container > div > a > h6 {
-    margin-bottom: 3px;
+    margin-bottom: 0.1875rem;
 }
 
 .posts-container > div > a:last-child > h6 {
-    margin: 0 0 20px 0 !important;
+    margin: 0 0 1.25rem 0 !important;
 }
 
 .drop {
     float: left;
-    font-size: 55px;
-    margin: -20px 5px -25px 0;
+    font-size: 3.8rem;
+    margin: -1.25rem 0.3125rem -1.5625rem 0;
 }
 
 a {
     color: var(--link-color) !important;
-    font-size: 14px;
+    font-size: 0.9rem;
     letter-spacing: 0.5px;
 }
 
 a>i {
-    font-size: 13px;
+    font-size: 0.83rem;
     transition: 0.2s;
 }
 
-a>i:hover {
-    opacity: 0.4;
+.card-body > .row > .col-1:nth-child(1) > a > i:hover {
+    color: black;
+}
+.card-body > .row > .col-1:nth-child(2) > a > i:hover {
+    color: #0077B5;
+}
+.card-body > .row > .col-1:nth-child(3) > a > i:hover {
+    color: #FA5C5C;
+}
+.card-body > .row > .col-1:nth-child(4) > a > i:hover {
+    color: #0073B2;
 }
 
 p>a {
@@ -110,30 +119,30 @@ p>a {
 }
 
 div > i {
-    margin: 0 5px 0 0;
+    margin: 0 0.3125rem 0 0;
 }
 
 .aside {
     font-style: italic;
-    font-size: 13px;
+    font-size: 0.84rem;
     max-width: 340px !important;
 }
 
 .link>h6>b>em {
-    font-size: 14px;
+    font-size: 0.85rem;
 }
 
 .link>h6>b>em>i {
-    font-size: 13px;
+    font-size: 0.84rem;
     color: var(--link-color);
 }
 
 .link:last-of-type>h6 {
-    margin: 0 0 20px 0;
+    margin: 0 0 1.25rem 0;
 }
 
 ul {
-    padding: 0 16px 2px 16px;
+    padding: 0 1rem 0.125rem 1rem;
 }
 
 .archive>li>ul>li,
@@ -141,7 +150,7 @@ ul {
 .archive>li>ul>li>ul>li>ul>li {
 
     position: relative;
-    left: -8px;
+    left: -0.5rem;
     width: 110%;
 }
 
@@ -152,25 +161,25 @@ div.card-group,
 }
 
 div.card-body {
-    margin: 15px 0 -15px 0;
+    margin: 0.9375rem 0 -0.9375rem 0;
     padding: 0;
 }
 
 div.card-body>.row {
-    margin: 0px 0px 10px 0;
+    margin: 0 0 0.625rem 0;
 }
 
 div.col-1 {
-    padding: 0 35px 0 0;
-    margin: 0 0 0 0px;
+    padding: 0 2.1875rem 0 0;
+    margin: 0;
 }
 
 .header {
-    margin: 0 0 15px 0;
+    margin: 0 0 0.9375rem 0;
 }
 
 .update-status {
-    margin-left: 3px;
+    margin-left: 0.1875rem;
 }
 
 .container-fluid>p>i {
@@ -187,7 +196,8 @@ figcaption {
 }
 
 figcaption > h2 {
-    margin: 0 0 10px 0;
+    margin: -0.625rem 0 0.625rem 0;
+    font-size: 1.7rem;
 }
 
 figure {
@@ -197,7 +207,7 @@ figure {
 }
 
 .img-fluid {
-    margin: 5px 0;
+    margin: 0.3125rem 0;
     border-radius: 8px;
 }
 
@@ -209,13 +219,13 @@ figure {
 }
 
 .container {
-    padding: 0px 30px !important;
-    margin: 20px 0;
+    padding: 0 1.875rem !important;
+    margin: 1.25rem 0;
     height: 300px;
 }
 
 .container > .row {
-    padding: 0 0 20px 0;
+    padding: 0 0 1.25rem 0;
 }
 
 .container-fluid {
@@ -223,16 +233,16 @@ figure {
 }
 
 .container-fluid>p {
-    margin-left: 5px;
+    margin-left: 0.3125rem;
 }
 
 .container-fluid:not(:first-child) {
-    padding: 10px 0 !important;
+    padding: 0.625rem 0 !important;
 }
 
 .custom-col {
     margin: 0 auto !important;
-    padding: 0 5px !important;
+    padding: 0 0.3125rem !important;
 }
 
 main {
@@ -240,7 +250,7 @@ main {
 }
 
 footer {
-    margin: 0 0 15px 0;
+    margin: 0 0 0.9375rem 0;
     display: inline-block;
     font-style: italic;
     color: #bcbcbc;
@@ -248,7 +258,7 @@ footer {
 
 footer > div {
     float: right;
-    margin: 0 5px;
+    margin: 0 0.3125rem;
     width: fit-content;
     line-height: 35px;
 }

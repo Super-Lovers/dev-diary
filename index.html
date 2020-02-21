@@ -98,7 +98,7 @@
             <div class="col-12 custom-col" style="max-width:740px">
                 <header class="container-fluid">
                     <h1>Nikolay&apos;s Games and Dev. Diary <i class="fas fa-hand-peace"></i></h1>
-                    <p><i class="fas fa-sync-alt"></i><em class="update-status">Last updated on 21/2/2020 16:27, Europe/Berlin</em></p>
+                    <p><i class="fas fa-sync-alt"></i><em class="update-status">Last updated on 21/2/2020 16:41, Europe/Berlin</em></p>
                     <p>Here, you can find out about my personal and professional experiences throughout my education and
                         personal development. This website consists of <u>developer diary log posts</u> and <u>games</u>
                         that I helped develop throughout my career. I write and intend to write about game development
@@ -110,30 +110,16 @@
 
                 <main class="container-fluid posts">
 
-                <div><h3 id="narrativedevelopmenttooling">Narrative-development tooling</h3>
-<h5 id="uploadedon30thnovember2019">Uploaded on 30th November, 2019. <em style="font-size:15px;color:lightslategray;"><i class="fas fa-hourglass-half"></i> Read time: 4.02m</em>.</h5>
-<p><span class="drop">A</span>fter having the pleasure of developing two story-based games in Unity3D, the challenges that I have faced consisted mostly of creating a user-friendly system to integrate the story of the game into its plot devices. In order to do this, together, with other people proved to be harder than I thought, especially given the fact we had to work in the same project.</p>
-<p>Collaboration and tweaking in any story-based game would likely require that the narrative writers tweak things a lot, so even in a VCS environment, it will become very chaotic when we have to work within the same scene files. A Unity3D package I found that lets you write for multiple languages in a structured manner is Polyglot. Using Google excel sheets, it was easier to adapt the storyline in the second game I started developing: Fish Soup. By extracting the STRING_ID of the excel sheet, I was able to start constructing both a quest line and dialogue structure for plot actors.</p>
-<p><img class="img-fluid" src="../../../../diary/Unity3D/2019/November/images/quest-line.png" alt="An excelsheet table describing rows of dialogue for different languages indexed by a string id."></p>
-<p>By working on the story externally, we were able to separate our workflows without causing conflicts within the project. The quests and their objectives, as well as the individual dialogue of plot actors can be extracted easily by using this excel document. By downloading it as TSV or CSV and converting it to JSON, you can then use Litjson to convert it to a JSON data object and access every quest and objective to create as your class object hierarchy:</p>
-<pre class="shadow-sm p-3 bg-light"><code class="c# language-c#">    string polyglotFile = 
-        Resources.Load&lt;TextAsset&gt;(&quot;Polyglot Story/PolyglotStoryline&quot;).text;
-
-    JsonData polyglotTojsonData = JsonMapper.ToObject(polyglotFile);
-</code></pre>
-<p>And you can then loop through every quest STRING_ID to create the class object hierarchy based on the entries in that JSON file.</p>
-<pre class="shadow-sm p-3 bg-light"><code class="json language-json">{
-      &quot;STRING ID&quot;: &quot;QUEST_1_OBJECTIVE_1&quot;,
-      &quot;DESCRIPTION&quot;: &quot;&quot;,
-      &quot;ENGLISH&quot;: &quot;I&apos;m sorry, I didn&apos;t know. He told me you were in the past&quot;,
-      &quot;FRENCH / FRAN&#xC7;AIS&quot;: &quot;&quot;,
-      &quot;SPANISH / ESPA&#xD1;OL&quot;: &quot;&quot;,
-      &quot;GERMAN / DEUTSCH&quot;: &quot;&quot;,
-      &quot;ITALIAN / ITALIANO&quot;: &quot;&quot;
-      ...
-}
-</code></pre>
-<p>In the same manner you set-up the questline, you can build a Unity editor tool that would let you auto-complete the desired dialogue line from the JSON by taking the set STRING_ID to said dialogue box and updating its text field to match the current language of the settings of a ScriptableObject or file for the game.</p></div></main>
+                    <div><h3 id="creatingabookmarkscliapp">Creating a bookmarks CLI app</h3>
+    <h5 id="uploadedon21stfebruary2020">Uploaded on 21st February, 2020. <em style="font-size:15px;color:lightslategray;"><i class="fas fa-hourglass-half"></i> Read time: 4m</em>.</h5>
+    <p><span class="drop">W</span>hen you bookmark online pages like me all the time and switch browsers a lot, it becomes irritating to get used to every browser&apos;s different implementation of a bookmarks viewer interface. That&apos;s why I decided to make one called SLBMS where it won&apos;t matter what browser I&apos;m using. When you use Linux, Mac or Windows, the one thing that stays constant is having a console, which is why I thought about making my bookmarks application a CLI in Node.js. I&apos;m not very good at Node.js so the implementation is not great and is fairly simple in design, which is why I call it a viewer rather than a manager app. </p>
+    <p>SLBMS uses the bookmarks html files that browsers allow you to export as a backup to give you different actions to explore your bookmarks. As of this post&apos;s release, the viewer lets you group bookmarks by domains, so if I had ten bookmarks of any youtube video, it would group them inside a youtube folder which you can explore:</p>
+    <p><img class="img-fluid" src="../../../../diary/Node.js/2020/February/images/grouping.gif" alt="Here is an animated video of the user looking at bookmarks under the folder of a domain"></p>
+    <p>As you can see, there is grouping, sorting and searching by using keywords. Depending on what you intend to look for and if you know what you are looking for in the first place, you can use the respective methods of searching. Sorting allows you to sort by newest or oldest bookmarks that were added:</p>
+    <p><img class="img-fluid" src="../../../../diary/Node.js/2020/February/images/sorting.gif" alt="Here is an animated video of the user looking at the oldest or newest bookmarks he added"></p>
+    <p>The keywords search uses a fuzzy algorithm extended by the Fuse.js library. Aside from that, there is an option in the settings menu which refreshes the bookmarks if you added a new file or replaced the existing one from the bookmarks html files folder:</p>
+    <p><img class="img-fluid" src="../../../../diary/Node.js/2020/February/images/keywords-settings.gif" alt="Here is an animated video of the user searching for bookmarks using keywords and after that refreshing his bookmarks lists"></p>
+    <p>Naturally, when you press enter on a bookmark entry, it will automatically open the page using the default browser setting of your operating system. An application like this took me two days, but for an experienced web developer, you can make this in less than a day and it&apos;ll provide a lot more flexibility between workstations. It was a cool challenge to make a CLI, so I recommend it to any new web developer. It just feels weird having to use CLIs so much without having tried to make one yourself.</p></div></main>
                 <hr class="style14">
                 <footer>
                     <div>

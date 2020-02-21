@@ -319,5 +319,6 @@ function estimateReadingTime(fileText) {
 
     let newFileText = voca.stripTags(fileText);
     let wordcount = voca.countWords(newFileText);
-    return wordcount / wpm;
+    let result = Math.ceil(wordcount / wpm);
+    return result;
 }

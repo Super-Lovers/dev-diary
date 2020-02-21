@@ -98,7 +98,7 @@
             <div class="col-12 custom-col" style="max-width:740px">
                 <header class="container-fluid">
                     <h1>Nikolay&apos;s Games and Dev. Diary <i class="fas fa-hand-peace"></i></h1>
-                    <p><i class="fas fa-sync-alt"></i><em class="update-status">Last updated on 21/2/2020 16:27, Europe/Berlin</em></p>
+                    <p><i class="fas fa-sync-alt"></i><em class="update-status">Last updated on 21/2/2020 19:32, Europe/Berlin</em></p>
                     <p>Here, you can find out about my personal and professional experiences throughout my education and
                         personal development. This website consists of <u>developer diary log posts</u> and <u>games</u>
                         that I helped develop throughout my career. I write and intend to write about game development
@@ -111,15 +111,15 @@
                 <main class="container-fluid posts">
 
                 <div><h3 id="makingmylightmarkdownpostsgenerator">Making my light, markdown posts generator</h3>
-<h5 id="uploadedon26thjanuary2020">Uploaded on 26th January, 2020. <em style="font-size:15px;color:lightslategray;"><i class="fas fa-hourglass-half"></i> Read time: 3.97m</em>.</h5>
+<h5 id="uploadedon26thjanuary2020">Uploaded on 26th January, 2020. <em style="font-size:15px;color:lightslategray;"><i class="fas fa-hourglass-half"></i> Read time: 4m</em>.</h5>
 <p><span class="drop">I</span> often think about writing down my thoughts about experiences and things I learn, so when I became curious of how I would do that while also sharing this information to other people, a blog or developer diary seemed obvious. I wanted to automate the process of creating my own &quot;posts&quot; by writing on markdown, since it is standard and easy to use, and upload it somewhere automatically so that it is easily accessible for the future. </p>
 <p>After researching about the idea, I found a post from Gaby (<a href="https://gaby.dev/posts/static-site-generator">https://gaby.dev/posts/static-site-generator</a>) that describes it similarly to how I imagined, although his implementation of it is much more complex and better than mine due to my lack of experience.</p>
 <p>The way I pictured the post history was by separating the topics and sorting their posts chronologically by years &gt; months &gt; posts. It will be cluttered but for my convenience, it is much easier to find specific posts:</p>
-<p><img class="img-fluid" src="../../../../diary/Web/2020/January/images/tree_1.png" alt="A picture of the tree of the markdown posts structure in the filesystem when being written"></p>
+<p><img class="img-fluid" src="../../../../diary/Node.js/2020/January/images/tree_1.png" alt="A picture of the tree of the markdown posts structure in the filesystem when being written"></p>
 <p>After writing my post on a markdown file, and suppling it with images from a folder if necessary. The generator will then create an html file by extracting the markdown content and converting everything that is not html into html. This html file is created by first retrieving a base page, one with no content but header information and sidebar navigation that every page must have on the website, and then combines it with the markdown file to complete the post&apos;s page. All the posts of the markdown files form a DOM folder where they are stored. Due to load performance, the images are accessed through the markdown&apos;s folder instead of duplicating them:</p>
-<p><img class="img-fluid" src="../../../../diary/Web/2020/January/images/tree_2.png" alt="A picture of the tree of the markdown posts structure in the filesystem when being written"></p>
+<p><img class="img-fluid" src="../../../../diary/Node.js/2020/January/images/tree_2.png" alt="A picture of the tree of the markdown posts structure in the filesystem when being written"></p>
 <p>The file structure of the posts is then used to generate the navigation bar on the left side of the website. The games section works in exactly the same way, except that instead of a chronological-based file structure, it only uses genres:</p>
-<p><img class="img-fluid" src="../../../../diary/Web/2020/January/images/tree_3.png" alt="A picture of the tree of the markdown posts structure in the filesystem when being written"></p>
+<p><img class="img-fluid" src="../../../../diary/Node.js/2020/January/images/tree_3.png" alt="A picture of the tree of the markdown posts structure in the filesystem when being written"></p>
 <p>Some of the annoying bits of developing this tool was making sure all the links between the folders were working correctly and by making sure the content of the sidebar matched that of the rest of the pages. Permissions for reading and editing files after changes are made to it, such as testing how a post would look like before uploading it can be a nuisance.</p></div></main>
                 <hr class="style14">
                 <footer>

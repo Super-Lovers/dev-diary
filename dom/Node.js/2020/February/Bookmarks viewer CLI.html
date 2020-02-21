@@ -38,7 +38,6 @@
     <!-- Main References -->
     <link rel="stylesheet" class="link" href="../../../../styles/lib/googlecode.min.css">
     <link rel="stylesheet" class="link" href="../../../../styles/styles.min.css">
-    <link rel="stylesheet" class="link" href="../../../../styles/game.min.css">
     <link rel="stylesheet" class="link" href="../../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" class="link" href="../../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" class="link" href="../../../../styles/lib/imagehover.min.css">
@@ -47,7 +46,6 @@
 <body>
     <div class="container">
         <div class="row">
-
             <div class="col aside custom-col">
                 <div class="header text-center card-group">
                     <figure class="imghvr-fade-in-up rounded-lg" style="background-color:#ffffff;">
@@ -55,9 +53,9 @@
                         <figcaption style="background-color: #2f4f4f;">
                             <h2>Nikolay Vaskov Ivanov</h2>
                             <p>Born in 3rd of march, 1998 in the Bulgarian city Pazardzhik, I studied in the school
-                                &quot;Prof. Ivan Batakliev&quot; until 8th grade and completed the specialty
-                                &quot;System Programming&quot; when I graduated 12th grade. Currently studying for a
-                                Bachelor&apos;s degree in the Netherlands.</p>
+                                &quot;Prof. Ivan Batakliev&quot; until 8th grade and completed the specialty &quot;System Programming&quot;
+                                when I graduated 12th grade. Currently studying for a Bachelor&apos;s degree in the
+                                Netherlands.</p>
                         </figcaption>
                     </figure>
                     <div class="card-body">
@@ -93,27 +91,30 @@
                     </div>
                     <div>
                         <h6>Posts Archive</h6>
-                        <ul class="archive"><li>Node.js<ul><li>2020    <ul><li>February<ul>    <li><a class="archive-link" href="../../../../dom/Node.js/2020/February/Bookmarks%20viewer%20CLI.html"><b>Bookmarks viewer CLI</b></a></li></ul>    </li><li>January<ul>    <li><a class="archive-link" href="../../../../dom/Node.js/2020/January/Light%20posts%20generator.html"><b>Light posts generator</b></a></li></ul>    </li>    </ul></li></ul></li><li>Unity3D<ul><li>2019    <ul><li>November<ul>    <li><a class="archive-link" href="../../../../dom/Unity3D/2019/November/Narrative-development%20tooling.html"><b>Narrative-development tooling</b></a></li></ul>    </li>    </ul></li></ul></li></ul>
+                        <ul class="archive"><li>Node.js<ul><li>2020    <ul><li>February<ul>    <li><a class="archive-link" href="../../../../dom/Node.js/2020/February/Bookmarks viewer CLI.html"><b>Bookmarks viewer CLI</b></a></li></ul>    </li><li>January<ul>    <li><a class="archive-link" href="../../../../dom/Node.js/2020/January/Light posts generator.html"><b>Light posts generator</b></a></li></ul>    </li>    </ul></li></ul></li><li>Unity3D<ul><li>2019    <ul><li>November<ul>    <li><a class="archive-link" href="../../../../dom/Unity3D/2019/November/Narrative-development tooling.html"><b>Narrative-development tooling</b></a></li></ul>    </li>    </ul></li></ul></li></ul>
                     </div>
                 </div>
             </div>
             <div class="col-12 custom-col" style="max-width:740px">
-                <main class="container-fluid game"><div><div class="row">
-    <img class="img-fluid col-12 col-md-8" src="images/intro.png">
-    <div class="row col-12 col-md-4">
-        <img class="img-fluid col-md-12" src="images/sidebar_1.png">
-        <img class="img-fluid col-md-12" src="images/sidebar_2.png">
-    </div>
-</div>
-<h3 id="candles">Candles</h3>
-<h5 id="desktopgamejamall">Tags: DESKTOP, GAMEJAM, ALL.</h5>
-<p class="description">In Candles, You are a girl called Jane that is struggling with an unfortunate relationship with her family and to cope, she decides it is time to go, and so your adventure to escape begins. This game was made for the Global Game Jam 2019 in two days and then updated after the jam.</p>
-<h6 id="credits">Credits</h6>
-<ul>
-<li>Game Artist - Roger Recaldini</li>
-<li>Game Designer - Youri Mulder</li>
-<li>Game Developer - Nikolay Ivanov </li>
-</ul></div></main>
+                <header class="container-fluid">
+                    <h1>Nikolay&apos;s Games and Dev. Diary <i class="fas fa-hand-peace"></i></h1>
+                    <p><i class="fas fa-sync-alt"></i><em class="update-status">Last updated on 21/2/2020 16:27, Europe/Berlin</em></p>
+                    <p>Here, you can find out about my personal and professional experiences throughout my education and
+                        personal development. This website consists of <u>developer diary log posts</u> and <u>games</u>
+                        that I helped develop throughout my career. I write and intend to write about game development
+                        and tools that I experienced and other software development fields as well. You can learn more
+                        about less notable work I did, not present on my website, on my <a href="https://github.com/Super-Lovers">Github</a> instead.</p>
+                </header>
+
+                <hr class="style14">
+
+                <main class="container-fluid posts">
+
+                <div><h3 id="creatingabookmarkscliapp">Creating a bookmarks CLI app</h3>
+<h5 id="uploadedon21stfebruary2020">Uploaded on 21st February, 2020. <em style="font-size:15px;color:lightslategray;"><i class="fas fa-hourglass-half"></i> Read time: 1.52m</em>.</h5>
+<p><span class="drop">W</span>hen you bookmark online pages like me all the time and switch browsers a lot, it becomes irritating to get used to every browser&apos;s different implementation of a bookmarks viewer interface. That&apos;s why I decided to make one called SLBMS where it won&apos;t matter what browser i&apos;m using. When you use Linux, Mac or Windows, the one thing that stays constant is having a console, which is why I thought about making my bookmarks application a CLI in Node.js. I&apos;m not very good at Node.js so the implementation is not great and is fairly simple in design, which is why I call it a viewer rather than a manager app. </p>
+<p>SLBMS uses the bookmarks html files that browsers allow you to export as a backup to give you different actions to explore your bookmarks.  </p>
+<!--<img class="img-fluid" src="../../../../diary/Web/2020/January/images/tree_1.png" alt="">--></div></main>
                 <hr class="style14">
                 <footer>
                     <div>
@@ -139,13 +140,6 @@
     <script>
         hljs.initHighlightingOnLoad();
     </script>
-
-
-
-
-
-
-
 
 
 </body></html>

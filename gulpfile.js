@@ -104,12 +104,12 @@ gulp.task('watch', function (done) {
     './games/**/*.md',
   ], gulp.series('generate-game-pages'));
 
-  gulp.watch([
-    './index.html',
-    './base.html',
-    './game_base.html',
-    './portfolio.html'
-  ], gulp.series('generate-posts', 'generate-game-pages'));
+  // gulp.watch([
+  //   './index.html',
+  //   './base.html',
+  //   './game_base.html',
+  //   './portfolio.html'
+  // ], gulp.series('generate-posts', 'generate-game-pages'));
   
   done();
 });

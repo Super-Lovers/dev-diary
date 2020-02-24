@@ -6,7 +6,7 @@ const shell = require('gulp-shell');
 const imagemin = require('gulp-imagemin');
 const gulpPngquant = require('gulp-pngquant');
 
-gulp.task('minify-js', function (done) {
+gulp.task('minify-js', done => {
   gulp.src('./scripts/portfolio.js', {
       allowEmpty: true
     })
@@ -16,10 +16,10 @@ gulp.task('minify-js', function (done) {
     .pipe(rename('portfolio.min.js'))
     .pipe(gulp.dest('./scripts/'));
 
-    done();
+  done();
 });
 
-gulp.task('minify-main-css', function (done) {
+gulp.task('minify-main-css', done => {
   gulp.src('./styles/styles.css', {
       allowEmpty: true
     })
@@ -29,10 +29,10 @@ gulp.task('minify-main-css', function (done) {
     .pipe(rename('styles.min.css'))
     .pipe(gulp.dest('./styles/'));
 
-    done();
+  done();
 });
 
-gulp.task('minify-game-css', function (done) {
+gulp.task('minify-game-css', done => {
   gulp.src('./styles/game.css', {
       allowEmpty: true
     })
@@ -41,11 +41,11 @@ gulp.task('minify-game-css', function (done) {
     }))
     .pipe(rename('game.min.css'))
     .pipe(gulp.dest('./styles/'));
-    
-    done();
+
+  done();
 });
 
-gulp.task('minify-portfolio-css', function (done) {
+gulp.task('minify-portfolio-css', done => {
   gulp.src('./styles/portfolio_styles.css', {
       allowEmpty: true
     })
@@ -54,8 +54,8 @@ gulp.task('minify-portfolio-css', function (done) {
     }))
     .pipe(rename('portfolio_styles.min.css'))
     .pipe(gulp.dest('./styles/'));
-    
-    done();
+
+  done();
 });
 
 gulp.task('minify', gulp.series('minify-js', 'minify-main-css', 'minify-game-css', 'minify-portfolio-css'));
@@ -66,29 +66,63 @@ gulp.task('generate-posts', gulp.series(shell.task("node app.js")));
 
 gulp.task('generate-content', gulp.series('generate-posts', 'generate-game-pages'));
 
-gulp.task('compress-pngs', function (done) {
+gulp.task('compress-pngs', done => {
   gulp.src('./diary/**/*.png')
     .pipe(gulpPngquant({
       quality: '65-80'
     }))
-    .pipe(gulp.dest('./diary/'));
+    .pipe(gulp.dest('./diary-imgcompressed/'));
+
+  gulp.src('./games/**/*.png')
+    .pipe(gulpPngquant({
+      quality: '65-80'
+    }))
+    .pipe(gulp.dest('./games-imgcompressed/'));
 
   done();
 });
 
-gulp.task('compress-jpgs', function (done) {
+gulp.task('compress-jpgs', done => {
   gulp.src('./diary/**/*.jpg')
     .pipe(imagemin({
       quality: 90
     }))
-    .pipe(gulp.dest('./diary/'));
+    .pipe(gulp.dest('./diary-imgcompressed/'));
+
+  gulp.src('./games/**/*.jpg')
+    .pipe(imagemin({
+      quality: 90
+    }))
+    .pipe(gulp.dest('./games-imgcompressed/'));
 
   done();
 });
 
+// gulp.task('compress-gifs', done => {
+//   gulp.src('./diary/**/*.gif')
+//     .pipe(imagemin([
+//       imagemin.gifsicle({
+//         interlaced: false,
+//         optimizationLevel: 3,
+//         colors: 256
+//       })]))
+//     .pipe(gulp.dest('./diary-imgcompressed/'));
+
+//     gulp.src('./games/**/*.gif')
+//     .pipe(imagemin([
+//       imagemin.gifsicle({
+//         interlaced: false,
+//         optimizationLevel: 3,
+//         colors: 256
+//       })]))
+//     .pipe(gulp.dest('./games-imgcompressed/'));
+
+//   done();
+// });
+
 gulp.task('compress-images', gulp.series('compress-pngs', 'compress-jpgs'));
 
-gulp.task('watch', function (done) {
+gulp.task('watch', done => {
   gulp.watch([
     './styles/styles.css',
     './styles/portfolio_styles.css',
@@ -104,13 +138,6 @@ gulp.task('watch', function (done) {
     './games/**/*.md',
   ], gulp.series('generate-game-pages'));
 
-  // gulp.watch([
-  //   './index.html',
-  //   './base.html',
-  //   './game_base.html',
-  //   './portfolio.html'
-  // ], gulp.series('generate-posts', 'generate-game-pages'));
-  
   done();
 });
 

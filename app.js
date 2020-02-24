@@ -7,6 +7,8 @@ const voca = require('voca');
 
 const topicsString = [];
 const topicsInstances = [];
+let mostRecentPost;
+let postDates = [];
 
 class Topic {
     constructor(name) {
@@ -30,11 +32,10 @@ class Month {
 }
 
 class Post {
-    constructor(name) {
+    constructor(name, title, date) {
         this.name = name;
-        this.title = '';
-        this.date = '';
-        this.content = '';
+        this.title = title;
+        this.date = date;
     }
 }
 
@@ -134,24 +135,57 @@ for (let topic = 0; topic < topicsInstances.length; topic++) {
                             }
                         }
 
-                        // console.log(new Post(file));
-                        newMonth.posts.push(new Post(file));
+                        const postContents = fsExtra.readFileSync(pathToPosts + '/' + file, 'utf8');
+
+                        const converter = new showdown.Converter();
+                        let postHtml = converter.makeHtml(postContents);
+                        $ = cheerio.load(postHtml);
+
+                        let postName = $('h3').text();
+                        let postDate = $('h5').text().substring(12);
+
+                        let postDay = postDate.substring(0, 2);
+                        let postYear = postDate.substring(postDate.length - 4, postDate.length);
+
+                        let postMonth = postDate.split(' ')[1].substring(0, postDate.split(' ')[1].length - 1);
+
+                        postDate = new Date(postDay + ' ' + postMonth + ' ' + postYear + " EDT");
+
+                        let newPost = new Post(file, postName, postDate);
+
+                        postDates.push(postDate);
+                        newMonth.posts.push(newPost);
                     }
                 });
         }
     }
 }
 
-topicsInstances.forEach(topic => {
+// Finding the most recent post
+mostRecentPost = postDates[0];
+for (let i = 0; i < postDates.length; i++) {
+    if (postDates[i] > mostRecentPost) {
+        mostRecentPost = postDates[i];
+    }
+}
+
+for (let topicI = 0; topicI < topicsInstances.length; topicI++) {
+    const topic = topicsInstances[topicI];
+
     if (fsExtra.exists('./dom/' + topic.name)) {
         fsExtra.removeSync('./dom/' + topic.name);
     }
     fsExtra.mkdirSync('./dom/' + topic.name);
-    topic.years.forEach(year => {
+    for (let yearI = 0; yearI < topic.years.length; yearI++) {
+        const year = topic.years[yearI];
         fsExtra.mkdirSync('./dom/' + topic.name + '/' + year.name);
-        year.months.forEach(month => {
+
+        for (let monthI = 0; monthI < year.months.length; monthI++) {
+            const month = year.months[monthI];
             fsExtra.mkdirSync('./dom/' + topic.name + '/' + year.name + '/' + month.name);
-            month.posts.forEach(post => {
+            for (let postJ = 0; postJ < month.posts.length; postJ++) {
+                const post = month.posts[postJ];
+
                 const file = path + '/' + topic.name + '/' + year.name + '/' + month.name + '/' + post.name;
                 const postContents = fsExtra.readFileSync(file, 'utf8');
                 let contents = fsExtra.readFileSync('base.html', 'utf8');
@@ -181,7 +215,7 @@ topicsInstances.forEach(topic => {
                                 const postName = domTree.children[topic].children[year].children[month].children[post].name;
                                 if (postName.substring(postName.length - 2, postName.length) == "md") {
                                     archiveNode += '    <li>' + '<a class="archive-link" href="' + '../../../../dom/' + domTree.children[topic].name + '/' + domTree.children[topic].children[year].name + '/' + domTree.children[topic].children[year].children[month].name + '/' +
-                                        domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3)+ '.html"><b>' + domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + "</b></a>";
+                                        domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + '.html"><b>' + domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + "</b></a>";
                                 }
                             }
                             archiveNode += '</ul>';
@@ -254,64 +288,66 @@ topicsInstances.forEach(topic => {
                     post.name.substring(0, post.name.length - 3) + '.html', $.html());
 
                 // This section updates the index page
-                contents = fsExtra.readFileSync('index.html', 'utf8');
+                if (post.date == mostRecentPost) {
+                    contents = fsExtra.readFileSync('index.html', 'utf8');
 
-                $ = cheerio.load(contents);
+                    $ = cheerio.load(contents);
 
-                $('.update-status').text(dateString);
-                $('.archive').empty();
-                $('.archive').append(archiveNode);
-                $('main').empty().append(postMain);
+                    $('.update-status').text(dateString);
+                    $('.archive').empty();
+                    $('.archive').append(archiveNode);
+                    $('main').empty().append(postMain);
 
-                $('.img-fluid').each(function () {
-                    const currentHref = $(this).attr('href');
-                    const currentSrc = $(this).attr('src');
+                    $('.img-fluid').each(function () {
+                        const currentHref = $(this).attr('href');
+                        const currentSrc = $(this).attr('src');
 
-                    if (currentHref !== undefined && currentHref != false) {
-                        $(this).attr('href', encodeURI(currentHref));
-                    }
-                    if (currentSrc !== undefined && currentSrc != false) {
-                        $(this).attr('src', encodeURI(currentSrc));
-                    }
-                });
-                
-                $('.archive-link').each(function() {
-                    let currentHref = $(this).attr('href');
+                        if (currentHref !== undefined && currentHref != false) {
+                            $(this).attr('href', encodeURI(currentHref));
+                        }
+                        if (currentSrc !== undefined && currentSrc != false) {
+                            $(this).attr('src', encodeURI(currentSrc));
+                        }
+                    });
 
-                    $(this).attr('href', encodeURI(currentHref.substring(10, currentHref.length)));
-                });
+                    $('.archive-link').each(function () {
+                        let currentHref = $(this).attr('href');
 
-                fsExtra.writeFileSync('index.html',$.html());
+                        $(this).attr('href', encodeURI(currentHref.substring(10, currentHref.length)));
+                    });
 
-                // This section updates the portfolio page
-                contents = fsExtra.readFileSync('portfolio.html', 'utf8');
+                    fsExtra.writeFileSync('index.html', $.html());
 
-                $ = cheerio.load(contents);
+                    // This section updates the portfolio page
+                    contents = fsExtra.readFileSync('portfolio.html', 'utf8');
 
-                $('.archive').empty();
-                $('.archive').append(archiveNode);
-                
-                $('.archive-link').each(function() {
-                    let currentHref = $(this).attr('href');
+                    $ = cheerio.load(contents);
 
-                    $(this).attr('href', encodeURI(currentHref.substring(10, currentHref.length)));
-                });
+                    $('.archive').empty();
+                    $('.archive').append(archiveNode);
 
-                fsExtra.writeFileSync('portfolio.html', $.html());
+                    $('.archive-link').each(function () {
+                        let currentHref = $(this).attr('href');
 
-                // This section updates the game base page
-                contents = fsExtra.readFileSync('game_base.html', 'utf8');
+                        $(this).attr('href', encodeURI(currentHref.substring(10, currentHref.length)));
+                    });
 
-                $ = cheerio.load(contents);
+                    fsExtra.writeFileSync('portfolio.html', $.html());
 
-                $('.archive').empty();
-                $('.archive').append(archiveNode);
+                    // This section updates the game base page
+                    contents = fsExtra.readFileSync('game_base.html', 'utf8');
 
-                fsExtra.writeFileSync('game_base.html', $.html());
-            })
-        })
-    })
-});
+                    $ = cheerio.load(contents);
+
+                    $('.archive').empty();
+                    $('.archive').append(archiveNode);
+
+                    fsExtra.writeFileSync('game_base.html', $.html());
+                }
+            }
+        }
+    }
+}
 
 function estimateReadingTime(fileText) {
     wpm = 100;

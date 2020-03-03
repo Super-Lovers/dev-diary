@@ -1,26 +1,28 @@
-let vid = document.getElementById("audioPlayer");
-vid.volume = 0.001;
+let audio = document.getElementById("audioPlayer");
+audio.volume = 0.001;
 
 let session = window.sessionStorage;
 let timeOfMusic = session.getItem('timeOfMusic');
 
 if (timeOfMusic == null) {
     session.setItem('timeOfMusic', 0);
-    vid.play();
+    audio.play();
     // console.log('Started ' + timeOfMusic);
 } else {
-    vid.currentTime = timeOfMusic + 1;
-    vid.play();
+    audio.currentTime = timeOfMusic + 1;
+    audio.play();
 }
 
-let songDuration = vid.duration;
+let songDuration = audio.duration;
 setInterval(() => {
-    timeOfMusic = vid.currentTime;
-
-    if (timeOfMusic == songDuration) {
-        timeOfMusic = 0;
-    }
+    if (audio.paused == false) {
+        timeOfMusic = audio.currentTime;
     
-    // console.log("Current music time: " + timeOfMusic);
-    session.setItem('timeOfMusic', timeOfMusic);
+        if (timeOfMusic == songDuration) {
+            timeOfMusic = 0;
+        }
+        
+        // console.log("Current music time: " + timeOfMusic);
+        session.setItem('timeOfMusic', timeOfMusic);
+    }
 }, 1000);

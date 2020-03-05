@@ -145,13 +145,29 @@ ul {
     padding: 0 1rem 0.125rem 1rem;
 }
 
+.archive {
+    list-style: none;
+    padding: 0;
+}
+
 .archive>li>ul>li,
 .archive>li>ul>li>ul>li,
 .archive>li>ul>li>ul>li>ul>li {
-
     position: relative;
-    left: -0.5rem;
+    left: -0.3rem;
     width: 110%;
+    list-style: none;
+}
+
+.archive>li>i {
+    color: var(--link-color);
+}
+
+.archive>li>ul>li>i,
+.archive>li>ul>li>ul>li>i,
+.archive>li>ul>li>ul>li>ul>li>i {
+    margin: 0 0 0 0.4375rem;
+    color: var(--link-color);
 }
 
 div.card-group,

@@ -214,7 +214,7 @@ for (let topicI = 0; topicI < topicsInstances.length; topicI++) {
                             for (let post = 0; post < domTree.children[topic].children[year].children[month].children.length; post++) {
                                 const postName = domTree.children[topic].children[year].children[month].children[post].name;
                                 if (postName.substring(postName.length - 2, postName.length) == "md") {
-                                    archiveNode += '    <li>' + '<a class="archive-link" href="' + '../../../../dom/' + domTree.children[topic].name + '/' + domTree.children[topic].children[year].name + '/' + domTree.children[topic].children[year].children[month].name + '/' +
+                                    archiveNode += '    <li><i class="fas fa-align-left"></i> ' + '<a class="archive-link" href="' + '../../../../dom/' + domTree.children[topic].name + '/' + domTree.children[topic].children[year].name + '/' + domTree.children[topic].children[year].children[month].name + '/' +
                                         domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + '.html"><b>' + domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + "</b></a>";
                                 }
                             }

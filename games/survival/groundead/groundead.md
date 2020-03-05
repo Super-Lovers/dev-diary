@@ -1,8 +1,15 @@
-<div class="row">
-    <img class="img-fluid col-12 col-md-8" src="images/intro.png" />
-    <div class="row col-12 col-md-4">
-        <img class="img-fluid col-md-12" src="images/sidebar_1.png" />
-        <img class="img-fluid col-md-12" src="images/sidebar_2.png" />
+<div class="flex-container">
+    <div class="flex-main">
+        <a href="../../../games-imgcompressed/survival/groundead/images/intro.png">
+            <img src="../../../games-imgcompressed/survival/groundead/images/intro.png" />
+        </a>
+    </div>
+    <div class="flex-sidebar">
+        <a href="../../../games-imgcompressed/survival/groundead/images/sidebar_1.png">
+            <img src="../../../games-imgcompressed/survival/groundead/images/sidebar_1.png" />
+        </a><a href="../../../games-imgcompressed/survival/groundead/images/sidebar_2.png">
+            <img src="../../../games-imgcompressed/survival/groundead/images/sidebar_2.png" />
+        </a>
     </div>
 </div>
 

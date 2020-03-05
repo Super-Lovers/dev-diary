@@ -6,7 +6,7 @@
 
 Collaboration and tweaking in any story-based game would likely require that the narrative writers tweak things a lot, so even in a VCS environment, it will become very chaotic when we have to work within the same scene files. A Unity3D package I found that lets you write for multiple languages in a structured manner is Polyglot. Using Google excel sheets, it was easier to adapt the storyline in the second game I started developing: Fish Soup. By extracting the STRING_ID of the excel sheet, I was able to start constructing both a quest line and dialogue structure for plot actors.
 
-<img class="img-fluid" src="../../../../diary/Unity3D/2019/November/images/quest-line.png" alt="An excelsheet table describing rows of dialogue for different languages indexed by a string id."/>
+<img class="img-fluid" src="../../../../diary-imgcompressed/Unity3D/2019/November/images/quest-line.png" alt="An excelsheet table describing rows of dialogue for different languages indexed by a string id."/>
 
 By working on the story externally, we were able to separate our workflows without causing conflicts within the project. The quests and their objectives, as well as the individual dialogue of plot actors can be extracted easily by using this excel document. By downloading it as TSV or CSV and converting it to JSON, you can then use Litjson to convert it to a JSON data object and access every quest and objective to create as your class object hierarchy:
 

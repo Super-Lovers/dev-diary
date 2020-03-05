@@ -16,6 +16,15 @@ gulp.task('minify-js', done => {
     .pipe(rename('portfolio.min.js'))
     .pipe(gulp.dest('./scripts/'));
 
+    gulp.src('./scripts/audio.js', {
+        allowEmpty: true
+      })
+      .pipe(minifyJs({
+        noSource: true
+      }))
+      .pipe(rename('audio.min.js'))
+      .pipe(gulp.dest('./scripts/'));
+
   done();
 });
 
@@ -127,7 +136,8 @@ gulp.task('watch', done => {
     './styles/styles.css',
     './styles/portfolio_styles.css',
     './styles/game.css',
-    './scripts/portfolio.js'
+    './scripts/portfolio.js',
+    './scripts/audio.js'
   ], gulp.series('minify'));
 
   gulp.watch([

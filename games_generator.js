@@ -130,7 +130,7 @@ for (let i = 0; i < games.length; i++) {
     newHtml +=          '<div class="game_preview" style="background-image:url(' + headerPreview + ')"></div>';
     newHtml += '        <div class="card-body">';
     newHtml +=              '<h5 class="card-title">' + games[i].name + '</h5>';
-    newHtml +=              '<p class="card-text">' + (games[i].description.substring(0, 130) + '...') + '</p>';
+    newHtml +=              '<p class="card-text">' + (games[i].description.substring(0, 120) + '...') + '</p>';
     newHtml +=              '<a href="' + games[i].path + '" class="btn btn-light"><i class="fas fa-info-circle"></i> Learn more</a>'
     newHtml +=          '</div>';
     newHtml +=      '</div>';

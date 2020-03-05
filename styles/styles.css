@@ -250,6 +250,18 @@ figcaption > h2 {
     padding: 0.625rem 0 !important;
 }
 
+.container-fluid > .row {
+    margin: 0;
+}
+
+.container-fluid > .row > .col-md-9 {
+    padding: 0.625rem 0 0 1rem;
+}
+
+.container-fluid > .row > .col-md-3 {
+    text-align: center;
+}
+
 .custom-col {
     margin: 0 auto !important;
     padding: 0 0.3125rem !important;
@@ -268,14 +280,18 @@ footer {
 
 footer > div {
     float: right;
-    margin: 0 0.3125rem;
+    margin: 0 0.35rem;
     width: fit-content;
     line-height: 35px;
 }
 
 footer > div:not(:last-of-type) {
     float: left;
-    width: 90px;
+}
+
+footer > div:first-of-type {
+    width: fit-content;
+    margin-left: 0;
 }
 
 hr.style14 {
@@ -290,5 +306,11 @@ hr.style14 {
 @media only screen and (max-width: 1250px) {
     .container {
         border: none;
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    .container-fluid > .row > .col-md-3 {
+        display: none;
     }
 }

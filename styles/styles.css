@@ -310,6 +310,9 @@ hr.style14 {
 }
 
 @media only screen and (max-width: 960px) {
+    .container-fluid > .row > .col-md-9 {
+        padding-left: 0;
+    }
     .container-fluid > .row > .col-md-3 {
         display: none;
     }

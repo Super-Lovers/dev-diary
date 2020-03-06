@@ -294,6 +294,11 @@ footer > div:first-of-type {
     margin-left: 0;
 }
 
+footer > div:last-of-type {
+    width: fit-content;
+    margin: 0;
+}
+
 hr.style14 {
     border: 0;
     height: 1px;

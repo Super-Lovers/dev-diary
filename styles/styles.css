@@ -246,9 +246,9 @@ figcaption > h2 {
     margin-left: 0.3125rem;
 }
 
-.container-fluid:not(:first-child) {
+/* .container-fluid:not(:first-child) {
     padding: 0.625rem 0 !important;
-}
+} */
 
 .container-fluid > .row {
     margin: 0;

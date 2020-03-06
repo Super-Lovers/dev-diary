@@ -128,16 +128,16 @@ div > i {
     max-width: 340px !important;
 }
 
-.link>h6>b>em {
+.posts-container>div>a>h6>b>em {
     font-size: 0.85rem;
 }
 
-.link>h6>b>em>i {
+.posts-container>div>a>h6>b>em>i {
     font-size: 0.84rem;
     color: var(--link-color);
 }
 
-.link:last-of-type>h6 {
+.posts-container>div>a:last-of-type>h6 {
     margin: 0 0 1.25rem 0;
 }
 
@@ -320,5 +320,10 @@ hr.style14 {
     }
     .container-fluid > .row > .col-md-3 {
         display: none;
+    }
+    footer > div:last-of-type {
+        width: fit-content;
+        margin: 0;
+        font-size: .9rem;
     }
 }

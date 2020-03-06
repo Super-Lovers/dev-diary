@@ -1,13 +1,13 @@
 <div class="flex-container">
     <div class="flex-main">
-        <a href="../../../games-imgcompressed/ascii/take_back_the_seas/images/intro.png">
+        <a target="_blank" href="../../../games-imgcompressed/ascii/take_back_the_seas/images/intro.png">
             <img src="../../../games-imgcompressed/ascii/take_back_the_seas/images/intro.png" />
         </a>
     </div>
     <div class="flex-sidebar">
-        <a href="../../../games-imgcompressed/ascii/take_back_the_seas/images/sidebar_1.png">
+        <a target="_blank" href="../../../games-imgcompressed/ascii/take_back_the_seas/images/sidebar_1.png">
             <img src="../../../games-imgcompressed/ascii/take_back_the_seas/images/sidebar_1.png" />
-        </a><a href="../../../games-imgcompressed/ascii/take_back_the_seas/images/sidebar_2.png">
+        </a><a target="_blank" href="../../../games-imgcompressed/ascii/take_back_the_seas/images/sidebar_2.png">
             <img src="../../../games-imgcompressed/ascii/take_back_the_seas/images/sidebar_2.png" />
         </a>
     </div>

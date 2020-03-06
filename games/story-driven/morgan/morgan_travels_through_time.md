@@ -1,13 +1,13 @@
 <div class="flex-container">
     <div class="flex-main">
-        <a href="../../../games-imgcompressed/story-driven/morgan/intro.png">
+        <a target="_blank" href="../../../games-imgcompressed/story-driven/morgan/intro.png">
             <img src="../../../games-imgcompressed/story-driven/morgan/images/intro.png" />
         </a>
     </div>
     <div class="flex-sidebar">
-        <a href="../../../games-imgcompressed/story-driven/morgan/images/sidebar_1.png">
+        <a target="_blank" href="../../../games-imgcompressed/story-driven/morgan/images/sidebar_1.png">
             <img src="../../../games-imgcompressed/story-driven/morgan/images/sidebar_1.png" />
-        </a><a href="../../../games-imgcompressed/story-driven/morgan/images/sidebar_2.png">
+        </a><a target="_blank" href="../../../games-imgcompressed/story-driven/morgan/images/sidebar_2.png">
             <img src="../../../games-imgcompressed/story-driven/morgan/images/sidebar_2.png" />
         </a>
     </div>

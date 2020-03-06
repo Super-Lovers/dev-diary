@@ -43,14 +43,18 @@ $(document).ready(function () {
                     currentCount = 0;
                     currentPage++;
                 }
-                
+
                 currentCount++;
                 pages[currentPage].push(filteredGames[i]);
             }
 
             let newHtml = '<nav aria-label="Page navigation example"><ul class="pagination justify-content-center">';
             for (let i = 0; i < pages.length; i++) {
-                newHtml += '<li class="page-item"><button class="pageNumber">' + (i + 1) + '</button></li>';
+                if (i == 0) {
+                    newHtml += '<li class="page-item"><button class="pageNumber selectedPageNumber">' + (i + 1) + '</button></li>';
+                } else {
+                    newHtml += '<li class="page-item"><button class="pageNumber">' + (i + 1) + '</button></li>';
+                }
             }
             newHtml += '</ul></nav>';
             $('.games').append(newHtml);

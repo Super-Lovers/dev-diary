@@ -1,0 +1,12 @@
+/* TEAM */
+    Programmer: Nikolay Vaskov Ivanov
+
+/* THANKS */
+    Portrait Artist: Roger Recaldini
+    URL: https://www.artstation.com/wogew
+    Special thanks to Roger for giving me actionable feedback and advice
+    concerning the look, feel and design of the site.
+
+/* SITE */
+    Components: Bootstrap, highlight.js, jQuery, Node.js, Gulp.js
+    Software: My notebook, Visual Studio Code, FileZilla

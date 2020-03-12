@@ -236,10 +236,10 @@ for (let topicI = 0; topicI < topicsInstances.length; topicI++) {
                     const currentSrc = $(this).attr('src');
 
                     if (currentHref !== undefined && currentHref != false) {
-                        $(this).attr('href', '../../../../' + encodeURI(currentHref));
+                        $(this).attr('href', '../../../../' + encodeURI(decodeURI(currentHref)));
                     }
                     if (currentSrc !== undefined && currentSrc != false) {
-                        $(this).attr('src', '../../../../' + encodeURI(currentSrc));
+                        $(this).attr('src', '../../../../' + encodeURI(decodeURI(currentSrc)));
                     }
                 });
 
@@ -248,10 +248,10 @@ for (let topicI = 0; topicI < topicsInstances.length; topicI++) {
                     const currentSrc = $(this).attr('src');
 
                     if (currentHref !== undefined && currentHref != false) {
-                        $(this).attr('href', currentHref);
+                        $(this).attr('href', decodeURI(currentHref));
                     }
                     if (currentSrc !== undefined && currentSrc != false) {
-                        $(this).attr('src', currentSrc);
+                        $(this).attr('src', decodeURI(currentSrc));
                     }
                 });
 

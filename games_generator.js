@@ -65,7 +65,7 @@ fsExtra.readdirSync(path)
                             $favicon = $('.favicon');
                             const currentIconHref = $favicon.attr('href');
                             if (currentIconHref !== undefined) {
-                                $('.favicon').attr('href', '../../../' + encodeURI(currentIconHref.split(' ').join('%20')));
+                                $('.favicon').attr('href', '../../../' + decodeURI(currentIconHref));
                             }
 
                             $('.game').append('<div>' + postHtml + '</div>');

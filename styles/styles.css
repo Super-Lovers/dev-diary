@@ -108,14 +108,23 @@ a>i {
 }
 
 .card-body > .row > .col-1:nth-child(5) {
-    margin-top: -0.1875rem;
+    /* margin-top: -0.1875rem; */
+    position: relative;
 }
 
 .card-body > .row > .col-1:nth-child(5) > a {
-    transition: 0.2s;
+    display: block;
+    margin: 0 auto;
+    transition: .2s;
+    height: 13px;
+    width: 13px;
+    position: absolute;
+    top: 50%;
+    margin-top: -0.5rem;
 }
 
 .card-body > .row > .col-1:nth-child(5) > a > img {
+    vertical-align: top;
     width: 13px;
 }
 

@@ -9,16 +9,19 @@
 @font-face {
     src: url("../fonts/GoudyOldStyleRegular.woff2");
     font-family: "Goudy Old Style Regular";
+    font-display: swap;
 }
 
 @font-face {
     src: url("../fonts/PlayfairDisplay-Italic.woff2");
     font-family: "Playfair Display Italic";
+    font-display: swap;
 }
 
 @font-face {
     src: url("../fonts/EnvyCodeR.woff2");
     font-family: "Envy Code R";
+    font-display: swap;
 }
 
 :root {

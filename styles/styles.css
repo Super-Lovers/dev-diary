@@ -107,6 +107,13 @@ a>i {
     transition: 0.2s;
 }
 
+video {
+    height: 100%;
+    background-image: url(../images/niko_anim.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
 .card-body > .row > .col-1:nth-child(5) {
     /* margin-top: -0.1875rem; */
     position: relative;

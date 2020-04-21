@@ -296,9 +296,9 @@ figcaption > h2 {
     margin: 0;
 }
 
-.container-fluid > .row > .col-md-9,
+.container-fluid > .row > .col-md-12,
 .container-fluid > .row > .col-md-11 {
-    padding: 0.625rem 0 0 1rem;
+    padding: 0.625rem 0 0 0.5rem;
 }
 
 .container-fluid > .row > .col-md-3,

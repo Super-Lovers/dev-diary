@@ -277,7 +277,7 @@ for (let topicI = 0; topicI < topicsInstances.length; topicI++) {
                 });
 
                 let newText = $('h5').text() + '. <em style="font-size:15px;color:lightslategray;"></i><i class="fas fa-hourglass-half"></i> Read time: ' +
-                    estimateReadingTime(postHtml) + "m</em>.";
+                    estimateReadingTime(postHtml) + "m</em>";
 
                 $('h5').html(newText);
 

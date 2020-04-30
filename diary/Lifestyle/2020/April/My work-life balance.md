@@ -2,10 +2,10 @@
 
 ##### Uploaded on 24th April, 2020
 
-<figure class="figure">
+<!-- <figure class="figure">
   <img src="../../../../diary-imgcompressed/Lifestyle/2020/April/images/header.jpg" class="figure-img img-fluid rounded" alt="An image of a person looking out the window">
   <figcaption class="figure-caption">Image by <a href="https://pixabay.com/users/ArtTower-5337/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3204688">ArtTower</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3204688">Pixabay</a></figcaption>
-</figure>
+</figure> -->
 
 <span class="drop">S</span> ometimes I get asked how I spend my time at home when I am not at the university or at workplace. You read and hear a lot about work-life balance on the internet and it is an important factor for spending your time productively and improving your lifestyle. With the COVID-19 situation developing right now, I thought it fitting to share how I struggle and spend my time at home to find this balance.
 

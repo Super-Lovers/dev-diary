@@ -231,7 +231,8 @@ div > i {
 
 .fortune > div > img {
     margin: 0 auto;
-    width: 36px;
+    width: 44px;
+    height: 31px;
 }
 
 .fortune > div > p {

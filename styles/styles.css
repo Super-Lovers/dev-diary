@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 :root {
     --main-font: "Goudy Old Style Regular";
     --header-font: "Playfair Display Italic";
@@ -117,6 +124,8 @@ a {
 
 a>i {
     font-size: 0.83rem;
+    -webkit-transition: 0.2s;
+    -o-transition: 0.2s;
     transition: 0.2s;
 }
 
@@ -135,6 +144,8 @@ video {
 .card-body > .row > .col-1:nth-child(5) > a {
     display: block;
     margin: 0 auto;
+    -webkit-transition: .2s;
+    -o-transition: .2s;
     transition: .2s;
     height: 13px;
     width: 13px;
@@ -161,7 +172,8 @@ video {
     color: #0073B2;
 }
 .card-body > .row > .col-1:nth-child(5) > a:hover {
-    filter: sepia(100%) hue-rotate(300deg) contrast(130%);
+    -webkit-filter: sepia(100%) hue-rotate(300deg) contrast(130%);
+            filter: sepia(100%) hue-rotate(300deg) contrast(130%);
 }
 
 p>a {
@@ -179,6 +191,11 @@ div > i {
     max-width: 340px !important;
 }
 
+.aside > div {
+    margin: 0 auto;
+    max-width: 300px;
+}
+
 .posts-container>div>a>h6>b>em {
     font-size: 0.85rem;
 }
@@ -190,6 +207,37 @@ div > i {
 
 .posts-container>div>a:last-of-type>h6 {
     margin: 0 0 1.25rem 0;
+}
+
+.fortune {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 5px 10px;
+    /* border: 1px solid #E9ECEF; */
+}
+
+.fortune > div {
+    margin: 0;
+    padding: 0;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    text-align: center;
+}
+
+.fortune > div > img {
+    margin: 0 auto;
+    width: 36px;
+}
+
+.fortune > div > p {
+    margin: 0 0 0 5px;
+    padding: 0;
+    text-align: left;
 }
 
 ul {
@@ -221,12 +269,6 @@ ul {
     color: var(--link-color);
 }
 
-div.card-group,
-.posts-container {
-    max-width: 300px;
-    margin: 0 auto;
-}
-
 div.card-body {
     margin: 0.9375rem 0 -0.9375rem 0;
     padding: 0;
@@ -254,6 +296,8 @@ div.col-1 {
 }
 
 .portrait {
+    -webkit-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
     transition: 0.3s ease;
 }
 
@@ -278,7 +322,6 @@ figcaption > h2 {
 
 .img-fluid.no-shadows {
     -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 0px -0px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75);
     border-radius: 0;
 }
@@ -338,6 +381,8 @@ footer {
 footer > div {
     float: right;
     margin: 0 0.35rem;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     line-height: 35px;
 }
@@ -347,11 +392,15 @@ footer > div:not(:last-of-type) {
 }
 
 footer > div:first-of-type {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     margin-left: 0;
 }
 
 footer > div:last-of-type {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     margin: 0;
 }
@@ -381,8 +430,16 @@ hr.style14 {
         display: none;
     }
     footer > div:last-of-type {
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
         width: fit-content;
         margin: 0;
         font-size: .9rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .fortune > div:first-of-type {
+        margin: 0 0 5px 0;
     }
 }

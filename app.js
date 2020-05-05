@@ -209,8 +209,8 @@ for (let topicI = 0; topicI < topicsInstances.length; topicI++) {
                         archiveNode += '<li>' + domTree.children[topic].children[year].name;
                         archiveNode += '    <ul>';
                         for (let month = 0; month < domTree.children[topic].children[year].children.length; month++) {
-                            archiveNode += '<li>' + domTree.children[topic].children[year].children[month].name;
-                            archiveNode += '<ul>';
+                            // archiveNode += '<li>' + domTree.children[topic].children[year].children[month].name;
+                            // archiveNode += '<ul>';
                             for (let post = 0; post < domTree.children[topic].children[year].children[month].children.length; post++) {
                                 const postName = domTree.children[topic].children[year].children[month].children[post].name;
                                 if (postName.substring(postName.length - 2, postName.length) == "md") {
@@ -218,8 +218,8 @@ for (let topicI = 0; topicI < topicsInstances.length; topicI++) {
                                         domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + '.html"><b>' + domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + "</b></a>";
                                 }
                             }
-                            archiveNode += '</ul>';
-                            archiveNode += '    </li>';
+                            // archiveNode += '</ul>';
+                            // archiveNode += '    </li>';
                         }
                         archiveNode += '    </ul>';
                         archiveNode += '</li>';

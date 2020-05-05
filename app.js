@@ -4,8 +4,6 @@ let $ = require('jquery');
 const dirTree = require('directory-tree');
 const fsExtra = require('fs-extra');
 const voca = require('voca');
-const http = require('http');
-const https = require('https');
 
 const topicsString = [];
 const topicsInstances = [];

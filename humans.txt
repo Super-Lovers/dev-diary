@@ -9,4 +9,4 @@
 
 /* SITE */
     Components: Bootstrap, highlight.js, jQuery, Node.js, Gulp.js
-    Software: My notebook, Visual Studio Code, FileZilla
+    Software: My notebook, Visual Studio Code, FileZilla/WinSCP

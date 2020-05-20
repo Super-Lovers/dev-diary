@@ -15348,9 +15348,6 @@ I'm a peripheral visionary. I can see into the future, but just way off to the s
 It's hard for me to buy clothes, 'cause I'm not my size.
     -- Steven Wright
 %
-Small keyboards make for big mistakes.
-    -- Joe Gunn
-%
 The last refuge of the insomniac is a sense of superiority to the sleeping world.
     -- Leonard Cohen
 %
@@ -15441,4 +15438,72 @@ Girls are complicated. The instruction manual that comes with girls is 800 pages
 There is no material safety data sheet for astatine. If there were, it would just be the word "NO" scrawled over and over in charred blood.
     -- Randall Munroe, "What If?"
 %
-
+It is easier to know where you are going, if you know where you have been.
+    -- Eli Wallace
+%
+There comes a time where all men must bear the weight of their responsibility.
+    -- Takeshi Kido
+%
+You are only ever as strong as the people around you.
+    -- John Smith
+%
+Nothing you learn is useful if you cannot share it.
+    -- Ernest Littlefield
+%
+Nothing ventured, nothing gained.
+    -- Ernest Littlefield
+%
+Beauty is only skin deep.
+    -- Vala Mal Doran 
+%
+Silence is golden.
+    -- Daniel Jackson 
+%
+Good things come to those who wait.
+    -- Teal'c
+%
+Beggars can't be choosers.
+    -- Daniel Jackson
+%
+Better late than never.
+    -- Daniel Jackson
+%
+Look before you leap.
+    -- Daniel Jackson
+%
+The best things in life are free.
+    -- Cameron Mitchell
+%
+Jack of all trades, master of none.
+    -- Cameron Mitchell
+%
+Small keyboards make for big mistakes.
+    -- Joe Gunn
+%
+Indeed.
+    -- Teal'c
+%
+Life is too short.
+    -- Vala Mal Doran
+%
+The design is clearly Ancient.
+    -- Nicholas Rush
+%
+What I cannot create, I do not understand.
+    -- Richard Feynman
+%
+All our endings can be found in our beginnings.
+    -- Bedelia Du Maurier
+%
+Every person has an intrinsic responsibility for their own life.
+    -- Bedelia Du Maurier
+%
+Last time he sent me into a dark place, I brought something back.
+    -- Will Graham
+%
+This is my design.
+    -- Will Graham
+%
+When is the differences between the past and the present? Before you and after you.
+    -- Hannibal Lecter and Will Graham
+%

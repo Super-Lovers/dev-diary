@@ -221,6 +221,7 @@ div > i {
 }
 
 .fortune > div {
+    position: relative;
     margin: 0;
     padding: 0;
     height: -webkit-fit-content;
@@ -239,6 +240,14 @@ div > i {
     margin: 0 0 0 5px;
     padding: 0;
     text-align: left;
+}
+
+.fortune > div > i {
+    position: absolute;
+    top: -15px;
+    right: 0;
+    font-size: 54px;
+    opacity: 0.02;
 }
 
 ul {

@@ -15451,7 +15451,7 @@ Nothing you learn is useful if you cannot share it.
     -- Ernest Littlefield
 %
 Nothing ventured, nothing gained.
-    -- Ernest Littlefield
+    -- Samantha Carter
 %
 Beauty is only skin deep.
     -- Vala Mal Doran 
@@ -15515,4 +15515,10 @@ Everything in this world is magic...except to the magician.
 %
 These violent delights have violent ends.
     -- Romeo and Juliet
+%
+I understand loyalty to a person, not a cause.
+    -- Joe Blake
+%
+Nothing worth having comes easy.
+    -- Helen Smith
 %

@@ -110,6 +110,10 @@ h5 {
     fill: black !important;
 }
 
+.yearLabel > i {
+    color: var(--brand-color);
+}
+
 .drop {
     float: left;
     font-size: 3.8rem;

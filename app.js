@@ -206,7 +206,7 @@ for (let topicI = 0; topicI < topicsInstances.length; topicI++) {
                     archiveNode += '<li>' + domTree.children[topic].name;
                     archiveNode += '<ul>';
                     for (let year = 0; year < domTree.children[topic].children.length; year++) {
-                        archiveNode += '<li>' + domTree.children[topic].children[year].name;
+                        archiveNode += '<li class="year">' + '<span class="yearLabel"><i class="fas fa-caret-right"></i> ' + domTree.children[topic].children[year].name + "</span>";
                         archiveNode += '    <ul>';
                         for (let month = 0; month < domTree.children[topic].children[year].children.length; month++) {
                             // archiveNode += '<li>' + domTree.children[topic].children[year].children[month].name;
@@ -262,12 +262,16 @@ for (let topicI = 0; topicI < topicsInstances.length; topicI++) {
                 }
 
                 const date = new Date();
+                let hours = (date.getUTCHours() + 1);
+                let minutes = (date.getUTCMinutes() + 1);
+                let hoursString = hours > 9 ? hours : "0" + hours;
+                let minutesString = minutes > 9 ? minutes : "0" + minutes;
                 const dateString = "Last updated on " +
                     date.getUTCDate() + "/" +
                     (date.getUTCMonth() + 1) + "/" +
                     date.getUTCFullYear() + " " +
-                    (date.getUTCHours() + 1) + ":" +
-                    date.getUTCMinutes() + ", " +
+                    hoursString + ":" +
+                    minutesString + ", " +
                     Intl.DateTimeFormat().resolvedOptions().timeZone;
 
                 $('.update-status').text(dateString);

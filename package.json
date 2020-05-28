@@ -1,13 +1,21 @@
 {
-  "name": "Nikolay's developer diary and games",
+  "name": "dev-diary",
   "version": "1.0.0",
-  "description": "A personal blog for documenting personal development.",
+  "description": "A personal website for personal development.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Super-Lovers/dev-diary.git"
+  },
   "author": "Nikolay Vaskov Ivanov",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Super-Lovers/dev-diary/issues"
+  },
+  "homepage": "https://github.com/Super-Lovers/dev-diary#readme",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2",
     "bootstrap": "^4.3.1",

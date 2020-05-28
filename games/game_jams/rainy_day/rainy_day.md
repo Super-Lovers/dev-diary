@@ -13,8 +13,8 @@
     </div>
 </div>
 
-### Rainy Day
-##### desktop gamejam all
+# Rainy Day
+## desktop gamejam all
 
 <p class="description">Rainy day, a 'calm',  short point-and-click experience of coming home to three needy cats before retiring for the night. Rainy day was created for the TasJam LITE game jam. The theme was 'calm' which lead us to create a short point-and-click experience of coming home to 3 needy cats before retiring for the night. The game was developed over 3.5 days, including concepting & implementation.</p>
 ###### Credits

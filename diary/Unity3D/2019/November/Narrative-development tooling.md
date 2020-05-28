@@ -1,6 +1,6 @@
-### Narrative-development tooling
+# Narrative-development tooling
 
-##### Uploaded on 30th November, 2019
+## Uploaded on 30th November, 2019
 
 <span class="drop">A</span>fter having the pleasure of developing two story-based games in Unity3D, the challenges that I have faced consisted mostly of creating a user-friendly system to integrate the story of the game into its plot devices. In order to do this, together, with other people proved to be harder than I thought, especially given the fact we had to work in the same project.
 

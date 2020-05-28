@@ -140,14 +140,20 @@ for (let topic = 0; topic < topicsInstances.length; topic++) {
                         const converter = new showdown.Converter();
                         let postHtml = converter.makeHtml(postContents);
                         $ = cheerio.load(postHtml);
+                        $('.posts>div>h1').after('<h3>' + $('.posts>div>h1').text() + '</h3>').remove();
+                        $('.posts>div>h2').after('<h5>' + $('.posts>div>h2').text() + '</h5>').remove();
 
                         let postName = $('h3').text();
                         let postDate = $('h5').text().substring(12);
 
                         let postDay = postDate.substring(0, 2);
                         let postYear = postDate.substring(postDate.length - 4, postDate.length);
+                        postMonth = '';
 
-                        let postMonth = postDate.split(' ')[1].substring(0, postDate.split(' ')[1].length - 1);
+                        let dateComponents = postDate.split(' ');
+                        if (dateComponents.length > 1) {
+                            postMonth = postDate.split(' ')[1].substring(0, postDate.split(' ')[1].length - 1);
+                        }
 
                         postDate = new Date(postDay + ' ' + postMonth + ' ' + postYear + " EDT");
 
@@ -262,8 +268,8 @@ for (let topicI = 0; topicI < topicsInstances.length; topicI++) {
                 }
 
                 const date = new Date();
-                let hours = (date.getUTCHours() + 1);
-                let minutes = (date.getUTCMinutes() + 1);
+                let hours = (date.getHours());
+                let minutes = (date.getMinutes());
                 let hoursString = hours > 9 ? hours : "0" + hours;
                 let minutesString = minutes > 9 ? minutes : "0" + minutes;
                 const dateString = "Last updated on " +
@@ -279,6 +285,9 @@ for (let topicI = 0; topicI < topicsInstances.length; topicI++) {
                 $('pre').each(function (index) {
                     $(this).addClass('shadow-sm p-3 bg-light');
                 });
+                
+                $('.posts>div>h1').after('<h3>' + $('.posts>div>h1').text() + '</h3>').remove();
+                $('.posts>div>h2').after('<h5>' + $('.posts>div>h2').text() + '</h5>').remove();
 
                 let newText = $('h5').text() + '. <em style="font-size:15px;color:lightslategray;"></i><i class="fas fa-hourglass-half"></i> Read time: ' +
                     estimateReadingTime(postHtml) + "m</em>";

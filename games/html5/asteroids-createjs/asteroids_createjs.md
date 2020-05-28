@@ -13,11 +13,10 @@
     </div>
 </div>
 
-### Asteroids in CreateJS
-##### web all
+# Asteroids in CreateJS
+## web all
 
 <p class="description">Asteroids in CreateJS is a small arcade game that I recreated to learn how to use the CreateJS suite of tools such as EaselJS, PreloadJS, AudioJS and TweenJS. Development of the project was a little more than three days and sometimes It felt a bit like programming with PhaserJS. The game loop is simple to program and is a quick way learn, on a beginner level, how to use all CreateJS tools.</p>
-
 ###### Credits
 
 * Ship explosion: [https://opengameart.org/content/explosion-3](https://opengameart.org/content/explosion-3)

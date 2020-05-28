@@ -1,6 +1,6 @@
-### My work-life balance + during COVID-19
+# My work-life balance + during COVID-19
 
-##### Uploaded on 24th April, 2020
+## Uploaded on 24th April, 2020
 
 <!-- <figure class="figure">
   <img src="../../../../diary-imgcompressed/Lifestyle/2020/April/images/header.jpg" class="figure-img img-fluid rounded" alt="An image of a person looking out the window">

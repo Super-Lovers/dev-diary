@@ -13,11 +13,10 @@
     </div>
 </div>
 
-### Naughty Bobby
-##### desktop gamejam all
+# Naughty Bobby
+## desktop gamejam all
 
 <p class="description">Naughty Bobby was made for the Christmas Game Jam 2018 in two days. It is  about the story of a naughty boy named Bobby who goes on an adventure to defeat Santa for not giving him a present for this Christmas. </p>
-
 ###### Credits
 
 * Game Artist - Roger Recaldini

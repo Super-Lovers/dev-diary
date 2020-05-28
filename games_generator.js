@@ -70,18 +70,21 @@ fsExtra.readdirSync(path)
 
                             $('.game').append('<div>' + postHtml + '</div>');
 
-                            let tags = $('h5').text().split(' ');
+                            $('.game>div>h1').after('<h3>' + $('.game>div>h1').text() + '</h3>').remove();
+                            $('.game>div>h2').after('<h5>' + $('.game>div>h2').text() + '</h5>').remove();
 
-                            let tagsText = $('h5').text(); 
-                            $('h5').text('Tags: ' + tagsText.split(' ').join(', ').toUpperCase() + '.');
+                            let tags = $('.game>div>h5').text().split(' ');
+
+                            let tagsText = $('.game>div>h5').text(); 
+                            $('.game>div>h5').text('Tags: ' + tagsText.split(' ').join(', ').toUpperCase() + '.');
 
                             let newFilePath = filePath.substring(0, filePath.length - 3);
                             newFilePath += '.html';
                             fsExtra.writeFileSync(newFilePath, $.html());
                             
                             let game = new Game(
-                                $('h3').text(),
-                                $('.description').text(),
+                                $('.game>div>h3').text(),
+                                $('.game>div>.description').text(),
                                 tags,
                                 newFilePath,
                                 file.substring(0, file.length - 3)

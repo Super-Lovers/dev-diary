@@ -368,7 +368,7 @@ figcaption > h2 {
 
 .container-fluid > .row > .col-md-12,
 .container-fluid > .row > .col-md-11 {
-    padding: 0.625rem 0 0 0.5rem;
+    padding: 0 0 0 0.5rem;
 }
 
 .container-fluid > .row > .col-md-3,

@@ -4,7 +4,7 @@ for (let i = 0; i < yearItems.length; i++) {
     let item = yearItems[i];
     let itemIcon = item.firstChild;
 
-    if (i > 1) {
+    if (i > 2) {
         item.parentElement.lastChild.style.display = "none";
         itemIcon.classList.add("fa-caret-right");
         itemIcon.classList.remove("fa-caret-down");

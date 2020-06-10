@@ -97,6 +97,10 @@ h5 {
     margin: 0 0 1.25rem 0 !important;
 }
 
+.posts > div > p {
+    text-align: justify;
+}
+
 .posts > div > figure > figcaption > a {
     background-color: white !important;
 }

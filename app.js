@@ -143,8 +143,8 @@ for (let topic = 0; topic < topicsInstances.length; topic++) {
                         $('.posts>div>h1').after('<h3>' + $('.posts>div>h1').text() + '</h3>').remove();
                         $('.posts>div>h2').after('<h5>' + $('.posts>div>h2').text() + '</h5>').remove();
 
-                        let postName = $('h3').text();
-                        let postDate = $('h5').text().substring(12);
+                        let postName = $('h1').text();
+                        let postDate = $('h2').text().substring(12);
 
                         let postDay = postDate.substring(0, 2);
                         let postYear = postDate.substring(postDate.length - 4, postDate.length);

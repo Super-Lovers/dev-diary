@@ -5,13 +5,14 @@
 * Browsers: last 4 version
 */
 
+/* 
 :root {
     --main-font: "Goudy Old Style Regular";
     --header-font: "Playfair Display Italic";
     --code-font: "Envy Code R";
     --brand-color: #2f4f4f;
     --link-color: #708090;
-}
+} */
 
 @font-face {
     src: url("../fonts/GoudyOldStyleRegular.woff2");
@@ -37,7 +38,7 @@
 }
 
 * {
-    font-family: var(--main-font);
+    font-family: "Goudy Old Style Regular";
 }
 
 body {
@@ -54,13 +55,13 @@ pre {
 }
 
 code {
-    font-family: var(--code-font) !important;
+    font-family: "Envy Code R" !important;
     font-size: 0.84rem !important;
     background: none !important;
 }
 
 pre > code > span {
-    font-family: var(--code-font) !important;
+    font-family: "Envy Code R" !important;
     font-size: 0.84rem !important;
 }
 
@@ -68,8 +69,8 @@ h1,
 h2,
 h3,
 h4 {
-    font-family: var(--header-font);
-    color: var(--brand-color);
+    font-family: "Playfair Display Italic";
+    color: #2f4f4f;
 }
 
 h1 {
@@ -81,12 +82,12 @@ h1 > i {
 }
 
 p > i {
-    color: var(--brand-color);
+    color: #2f4f4f;
 }
 
 h5 {
     margin-bottom: 1.25rem !important;
-    color: var(--brand-color);
+    color: #2f4f4f;
 }
 
 .posts-container > div > a > h6 {
@@ -115,7 +116,7 @@ h5 {
 }
 
 .yearLabel > i {
-    color: var(--brand-color);
+    color: #2f4f4f;
 }
 
 .drop {
@@ -125,7 +126,7 @@ h5 {
 }
 
 a {
-    color: var(--link-color) !important;
+    color: #708090 !important;
     font-size: 0.9rem;
     letter-spacing: 0.5px;
 }
@@ -185,7 +186,7 @@ video {
 }
 
 p>a {
-    color: var(--link-color) !important;
+    color: #708090 !important;
     font-weight: bold;
 }
 
@@ -210,7 +211,7 @@ div > i {
 
 .posts-container>div>a>h6>b>em>i {
     font-size: 0.84rem;
-    color: var(--link-color);
+    color: #708090;
 }
 
 .posts-container>div>a:last-of-type>h6 {
@@ -277,14 +278,14 @@ ul {
 }
 
 .archive>li>i {
-    color: var(--link-color);
+    color: #708090;
 }
 
 .archive>li>ul>li>i,
 .archive>li>ul>li>ul>li>i,
 .archive>li>ul>li>ul>li>ul>li>i {
     margin: 0 0 0 0.4375rem;
-    color: var(--link-color);
+    color: #708090;
 }
 
 div.card-body {
@@ -324,7 +325,7 @@ div.col-1 {
 }
 
 .header > figure > figcaption {
-    background-color: var(--brand-color);
+    background-color: #2f4f4f;
     background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%23000000' fill-opacity='0.03'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");    
 }
 

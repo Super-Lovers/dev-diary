@@ -1,14 +1,14 @@
 <div class="flex-container">
     <div class="flex-main">
         <a target="_blank" href="../../../games-imgcompressed/html5/asteroids-createjs/intro.png">
-            <img src="../../../games-imgcompressed/html5/asteroids-createjs/images/intro.png" />
+            <img src="../../../games-imgcompressed/html5/asteroids-createjs/images/intro.png" alt="image of game"/>
         </a>
     </div>
     <div class="flex-sidebar">
         <a target="_blank" href="../../../games-imgcompressed/html5/asteroids-createjs/images/sidebar_1.png">
-            <img src="../../../games-imgcompressed/html5/asteroids-createjs/images/sidebar_1.png" />
+            <img src="../../../games-imgcompressed/html5/asteroids-createjs/images/sidebar_1.png" alt="image of game"/>
         </a><a target="_blank" href="../../../games-imgcompressed/html5/asteroids-createjs/images/sidebar_2.png">
-            <img src="../../../games-imgcompressed/html5/asteroids-createjs/images/sidebar_2.png" />
+            <img src="../../../games-imgcompressed/html5/asteroids-createjs/images/sidebar_2.png" alt="image of game"/>
         </a>
     </div>
 </div>

@@ -1,14 +1,14 @@
 <div class="flex-container">
     <div class="flex-main">
         <a target="_blank" href="../../../games-imgcompressed/game_jams/star_lens/images/intro.png">
-            <img src="../../../games-imgcompressed/game_jams/star_lens/images/intro.png" />
+            <img src="../../../games-imgcompressed/game_jams/star_lens/images/intro.png" alt="image of game"/>
         </a>
     </div>
     <div class="flex-sidebar">
         <a target="_blank" href="../../../games-imgcompressed/game_jams/star_lens/images/sidebar_1.png">
-            <img src="../../../games-imgcompressed/game_jams/star_lens/images/sidebar_1.png" />
+            <img src="../../../games-imgcompressed/game_jams/star_lens/images/sidebar_1.png" alt="image of game"/>
         </a><a target="_blank" href="../../../games-imgcompressed/game_jams/star_lens/images/sidebar_2.png">
-            <img src="../../../games-imgcompressed/game_jams/star_lens/images/sidebar_2.png" />
+            <img src="../../../games-imgcompressed/game_jams/star_lens/images/sidebar_2.png" alt="image of game"/>
         </a>
     </div>
 </div>

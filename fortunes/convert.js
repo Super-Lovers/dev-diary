@@ -6,7 +6,7 @@ let fortunes = {
     large: []
 };
 
-contents = contents.split('\n%\n');
+contents = contents.split('%');
 for (let i = 0; i < contents.length; i++) {
     let fortuneObj = {
         length: '',

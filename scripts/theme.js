@@ -80,7 +80,7 @@ function changeTheme() {
     }
 
     localStorage.setItem('currentTheme', currentTheme);
-    let code = '<h6><b><em><i class=\"fas fa-' + newIcon + '\"></i> ' + newText + '</em></b></h6>';
+    let code = '<h6><b><em><i class=\"fas fa-' + newIcon + '\"></i> ' + newText + ' <i></i></em></b></h6>';
 
     themeToggleButton.innerHTML = code;
 
@@ -100,7 +100,7 @@ function loadTheme() {
     }
 
     localStorage.setItem('currentTheme', currentTheme);
-    let code = '<h6><b><em><i class=\"fas fa-' + newIcon + '\"></i> ' + newText + '</em></b></h6>';
+    let code = '<h6><b><em><i class=\"fas fa-' + newIcon + '\"></i> ' + newText + ' <i></i></em></b></h6>';
 
     themeToggleButton.innerHTML = code;
 

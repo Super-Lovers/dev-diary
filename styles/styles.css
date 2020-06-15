@@ -157,20 +157,19 @@ video {
 }
 
 .card-body > .row > .col-1:nth-child(1) > a > i:hover {
-    color: black;
+    color: #EDC5AD !important;
 }
 .card-body > .row > .col-1:nth-child(2) > a > i:hover {
-    color: #0077B5;
+    color: #0077B5 !important;
 }
 .card-body > .row > .col-1:nth-child(3) > a > i:hover {
-    color: #FA5C5C;
+    color: #FA5C5C !important;
 }
 .card-body > .row > .col-1:nth-child(4) > a > i:hover {
-    color: #0073B2;
+    color: #0073B2 !important;
 }
-.card-body > .row > .col-1:nth-child(5) > a:hover {
-    -webkit-filter: sepia(100%) hue-rotate(300deg) contrast(130%);
-            filter: sepia(100%) hue-rotate(300deg) contrast(130%);
+.card-body > .row > .col-1:nth-child(5) > a > i:hover {
+    color: #a52a2a !important;
 }
 
 p>a {
@@ -200,6 +199,11 @@ div > i {
 .posts-container>div>a>h6>b>em>i {
     font-size: 0.84rem;
     color: #708090;
+}
+
+.posts-container>div>a>h6>b>em>i:last-of-type {
+    margin: 0 0 0 0.625rem;
+    opacity: 0.5;
 }
 
 .posts-container>div>a:last-of-type>h6 {

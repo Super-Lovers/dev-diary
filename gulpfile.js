@@ -16,14 +16,41 @@ gulp.task('minify-js', done => {
     .pipe(rename('portfolio.min.js'))
     .pipe(gulp.dest('./scripts/'));
 
-    gulp.src('./scripts/audio.js', {
-        allowEmpty: true
-      })
-      .pipe(minifyJs({
-        noSource: true
-      }))
-      .pipe(rename('audio.min.js'))
-      .pipe(gulp.dest('./scripts/'));
+  gulp.src('./scripts/audio.js', {
+      allowEmpty: true
+    })
+    .pipe(minifyJs({
+      noSource: true
+    }))
+    .pipe(rename('audio.min.js'))
+    .pipe(gulp.dest('./scripts/'));
+
+  gulp.src('./scripts/theme.js', {
+      allowEmpty: true
+    })
+    .pipe(minifyJs({
+      noSource: true
+    }))
+    .pipe(rename('theme.min.js'))
+    .pipe(gulp.dest('./scripts/'));
+
+  gulp.src('./scripts/fortune-cookie.js', {
+      allowEmpty: true
+    })
+    .pipe(minifyJs({
+      noSource: true
+    }))
+    .pipe(rename('fortune-cookie.min.js'))
+    .pipe(gulp.dest('./scripts/'));
+
+  gulp.src('./scripts/main.js', {
+      allowEmpty: true
+    })
+    .pipe(minifyJs({
+      noSource: true
+    }))
+    .pipe(rename('main.min.js'))
+    .pipe(gulp.dest('./scripts/'));
 
   done();
 });
@@ -137,7 +164,10 @@ gulp.task('watch', done => {
     './styles/portfolio_styles.css',
     './styles/game.css',
     './scripts/portfolio.js',
-    './scripts/audio.js'
+    './scripts/audio.js',
+    './scripts/theme.js',
+    './scripts/fortune-cookie.js',
+    './scripts/main.js',
   ], gulp.series('minify'));
 
   gulp.watch([

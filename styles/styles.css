@@ -125,8 +125,14 @@ h5 {
     margin: -1.25rem 0.3125rem -1.5625rem 0;
 }
 
-a {
-    color: #708090 !important;
+.card-body > .row > .col-1 > a {
+    color: #708090;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+li > a {
+    color: #708090;
     font-size: 0.9rem;
     letter-spacing: 0.5px;
 }
@@ -150,24 +156,6 @@ video {
     position: relative;
 }
 
-.card-body > .row > .col-1:nth-child(5) > a {
-    display: block;
-    margin: 0 auto;
-    -webkit-transition: .2s;
-    -o-transition: .2s;
-    transition: .2s;
-    height: 13px;
-    width: 13px;
-    position: absolute;
-    top: 50%;
-    margin-top: -0.5rem;
-}
-
-.card-body > .row > .col-1:nth-child(5) > a > img {
-    vertical-align: top;
-    width: 13px;
-}
-
 .card-body > .row > .col-1:nth-child(1) > a > i:hover {
     color: black;
 }
@@ -186,7 +174,7 @@ video {
 }
 
 p>a {
-    color: #708090 !important;
+    color: #708090;
     font-weight: bold;
 }
 

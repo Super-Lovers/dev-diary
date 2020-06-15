@@ -1,11 +1,3 @@
-:root {
-    --main-font: "Goudy Old Style Regular";
-    --header-font: "Playfair Display Italic";
-    --code-font: "Envy Code R";
-    --brand-color: #2f4f4f;
-    --link-color: #708090;
-}
-
 .jumbotron {
     height: 265px;
     box-shadow: 0 0 30px -23px rgba(0,0,0,0.35);
@@ -29,12 +21,17 @@ ul.pagination {
     color: #212529;
     text-transform: uppercase;
     font-size: 0.875rem;
-    border: 4px solid white !important;
+    border: 4px solid rgba(0, 0, 0, 0) !important;
     border-radius: 3px !important;
 }
 
-.btn-group > .btn:hover {
-    color: #212529 !important;
+a.btn {
+    transition: 0.2s;
+}
+
+.btn:hover {
+    transition: 0.2s;
+    opacity: 0.5;
 }
 
 .btn-group > .btn.selected {
@@ -48,12 +45,11 @@ ul.pagination {
 }
 
 .btn, .btn-light {
-    color: #212529 !important;
+    color: #212529;
     border: none !important;
 }
 
 .btn, .btn-light:active {
-    color: var(--brand-color) !important;
     border: none !important;
 }
 
@@ -67,12 +63,17 @@ ul.pagination {
     padding: 0.25rem 0.625rem;
     background: none;
     border: none;
-    color: var(--brand-color);
+    color: gray;
     border-bottom: 1px solid rgba(47, 79, 79, 0.3);
+    opacity: 0.4;
 }
 
+.pageNumber:hover {
+    opacity: 1;
+}
+ 
 .selectedPageNumber {
-    background: rgba(235, 235, 235, 0.8);
+    opacity: 1;
 }
 
 .games {
@@ -106,7 +107,7 @@ ul.pagination {
 	width: 35px;
 	height: 35px;
 	background: white;
-	color: var(--brand-color);
+	color: #2f4f4f;
 	border-radius: 50%;
 	vertical-align: middle;
 	font-size: 1.125rem;

@@ -283,7 +283,7 @@ for (let topicI = 0; topicI < topicsInstances.length; topicI++) {
                 $('.update-status').text(dateString);
 
                 $('pre').each(function (index) {
-                    $(this).addClass('shadow-sm p-3 bg-light');
+                    $(this).addClass('shadow-sm code-block');
                 });
                 
                 $('.posts>div>h1').after('<h3>' + $('.posts>div>h1').text() + '</h3>').remove();

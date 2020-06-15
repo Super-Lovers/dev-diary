@@ -120,7 +120,7 @@ for (let i = 0; i < games.length; i++) {
     newHtml += '">';
     newHtml +=      '<div class="card">';
 	
-    let platform = '<i class="fas fa-';
+    let platform = '<i class="platform-icon fas fa-';
     let platformTag = games[i].tags[0];
     
 	if (platformTag == "desktop") { platform += 'desktop'; }

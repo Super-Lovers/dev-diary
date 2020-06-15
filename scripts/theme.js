@@ -2,10 +2,9 @@ let themeToggleButton = document.getElementById('themeToggle');
 
 let currentTheme = localStorage.getItem('currentTheme');
 
-if (currentTheme == false) {
+if (currentTheme != true && currentTheme != "dark") {
     currentTheme = localStorage.setItem('currentTheme', 'light');
-} else {
-    loadTheme();
+    currentTheme = "light";
 }
 
 themeToggleButton.addEventListener('click', () => {
@@ -64,6 +63,8 @@ let dark_btn_background = "#181A1B";
 
 // ****************************************
 
+loadTheme();
+
 function changeTheme() {
     let newIcon;
     let newText;
@@ -102,6 +103,8 @@ function loadTheme() {
     let code = '<h6><b><em><i class=\"fas fa-' + newIcon + '\"></i> ' + newText + '</em></b></h6>';
 
     themeToggleButton.innerHTML = code;
+
+    updateVisuals();
 }
 
 function updateElementColorTo(element, color) {

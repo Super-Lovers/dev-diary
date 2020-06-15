@@ -114,6 +114,15 @@ function updateElementColorTo(element, color) {
     }
 }
 
+function toggleElementByClassName(element, toggle) {
+    let elements = document.getElementsByClassName(element)[0];
+    if (toggle) {
+        elements.style.display = "block";
+    } else {
+        elements.style.display = "none";
+    }
+}
+
 function updateElementBackgroundTo(element, background) {
     let elements = document.getElementsByTagName(element);
     for (let i = 0; i < elements.length; i++) {
@@ -144,6 +153,9 @@ function updateElementClassBackgroundImageTo(element, value) {
 
 function updateVisuals() {
     if (currentTheme == "dark") {
+        toggleElementByClassName("portrait", true);
+        toggleElementByClassName("portrait-video", false);
+
         updateElementColorTo('h1', dark_h1);
         updateElementColorTo('h3', dark_h3);
         updateElementColorTo('h4', dark_h4);
@@ -158,6 +170,7 @@ function updateVisuals() {
         updateElementColorTo('i', dark_icon);
 
         updateElementBackgroundTo('body', dark_background);
+
         updateElementClassBackgroundImageTo('style14', dark_hr);
 
         updateElementClassBackgroundTo('code-block', dark_pre);
@@ -174,6 +187,9 @@ function updateVisuals() {
         updateElementClassBackgroundTo('platform-icon', dark_background);
 
     } else if (currentTheme == "light") {
+        toggleElementByClassName("portrait", false);
+        toggleElementByClassName("portrait-video", true);
+
         updateElementColorTo('h1', light_h1);
         updateElementColorTo('h3', light_h3);
         updateElementColorTo('h4', light_h4);
@@ -188,6 +204,7 @@ function updateVisuals() {
         updateElementColorTo('i', light_icon);
 
         updateElementBackgroundTo('body', light_background);
+
         updateElementClassBackgroundImageTo('style14', light_hr);
 
         updateElementClassBackgroundTo('code-block', light_pre);

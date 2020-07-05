@@ -49,10 +49,10 @@ fsExtra.readdirSync(path)
                                 const currentSrc = $(this).attr('src');
 
                                 if (currentHref !== undefined && currentHref != false) {
-                                    $(this).attr('href', '../../../../' + encodeURI(currentHref));
+                                    $(this).attr('href', '../../../' + encodeURI(currentHref));
                                 }
                                 if (currentSrc !== undefined && currentSrc != false) {
-                                    $(this).attr('src', '../../../../' + encodeURI(currentSrc));
+                                    $(this).attr('src', '../../../' + encodeURI(currentSrc));
                                 }
                             });
 

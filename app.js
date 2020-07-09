@@ -146,7 +146,12 @@ for (let topic = 0; topic < topicsInstances.length; topic++) {
                         let postName = $('h1').text();
                         let postDate = $('h2').text().substring(12);
 
-                        let postDay = postDate.substring(0, 2);
+                        let postDay;
+                        if (postDate[1].match(/[a-z]/i)) {
+                            postDay = postDate.substring(0, 1);
+                        } else {
+                            postDay = postDate.substring(0, 2);
+                        }
                         let postYear = postDate.substring(postDate.length - 4, postDate.length);
                         postMonth = '';
 
@@ -154,7 +159,7 @@ for (let topic = 0; topic < topicsInstances.length; topic++) {
                         if (dateComponents.length > 1) {
                             postMonth = postDate.split(' ')[1].substring(0, postDate.split(' ')[1].length - 1);
                         }
-
+                        console.log(postDay + ', ' + postMonth + ',' + postYear);
                         postDate = new Date(postDay + ' ' + postMonth + ' ' + postYear + " EDT");
 
                         let newPost = new Post(file, postName, postDate);

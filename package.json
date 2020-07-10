@@ -24,6 +24,7 @@
   "devDependencies": {
     "cheerio": "^1.0.0-rc.3",
     "directory-tree": "^2.2.4",
+    "eslint": "^7.4.0",
     "fs-extra": "^8.1.0",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.2.0",

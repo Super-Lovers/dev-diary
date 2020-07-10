@@ -8,35 +8,35 @@ const voca = require('voca');
 const topicsString = [];
 const topicsInstances = [];
 let mostRecentPost;
-let postDates = [];
+const postDates = [];
 
 class Topic {
-    constructor(name) {
-        this.name = name;
-        this.years = [];
-    }
+	constructor(name) {
+		this.name = name;
+		this.years = [];
+	}
 }
 
 class Year {
-    constructor(name) {
-        this.name = name;
-        this.months = [];
-    }
+	constructor(name) {
+		this.name = name;
+		this.months = [];
+	}
 }
 
 class Month {
-    constructor(name) {
-        this.name = name;
-        this.posts = [];
-    }
+	constructor(name) {
+		this.name = name;
+		this.posts = [];
+	}
 }
 
 class Post {
-    constructor(name, title, date) {
-        this.name = name;
-        this.title = title;
-        this.date = date;
-    }
+	constructor(name, title, date) {
+		this.name = name;
+		this.title = title;
+		this.date = date;
+	}
 }
 
 const topicDirectories = [];
@@ -44,335 +44,334 @@ const yearDirectories = [];
 
 const path = './diary';
 fsExtra.readdirSync(path)
-    .forEach((file) => {
-        const filePath = path + '/' + file;
-        const fileStatus = fsExtra.statSync(filePath);
+	.forEach((file) => {
+		const filePath = path + '/' + file;
+		const fileStatus = fsExtra.statSync(filePath);
 
-        if (fileStatus.isDirectory()) {
-            topicDirectories.push(filePath);
+		if (fileStatus.isDirectory()) {
+			topicDirectories.push(filePath);
 
-            const topic = topicsString.includes(file);
-            if (topic == false) {
-                const newTopic = new Topic(file);
-                topicsInstances.push(newTopic);
+			const topic = topicsString.includes(file);
+			if (topic == false) {
+				const newTopic = new Topic(file);
+				topicsInstances.push(newTopic);
 
-                topicsString.push(file);
-            }
-        }
-    });
+				topicsString.push(file);
+			}
+		}
+	});
 
 topicsInstances.forEach((element) => {
-    fsExtra.readdirSync(path + '/' + element.name)
-        .forEach((file) => {
-            yearDirectories.push(element + '/' + file);
+	fsExtra.readdirSync(path + '/' + element.name)
+		.forEach((file) => {
+			yearDirectories.push(element + '/' + file);
 
-            for (let i = 0; i < topicsInstances.length; i++) {
-                if (topicsInstances[i].name == element.name) {
-                    const topic = topicsInstances[i];
-                    const newYear = new Year(file);
-                    if (!topic.years.includes(newYear)) {
-                        topic.years.push(newYear);
-                    }
-                }
-            }
-        });
+			for (let i = 0; i < topicsInstances.length; i++) {
+				if (topicsInstances[i].name == element.name) {
+					const topic = topicsInstances[i];
+					const newYear = new Year(file);
+					if (!topic.years.includes(newYear)) {
+						topic.years.push(newYear);
+					}
+				}
+			}
+		});
 });
 
 for (let i = 0; i < topicsInstances.length; i++) {
-    for (let j = 0; j < topicsInstances[i].years.length; j++) {
-        const pathToMonths = path + '/' + topicsInstances[i].name + '/' + topicsInstances[i].years[j].name;
-        fsExtra.readdirSync(pathToMonths)
-            .forEach(file => {
-                let topic;
-                for (let k = 0; k < topicsInstances.length; k++) {
-                    if (topicsInstances[k].name == topicsInstances[i].name) {
-                        topic = topicsInstances[k];
-                    }
-                }
+	for (let j = 0; j < topicsInstances[i].years.length; j++) {
+		const pathToMonths = path + '/' + topicsInstances[i].name + '/' + topicsInstances[i].years[j].name;
+		fsExtra.readdirSync(pathToMonths)
+			.forEach(file => {
+				let topic;
+				for (let k = 0; k < topicsInstances.length; k++) {
+					if (topicsInstances[k].name == topicsInstances[i].name) {
+						topic = topicsInstances[k];
+					}
+				}
 
-                let year;
-                for (let k = 0; k < topic.years.length; k++) {
-                    if (topic.years[k].name == topicsInstances[i].years[j].name) {
-                        year = topicsInstances[i].years[j];
-                    }
-                }
+				let year;
+				for (let k = 0; k < topic.years.length; k++) {
+					if (topic.years[k].name == topicsInstances[i].years[j].name) {
+						year = topicsInstances[i].years[j];
+					}
+				}
 
-                year.months.push(new Month(file));
-            });
-    }
+				year.months.push(new Month(file));
+			});
+	}
 }
 
 for (let topic = 0; topic < topicsInstances.length; topic++) {
-    for (let year = 0; year < topicsInstances[topic].years.length; year++) {
-        for (let month = 0; month < topicsInstances[topic].years[year].months.length; month++) {
-            const pathToPosts =
-                path + '/' +
-                topicsInstances[topic].name + '/' +
-                topicsInstances[topic].years[year].name + '/' +
-                topicsInstances[topic].years[year].months[month].name;
+	for (let year = 0; year < topicsInstances[topic].years.length; year++) {
+		for (let month = 0; month < topicsInstances[topic].years[year].months.length; month++) {
+			const pathToPosts =
+				path + '/' +
+				topicsInstances[topic].name + '/' +
+				topicsInstances[topic].years[year].name + '/' +
+				topicsInstances[topic].years[year].months[month].name;
 
-            fsExtra.readdirSync(pathToPosts)
-                .forEach(file => {
-                    if (file.substring(file.length - 2, file.length) == "md") {
-                        let newTopic;
-                        for (let i = 0; i < topicsInstances.length; i++) {
-                            if (topicsInstances[i].name == topicsInstances[topic].name) {
-                                newTopic = topicsInstances[i];
-                            }
-                        }
+			fsExtra.readdirSync(pathToPosts)
+				.forEach(file => {
+					if (file.substring(file.length - 2, file.length) == 'md') {
+						let newTopic;
+						for (let i = 0; i < topicsInstances.length; i++) {
+							if (topicsInstances[i].name == topicsInstances[topic].name) {
+								newTopic = topicsInstances[i];
+							}
+						}
 
-                        let newYear;
-                        for (let i = 0; i < newTopic.years.length; i++) {
-                            if (newTopic.years[i].name == topicsInstances[topic].years[year].name) {
-                                newYear = topicsInstances[topic].years[year];
-                            }
-                        }
+						let newYear;
+						for (let i = 0; i < newTopic.years.length; i++) {
+							if (newTopic.years[i].name == topicsInstances[topic].years[year].name) {
+								newYear = topicsInstances[topic].years[year];
+							}
+						}
 
-                        let newMonth;
-                        for (let i = 0; i < newYear.months.length; i++) {
-                            if (newYear.months[i].name == topicsInstances[topic].years[year].months[month].name) {
-                                newMonth = topicsInstances[topic].years[year].months[month];
-                            }
-                        }
+						let newMonth;
+						for (let i = 0; i < newYear.months.length; i++) {
+							if (newYear.months[i].name == topicsInstances[topic].years[year].months[month].name) {
+								newMonth = topicsInstances[topic].years[year].months[month];
+							}
+						}
 
-                        const postContents = fsExtra.readFileSync(pathToPosts + '/' + file, 'utf8');
+						const postContents = fsExtra.readFileSync(pathToPosts + '/' + file, 'utf8');
 
-                        const converter = new showdown.Converter();
-                        let postHtml = converter.makeHtml(postContents);
-                        $ = cheerio.load(postHtml);
-                        $('.posts>div>h1').after('<h3>' + $('.posts>div>h1').text() + '</h3>').remove();
-                        $('.posts>div>h2').after('<h5>' + $('.posts>div>h2').text() + '</h5>').remove();
+						const converter = new showdown.Converter();
+						const postHtml = converter.makeHtml(postContents);
+						$ = cheerio.load(postHtml);
+						$('.posts>div>h1').after('<h3>' + $('.posts>div>h1').text() + '</h3>').remove();
+						$('.posts>div>h2').after('<h5>' + $('.posts>div>h2').text() + '</h5>').remove();
 
-                        let postName = $('h1').text();
-                        let postDate = $('h2').text().substring(12);
+						const postName = $('h1').text();
+						let postDate = $('h2').text().substring(12);
 
-                        let postDay;
-                        if (postDate[1].match(/[a-z]/i)) {
-                            postDay = postDate.substring(0, 1);
-                        } else {
-                            postDay = postDate.substring(0, 2);
-                        }
-                        let postYear = postDate.substring(postDate.length - 4, postDate.length);
-                        postMonth = '';
+						let postDay;
+						if (postDate[1].match(/[a-z]/i)) {
+							postDay = postDate.substring(0, 1);
+						} else {
+							postDay = postDate.substring(0, 2);
+						}
+						const postYear = postDate.substring(postDate.length - 4, postDate.length);
+						let postMonth = '';
 
-                        let dateComponents = postDate.split(' ');
-                        if (dateComponents.length > 1) {
-                            postMonth = postDate.split(' ')[1].substring(0, postDate.split(' ')[1].length - 1);
-                        }
-                        console.log(postDay + ', ' + postMonth + ',' + postYear);
-                        postDate = new Date(postDay + ' ' + postMonth + ' ' + postYear + " EDT");
+						const dateComponents = postDate.split(' ');
+						if (dateComponents.length > 1) {
+							postMonth = postDate.split(' ')[1].substring(0, postDate.split(' ')[1].length - 1);
+						}
+						console.log(postDay + ', ' + postMonth + ',' + postYear);
+						postDate = new Date(postDay + ' ' + postMonth + ' ' + postYear + ' EDT');
 
-                        let newPost = new Post(file, postName, postDate);
+						const newPost = new Post(file, postName, postDate);
 
-                        postDates.push(postDate);
-                        newMonth.posts.push(newPost);
-                    }
-                });
-        }
-    }
+						postDates.push(postDate);
+						newMonth.posts.push(newPost);
+					}
+				});
+		}
+	}
 }
 
 // Finding the most recent post
 mostRecentPost = postDates[0];
 for (let i = 0; i < postDates.length; i++) {
-    if (postDates[i] > mostRecentPost) {
-        mostRecentPost = postDates[i];
-    }
+	if (postDates[i] > mostRecentPost) {
+		mostRecentPost = postDates[i];
+	}
 }
 
 for (let topicI = 0; topicI < topicsInstances.length; topicI++) {
-    const topic = topicsInstances[topicI];
+	const topic = topicsInstances[topicI];
 
-    if (fsExtra.exists('./dom/' + topic.name)) {
-        fsExtra.removeSync('./dom/' + topic.name);
-    }
-    fsExtra.mkdirSync('./dom/' + topic.name);
-    for (let yearI = 0; yearI < topic.years.length; yearI++) {
-        const year = topic.years[yearI];
-        fsExtra.mkdirSync('./dom/' + topic.name + '/' + year.name);
+	if (fsExtra.exists('./dom/' + topic.name)) {
+		fsExtra.removeSync('./dom/' + topic.name);
+	}
+	fsExtra.mkdirSync('./dom/' + topic.name);
+	for (let yearI = 0; yearI < topic.years.length; yearI++) {
+		const year = topic.years[yearI];
+		fsExtra.mkdirSync('./dom/' + topic.name + '/' + year.name);
 
-        for (let monthI = 0; monthI < year.months.length; monthI++) {
-            const month = year.months[monthI];
-            fsExtra.mkdirSync('./dom/' + topic.name + '/' + year.name + '/' + month.name);
-            for (let postJ = 0; postJ < month.posts.length; postJ++) {
-                const post = month.posts[postJ];
+		for (let monthI = 0; monthI < year.months.length; monthI++) {
+			const month = year.months[monthI];
+			fsExtra.mkdirSync('./dom/' + topic.name + '/' + year.name + '/' + month.name);
+			for (let postJ = 0; postJ < month.posts.length; postJ++) {
+				const post = month.posts[postJ];
 
-                const file = path + '/' + topic.name + '/' + year.name + '/' + month.name + '/' + post.name;
-                const postContents = fsExtra.readFileSync(file, 'utf8');
-                let contents = fsExtra.readFileSync('base.html', 'utf8');
+				const file = path + '/' + topic.name + '/' + year.name + '/' + month.name + '/' + post.name;
+				const postContents = fsExtra.readFileSync(file, 'utf8');
+				let contents = fsExtra.readFileSync('base.html', 'utf8');
 
-                const converter = new showdown.Converter();
-                let postHtml = converter.makeHtml(postContents);
-                $ = cheerio.load(contents);
+				const converter = new showdown.Converter();
+				const postHtml = converter.makeHtml(postContents);
+				$ = cheerio.load(contents);
 
-                const domTree = dirTree('./diary');
+				const domTree = dirTree('./diary');
 
-                let archiveNode = '';
+				let archiveNode = '';
 
-                for (let topic = 0; topic < domTree.children.length; topic++) {
-                    if (domTree.children.length <= 0) {
-                        continue;
-                    }
+				for (let topicList = 0; topicList < domTree.children.length; topicList++) {
+					if (domTree.children.length <= 0) {
+						continue;
+					}
 
-                    archiveNode += '<li>' + domTree.children[topic].name;
-                    archiveNode += '<ul>';
-                    for (let year = 0; year < domTree.children[topic].children.length; year++) {
-                        archiveNode += '<li class="year">' + '<span class="yearLabel"><i class="fas fa-caret-right"></i> ' + domTree.children[topic].children[year].name + "</span>";
-                        archiveNode += '    <ul>';
-                        for (let month = 0; month < domTree.children[topic].children[year].children.length; month++) {
-                            // archiveNode += '<li>' + domTree.children[topic].children[year].children[month].name;
-                            // archiveNode += '<ul>';
-                            for (let post = 0; post < domTree.children[topic].children[year].children[month].children.length; post++) {
-                                const postName = domTree.children[topic].children[year].children[month].children[post].name;
-                                if (postName.substring(postName.length - 2, postName.length) == "md") {
-                                    archiveNode += '    <li><i class="fas fa-align-left"></i> ' + '<a class="archive-link" href="' + '../../../../dom/' + domTree.children[topic].name + '/' + domTree.children[topic].children[year].name + '/' + domTree.children[topic].children[year].children[month].name + '/' +
-                                        domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + '.html"><b>' + domTree.children[topic].children[year].children[month].children[post].name.substring(0, domTree.children[topic].children[year].children[month].children[post].name.length - 3) + "</b></a>";
-                                }
-                            }
-                            // archiveNode += '</ul>';
-                            // archiveNode += '    </li>';
-                        }
-                        archiveNode += '    </ul>';
-                        archiveNode += '</li>';
-                    }
-                    archiveNode += '</ul>';
-                    archiveNode += '</li>';
-                }
+					archiveNode += '<li>' + domTree.children[topicList].name;
+					archiveNode += '<ul>';
+					for (let yearList = 0; yearList < domTree.children[topicList].children.length; yearList++) {
+						archiveNode += '<li class="year">' + '<span class="yearLabel"><i class="fas fa-caret-right"></i> ' + domTree.children[topicList].children[yearList].name + '</span>';
+						archiveNode += '    <ul>';
+						for (let monthList = 0; monthList < domTree.children[topicList].children[yearList].children.length; monthList++) {
+							// archiveNode += '<li>' + domTree.children[topicList].children[yearList].children[monthList].name;
+							// archiveNode += '<ul>';
+							for (let postList = 0; postList < domTree.children[topicList].children[yearList].children[monthList].children.length; postList++) {
+								const postName = domTree.children[topicList].children[yearList].children[monthList].children[postList].name;
+								if (postName.substring(postName.length - 2, postName.length) == 'md') {
+									archiveNode += '    <li><i class="fas fa-align-left"></i> ' + '<a class="archive-link" href="' + '../../../../dom/' + domTree.children[topicList].name + '/' + domTree.children[topicList].children[yearList].name + '/' + domTree.children[topicList].children[yearList].children[monthList].name + '/' +
+										domTree.children[topicList].children[yearList].children[monthList].children[postList].name.substring(0, domTree.children[topicList].children[yearList].children[monthList].children[postList].name.length - 3) + '.html"><b>' + domTree.children[topicList].children[yearList].children[monthList].children[postList].name.substring(0, domTree.children[topicList].children[yearList].children[monthList].children[postList].name.length - 3) + '</b></a>';
+								}
+							}
+							// archiveNode += '</ul>';
+							// archiveNode += '    </li>';
+						}
+						archiveNode += '    </ul>';
+						archiveNode += '</li>';
+					}
+					archiveNode += '</ul>';
+					archiveNode += '</li>';
+				}
 
-                $('.archive').append(archiveNode);
-                $('.posts').append('<div>' + postHtml + '</div>');
+				$('.archive').append(archiveNode);
+				$('.posts').append('<div>' + postHtml + '</div>');
 
-                $('.link').each(function (index) {
-                    const currentHref = $(this).attr('href');
-                    const currentSrc = $(this).attr('src');
+				$('.link').each(function() {
+					const currentHref = $(this).attr('href');
+					const currentSrc = $(this).attr('src');
 
-                    if (currentHref !== undefined && currentHref != false) {
-                        $(this).attr('href', '../../../../' + encodeURI(decodeURI(currentHref)));
-                    }
-                    if (currentSrc !== undefined && currentSrc != false) {
-                        $(this).attr('src', '../../../../' + encodeURI(decodeURI(currentSrc)));
-                    }
-                });
+					if (currentHref !== undefined && currentHref != false) {
+						$(this).attr('href', '../../../../' + encodeURI(decodeURI(currentHref)));
+					}
+					if (currentSrc !== undefined && currentSrc != false) {
+						$(this).attr('src', '../../../../' + encodeURI(decodeURI(currentSrc)));
+					}
+				});
 
-                $('.img-fluid').each(function (index) {
-                    const currentHref = $(this).attr('href');
-                    const currentSrc = $(this).attr('src');
+				$('.img-fluid').each(function() {
+					const currentHref = $(this).attr('href');
+					const currentSrc = $(this).attr('src');
 
-                    if (currentHref !== undefined && currentHref != false) {
-                        $(this).attr('href', decodeURI(currentHref));
-                    }
-                    if (currentSrc !== undefined && currentSrc != false) {
-                        $(this).attr('src', decodeURI(currentSrc));
-                    }
-                });
+					if (currentHref !== undefined && currentHref != false) {
+						$(this).attr('href', decodeURI(currentHref));
+					}
+					if (currentSrc !== undefined && currentSrc != false) {
+						$(this).attr('src', decodeURI(currentSrc));
+					}
+				});
 
-                $favicon = $('.favicon');
-                const currentIconHref = $favicon.attr('href');
-                if (currentIconHref !== undefined) {
-                    $('.favicon').attr('href', '../../../../' + encodeURI(currentIconHref));
-                }
+				const $favicon = $('.favicon');
+				const currentIconHref = $favicon.attr('href');
+				if (currentIconHref !== undefined) {
+					$('.favicon').attr('href', '../../../../' + encodeURI(currentIconHref));
+				}
 
-                const date = new Date();
-                let hours = (date.getHours());
-                let minutes = (date.getMinutes());
-                let hoursString = hours > 9 ? hours : "0" + hours;
-                let minutesString = minutes > 9 ? minutes : "0" + minutes;
-                const dateString = "Last updated on " +
-                    date.getUTCDate() + "/" +
-                    (date.getUTCMonth() + 1) + "/" +
-                    date.getUTCFullYear() + " " +
-                    hoursString + ":" +
-                    minutesString + ", " +
-                    Intl.DateTimeFormat().resolvedOptions().timeZone;
+				const date = new Date();
+				const hours = (date.getHours());
+				const minutes = (date.getMinutes());
+				const hoursString = hours > 9 ? hours : '0' + hours;
+				const minutesString = minutes > 9 ? minutes : '0' + minutes;
+				const dateString = 'Last updated on ' +
+					date.getUTCDate() + '/' +
+					(date.getUTCMonth() + 1) + '/' +
+					date.getUTCFullYear() + ' ' +
+					hoursString + ':' +
+					minutesString + ', ' +
+					Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-                $('.update-status').text(dateString);
+				$('.update-status').text(dateString);
 
-                $('pre').each(function (index) {
-                    $(this).addClass('shadow-sm code-block');
-                });
-                
-                $('.posts>div>h1').after('<h3>' + $('.posts>div>h1').text() + '</h3>').remove();
-                $('.posts>div>h2').after('<h5>' + $('.posts>div>h2').text() + '</h5>').remove();
+				$('pre').each(function() {
+					$(this).addClass('shadow-sm code-block');
+				});
 
-                let newText = $('h5').text() + '. <em style="font-size:15px;color:lightslategray;"></i><i class="fas fa-hourglass-half"></i> Read time: ' +
-                    estimateReadingTime(postHtml) + "m</em>";
+				$('.posts>div>h1').after('<h3>' + $('.posts>div>h1').text() + '</h3>').remove();
+				$('.posts>div>h2').after('<h5>' + $('.posts>div>h2').text() + '</h5>').remove();
 
-                $('h5').html(newText);
+				const newText = $('h5').text() + '. <em style="font-size:15px;color:lightslategray;"></i><i class="fas fa-hourglass-half"></i> Read time: ' +
+					estimateReadingTime(postHtml) + 'm</em>';
 
-                let postMain = $('main').html();
+				$('h5').html(newText);
 
-                fsExtra.writeFileSync(
-                    './dom/' + topic.name + '/' + year.name + '/' + month.name + '/' +
-                    post.name.substring(0, post.name.length - 3) + '.html', $.html());
+				const postMain = $('main').html();
 
-                // This section updates the index page
-                if (post.date == mostRecentPost) {
-                    contents = fsExtra.readFileSync('index.html', 'utf8');
+				fsExtra.writeFileSync(
+					'./dom/' + topic.name + '/' + year.name + '/' + month.name + '/' +
+					post.name.substring(0, post.name.length - 3) + '.html', $.html());
 
-                    $ = cheerio.load(contents);
+				// This section updates the index page
+				if (post.date == mostRecentPost) {
+					contents = fsExtra.readFileSync('index.html', 'utf8');
 
-                    $('.update-status').text(dateString);
-                    $('.archive').empty();
-                    $('.archive').append(archiveNode);
-                    $('main').empty().append(postMain);
+					$ = cheerio.load(contents);
 
-                    $('.img-fluid').each(function () {
-                        const currentHref = $(this).attr('href');
-                        const currentSrc = $(this).attr('src');
+					$('.update-status').text(dateString);
+					$('.archive').empty();
+					$('.archive').append(archiveNode);
+					$('main').empty().append(postMain);
 
-                        if (currentHref !== undefined && currentHref != false) {
-                            $(this).attr('href', encodeURI(currentHref));
-                        }
-                        if (currentSrc !== undefined && currentSrc != false) {
-                            $(this).attr('src', encodeURI(currentSrc));
-                        }
-                    });
+					$('.img-fluid').each(function() {
+						const currentHref = $(this).attr('href');
+						const currentSrc = $(this).attr('src');
 
-                    $('.archive-link').each(function () {
-                        let currentHref = $(this).attr('href');
+						if (currentHref !== undefined && currentHref != false) {
+							$(this).attr('href', encodeURI(currentHref));
+						}
+						if (currentSrc !== undefined && currentSrc != false) {
+							$(this).attr('src', encodeURI(currentSrc));
+						}
+					});
 
-                        $(this).attr('href', encodeURI(currentHref.substring(10, currentHref.length)));
-                    });
+					$('.archive-link').each(function() {
+						const currentHref = $(this).attr('href');
 
-                    fsExtra.writeFileSync('index.html', $.html());
+						$(this).attr('href', encodeURI(currentHref.substring(10, currentHref.length)));
+					});
 
-                    // This section updates the portfolio page
-                    contents = fsExtra.readFileSync('portfolio.html', 'utf8');
+					fsExtra.writeFileSync('index.html', $.html());
 
-                    $ = cheerio.load(contents);
+					// This section updates the portfolio page
+					contents = fsExtra.readFileSync('portfolio.html', 'utf8');
 
-                    $('.archive').empty();
-                    $('.archive').append(archiveNode);
+					$ = cheerio.load(contents);
 
-                    $('.archive-link').each(function () {
-                        let currentHref = $(this).attr('href');
+					$('.archive').empty();
+					$('.archive').append(archiveNode);
 
-                        $(this).attr('href', encodeURI(currentHref.substring(10, currentHref.length)));
-                    });
+					$('.archive-link').each(function() {
+						const currentHref = $(this).attr('href');
 
-                    fsExtra.writeFileSync('portfolio.html', $.html());
+						$(this).attr('href', encodeURI(currentHref.substring(10, currentHref.length)));
+					});
 
-                    // This section updates the game base page
-                    contents = fsExtra.readFileSync('game_base.html', 'utf8');
+					fsExtra.writeFileSync('portfolio.html', $.html());
 
-                    $ = cheerio.load(contents);
+					// This section updates the game base page
+					contents = fsExtra.readFileSync('game_base.html', 'utf8');
 
-                    $('.archive').empty();
-                    $('.archive').append(archiveNode);
+					$ = cheerio.load(contents);
 
-                    fsExtra.writeFileSync('game_base.html', $.html());
-                }
-            }
-        }
-    }
+					$('.archive').empty();
+					$('.archive').append(archiveNode);
+
+					fsExtra.writeFileSync('game_base.html', $.html());
+				}
+			}
+		}
+	}
 }
 
 function estimateReadingTime(fileText) {
-    wpm = 100;
-    wordLength = 5;
+	const wpm = 100;
 
-    let newFileText = voca.stripTags(fileText);
-    let wordcount = voca.countWords(newFileText);
-    let result = Math.ceil(wordcount / wpm);
-    return result;
+	const newFileText = voca.stripTags(fileText);
+	const wordcount = voca.countWords(newFileText);
+	const result = Math.ceil(wordcount / wpm);
+	return result;
 }

@@ -159,7 +159,6 @@ for (let topic = 0; topic < topicsInstances.length; topic++) {
 						if (dateComponents.length > 1) {
 							postMonth = postDate.split(' ')[1].substring(0, postDate.split(' ')[1].length - 1);
 						}
-						console.log(postDay + ', ' + postMonth + ',' + postYear);
 						postDate = new Date(postDay + ' ' + postMonth + ' ' + postYear + ' EDT');
 
 						const newPost = new Post(file, postName, postDate);

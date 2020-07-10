@@ -2,9 +2,7 @@
 
 ## Uploaded on 10th July, 2020
 
-<span class="drop">D</span>eveloping with ElectronJs to me isn't much different from making a web application, but that probably had to do with my currently basic understanding of it.
-
-Looking at some [project ideas](https://github.com/florinpop17/app-ideas) to tackle, I decided to make something with Electron since many popular platforms are developed with it and I became really curious. I made two easy applications, one called Pomodoro, which I now actively use, and another called this-or-that, inspired from the North American LCS show.
+<span class="drop">D</span>eveloping with ElectronJs to me isn't much different from making a web application, but that probably had to do with my currently basic understanding of it. Looking at some [project ideas](https://github.com/florinpop17/app-ideas) to tackle, I decided to make something with Electron since many popular platforms are developed with it and I became really curious. I made two easy applications, one called Pomodoro, which I now actively use, and another called this-or-that, inspired from the North American LCS show.
 
 <img class="img-fluid" src="../../../../diary-imgcompressed/Node.js/2020/July/images/thisorthatSlide.png" alt="A picture of how a this or that slide can be created">
 

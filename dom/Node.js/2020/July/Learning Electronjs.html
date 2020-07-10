@@ -139,92 +139,91 @@
 
                 <main class="container-fluid posts">
 
-                <div><h3>Creating a discord bot</h3>
-<h5>Uploaded on 9th July, 2020. <em style="font-size:15px;color:lightslategray;"><i class="fas fa-hourglass-half"></i> Read time: 7m</em></h5>
-<p><span class="drop">M</span>y friend Kris and I wanted to make a <i class="fab fa-discord"></i> discord bot to log our cycling activity and share it with other people. I&apos;ve had some experience with making a discord bot in the past when discord was riding in popularity. There is a dot NET wrapper to developing it, but I decided to go with the JavaScript alternative, being Discord.js since the documentation was more detailed.</p>
-<p>The first thing I did was hooking the bot to a MongoDB instance in a cluster I had for free in order to store the logs of cycling activity there. I also used a second collection for storing each user&apos;s activity so that I can easily work with the bot when multiple people are communicating with it, otherwise I risk mixing their data or the bot&apos;s state up. I use MongoDB Compass to interact with the instance while developing with it, since a console or a webpage is not as convenient:</p>
-<p><img class="img-fluid" src="../../../../diary-imgcompressed/Node.js/2020/July/images/mongoCompass.png" alt="A picture of mongoDB compass&apos;s interface"></p>
-<p>Before I start connecting with the instance, I make sure that I don&apos;t already have a connection going and after that the main function of the bot is initiated:</p>
-<pre class="shadow-sm code-block"><code class="javascript language-javascript">if (db === undefined) {
-    await clientMongo.connect(async () =&gt; {
-        db = clientMongo.db(&apos;cycling-bot&apos;);
-        main(message, command);
-    });
-} else {
-    main(message, command);
+                <div><h3>Learning ElectronJS</h3>
+<h5>Uploaded on 10th July, 2020. <em style="font-size:15px;color:lightslategray;"><i class="fas fa-hourglass-half"></i> Read time: 8m</em></h5>
+<p><span class="drop">D</span>eveloping with ElectronJs to me isn&apos;t much different from making a web application, but that probably had to do with my currently basic understanding of it.</p>
+<p>Looking at some <a href="https://github.com/florinpop17/app-ideas">project ideas</a> to tackle, I decided to make something with Electron since many popular platforms are developed with it and I became really curious. I made two easy applications, one called Pomodoro, which I now actively use, and another called this-or-that, inspired from the North American LCS show.</p>
+<p><img class="img-fluid" src="../../../../diary-imgcompressed/Node.js/2020/July/images/thisorthatSlide.png" alt="A picture of how a this or that slide can be created"></p>
+<p>This or that uses a MongoDB instance, as it is a bit more complicated and has to store sessions for different users, so that they can join or not depending on if there is a password for that room. The password string uses a SHA512 algorithm to be encrypted.</p>
+<pre class="shadow-sm code-block"><code class="json language-json">{
+    // This is a room instance in MongoDB
+    &quot;name&quot;: &quot;Cats or dogs?&quot;,
+    &quot;password&quot;: &quot;ee26b0dd4af7e749aa1a8ee3c10ae9923f6...&quot;,
+    &quot;slides&quot;: [{
+        &quot;title&quot;: &quot;Slide title&quot;,
+        &quot;thisImg&quot;: &quot;http://placekitten.com/300/200&quot;,
+        &quot;thisText&quot;: &quot;&quot;,
+        &quot;thatImg&quot;: &quot;http://placedog.net/300/200&quot;,
+        &quot;thatText&quot;: &quot;&quot;,
+        &quot;html&quot;: &quot;&quot;
 }
 </code></pre>
-<p>Now that we are connected, we can start work. From my understanding, a simple bot only needs to work with one or two callbacks. Discord.js did so with the &quot;message&quot; callback and all my bot&apos;s implementation resides in it, aside from connecting to APIs. I access the callback&apos;s output, which is the user&apos;s message and its metadata and work with just that. After that, I have to breakdown the message of the user into separate parts to find out what command he gave the bot, if any, and the arguments it might have:</p>
-<pre class="shadow-sm code-block"><code class="javascript language-javascript">clientDiscord.on(&apos;message&apos;, async (message) =&gt; {
-    if (message.author.bot == true) {   // message.author and message.content
-        return;                         // are the most important properties
-    }
+<p><img class="img-fluid" src="../../../../diary-imgcompressed/Node.js/2020/July/images/thisorthatRooms.png" alt="A picture of how a this or that slide can be created"></p>
+<p>With Electron, it was easy to use the library and create a functional, cross-platform prototype. The two main parts about creating an Electron application is using the life-cycle callbacks and assigning scripts to individual browser windows. If other modules are necessary for your application, you enable them separately or include them in your scripts:</p>
+<pre class="shadow-sm code-block"><code class="javascript language-javascript">function createWindow() {
+    mainWindow = new BrowserWindow({
+        width: 450,
+        height: 450,
+        useContentSize: true,
+        icon: &apos;./favicon/favicon-32x32.png&apos;,
+        webPreferences: {
+            nodeIntegration: true
+        },
+    });
 
-    // Extracts the command part of the message
-    // *****************
-    let command = &apos;&apos;;
-    for (let i = 0; i &lt; message.content.length; i++) {
-        if (i == message.content.length ||
-            message.content[i] == &apos; &apos;) {
-            break;
-        }
+    setupWindow();
 
-        command += message.content[i];
-    }
+    // this is the markup file which will be rendered
+    // on this browser window.
+    mainWindow.loadFile(&apos;./index.html&apos;);                                    
+}
+
+// here I configure how the browser window will be
+// displayed after instantiated
+function setupWindow() {
+    mainWindow.resizable = false;
+    mainWindow.autoHideMenuBar = true;
+    mainWindow.setMenuBarVisibility(false);
+    mainWindow.center();
+}
+</code></pre>
+<p>For a Pomodoro clock application, I mostly worked with the tray and notification modules, since it&apos;s basically a glorified countdown. Electron gives you convenient access to create notifications and a tray icon with hover functionality, although the tray icon does not work perfectly in Linux and for me could not run without crashing.</p>
+<pre class="shadow-sm code-block"><code class="javascript language-javascript">// Creating tray instance and setting the app icon
+tray = new Tray(&apos;./favicon/favicon-32x32.png&apos;);
+   ...
+
+const trayMessage = `${currentCycle.title} - ${isTimerPaused ? &apos;Paused&apos; : &apos;Active&apos;} \n${timer.innerText}`;
+
+// This message will then be displayed once you
+// hover over the tray icon
+ipc.send(&apos;updateTrayTimer&apos;, trayMessage);
+
+// And this is how you send a notification
+// to the operating system
+new Notification(&apos;Pomodoro&apos;, {
+    body: currentCycle.title + &apos; has passed.&apos;,
+    icon: &apos;images/tomato.png&apos;
 });
 </code></pre>
-<p>There is also the instance where you have to breakdown strings in the command message as they can be used as arguments for accessing specific sessions by title or name. That makes them harder to extract than just numbers one after the other:</p>
-<pre class="shadow-sm code-block"><code class="javascript language-javascript">/**
- * Returns an object of items from inside a complex
- * command that includes strings and numbers.
- */
-function getCommandBreakdown(message) {
-    let indexOfFirstQuote = 0;
-    let indexOfLastQuote = 0;
+<p><img class="img-fluid" src="../../../../diary-imgcompressed/Node.js/2020/July/images/pomodoroNotification.png" alt="A picture of how a notification looks like"></p>
+<p>The application simply loops between pre-defined cycles of work and breaks. Once a cycle completed, the user is notified and the next one begins and so on until the last cycle finishes the session.</p>
+<pre class="shadow-sm code-block"><code class="javascript language-javascript">const classicCycles = [
+    new Cycle(&apos;1st Work Cycle&apos;, &apos;&lt;b&gt;&lt;u&gt;1st&lt;/u&gt;&lt;/b&gt; Work Cycle&apos;, 0),
+    new Cycle(&apos;Break - 1st Work Cycle&apos;, &apos;&lt;b&gt;&lt;u&gt;Break&lt;/u&gt;&lt;/b&gt; - 1st Work Cycle&apos;, 5),
+    new Cycle(&apos;2nd Work Cycle&apos;, &apos;&lt;b&gt;&lt;u&gt;2nd&lt;/u&gt;&lt;/b&gt; Work Cycle&apos;, 25),
+    new Cycle(&apos;Break - 2nd Work Cycle&apos;, &apos;&lt;b&gt;&lt;u&gt;Break&lt;/u&gt;&lt;/b&gt; - 2nd Work Cycle&apos;, 5),
+    new Cycle(&apos;3rd Work Cycle&apos;, &apos;&lt;b&gt;&lt;u&gt;3rd&lt;/u&gt;&lt;/b&gt; Work Cycle&apos;, 25),
+    new Cycle(&apos;Break - 3rd Work Cycle&apos;, &apos;&lt;b&gt;&lt;u&gt;Break&lt;/u&gt;&lt;/b&gt; - 3rd Work Cycle&apos;, 5),
+    new Cycle(&apos;4th Work Cycle&apos;, &apos;&lt;b&gt;&lt;u&gt;4th&lt;/u&gt;&lt;/b&gt; Work Cycle&apos;, 25),
+    new Cycle(&apos;Long Break&apos;, &apos;Long Break&apos;, 30),
+];
 
-    let isFirstQuoteFound = false;
-
-    const messageText = message.content;
-    for (let i = 0; i &lt; messageText.length; i++) {
-        if (messageText[i] == &apos;&quot;&apos; &amp;&amp; isFirstQuoteFound == false) {
-            indexOfFirstQuote = i;
-            isFirstQuoteFound = true;
-        }
-
-        if (messageText[i] == &apos;&quot;&apos; &amp;&amp; isFirstQuoteFound == true) {
-            indexOfLastQuote = i;
-        }
-    }
-
-    const commandArguments = (messageText.substring(0, indexOfFirstQuote - 1) + messageText.substring(indexOfLastQuote + 1, messageText.length)).split(&apos; &apos;);
-
-    const sessionTitle = messageText.substring(indexOfFirstQuote, indexOfLastQuote + 1);
-
-    return {
-        commandArguments,
-        sessionTitle,
-        indexOfFirstQuote,
-        indexOfLastQuote
-    };
-}
+const deepFocusCycles = [
+    new Cycle(&apos;1st Work Cycle&apos;, &apos;&lt;b&gt;&lt;u&gt;1st&lt;/u&gt;&lt;/b&gt; Work Cycle&apos;, 90),
+    new Cycle(&apos;Long Break&apos;, &apos;Long Break&apos;, 30),
+];
 </code></pre>
-<p><img class="img-fluid" src="../../../../diary-imgcompressed/Node.js/2020/July/images/getSession.png" alt="A picture of mongoDB compass&apos;s interface"></p>
-<p>This code, however, only work with one string in a command, as more than that was not necessary for me to implement to complete the bot&apos;s purpose. Once I had the command and its arguments, It was just a matter of implementing each of the commands&apos; functionality. Here is an example of how I made session deletion:</p>
-<pre class="shadow-sm code-block"><code class="javascript language-javascript">if (command == &apos;$deleteSession&apos;) {
-    const commandBreakdown = getCommandBreakdown(message);
-    const result = await sessions.deleteOne({
-        &apos;title&apos;: {
-            $eq: commandBreakdown.sessionTitle
-        }
-    });
-
-    if (result.deletedCount &gt; 0) {
-        message.reply(&apos; **&apos; + commandBreakdown.sessionTitle + &apos;**&apos; + &apos; was successfully removed &#x2705;&apos;);
-    }
-}
-</code></pre>
-<p><img class="img-fluid" src="../../../../diary-imgcompressed/Node.js/2020/July/images/deleteSession.png" alt="A picture of mongoDB compass&apos;s interface"></p>
-<p>And of course, it is important that you give feedback to the user whether or not his command was carried out!</p></div></main>
+<p><img class="img-fluid" src="../../../../diary-imgcompressed/Node.js/2020/July/images/pomodoro.png" alt="A picture of the pomodoro application&apos;s interface"></p></div></main>
                 <hr class="style14">
                 <footer>
                     <div>

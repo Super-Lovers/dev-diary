@@ -89,6 +89,16 @@ h5 {
     margin-bottom: 1.25rem !important;
     color: #2f4f4f;
 }
+.img-border {
+    border: 1px solid #ccc;
+}
+
+blockquote {
+    margin: 5px 0 5px 30px !important;
+    border-left: 2px solid lightgray;
+    padding-left: 20px;
+    padding-right: 40px;
+}
 
 .posts-container > div > a > h6 {
     margin-bottom: 0.1875rem;

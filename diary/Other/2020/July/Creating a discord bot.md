@@ -6,7 +6,7 @@
 
 The first thing I did was hooking the bot to a MongoDB instance in a cluster I had for free in order to store the logs of cycling activity there. I also used a second collection for storing each user's activity so that I can easily work with the bot when multiple people are communicating with it, otherwise I risk mixing their data or the bot's state up. I use MongoDB Compass to interact with the instance while developing with it, since a console or a webpage is not as convenient:
 
-<img class="img-fluid" src="../../../../diary-imgcompressed/Node.js/2020/July/images/mongoCompass.png" alt="A picture of mongoDB compass's interface">
+<img class="img-fluid" src="../../../../diary-imgcompressed/Web/2020/July/images/mongoCompass.png" alt="A picture of mongoDB compass's interface">
 
 Before I start connecting with the instance, I make sure that I don't already have a connection going and after that the main function of the bot is initiated:
 
@@ -81,7 +81,7 @@ function getCommandBreakdown(message) {
 }
 ````
 
-<img class="img-fluid" src="../../../../diary-imgcompressed/Node.js/2020/July/images/getSession.png" alt="A picture of mongoDB compass's interface">
+<img class="img-fluid" src="../../../../diary-imgcompressed/Web/2020/July/images/getSession.png" alt="A picture of mongoDB compass's interface">
 
 This code, however, only work with one string in a command, as more than that was not necessary for me to implement to complete the bot's purpose. Once I had the command and its arguments, It was just a matter of implementing each of the commands' functionality. Here is an example of how I made session deletion:
 
@@ -100,6 +100,6 @@ if (command == '$deleteSession') {
 }
 ````
 
-<img class="img-fluid" src="../../../../diary-imgcompressed/Node.js/2020/July/images/deleteSession.png" alt="A picture of mongoDB compass's interface">
+<img class="img-fluid" src="../../../../diary-imgcompressed/Web/2020/July/images/deleteSession.png" alt="A picture of mongoDB compass's interface">
 
 And of course, it is important that you give feedback to the user whether or not his command was carried out!

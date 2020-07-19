@@ -139,30 +139,45 @@
 
                 <main class="container-fluid posts">
 
-                <div><h3>Narrative-development tooling</h3>
-<h5>Uploaded on 30th November, 2019. <em style="font-size:15px;color:lightslategray;"><i class="fas fa-hourglass-half"></i> Read time: 5m</em></h5>
-<p><span class="drop">A</span>fter having the pleasure of developing two story-based games in Unity3D, the challenges that I have faced consisted mostly of creating a user-friendly system to integrate the story of the game into its plot devices. In order to do this, together, with other people proved to be harder than I thought, especially given the fact we had to work in the same project.</p>
-<p>Collaboration and tweaking in any story-based game would likely require that the narrative writers tweak things a lot, so even in a VCS environment, it will become very chaotic when we have to work within the same scene files. A Unity3D package I found that lets you write for multiple languages in a structured manner is Polyglot. Using Google excel sheets, it was easier to adapt the storyline in the second game I started developing: Fish Soup. By extracting the STRING_ID of the excel sheet, I was able to start constructing both a quest line and dialogue structure for plot actors.</p>
-<p><img class="img-fluid" src="../../../../diary-imgcompressed/Unity3D/2019/November/images/quest-line.png" alt="An excelsheet table describing rows of dialogue for different languages indexed by a string id."></p>
-<p>By working on the story externally, we were able to separate our workflows without causing conflicts within the project. The quests and their objectives, as well as the individual dialogue of plot actors can be extracted easily by using this excel document. By downloading it as TSV or CSV and converting it to JSON, you can then use Litjson to convert it to a JSON data object and access every quest and objective to create as your class object hierarchy:</p>
-<pre class="shadow-sm code-block"><code class="c# language-c#">    string polyglotFile = 
-        Resources.Load&lt;TextAsset&gt;(&quot;Polyglot Story/PolyglotStoryline&quot;).text;
+                <div><h3>Online wallpaper creation tool</h3>
+<h5>Uploaded on 19th July, 2020. <em style="font-size:15px;color:lightslategray;"><i class="fas fa-hourglass-half"></i> Read time: 6m</em></h5>
+<p><span class="drop">W</span>hile I was looking for a cool new sleek wallpaper and after browsing like a quadrillion number of pixels I noticed that there is a lot of wallpapers of some random cute or funny code in them. I thought, wait, I wanna make my own wallpaper with my own shit code I wrote, for the giggles. Realizing I would have to push the boundaries of what is possible to create a wallpaper using an image editor and watch YouTube videos or read some book, I decided to make a tool that you can just plug your code in and play around with it.</p>
+<p><img class="img-fluid" src="../../../../diary-imgcompressed/Web/2020/July/images/wallpapers-app/ui.png" alt="A picture showing how the interface of the wallpaper creator application looks like"></p>
+<blockquote>
+  <p>&quot;This application lets you create a wallpaper based on code you give it and by manipulating different parameters that change how the text and background looks. You can pick from all sorts of themes and fonts for your code and tweak the wallpaper until you&apos;re satisfied.&quot;</p>
+  <p>-- <cite>From the <a href="https://github.com/Super-Lovers/wallpaper-code-generator/">Github page</a></cite></p>
+</blockquote>
+<p>Thanks to a few sources related to styling programming environments by changing fonts and themes, I tried to bring them all together into this application, to make the idea of creating wallpapers with code in them flexible and efficient. It is really just a long list of themes and fonts into a file each that you can choose from. The application works by using your entire screen which your browser currently occupies as a canvas for creating your wallpaper. If you want to make the wallpaper for a different screen if you have multiple of them, you just move the window to the other screen and the code will be re-positioned accordingly. The page of the app encourages you to use full-screen because you would be able to see clearly how the code looks, otherwise the browser&apos;s navigation UI and the operating system&apos;s UI will make it look like something is off. You can see the actual wallpaper behind the interface just by hovering over it, the focus will shift:</p>
+<p><img class="img-fluid" src="../../../../diary-imgcompressed/Web/2020/July/images/wallpapers-app/focus.gif" alt="An animated picture showing how focus between panels in the app shifts depending on where you hover with the mouse"></p>
+<p>I really don&apos;t know why anything like this didn&apos;t exist until now lol, or maybe I couldn&apos;t find anything like it. Unfortunately, I spent most of my time creating a wallpaper using profound fortunes and quotes, since I have a liking to them:</p>
+<p><img class="img-fluid img-border" src="../../../../diary-imgcompressed/Web/2020/July/images/wallpapers-app/wallpaper-one.png" alt="An example of a wallpaper"></p>
+<p>I used html2canvas in order to capture the DOM element that contains the wallpaper&apos;s content. Basically theres two divs, one for the interface and one for the wallpaper. The Interface allows you to manipulate the content inside the wallpaper div or itself. When the user is done with designing a wallpaper, he clicks the download button and an image is generated:</p>
+<pre class="shadow-sm code-block"><code class="javascript language-javascript">downloadButton.addEventListener(&apos;click&apos;, () =&gt; {
+    wallpaper.style.opacity = focusedValue;
 
-    JsonData polyglotTojsonData = JsonMapper.ToObject(polyglotFile);
+    html2canvas(wallpaper, {
+        width: window.screen.width,
+        height: window.screen.height,
+    })
+        .then(canvas =&gt; {
+            document.body.appendChild(canvas);
+        })
+        .then(() =&gt; {
+            const canvas = document.getElementsByTagName(&apos;canvas&apos;)[0];
+            canvas.style.display = &apos;none&apos;;
+            const image = canvas.toDataURL(&apos;image/png&apos;);
+
+            const a = document.createElement(&apos;a&apos;);
+            a.setAttribute(&apos;download&apos;, &apos;wallpaper.png&apos;);
+            a.setAttribute(&apos;href&apos;, image);
+            a.click();
+            canvas.remove();
+
+            wallpaper.style.opacity = notFocusedValue;
+        });
+});
 </code></pre>
-<p>And you can then loop through every quest STRING_ID to create the class object hierarchy based on the entries in that JSON file.</p>
-<pre class="shadow-sm code-block"><code class="json language-json">{
-      &quot;STRING ID&quot;: &quot;QUEST_1_OBJECTIVE_1&quot;,
-      &quot;DESCRIPTION&quot;: &quot;&quot;,
-      &quot;ENGLISH&quot;: &quot;I&apos;m sorry, I didn&apos;t know. He told me you were in the past&quot;,
-      &quot;FRENCH / FRAN&#xC7;AIS&quot;: &quot;&quot;,
-      &quot;SPANISH / ESPA&#xD1;OL&quot;: &quot;&quot;,
-      &quot;GERMAN / DEUTSCH&quot;: &quot;&quot;,
-      &quot;ITALIAN / ITALIANO&quot;: &quot;&quot;
-      ...
-}
-</code></pre>
-<p>In the same manner you set-up the questline, you can build a Unity editor tool that would let you auto-complete the desired dialogue line from the JSON by taking the set STRING_ID to said dialogue box and updating its text field to match the current language of the settings of a ScriptableObject or file for the game.</p></div></main>
+<p>&#x2026; and voila! You have a wallpaper.</p></div></main>
                 <hr class="style14">
                 <footer>
                     <div>

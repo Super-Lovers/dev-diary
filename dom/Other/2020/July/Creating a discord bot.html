@@ -139,30 +139,92 @@
 
                 <main class="container-fluid posts">
 
-                <div><h3>Narrative-development tooling</h3>
-<h5>Uploaded on 30th November, 2019. <em style="font-size:15px;color:lightslategray;"><i class="fas fa-hourglass-half"></i> Read time: 5m</em></h5>
-<p><span class="drop">A</span>fter having the pleasure of developing two story-based games in Unity3D, the challenges that I have faced consisted mostly of creating a user-friendly system to integrate the story of the game into its plot devices. In order to do this, together, with other people proved to be harder than I thought, especially given the fact we had to work in the same project.</p>
-<p>Collaboration and tweaking in any story-based game would likely require that the narrative writers tweak things a lot, so even in a VCS environment, it will become very chaotic when we have to work within the same scene files. A Unity3D package I found that lets you write for multiple languages in a structured manner is Polyglot. Using Google excel sheets, it was easier to adapt the storyline in the second game I started developing: Fish Soup. By extracting the STRING_ID of the excel sheet, I was able to start constructing both a quest line and dialogue structure for plot actors.</p>
-<p><img class="img-fluid" src="../../../../diary-imgcompressed/Unity3D/2019/November/images/quest-line.png" alt="An excelsheet table describing rows of dialogue for different languages indexed by a string id."></p>
-<p>By working on the story externally, we were able to separate our workflows without causing conflicts within the project. The quests and their objectives, as well as the individual dialogue of plot actors can be extracted easily by using this excel document. By downloading it as TSV or CSV and converting it to JSON, you can then use Litjson to convert it to a JSON data object and access every quest and objective to create as your class object hierarchy:</p>
-<pre class="shadow-sm code-block"><code class="c# language-c#">    string polyglotFile = 
-        Resources.Load&lt;TextAsset&gt;(&quot;Polyglot Story/PolyglotStoryline&quot;).text;
-
-    JsonData polyglotTojsonData = JsonMapper.ToObject(polyglotFile);
-</code></pre>
-<p>And you can then loop through every quest STRING_ID to create the class object hierarchy based on the entries in that JSON file.</p>
-<pre class="shadow-sm code-block"><code class="json language-json">{
-      &quot;STRING ID&quot;: &quot;QUEST_1_OBJECTIVE_1&quot;,
-      &quot;DESCRIPTION&quot;: &quot;&quot;,
-      &quot;ENGLISH&quot;: &quot;I&apos;m sorry, I didn&apos;t know. He told me you were in the past&quot;,
-      &quot;FRENCH / FRAN&#xC7;AIS&quot;: &quot;&quot;,
-      &quot;SPANISH / ESPA&#xD1;OL&quot;: &quot;&quot;,
-      &quot;GERMAN / DEUTSCH&quot;: &quot;&quot;,
-      &quot;ITALIAN / ITALIANO&quot;: &quot;&quot;
-      ...
+                <div><h3>Creating a discord bot</h3>
+<h5>Uploaded on 9th July, 2020. <em style="font-size:15px;color:lightslategray;"><i class="fas fa-hourglass-half"></i> Read time: 7m</em></h5>
+<p><span class="drop">M</span>y friend Kris and I wanted to make a <i class="fab fa-discord"></i> discord bot to log our cycling activity and share it with other people. I&apos;ve had some experience with making a discord bot in the past when discord was riding in popularity. There is a dot NET wrapper to developing it, but I decided to go with the JavaScript alternative, being Discord.js since the documentation was more detailed.</p>
+<p>The first thing I did was hooking the bot to a MongoDB instance in a cluster I had for free in order to store the logs of cycling activity there. I also used a second collection for storing each user&apos;s activity so that I can easily work with the bot when multiple people are communicating with it, otherwise I risk mixing their data or the bot&apos;s state up. I use MongoDB Compass to interact with the instance while developing with it, since a console or a webpage is not as convenient:</p>
+<p><img class="img-fluid" src="../../../../diary-imgcompressed/Web/2020/July/images/mongoCompass.png" alt="A picture of mongoDB compass&apos;s interface"></p>
+<p>Before I start connecting with the instance, I make sure that I don&apos;t already have a connection going and after that the main function of the bot is initiated:</p>
+<pre class="shadow-sm code-block"><code class="javascript language-javascript">if (db === undefined) {
+    await clientMongo.connect(async () =&gt; {
+        db = clientMongo.db(&apos;cycling-bot&apos;);
+        main(message, command);
+    });
+} else {
+    main(message, command);
 }
 </code></pre>
-<p>In the same manner you set-up the questline, you can build a Unity editor tool that would let you auto-complete the desired dialogue line from the JSON by taking the set STRING_ID to said dialogue box and updating its text field to match the current language of the settings of a ScriptableObject or file for the game.</p></div></main>
+<p>Now that we are connected, we can start work. From my understanding, a simple bot only needs to work with one or two callbacks. Discord.js did so with the &quot;message&quot; callback and all my bot&apos;s implementation resides in it, aside from connecting to APIs. I access the callback&apos;s output, which is the user&apos;s message and its metadata and work with just that. After that, I have to breakdown the message of the user into separate parts to find out what command he gave the bot, if any, and the arguments it might have:</p>
+<pre class="shadow-sm code-block"><code class="javascript language-javascript">clientDiscord.on(&apos;message&apos;, async (message) =&gt; {
+    if (message.author.bot == true) {   // message.author and message.content
+        return;                         // are the most important properties
+    }
+
+    // Extracts the command part of the message
+    // *****************
+    let command = &apos;&apos;;
+    for (let i = 0; i &lt; message.content.length; i++) {
+        if (i == message.content.length ||
+            message.content[i] == &apos; &apos;) {
+            break;
+        }
+
+        command += message.content[i];
+    }
+});
+</code></pre>
+<p>There is also the instance where you have to breakdown strings in the command message as they can be used as arguments for accessing specific sessions by title or name. That makes them harder to extract than just numbers one after the other:</p>
+<pre class="shadow-sm code-block"><code class="javascript language-javascript">/**
+ * Returns an object of items from inside a complex
+ * command that includes strings and numbers.
+ */
+function getCommandBreakdown(message) {
+    let indexOfFirstQuote = 0;
+    let indexOfLastQuote = 0;
+
+    let isFirstQuoteFound = false;
+
+    const messageText = message.content;
+    for (let i = 0; i &lt; messageText.length; i++) {
+        if (messageText[i] == &apos;&quot;&apos; &amp;&amp; isFirstQuoteFound == false) {
+            indexOfFirstQuote = i;
+            isFirstQuoteFound = true;
+        }
+
+        if (messageText[i] == &apos;&quot;&apos; &amp;&amp; isFirstQuoteFound == true) {
+            indexOfLastQuote = i;
+        }
+    }
+
+    const commandArguments = (messageText.substring(0, indexOfFirstQuote - 1) + messageText.substring(indexOfLastQuote + 1, messageText.length)).split(&apos; &apos;);
+
+    const sessionTitle = messageText.substring(indexOfFirstQuote, indexOfLastQuote + 1);
+
+    return {
+        commandArguments,
+        sessionTitle,
+        indexOfFirstQuote,
+        indexOfLastQuote
+    };
+}
+</code></pre>
+<p><img class="img-fluid" src="../../../../diary-imgcompressed/Web/2020/July/images/getSession.png" alt="A picture of mongoDB compass&apos;s interface"></p>
+<p>This code, however, only work with one string in a command, as more than that was not necessary for me to implement to complete the bot&apos;s purpose. Once I had the command and its arguments, It was just a matter of implementing each of the commands&apos; functionality. Here is an example of how I made session deletion:</p>
+<pre class="shadow-sm code-block"><code class="javascript language-javascript">if (command == &apos;$deleteSession&apos;) {
+    const commandBreakdown = getCommandBreakdown(message);
+    const result = await sessions.deleteOne({
+        &apos;title&apos;: {
+            $eq: commandBreakdown.sessionTitle
+        }
+    });
+
+    if (result.deletedCount &gt; 0) {
+        message.reply(&apos; **&apos; + commandBreakdown.sessionTitle + &apos;**&apos; + &apos; was successfully removed &#x2705;&apos;);
+    }
+}
+</code></pre>
+<p><img class="img-fluid" src="../../../../diary-imgcompressed/Web/2020/July/images/deleteSession.png" alt="A picture of mongoDB compass&apos;s interface"></p>
+<p>And of course, it is important that you give feedback to the user whether or not his command was carried out!</p></div></main>
                 <hr class="style14">
                 <footer>
                     <div>

@@ -4,7 +4,7 @@
 
 <span class="drop">D</span>eveloping with ElectronJs to me isn't much different from making a web application, but that probably had to do with my currently basic understanding of it. Looking at some [project ideas](https://github.com/florinpop17/app-ideas) to tackle, I decided to make something with Electron since many popular platforms are developed with it and I became really curious. I made two easy applications, one called Pomodoro, which I now actively use, and another called this-or-that, inspired from the North American LCS show.
 
-<img class="img-fluid" src="../../../../diary-imgcompressed/Node.js/2020/July/images/thisorthatSlide.png" alt="A picture of how a this or that slide can be created">
+<img class="img-fluid" src="../../../../diary-imgcompressed/Web/2020/July/images/thisorthatSlide.png" alt="A picture of how a this or that slide can be created">
 
 This or that uses a MongoDB instance, as it is a bit more complicated and has to store sessions for different users, so that they can join or not depending on if there is a password for that room. The password string uses a SHA512 algorithm to be encrypted.
 
@@ -23,7 +23,7 @@ This or that uses a MongoDB instance, as it is a bit more complicated and has to
 }
 ````
 
-<img class="img-fluid" src="../../../../diary-imgcompressed/Node.js/2020/July/images/thisorthatRooms.png" alt="A picture of how a this or that slide can be created">
+<img class="img-fluid" src="../../../../diary-imgcompressed/Web/2020/July/images/thisorthatRooms.png" alt="A picture of how a this or that slide can be created">
 
 With Electron, it was easy to use the library and create a functional, cross-platform prototype. The two main parts about creating an Electron application is using the life-cycle callbacks and assigning scripts to individual browser windows. If other modules are necessary for your application, you enable them separately or include them in your scripts:
 
@@ -77,7 +77,7 @@ new Notification('Pomodoro', {
 });
 ````
 
-<img class="img-fluid" src="../../../../diary-imgcompressed/Node.js/2020/July/images/pomodoroNotification.png" alt="A picture of how a notification looks like">
+<img class="img-fluid" src="../../../../diary-imgcompressed/Web/2020/July/images/pomodoroNotification.png" alt="A picture of how a notification looks like">
 
 The application simply loops between pre-defined cycles of work and breaks. Once a cycle completed, the user is notified and the next one begins and so on until the last cycle finishes the session.
 
@@ -100,4 +100,4 @@ const deepFocusCycles = [
 ];
 `````
 
-<img class="img-fluid" src="../../../../diary-imgcompressed/Node.js/2020/July/images/pomodoro.png" alt="A picture of the pomodoro application's interface">
+<img class="img-fluid" src="../../../../diary-imgcompressed/Web/2020/July/images/pomodoro.png" alt="A picture of the pomodoro application's interface">

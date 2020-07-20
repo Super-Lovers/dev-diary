@@ -17,6 +17,7 @@ h5 {
 
 .game {
     margin-top: -0.25rem;
+    text-align: justify;
 }
 
 .game > div > h6 {

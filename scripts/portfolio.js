@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-$(document).ready(() => {
+$(document).ready(function() {
 	const games = $('.game');
 	const btns = $('.btn');
 
@@ -11,7 +11,7 @@ $(document).ready(() => {
 		$('.games > .row').children().eq(i).hide();
 	}
 
-	$('.btn-group > .btn').on('click', () => {
+	$('.btn-group > .btn').on('click', function() {
 		for (let j = 0; j < btns.length; j++) {
 			$(btns[j]).removeClass('selected');
 		}
@@ -62,7 +62,7 @@ $(document).ready(() => {
 
 			loadPage(0);
 
-			$('.pageNumber').on('click', () => {
+			$('.pageNumber').on('click', function() {
 				const newPageNumber = $(this).text() - 1;
 				for (let i = 0; i < $('.page-item>button').length; i++) {
 					$($('.page-item>button')[i]).removeClass('selectedPageNumber');

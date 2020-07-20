@@ -163,6 +163,10 @@ video {
     background-size: auto;
 }
 
+.card-body > p {
+    text-align: justify;
+}
+
 .card-body > .row > .col-1:nth-child(5) {
     /* margin-top: -0.1875rem; */
     position: relative;
@@ -365,6 +369,7 @@ figcaption > h2 {
 
 .container-fluid>p {
     margin-left: 0.3125rem;
+    text-align: justify;
 }
 
 /* .container-fluid:not(:first-child) {

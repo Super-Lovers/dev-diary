@@ -98,6 +98,8 @@ blockquote {
     border-left: 2px solid lightgray;
     padding-left: 20px;
     padding-right: 40px;
+    border-radius: 4px;
+    text-align: justify;
 }
 
 .posts-container > div > a > h6 {

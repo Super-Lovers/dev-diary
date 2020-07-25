@@ -330,6 +330,7 @@ div.col-1 {
 
 .header > figure {
     height: 274px;
+    background: rgba(0, 0, 0, 0) !important;
 }
 
 .header > figure > figcaption {

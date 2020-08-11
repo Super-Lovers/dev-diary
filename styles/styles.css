@@ -400,6 +400,11 @@ main {
     min-height: 400px;
 }
 
+.centered-img {
+    margin: 20px 0;
+    text-align: center;
+}
+
 footer {
     margin: 0 0 0.9375rem 0;
     display: inline-block;

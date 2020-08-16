@@ -15,6 +15,7 @@
 
 # Booblazor
 ## desktop gamejam all
+<span class="github-link">Game Page: <a href="https://github.com/Super-Lovers/boobjam-submission-2020">https://github.com/Super-Lovers/boobjam-submission-2020</a></span>
 
 <p class="description">BoobLazor was created for the 42 hour 2020 boob jam meant to support the prevention of breast cancer. You play as a robot injected into the breast of a patient with the goal of destroying the cancer cells using a lazer gun before they replicate and manifest it. The game was further developped completed after the initial 42 hours since I wanted to create the game in Love2D, with which I had no prior experience and I was learning in the go.</p>
 ###### Controls

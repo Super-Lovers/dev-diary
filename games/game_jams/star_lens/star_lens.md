@@ -15,6 +15,7 @@
 
 # Star Lens
 ## desktop gamejam sci-fi all
+<span class="github-link">Game Page: <a href="https://back-body-hurts.itch.io/space-lens-cgj-2019-entry">https://back-body-hurts.itch.io/space-lens-cgj-2019-entry</a></span>
 
 <p class="description">Star Lens is a game in which, due to a malfunction, you wake up from your stasis chamber a thousand years later than you were meant to. Your space ship has drifted far, far away from home and once you discover how critical your situation has become over the past years, you begin to search in stars to find a way back to Earth.</p>
 ###### Controls

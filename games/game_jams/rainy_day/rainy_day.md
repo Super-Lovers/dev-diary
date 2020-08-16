@@ -15,6 +15,7 @@
 
 # Rainy Day
 ## desktop gamejam all
+<span class="github-link">Game Page: <a href="https://back-body-hurts.itch.io/rainy-day">https://back-body-hurts.itch.io/rainy-day</a></span>
 
 <p class="description">Rainy day, a 'calm',  short point-and-click experience of coming home to three needy cats before retiring for the night. Rainy day was created for the TasJam LITE game jam. The theme was 'calm' which lead us to create a short point-and-click experience of coming home to 3 needy cats before retiring for the night. The game was developed over 3.5 days, including concepting & implementation.</p>
 ###### Credits

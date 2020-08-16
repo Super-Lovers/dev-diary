@@ -15,6 +15,7 @@
 
 # Cosmic Relay
 ## web all twine2
+<span class="github-link">Game Page: <a href="https://back-body-hurts.itch.io/cosmic-relay">https://back-body-hurts.itch.io/cosmic-relay</a></span>
 
 <p class="description">A short interactive pick your path game created for the I Can't Write But Want To Tell A Story Jam of 2020.
 

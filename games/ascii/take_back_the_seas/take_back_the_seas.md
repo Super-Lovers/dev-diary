@@ -16,6 +16,7 @@
 
 # Take Back the Seas
 ## desktop ascii all
+<span class="github-link">Game Page: <a href="https://back-body-hurts.itch.io/take-back-the-seas">https://back-body-hurts.itch.io/take-back-the-seas</a></span>
 
 <p class="description">Experience being in control of a naval fleet of two ships. Managing its crew, weapons and various parameters that make it stay afloat. Battle sea creatures such as kraken, octopods, isopods and so on! The game gives a lot of breathing room and the opportunity to explore different areas of the world in between combat. The combat itself is passive, as you manages a fleet and its potential combat capability, instead of the dictating how the battle is taking place. </p>
 ###### Controls

@@ -271,17 +271,15 @@ for (let topicI = 0; topicI < topicsInstances.length; topicI++) {
 					$('.favicon').attr('href', '../../../../' + encodeURI(currentIconHref));
 				}
 
-				const date = new Date();
+				const date = new Date(Date.now());
 				const hours = (date.getHours());
 				const minutes = (date.getMinutes());
-				const hoursString = hours > 9 ? hours : '0' + hours;
-				const minutesString = minutes > 9 ? minutes : '0' + minutes;
+				// const hoursString = hours > 9 ? hours : '0' + hours;
+				// const minutesString = minutes > 9 ? minutes : '0' + minutes;
 				const dateString = 'Last updated on ' +
 					date.getUTCDate() + '/' +
 					(date.getUTCMonth() + 1) + '/' +
 					date.getUTCFullYear() + ' ' +
-					hoursString + ':' +
-					minutesString + ', ' +
 					Intl.DateTimeFormat().resolvedOptions().timeZone;
 
 				$('.update-status').text(dateString);

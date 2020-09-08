@@ -156,11 +156,18 @@ a>i {
     transition: 0.2s;
 }
 
-video {
+figure > video {
     height: 100%;
     background-image: url(../images/niko_anim.png);
     background-repeat: no-repeat;
     background-size: auto;
+}
+
+.posts > div > video {
+    margin: 1.2rem 0;
+    
+    width: 100%;
+    border-radius: 8px;
 }
 
 .card-body > p {

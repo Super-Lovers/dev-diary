@@ -33,6 +33,21 @@ h5 {
     color: var(--brand-color) !important;
 }
 
+.carousel-inner {
+    height: 400px;
+    border-radius: 7px;
+}
+
+.carousel-inner > .carousel-item {
+    height: inherit;
+    background-color: #141414;
+}
+
+.carousel-inner > .carousel-item > .d-block {
+    margin: 0 auto;
+    height: inherit;
+}
+
 .flex-container {
     display: flex;
 }
@@ -66,4 +81,32 @@ h5 {
 .flex-container > .flex-main > a > img:hover,
 .flex-container > .flex-sidebar > a > img:hover {
     opacity: 0.9;
+}
+
+span.carousel-control-prev-icon, span.carousel-control-next-icon {
+    padding: 20px;
+    border-radius: 50%;
+    background-color: #141414;
+    background-size: 25px;;
+}
+
+@media only screen and (max-width: 768px) {
+    .carousel-inner {
+        height: 400px;
+    }
+
+    .carousel-inner > .carousel-item {
+        background-color: #141414;
+        width: 100%;
+    }
+    
+    .carousel-inner > .carousel-item > .d-block {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        width: 100%;
+        height: auto;
+    }
 }

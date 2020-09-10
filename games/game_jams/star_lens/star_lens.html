@@ -123,7 +123,22 @@
                 </div>
             </div>
             <div class="col-12 custom-col" style="max-width:740px">
-                <main class="container-fluid game"><div><div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <main class="container-fluid game">
+                    <header class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <h3>Nikolay&apos;s Games</h3>
+                            </div>
+                        </div>
+                        <p>Below, you will find some of the games that I have worked on during my <u>free time</u> and a few others created during my <u>studies</u>. Aside from that, I have also worked on games at
+                            &amp;ranj where I interned for five months but they will not be displayed publicly. The
+                            <u>source code</u> for all games can be found on my <a href="https://github.com/Super-Lovers">Github <i class="fab fa-github-alt"></i></a>.</p>
+                        <p>This portfolio is strictly for game development. Front-end development and JavaScript projects
+                            that I have done can only be found on my Github or by asking me personally. Games I have worked
+                            on were made using <u>Unity3D</u>, <u>Phaser v2/3</u>, <u>CreateJS</u>, <u>Love2D</u> and <u>Twine</u></p>
+                    </header>
+                    <hr class="style14">
+                <div><!--<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -149,34 +164,77 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+-->
 <h3>Star Lens</h3>
 <h5>Tags: DESKTOP, GAMEJAM, SCI-FI, ALL.</h5>
 <p><span class="github-link">Game Page: <a href="https://back-body-hurts.itch.io/space-lens-cgj-2019-entry">https://back-body-hurts.itch.io/space-lens-cgj-2019-entry</a></span></p>
-<p class="description">Star Lens is a game in which, due to a malfunction, you wake up from your stasis chamber a thousand years later than you were meant to. Your space ship has drifted far, far away from home and once you discover how critical your situation has become over the past years, you begin to search in stars to find a way back to Earth.</p>
-<h6 id="controls">Controls</h6>
-<p>The controls of the game are simple. You navigate the &quot;Star view&quot; (image in the bottom) using your mouse and you can zoom in and out of a region of space by right clicking. After you zoom in, you can move your scope around using the arrow or WSAD keys.</p>
-<h6 id="credits">Credits</h6>
-<ul>
-<li>Game Developer: Nikolay Ivanov</li>
-<li>Game Artist: Roger Recaldini</li>
-<li>Game Designer: Youri Mulder</li>
-</ul>
-<p>All Sound effects are obtained from <a href="https://www.zapsplat.com">https://www.zapsplat.com</a>.</p></div></main>
+<p class="description"><span class="drop">S</span>tar Lens is a game in which, due to a malfunction, you wake up from your stasis chamber a thousand years later than you were meant to. Your space ship has drifted far, far away from home and once you discover how critical your situation has become over the past years, you begin to search in stars to find a way back to Earth. The idea was that the user would have a map of the stars and using that map, he would have to find specific landmarks. It&apos;s some sort of a &quot;Can you find Waldo&quot; type of game, but in space. In order to generate a star map full of stars, I used a simple graphical circle as a canvas and on top of it picked random spots for placing solar systems:</p>
+<p style="text-align: center;"><img class="img-fluid" src="../../../games/game_jams/star_lens/images/stars_generation.gif" alt="A gif of stars being generated"></p>
+<pre class="shadow-sm code-block"><code class="c# language-c#">for (int i = 0; i &lt; pixels.Length; i++) {
+    Color currentPixel = pixels[i];
+    if (currentPixel.r == 0 &amp;&amp; // We are looking for a black pixel
+        currentPixel.g == 0 &amp;&amp; // to generate a star system on top of
+        currentPixel.b == 0 &amp;&amp;
+        currentPixel.a == 1) {
+
+        // If there is a chance a star system will be created
+        // in this pixel of the circle graphic...
+        if (Random.Range(0, 10000) &gt; 9965)
+        {
+            // Create a star out of six different pre-defined star objects
+            int randomStarPrefabIndex = Random.Range(0, 6);
+            GameObject star = Resources.Load&lt;GameObject&gt;(&quot;Space Objects Prefabs/Star &quot; + randomStarPrefabIndex);
+            GameObject obj = Instantiate(star, starsContainer);
+
+            // Move the new star in its place on the circle graphic canvas
+            Transform objTransform = obj.GetComponent&lt;Transform&gt;();
+            Vector3 new_position = new Vector3(((i % texture_width) * 0.01f) - ((texture_width / 2) * 0.01f), (-((i / texture_width) * 0.01f)) + ((texture_height / 2) * 0.01f), 0);
+            objTransform.position = new_position;
+        }
+    }
+}
+</code></pre>
+<p>This is on Editor-level, as this map will be used to add extra stuff on top of it and is simply used as eye-candy. You can see how it works in slow motion on top. Now, each star system has a name to identify itself in the game, so that the player can bookmark it or remember its location easier:</p>
+<p style="text-align: center;"><img class="img-fluid" src="../../../games/game_jams/star_lens/images/star_screen.png" alt="A picture of looking at a star&apos;s parameters"></p>
+<p>That&apos;s mostly the use of the stars and they are, in my opinion, the prettiest thing to look at whenever they&apos;re being generated (of course, I slowed down the generation process so you can understand how it works). For the final background of the playable environment (space) we add a few galaxies behind the stars, the landmarks we mentioned a while back and dark matter for eye-candy:</p>
+<p style="text-align: center;"><img class="img-fluid" src="../../../games/game_jams/star_lens/images/stars_generation_candy.gif" alt="A gif of stars being generated"></p>
+<p>The second mechanic that turned out really well was the &quot;lens&quot;. They help the player navigate the screen by left and right clicking to zoom and select celestial objects. This is done by using two Camera objects, one that captures the entire screen (not including the UI) and another that becomes visible whenever the user&apos;s mouse enters the &quot;main screen&quot; of the shit&apos;s interface with all the stars:</p>
+<p style="text-align: center;"><img class="img-fluid" src="../../../games/game_jams/star_lens/images/stars_lens.gif" alt="A gif of using the lens on the star map"></p>
+<pre class="shadow-sm code-block"><code class="c# language-c#">Vector3 mousePosition = Input.mousePosition;
+
+if ((mousePosition.x &gt; Mathf.Abs(ConsoleDisplay.rectTransform.anchoredPosition.x) &amp;&amp;
+     mousePosition.x &lt; ConsoleDisplay.rectTransform.sizeDelta.x) &amp;&amp;
+    ((mousePosition.y &gt; -Mathf.Abs(ConsoleDisplay.rectTransform.anchoredPosition.y) + 80 &amp;&amp;
+      mousePosition.y &lt; ConsoleDisplay.rectTransform.sizeDelta.y))) {
+
+    LensGlass.gameObject.SetActive(true);
+    Vector3 newCameraPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    Vector3 newLensPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    transform.position = newLensPosition;
+    LensGlass.position = Input.mousePosition;
+    LensGlassCamera.position = newCameraPosition;
+    CanCameraZoom = true;
+} else {
+    CanCameraZoom = false;
+    LensGlass.gameObject.SetActive(false);
+}
+</code></pre>
+<p>These lens will follow the cursor of the player as long as its within the stars screen boundaries. There&apos;s also a cute mouse icon on top to help the user learn how to use the controls. The goal is that the player has to find all the landmarks using the lens, and when found the ship will be able to &quot;triangulate&quot; the position of Earth so that you can return the player character home.</p></div></main>
                 <hr class="style14">
                 <footer>
                     <div>
-                        <p>
+                        <p style="text-align: center;">
                             <a rel="noopener" target="_blank" title="Link to the loving and talented artist who made my portrait art!" href="https://www.artstation.com/wogew">
                                 <img class="link footer-icon" src="../../../images/cat.gif" alt="Link to the loving and talented artist who made my portrait art!">
                             </a>
                     </p></div>
                     <div>
-                        <p>
+                        <p style="text-align: center;">
                             <a rel="noopener" target="_blank" href="https://validator.w3.org/check?uri=referer"><img class="footer-icon" src="https://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0!" height="27" width="78"></a>
                         </p>
                     </div>
                     <div>
-                        <p>
+                        <p style="text-align: center;">
                             <a rel="noopener" target="_blank" href="https://jigsaw.w3.org/css-validator/check/referer">
                                 <img class="footer-icon" style="border:0;width:78px;height:27px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
                             </a>

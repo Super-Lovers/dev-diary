@@ -294,6 +294,12 @@ for (let topicI = 0; topicI < topicsInstances.length; topicI++) {
 				const newText = $('h5').text() + '. <em style="font-size:15px;color:lightslategray;"></i><i class="fas fa-hourglass-half"></i> Read time: ' +
 					estimateReadingTime(postHtml) + 'm</em>';
 
+				$('p').each(function() {
+					if ($(this).find('img').length > 0) {
+						$(this).css('text-align', 'center');
+					}
+				});
+
 				$('h5').html(newText);
 
 				const postMain = $('main').html();

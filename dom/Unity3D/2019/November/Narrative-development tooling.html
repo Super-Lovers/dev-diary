@@ -125,7 +125,7 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
                             <h1>Nikolay&apos;s Games and Dev. Diary</h1>
-                            <p><i class="fas fa-sync-alt"></i><em class="update-status">Last updated on 8/9/2020 Europe/Kiev</em></p>
+                            <p><i class="fas fa-sync-alt"></i><em class="update-status">Last updated on 10/9/2020 Europe/Kiev</em></p>
                         </div>
                     </div>
                     <p>Here, you can find out about my personal and professional experiences throughout my education and
@@ -143,7 +143,7 @@
 <h5>Uploaded on 30th November, 2019. <em style="font-size:15px;color:lightslategray;"><i class="fas fa-hourglass-half"></i> Read time: 5m</em></h5>
 <p><span class="drop">A</span>fter having the pleasure of developing two story-based games in Unity3D, the challenges that I have faced consisted mostly of creating a user-friendly system to integrate the story of the game into its plot devices. In order to do this, together, with other people proved to be harder than I thought, especially given the fact we had to work in the same project.</p>
 <p>Collaboration and tweaking in any story-based game would likely require that the narrative writers tweak things a lot, so even in a VCS environment, it will become very chaotic when we have to work within the same scene files. A Unity3D package I found that lets you write for multiple languages in a structured manner is Polyglot. Using Google excel sheets, it was easier to adapt the storyline in the second game I started developing: Fish Soup. By extracting the STRING_ID of the excel sheet, I was able to start constructing both a quest line and dialogue structure for plot actors.</p>
-<p><img class="img-fluid" src="../../../../diary-imgcompressed/Unity3D/2019/November/images/quest-line.png" alt="An excelsheet table describing rows of dialogue for different languages indexed by a string id."></p>
+<p style="text-align: center;"><img class="img-fluid" src="../../../../diary-imgcompressed/Unity3D/2019/November/images/quest-line.png" alt="An excelsheet table describing rows of dialogue for different languages indexed by a string id."></p>
 <p>By working on the story externally, we were able to separate our workflows without causing conflicts within the project. The quests and their objectives, as well as the individual dialogue of plot actors can be extracted easily by using this excel document. By downloading it as TSV or CSV and converting it to JSON, you can then use Litjson to convert it to a JSON data object and access every quest and objective to create as your class object hierarchy:</p>
 <pre class="shadow-sm code-block"><code class="c# language-c#">    string polyglotFile = 
         Resources.Load&lt;TextAsset&gt;(&quot;Polyglot Story/PolyglotStoryline&quot;).text;
@@ -166,18 +166,18 @@
                 <hr class="style14">
                 <footer>
                     <div>
-                        <p>
+                        <p style="text-align: center;">
                             <a rel="noopener" target="_blank" title="Link to the loving and talented artist who made my portrait art!" href="https://www.artstation.com/wogew">
                                 <img class="link footer-icon" src="../../../../images/cat.gif" alt="Link to the loving and talented artist who made my portrait art!">
                             </a>
                     </p></div>
                     <div>
-                        <p>
+                        <p style="text-align: center;">
                             <a rel="noopener" target="_blank" href="https://validator.w3.org/check?uri=referer"><img class="footer-icon" src="https://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0!" height="27" width="78"></a>
                         </p>
                     </div>
                     <div>
-                        <p>
+                        <p style="text-align: center;">
                             <a rel="noopener" target="_blank" href="https://jigsaw.w3.org/css-validator/check/referer">
                                 <img class="footer-icon" style="border:0;width:78px;height:27px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
                             </a>

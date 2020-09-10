@@ -77,6 +77,16 @@ fsExtra.readdirSync(path)
 							const tagsText = $('.game>div>h5').text();
 							$('.game>div>h5').text('Tags: ' + tagsText.split(' ').join(', ').toUpperCase() + '.');
 
+							$('pre').each(function() {
+								$(this).addClass('shadow-sm code-block');
+							});
+
+							$('p').each(function() {
+								if ($(this).find('img').length > 0) {
+									$(this).css('text-align', 'center');
+								}
+							});
+
 							let newFilePath = filePath.substring(0, filePath.length - 3);
 							newFilePath += '.html';
 							fsExtra.writeFileSync(newFilePath, $.html());

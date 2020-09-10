@@ -125,7 +125,7 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
                             <h1>Nikolay&apos;s Games and Dev. Diary</h1>
-                            <p><i class="fas fa-sync-alt"></i><em class="update-status">Last updated on 8/9/2020 Europe/Kiev</em></p>
+                            <p><i class="fas fa-sync-alt"></i><em class="update-status">Last updated on 10/9/2020 Europe/Kiev</em></p>
                         </div>
                     </div>
                     <p>Here, you can find out about my personal and professional experiences throughout my education and
@@ -142,7 +142,7 @@
                 <div><h3>Learning ElectronJS</h3>
 <h5>Uploaded on 10th July, 2020. <em style="font-size:15px;color:lightslategray;"><i class="fas fa-hourglass-half"></i> Read time: 8m</em></h5>
 <p><span class="drop">D</span>eveloping with ElectronJs to me isn&apos;t much different from making a web application, but that probably had to do with my currently basic understanding of it. Looking at some <a href="https://github.com/florinpop17/app-ideas">project ideas</a> to tackle, I decided to make something with Electron since many popular platforms are developed with it and I became really curious. I made two easy applications, one called Pomodoro, which I now actively use, and another called this-or-that, inspired from the North American LCS show.</p>
-<p><img class="img-fluid" src="../../../../diary-imgcompressed/Web/2020/July/images/thisorthatSlide.png" alt="A picture of how a this or that slide can be created"></p>
+<p style="text-align: center;"><img class="img-fluid" src="../../../../diary-imgcompressed/Web/2020/July/images/thisorthatSlide.png" alt="A picture of how a this or that slide can be created"></p>
 <p>This or that uses a MongoDB instance, as it is a bit more complicated and has to store sessions for different users, so that they can join or not depending on if there is a password for that room. The password string uses a SHA512 algorithm to be encrypted.</p>
 <pre class="shadow-sm code-block"><code class="json language-json">{
     // This is a room instance in MongoDB
@@ -157,7 +157,7 @@
         &quot;html&quot;: &quot;&quot;
 }
 </code></pre>
-<p><img class="img-fluid" src="../../../../diary-imgcompressed/Web/2020/July/images/thisorthatRooms.png" alt="A picture of how a this or that slide can be created"></p>
+<p style="text-align: center;"><img class="img-fluid" src="../../../../diary-imgcompressed/Web/2020/July/images/thisorthatRooms.png" alt="A picture of how a this or that slide can be created"></p>
 <p>With Electron, it was easy to use the library and create a functional, cross-platform prototype. The two main parts about creating an Electron application is using the life-cycle callbacks and assigning scripts to individual browser windows. If other modules are necessary for your application, you enable them separately or include them in your scripts:</p>
 <pre class="shadow-sm code-block"><code class="javascript language-javascript">function createWindow() {
     mainWindow = new BrowserWindow({
@@ -204,7 +204,7 @@ new Notification(&apos;Pomodoro&apos;, {
     icon: &apos;images/tomato.png&apos;
 });
 </code></pre>
-<p><img class="img-fluid" src="../../../../diary-imgcompressed/Web/2020/July/images/pomodoroNotification.png" alt="A picture of how a notification looks like"></p>
+<p style="text-align: center;"><img class="img-fluid" src="../../../../diary-imgcompressed/Web/2020/July/images/pomodoroNotification.png" alt="A picture of how a notification looks like"></p>
 <p>The application simply loops between pre-defined cycles of work and breaks. Once a cycle completed, the user is notified and the next one begins and so on until the last cycle finishes the session.</p>
 <pre class="shadow-sm code-block"><code class="javascript language-javascript">const classicCycles = [
     new Cycle(&apos;1st Work Cycle&apos;, &apos;&lt;b&gt;&lt;u&gt;1st&lt;/u&gt;&lt;/b&gt; Work Cycle&apos;, 0),
@@ -222,22 +222,22 @@ const deepFocusCycles = [
     new Cycle(&apos;Long Break&apos;, &apos;Long Break&apos;, 30),
 ];
 </code></pre>
-<p><img class="img-fluid" src="../../../../diary-imgcompressed/Web/2020/July/images/pomodoro.png" alt="A picture of the pomodoro application&apos;s interface"></p></div></main>
+<p style="text-align: center;"><img class="img-fluid" src="../../../../diary-imgcompressed/Web/2020/July/images/pomodoro.png" alt="A picture of the pomodoro application&apos;s interface"></p></div></main>
                 <hr class="style14">
                 <footer>
                     <div>
-                        <p>
+                        <p style="text-align: center;">
                             <a rel="noopener" target="_blank" title="Link to the loving and talented artist who made my portrait art!" href="https://www.artstation.com/wogew">
                                 <img class="link footer-icon" src="../../../../images/cat.gif" alt="Link to the loving and talented artist who made my portrait art!">
                             </a>
                     </p></div>
                     <div>
-                        <p>
+                        <p style="text-align: center;">
                             <a rel="noopener" target="_blank" href="https://validator.w3.org/check?uri=referer"><img class="footer-icon" src="https://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0!" height="27" width="78"></a>
                         </p>
                     </div>
                     <div>
-                        <p>
+                        <p style="text-align: center;">
                             <a rel="noopener" target="_blank" href="https://jigsaw.w3.org/css-validator/check/referer">
                                 <img class="footer-icon" style="border:0;width:78px;height:27px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
                             </a>

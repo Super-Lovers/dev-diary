@@ -125,7 +125,7 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
                             <h1>Nikolay&apos;s Games and Dev. Diary</h1>
-                            <p><i class="fas fa-sync-alt"></i><em class="update-status">Last updated on 8/9/2020 Europe/Kiev</em></p>
+                            <p><i class="fas fa-sync-alt"></i><em class="update-status">Last updated on 10/9/2020 Europe/Kiev</em></p>
                         </div>
                     </div>
                     <p>Here, you can find out about my personal and professional experiences throughout my education and
@@ -142,15 +142,15 @@
                 <div><h3>Online wallpaper creation tool</h3>
 <h5>Uploaded on 19th July, 2020. <em style="font-size:15px;color:lightslategray;"><i class="fas fa-hourglass-half"></i> Read time: 6m</em></h5>
 <p><span class="drop">W</span>hile I was looking for a cool new sleek wallpaper and after browsing like a quadrillion number of pixels I noticed that there is a lot of wallpapers of some random cute or funny code in them. I thought, wait, I wanna make my own wallpaper with my own shit code I wrote, for the giggles. Realizing I would have to push the boundaries of what is possible to create a wallpaper using an image editor and watch YouTube videos or read some book, I decided to make a tool that you can just plug your code in and play around with it.</p>
-<p><img class="img-fluid" src="../../../../diary-imgcompressed/Web/2020/July/images/wallpapers-app/ui.png" alt="A picture showing how the interface of the wallpaper creator application looks like"></p>
+<p style="text-align: center;"><img class="img-fluid" src="../../../../diary-imgcompressed/Web/2020/July/images/wallpapers-app/ui.png" alt="A picture showing how the interface of the wallpaper creator application looks like"></p>
 <blockquote>
   <p>&quot;This application lets you create a wallpaper based on code you give it and by manipulating different parameters that change how the text and background looks. You can pick from all sorts of themes and fonts for your code and tweak the wallpaper until you&apos;re satisfied.&quot;</p>
   <p>-- <cite>From the <a href="https://github.com/Super-Lovers/wallpaper-code-generator/">Github page</a></cite></p>
 </blockquote>
 <p>Thanks to a few sources related to styling programming environments by changing fonts and themes, I tried to bring them all together into this application, to make the idea of creating wallpapers with code in them flexible and efficient. It is really just a long list of themes and fonts into a file each that you can choose from. The application works by using your entire screen which your browser currently occupies as a canvas for creating your wallpaper. If you want to make the wallpaper for a different screen if you have multiple of them, you just move the window to the other screen and the code will be re-positioned accordingly. The page of the app encourages you to use full-screen because you would be able to see clearly how the code looks, otherwise the browser&apos;s navigation UI and the operating system&apos;s UI will make it look like something is off. You can see the actual wallpaper behind the interface just by hovering over it, the focus will shift:</p>
-<p><img class="img-fluid" src="../../../../diary-imgcompressed/Web/2020/July/images/wallpapers-app/focus.gif" alt="An animated picture showing how focus between panels in the app shifts depending on where you hover with the mouse"></p>
+<p style="text-align: center;"><img class="img-fluid" src="../../../../diary-imgcompressed/Web/2020/July/images/wallpapers-app/focus.gif" alt="An animated picture showing how focus between panels in the app shifts depending on where you hover with the mouse"></p>
 <p>I really don&apos;t know why anything like this didn&apos;t exist until now lol, or maybe I couldn&apos;t find anything like it. Unfortunately, I spent most of my time creating a wallpaper using profound fortunes and quotes, since I have a liking to them:</p>
-<p><img class="img-fluid img-border" src="../../../../diary-imgcompressed/Web/2020/July/images/wallpapers-app/wallpaper-one.png" alt="An example of a wallpaper"></p>
+<p style="text-align: center;"><img class="img-fluid img-border" src="../../../../diary-imgcompressed/Web/2020/July/images/wallpapers-app/wallpaper-one.png" alt="An example of a wallpaper"></p>
 <p>I used html2canvas in order to capture the DOM element that contains the wallpaper&apos;s content. Basically theres two divs, one for the interface and one for the wallpaper. The Interface allows you to manipulate the content inside the wallpaper div or itself. When the user is done with designing a wallpaper, he clicks the download button and an image is generated:</p>
 <pre class="shadow-sm code-block"><code class="javascript language-javascript">downloadButton.addEventListener(&apos;click&apos;, () =&gt; {
     wallpaper.style.opacity = focusedValue;
@@ -181,18 +181,18 @@
                 <hr class="style14">
                 <footer>
                     <div>
-                        <p>
+                        <p style="text-align: center;">
                             <a rel="noopener" target="_blank" title="Link to the loving and talented artist who made my portrait art!" href="https://www.artstation.com/wogew">
                                 <img class="link footer-icon" src="../../../../images/cat.gif" alt="Link to the loving and talented artist who made my portrait art!">
                             </a>
                     </p></div>
                     <div>
-                        <p>
+                        <p style="text-align: center;">
                             <a rel="noopener" target="_blank" href="https://validator.w3.org/check?uri=referer"><img class="footer-icon" src="https://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0!" height="27" width="78"></a>
                         </p>
                     </div>
                     <div>
-                        <p>
+                        <p style="text-align: center;">
                             <a rel="noopener" target="_blank" href="https://jigsaw.w3.org/css-validator/check/referer">
                                 <img class="footer-icon" style="border:0;width:78px;height:27px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
                             </a>

@@ -7,7 +7,7 @@
 }
 
 h3 {
-    margin: 0.9375rem 0 0.3125rem 0 !important;
+    margin: 0 0 0.3125rem 0 !important;
 }
 
 h5 {
@@ -31,6 +31,10 @@ h5 {
 
 .btn {
     color: var(--brand-color) !important;
+}
+
+.carousel {
+    margin-bottom: 0.625rem;
 }
 
 .carousel-inner {
@@ -88,6 +92,25 @@ span.carousel-control-prev-icon, span.carousel-control-next-icon {
     border-radius: 50%;
     background-color: #141414;
     background-size: 25px;;
+}
+
+pre {
+    padding: 1rem;
+    border-radius: 5px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-align: justify;
+}
+
+code {
+    font-family: "Envy Code R" !important;
+    font-size: 0.84rem !important;
+    background: none !important;
+}
+
+pre > code > span {
+    font-family: "Envy Code R" !important;
+    font-size: 0.84rem !important;
 }
 
 @media only screen and (max-width: 768px) {

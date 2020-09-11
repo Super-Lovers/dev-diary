@@ -163,7 +163,7 @@ figure > video {
     background-size: auto;
 }
 
-.posts > div > video {
+div > video {
     margin: 1.2rem 0;
     
     width: 100%;

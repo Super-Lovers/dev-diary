@@ -28,7 +28,7 @@
 
 # Morgan Travels Through Time
 ## mobile narrative all
-<span class="github-link">Game Page: <a href="https://github.com/AArtlone/Morgan-Travels-Through-Time">https://github.com/AArtlone/Morgan-Travels-Through-Time</a></span>
+<span class="game-link">Game Page: <a href="https://github.com/AArtlone/Morgan-Travels-Through-Time">https://github.com/AArtlone/Morgan-Travels-Through-Time</a></span>
 
 <p class="description">Morgan reist door de tijd is a game series about a child from 2019 who accidentally ends up in 1672 as they followed the neighbor's kid. Morgan needs to find their way back to their own time. In their quest to get back to 2019 they must also prevent the future from being changed by the neighbor's kid. The first installment of the game series, called Morgan & Bommen Berend , introduces the player to Morgan’s story and takens them along on a journey through the events of Bommen Berend. </p>
 ###### Mechanics

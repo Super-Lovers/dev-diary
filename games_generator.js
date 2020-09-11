@@ -75,7 +75,7 @@ fsExtra.readdirSync(path)
 							const tags = $('.game>div>h5').text().split(' ');
 
 							const tagsText = $('.game>div>h5').text();
-							$('.game>div>h5').text('Tags: ' + tagsText.split(' ').join(', ').toUpperCase() + '.');
+							$('.game>div>h5').text('Tags: ' + tagsText.split(' ').join(', ').toLowerCase() + '.');
 
 							$('pre').each(function() {
 								$(this).addClass('shadow-sm code-block');

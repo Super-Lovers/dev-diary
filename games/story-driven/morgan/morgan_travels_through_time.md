@@ -1,45 +1,50 @@
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block " src="../../../games-imgcompressed/story-driven/morgan/images/intro.png" alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block " src="../../../games-imgcompressed/story-driven/morgan/images/sidebar_1.png" alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block " src="../../../games-imgcompressed/story-driven/morgan/images/sidebar_2.png" alt="Third slide">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-
-
 # Morgan Travels Through Time
 ## mobile narrative all
 <span class="game-link">Game Page: <a href="https://github.com/AArtlone/Morgan-Travels-Through-Time">https://github.com/AArtlone/Morgan-Travels-Through-Time</a></span>
 
-<p class="description">Morgan reist door de tijd is a game series about a child from 2019 who accidentally ends up in 1672 as they followed the neighbor's kid. Morgan needs to find their way back to their own time. In their quest to get back to 2019 they must also prevent the future from being changed by the neighbor's kid. The first installment of the game series, called Morgan & Bommen Berend , introduces the player to Morgan’s story and takens them along on a journey through the events of Bommen Berend. </p>
-###### Mechanics
+<p class="description"><span class="drop">M</span>organ reist door de tijd is a game series about a child from 2019 who accidentally ends up in 1672 as they followed the neighbor's kid. Morgan needs to find their way back to their own time. In their quest to get back to 2019 they must also prevent the future from being changed by the neighbor's kid. The first installment of the game series, called Morgan & Bommen Berend , introduces the player to Morgan’s story and takes them along on a journey through the events of Bommen Berend. </p>
 
-In this game the player can move back and forth through several locations for a multitude of activities. The quest of the player, to return home without having changed the past and thus the future, can be completed by interacting with NPCs, solving missions and doing puzzles of various kinds. Helping others and paying attention to the surroundings will be rewarded in the game. As the game is aimed at touch screen devices such as mobile phones and tablets, the interaction with the game will be via touch screen motions. The player can interact with the 6 elements on the screen, they can collect objects into their inventory and move around in areas by holding one of the two direction buttons. 
+<img class="img-fluid" width=300 src="../../../games-imgcompressed/story-driven/morgan/images/morgan.png" alt="A picture of morgan entering the villain's place">
 
-###### Credits
+Morgan was by far the most complex game I worked on during university. It included minigames, multi-language support, character customization, achievements, branching dialogue with a lot of freedom to edit each passage and the list goes on. At that point I had little experience and research into third-party software that could have helped with the development process. I'll touch on some of the systems I worked on in the game that I think are worth highlighting in this page. Firstly, I had a lot of fun working on the character customization and it was the first system I started to develop:
 
-* Game Artist: Martin Jawahier
-* Game Artist: Elisa Roger Recaldini
-* Game Designer: Nathalie Smit
-* Game Designer: Youri Mulder
-* Game Developer: Artem Stolyga
-* Game Developer: Nikolay Ivanov
+<video src="../../../games/story-driven/morgan/images/character_customization.mp4" controls="" autoplay="" loop="" style="display: block;"></video>
+
+The clothing comes from the player's inventory and the rest is earned by playing the game, and he can try the clothing out in this customization screen. The clothing is an important element of the game since it teaches children (our target audience) about the time period the game takes place. Not for all the clothing of course, but some of the clothing would have been necessary in order to enter specific levels.
+
+<img class="img-fluid" src="../../../games-imgcompressed/story-driven/morgan/images/clothes.png" alt="A picture of different clothing sets from the game">
+
+The second topic I want to touch on is the multi-language support. Although not really special, It was my first time making one and I think my approach was not ideal in hindsight so I learned from implementing it. Our game was meant for Dutch people, but we wanted all sorts of people to be able to play the game, so we needed to add English. It's also easier to develop the game if its in English first as well, it makes sense from a development perspective and for the team. The language of the game is contained in the SettingsManager and each text element in the current scene keeps a reference to it. Whenever the player toggles the language, the text elements' LanguageController class will update the label to the string assigned in its field for that language:
+
+<img class="img-fluid" src="../../../games-imgcompressed/story-driven/morgan/images/translations.png" alt="A picture of how the translations in the game are edited from Unity">
+
+````c#
+public void ChangeLanguage(string languageToToggle) {
+    switch (languageToToggle) {
+        case "English":
+            _settingsManager.Language = "English";
+            foreach (LanguageController textLabel in _settingsManager.LanguageControllers)
+            {
+                textLabel?.LoadLanguage(LanguageController.Language.English);
+            }
+            break;
+        case "Dutch":
+            _settingsManager.Language = "Dutch";
+            foreach (LanguageController textLabel in _settingsManager.LanguageControllers)
+            {
+                textLabel?.LoadLanguage(LanguageController.Language.Dutch);
+            }
+            break;
+    }
+}
+````
+
+This worked really good, but if I were to get a second chance, I would've kept all the translations in a separate file that references each LanguageController's name for that text element and updated its label from there. That's much safer and doesn't rely heavily on Unity's editor. The dialog system was by far the biggest hassle as it was the most complex and tied to the progression of the story. Because I wasn't very experienced back then, I wanted to learn what it was like to implement a dialogue system myself.
+
+<video src="../../../games/story-driven/morgan/images/dialogue.mp4" controls="" autoplay="" loop="" style="display: block;"></video>
+
+Everything is terrible when I looked back on the programming and design of the system. I'm surprised I got it to work in the first place. Each passage allows you to change the appearance and expressions of the characters in the dialogue but transitioning from one dialogue to the next based on previous choices and other player factors was terrible to implement. And on top of that, <b>everything was done in the editor</b> (what the f***).
+
+<img class="img-fluid" src="../../../games-imgcompressed/story-driven/morgan/images/horror.png" alt="A pictures of horror incarnated">
+
+It worked really well on the outside, but debugging and testing it was an absolute mess and getting it to work well took a lot longer than it should've. I learned a lot about what not to do, and again, I should've done everything externally (separated from the editor). I think the rest of the game's aspects weren't that significant enough to discuss here so its best you try the game and look at the source code if you're really curious.

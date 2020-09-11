@@ -272,8 +272,8 @@ for (let topicI = 0; topicI < topicsInstances.length; topicI++) {
 				}
 
 				const date = new Date(Date.now());
-				const hours = (date.getHours());
-				const minutes = (date.getMinutes());
+				// const hours = (date.getHours());
+				// const minutes = (date.getMinutes());
 				// const hoursString = hours > 9 ? hours : '0' + hours;
 				// const minutesString = minutes > 9 ? minutes : '0' + minutes;
 				const dateString = 'Last updated on ' +

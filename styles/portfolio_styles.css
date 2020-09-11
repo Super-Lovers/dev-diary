@@ -56,6 +56,7 @@ a.btn {
 .pageNumber:active, .pageNumber:focus, .pageNumber {
     outline: 0;
     -moz-outline-style: none;
+    outline-style: none;
 }
 
 .pageNumber {

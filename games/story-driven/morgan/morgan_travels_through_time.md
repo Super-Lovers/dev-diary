@@ -48,3 +48,73 @@ Everything is terrible when I looked back on the programming and design of the s
 <img class="img-fluid" src="../../../games-imgcompressed/story-driven/morgan/images/horror.png" alt="A pictures of horror incarnated">
 
 It worked really well on the outside, but debugging and testing it was an absolute mess and getting it to work well took a lot longer than it should've. I learned a lot about what not to do, and again, I should've done everything externally (separated from the editor). I think the rest of the game's aspects weren't that significant enough to discuss here so its best you try the game and look at the source code if you're really curious.
+
+<div class="credits">
+  <p>... project created by</p>
+</div>
+
+<div class="card-deck">
+  <div class="card">
+    <div class="icon">
+      <i class="profession-icon fas fa-code"></i>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Nikolay Ivanov</h5>
+      <p class="card-text">Lead programmer for the project and created a one-pager (its on GitHub) for the franchise.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="icon">
+      <i class="profession-icon fas fa-palette"></i>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Roger Recaldini</h5>
+      <p class="card-text">Together with Martin, responsible for all the visuals of the game. Focused on characters, all the UI, character customization and foregrounds.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="card-deck">
+  <div class="card">
+    <div class="icon">
+      <i class="profession-icon fas fa-code"></i>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Artem Stolyga</h5>
+      <p class="card-text">Programmer for the project, also responsible for some of the minigames and story progression.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="icon">
+      <i class="profession-icon fas fa-palette"></i>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Martin Jawahier</h5>
+      <p class="card-text">Together with Roger, responsible for all the visuals of the game. Focused on the backgrounds and hidden puzzle.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="card-deck">
+  <div class="card">
+    <div class="icon">
+      <i class="profession-icon fas fa-pencil-alt"></i>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Natalie Smit</h5>
+      <p class="card-text">Responsible for concepting, brainstorming, and the design and writing of the game.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="icon">
+      <i class="profession-icon fas fa-pencil-alt"></i>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Youri Mulder</h5>
+      <p class="card-text">Responsible for the design of the game and concepting/ideation for the minigames.</p>
+    </div>
+  </div>
+</div>
+</div>

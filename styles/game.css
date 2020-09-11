@@ -29,6 +29,54 @@ h5 {
     font-family: var(--header-font);
 }
 
+.credits {
+    margin: 1.625rem;
+    padding-top: 1.625rem;
+    text-align: center;
+
+    border-top: 1px dotted gray;
+}
+
+.card-deck {
+    margin: 2rem;
+}
+
+.card > .card-body {
+    padding: 0 0.9375rem 1.1rem 0.9375rem;
+    height: fit-content;
+    height: -moz-max-content;
+    height: -webkit-max-content;
+}
+
+.card {
+    box-shadow: 0 0 30px -23px rgba(0,0,0,0.35);
+}
+
+.card-title {
+    font-style: italic;
+}
+
+.card > .icon {
+	position: absolute;
+	margin: 0 auto;
+	top: -0.9375rem;
+	left: -0.9375rem;
+	text-align: center;
+}
+
+.card > .icon > .profession-icon {
+    margin: 0;
+    width: 35px;
+    height: 35px;
+    background: #fff;
+    color: #2f4f4f;
+    border-radius: 50%;
+    vertical-align: middle;
+    font-size: 1.125rem;
+    line-height: 34px;
+    box-shadow: 0 0 30px -23px rgba(0,0,0,.35);
+}
+
 .btn {
     color: var(--brand-color) !important;
 }

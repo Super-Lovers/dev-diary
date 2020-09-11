@@ -123,3 +123,29 @@ private WaypointController GetRandomWaypoint(bool ignore_origin) {
     return new_waypoint;
 }
 ````
+
+<div class="credits">
+  <p>... project created by</p>
+</div>
+
+<div class="card-deck">
+  <div class="card">
+    <div class="icon">
+      <i class="profession-icon fas fa-code"></i>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Nikolay Ivanov</h5>
+      <p class="card-text">Programmer for the whole project and also helped design it.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="icon">
+      <i class="profession-icon fas fa-palette"></i>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Roger Recaldini</h5>
+      <p class="card-text">Responsible for all of the visual assets of the game and also worked on the design.</p>
+    </div>
+  </div>
+</div>
+</div>

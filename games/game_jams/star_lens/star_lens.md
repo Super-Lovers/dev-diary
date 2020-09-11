@@ -1,31 +1,3 @@
-<!--<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block " src="../../../games-imgcompressed/game_jams/star_lens/images/intro.png" alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block " src="../../../games-imgcompressed/game_jams/star_lens/images/sidebar_1.png" alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block " src="../../../games-imgcompressed/game_jams/star_lens/images/sidebar_2.png" alt="Third slide">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
--->
-
 # Star Lens
 ## desktop gamejam sci-fi all
 <span class="game-link">Game Page: <a href="https://back-body-hurts.itch.io/space-lens-cgj-2019-entry">https://back-body-hurts.itch.io/space-lens-cgj-2019-entry</a></span>
@@ -94,3 +66,43 @@ if ((mousePosition.x > Mathf.Abs(ConsoleDisplay.rectTransform.anchoredPosition.x
 ````
 
 These lens will follow the cursor of the player as long as its within the stars screen boundaries. There's also a cute mouse icon on top to help the user learn how to use the controls. The goal is that the player has to find all the landmarks using the lens, and when found the ship will be able to "triangulate" the position of Earth so that you can return the player character home.
+
+<div class="credits">
+  <p>... project created by</p>
+</div>
+
+<div class="card-deck">
+  <div class="card">
+    <div class="icon">
+      <i class="profession-icon fas fa-code"></i>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Nikolay Ivanov</h5>
+      <p class="card-text">Programmer for the whole project and also helped design it.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="icon">
+      <i class="profession-icon fas fa-palette"></i>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Roger Recaldini</h5>
+      <p class="card-text">Responsible for all of the visual assets of the game and also worked on the design.</p>
+    </div>
+  </div>
+</div>
+<div class="card-deck">
+  <div class="card">
+    <div class="icon">
+      <i class="profession-icon fas fa-hand-holding-heart"></i>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Youri Mulder</h5>
+      <p class="card-text">Helped us during the brainstorming process in the beginning of the game jam.</p>
+    </div>
+  </div>
+  <div class="card" style="visibility:hidden;">
+    <div class="card-body">
+    </div>
+  </div>
+</div>

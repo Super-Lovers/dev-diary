@@ -101,3 +101,29 @@ What made it the best feeling for me was that one user from the game jam's itch.
 > wow, I didn't even realize it was made with Twine! I used it once, but your game feels so so so dynamic, I had no idea Twine could be used to achieve what you did! Again, congratulations on an amazing work!
 >
 > <cite>-- AstroSocks</cite>
+
+<div class="credits">
+  <p>... project created by</p>
+</div>
+
+<div class="card-deck">
+  <div class="card">
+    <div class="icon">
+      <i class="profession-icon fas fa-code"></i>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Nikolay Ivanov</h5>
+      <p class="card-text">Programmer for the whole project and also helped design it.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="icon">
+      <i class="profession-icon fas fa-palette"></i>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Roger Recaldini</h5>
+      <p class="card-text">Responsible for all of the visual assets of the game and also worked on the design.</p>
+    </div>
+  </div>
+</div>
+</div>

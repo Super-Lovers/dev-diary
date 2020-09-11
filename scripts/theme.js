@@ -187,6 +187,9 @@ function updateVisuals() {
 		updateElementClassColorTo('platform-icon', dark_a);
 		updateElementClassBackgroundTo('platform-icon', dark_background);
 
+		updateElementClassColorTo('profession-icon', dark_a);
+		updateElementClassBackgroundTo('profession-icon', dark_background);
+
 	} else if (currentTheme == 'light') {
 		toggleElementByClassName('portrait', false);
 		toggleElementByClassName('portrait-video', true);
@@ -220,6 +223,9 @@ function updateVisuals() {
 
 		updateElementClassColorTo('platform-icon', light_a);
 		updateElementClassBackgroundTo('platform-icon', light_background);
+
+		updateElementClassColorTo('profession-icon', light_a);
+		updateElementClassBackgroundTo('profession-icon', light_background);
 	}
 
 	updateElementClassColorTo('pageNumber', '#808080');

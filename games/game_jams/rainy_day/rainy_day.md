@@ -1,3 +1,8 @@
+<!-- METADATA -->
+<!----------------------------->
+<span class="priority" style="display:none;max-height:0;">true</span>
+<!----------------------------->
+
 # Rainy Day
 ## desktop gamejam all
 <span class="game-link">Game Page: <a href="https://back-body-hurts.itch.io/rainy-day">https://back-body-hurts.itch.io/rainy-day</a></span>

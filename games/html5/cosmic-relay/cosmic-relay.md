@@ -1,3 +1,8 @@
+<!-- METADATA -->
+<!----------------------------->
+<span class="priority" style="display:none;max-height:0;">true</span>
+<!----------------------------->
+
 # Cosmic Relay
 ## web all twine2
 <span class="game-link">Game Page: <a href="https://back-body-hurts.itch.io/cosmic-relay">https://back-body-hurts.itch.io/cosmic-relay</a></span>

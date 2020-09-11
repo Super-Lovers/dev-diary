@@ -1,3 +1,8 @@
+<!-- METADATA -->
+<!----------------------------->
+<span class="priority" style="display:none;max-height:0;">true</span>
+<!----------------------------->
+
 # Star Lens
 ## desktop gamejam sci-fi all
 <span class="game-link">Game Page: <a href="https://back-body-hurts.itch.io/space-lens-cgj-2019-entry">https://back-body-hurts.itch.io/space-lens-cgj-2019-entry</a></span>

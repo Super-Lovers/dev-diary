@@ -4,16 +4,17 @@ const fsExtra = require('fs-extra');
 const cheerio = require('cheerio');
 
 class Game {
-	constructor(name, description, tags, path, fileName) {
+	constructor(name, description, tags, path, fileName, priority) {
 		this.name = name;
 		this.description = description;
 		this.tags = tags;
 		this.path = path;
 		this.fileName = fileName;
+		this.priority = priority;
 	}
 }
 
-const games = [];
+let games = [];
 
 const path = './games';
 fsExtra.readdirSync(path)
@@ -96,13 +97,30 @@ fsExtra.readdirSync(path)
 								$('.game>div>.description').text(),
 								tags,
 								newFilePath,
-								gameFile.substring(0, gameFile.length - 3)
+								gameFile.substring(0, gameFile.length - 3),
+								$('.priority').text()
 							);
 							games.push(game);
 						}
 					});
 			});
 	});
+
+const games_with_priority = [];
+const games_without_priority = [];
+
+for (let i = 0; i < games.length; i++) {
+	const game = games[i];
+
+	if (game.priority == 'true') {
+		games_with_priority.push(game);
+		continue;
+	}
+
+	games_without_priority.push(game);
+}
+
+games = games_with_priority.concat(games_without_priority);
 
 const portfolioContents = fsExtra.readFileSync('portfolio.html', 'utf8');
 const $ = cheerio.load(portfolioContents);

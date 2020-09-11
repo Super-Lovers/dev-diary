@@ -1,3 +1,8 @@
+<!-- METADATA -->
+<!----------------------------->
+<span class="priority" style="display:none;max-height:0;">true</span>
+<!----------------------------->
+
 # Morgan Travels Through Time
 ## mobile narrative all
 <span class="game-link">Game Page: <a href="https://github.com/AArtlone/Morgan-Travels-Through-Time">https://github.com/AArtlone/Morgan-Travels-Through-Time</a></span>

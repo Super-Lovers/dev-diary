@@ -12,12 +12,20 @@ h3 {
 
 h5 {
     margin: 0.3125rem 0 0.3125rem 0 !important;
+    /* font-size: 0.9375rem !important; */
+}
+
+.card-body > h5 {
     font-size: 0.9375rem !important;
 }
 
 .game-link {
     display: block;
     margin: 0.3125rem 0 1.25rem 0 !important;
+}
+
+.game-link > i {
+    margin: 0 0.3125rem 0 0;
 }
 
 .game {

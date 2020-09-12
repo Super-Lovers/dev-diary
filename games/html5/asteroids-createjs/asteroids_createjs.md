@@ -1,5 +1,8 @@
 # Asteroids in CreateJS
+
+## Uploaded on 11th September, 2020
 ## web all
+<span class="game-link"><i class="fas fa-link"></i> Game Page: <a href="https://github.com/Super-Lovers/asteroids-createjs">https://github.com/Super-Lovers/asteroids-createjs</a></span>
 
 <p class="description"><span class="drop">A</span>steroids in CreateJS is a small arcade game that I recreated to learn how to use the CreateJS suite of tools such as EaselJS, PreloadJS, AudioJS and TweenJS. Development of the project was a little more than three days and sometimes It felt a bit like programming with PhaserJS. The game loop is simple to program and is a quick way learn, on a beginner level, how to use all CreateJS tools. I think that I might be wrong about PhaserJS being similar though, depending on the scale of the project. The game goes like this:</p>
 

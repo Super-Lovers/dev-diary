@@ -2,6 +2,7 @@ const showdown = require('showdown');
 require('jquery');
 const fsExtra = require('fs-extra');
 const cheerio = require('cheerio');
+const voca = require('voca');
 
 class Game {
 	constructor(name, description, tags, path, fileName, priority) {
@@ -71,12 +72,21 @@ fsExtra.readdirSync(path)
 							$('.game').append('<div>' + postHtml + '</div>');
 
 							$('.game>div>h1').after('<h3>' + $('.game>div>h1').text() + '</h3>').remove();
-							$('.game>div>h2').after('<h5>' + $('.game>div>h2').text() + '</h5>').remove();
 
-							const tags = $('.game>div>h5').text().split(' ');
+							// Removes the tags after the date heading
+							$('.game>div>h2:first-of-type').after('<h5>' + $('.game>div>h2:first-of-type').text() + '</h5>').remove();
 
-							const tagsText = $('.game>div>h5').text();
-							$('.game>div>h5').text('Tags: ' + tagsText.split(' ').join(', ').toLowerCase() + '.');
+							const tags = $('.game>div>h2').text().split(' ');
+							$('.game>div>h2').remove();
+							// ---------------------------------------
+
+							const newText = $('.game>div>h5').text() + '. <em style="font-size:15px;color:lightslategray;"></i><i class="fas fa-hourglass-half"></i> Read time: ' +
+							estimateReadingTime(postHtml) + 'm</em>';
+
+							$('.game>div>h5').html(newText);
+
+							// const tagsText = $('.game>div>h5').text();
+							// $('.game>div>h5').text('Tags: ' + tagsText.split(' ').join(', ').toLowerCase() + '.');
 
 							$('pre').each(function() {
 								$(this).addClass('shadow-sm code-block');
@@ -189,3 +199,12 @@ for (let i = 0; i < genres.length; i++) {
 }
 
 fsExtra.writeFileSync('portfolio.html', $.html());
+
+function estimateReadingTime(fileText) {
+	const wpm = 100;
+
+	const newFileText = voca.stripTags(fileText);
+	const wordcount = voca.countWords(newFileText);
+	const result = Math.ceil(wordcount / wpm);
+	return result;
+}

@@ -26,8 +26,9 @@
 </div>
 
 # Candles
+## Uploaded on 8th December, 2019
 ## desktop gamejam all
-<span class="game-link">Game Page: <a href="https://back-body-hurts.itch.io/candles">https://back-body-hurts.itch.io/candles</a></span>
+<span class="game-link"><i class="fas fa-link"></i> Game Page: <a href="https://back-body-hurts.itch.io/candles">https://back-body-hurts.itch.io/candles</a></span>
 
 <p class="description">In Candles, You are a girl called Jane that is struggling with an unfortunate relationship with her family and to cope, she decides it is time to go, and so your adventure to escape begins. This game was made for the Global Game Jam 2019 in two days and then updated after the jam.</p>
 ###### Credits

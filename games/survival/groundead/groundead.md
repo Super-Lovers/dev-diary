@@ -26,8 +26,9 @@
 </div>
 
 # Groundead
+## Uploaded on 8th December, 2019
 ## desktop survival all
-<span class="game-link">Game Page: <a href="https://back-body-hurts.itch.io/groundead">https://back-body-hurts.itch.io/groundead</a></span>
+<span class="game-link"><i class="fas fa-link"></i> Game Page: <a href="https://back-body-hurts.itch.io/groundead">https://back-body-hurts.itch.io/groundead</a></span>
 
 <p class="description">GrounDead is a top-down zombie survival game, wherein the player takes control of a hunter/lumberjack/carpenter, who must survive waves of zombies coming towards him with the use of multiple weapons, such a  hunting rifle, a knife, an axe, and by crafting a variety of different defensive structures, such as barricades, platforms, and traps. To control the character, the player will use a traditional keyboard and mouse control scheme to perform actions, such as moving, attacking, building, destroying and healing.
 </p>

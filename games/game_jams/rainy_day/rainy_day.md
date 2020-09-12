@@ -4,8 +4,9 @@
 <!----------------------------->
 
 # Rainy Day
+## Uploaded on 11th September, 2020
 ## desktop gamejam all
-<span class="game-link">Game Page: <a href="https://back-body-hurts.itch.io/rainy-day">https://back-body-hurts.itch.io/rainy-day</a></span>
+<span class="game-link"><i class="fas fa-link"></i> Game Page: <a href="https://back-body-hurts.itch.io/rainy-day">https://back-body-hurts.itch.io/rainy-day</a></span>
 
 <p class="description"><span class="drop">R</span>ainy Day, a 'calm',  short point-and-click experience of coming home to three needy cats before retiring for the night. Rainy day was created for the TasJam LITE game jam. The theme was 'calm' which lead us to create a short point-and-click experience of coming home to 3 needy cats before retiring for the night. The game was developed over 3.5 days, including concepting & implementation. Rainy Day had to be updated after it was released after the game jam, since it was more complex and time-consuming than we thoguht, and also because I was a noob back then and couldn't keep up with the jam pace. The mechanics are simple. You take care of three cats for the duration of one evening. This means you have to feed, pet and pander to them. Before I get to explain how you do that, I want to show you how the cats work themselves.</p>
 

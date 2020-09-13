@@ -5,7 +5,7 @@
 
 <p class="description"><span class="drop">G</span>rounDead is a top-down zombie survival game, wherein the player takes control of a hunter/lumberjack/carpenter, who must survive waves of zombies coming towards him with the use of multiple weapons, such a  hunting rifle, a knife, an axe, and by crafting a variety of different defensive structures, such as barricades, platforms, and traps. To control the character, the player will use a traditional keyboard and mouse control scheme to perform actions, such as moving, attacking, building, destroying and healing.
 </p>
-GrounDead was a pleasure to make because at that stage I was learning aboout procedural generation methods and it was my opportunity to try out new things. The idea of the game is, the player character is stuck on an island with zombies swarming him wave by wave (yeah cliche whatever) and he has to fight and build to survive as long as possible. I'll discuss how the world is generated first, as its the most complex and intriguing aspect of the game (for me). The map or island is split in three. The middle of the map is the forest biome and it has a few ponds aside from most of it being trees. The left-most part is a mountain ground with rocks and ores and the right-most side is a beach with nothing but sand:
+GrounDead was a pleasure to make because at that stage I was learning about procedural generation methods and it was my opportunity to try out new things. The idea of the game is, the player character is stuck on an island with zombies swarming him wave by wave (yeah cliché whatever) and he has to fight and build to survive as long as possible. I'll discuss how the world is generated first, as its the most complex and intriguing aspect of the game (for me). The map or island is split in three. The middle of the map is the forest biome and it has a few ponds aside from most of it being trees. The left-most part is a mountain ground with rocks and ores and the right-most side is a beach with nothing but sand:
 
 <video src="../../../games/survival/groundead/images/map.mp4" controls="" autoplay="" loop="" style="display: block;"></video>
 
@@ -29,9 +29,9 @@ I don't know why I wrote the generation like this by moving the coordinates and 
 
 <video src="../../../games/survival/groundead/images/actions.mp4" controls="" autoplay="" loop="" style="display: block;"></video>
 
-Destroying natural resources gives you back materials and buildings cost materials, simple. Structures have different properties, like durability or thorns, so that when zombies attack they'd have to go through your defences first. It is up to the player which structures he uses and how he uses them around other terrain:
+Destroying natural resources gives you back materials and buildings cost materials, simple. Structures have different properties, like durability or thorns, so that when zombies attack they'd have to go through your defenses first. It is up to the player which structures he uses and how he uses them around other terrain:
 
-<video src="../../../games/survival/groundead/images/actions.mp4" controls="" autoplay="" loop="" style="display: block;"></video>
+<video src="../../../games/survival/groundead/images/zombies.mp4" controls="" autoplay="" loop="" style="display: block;"></video>
 
 The zombies AI is pretty simple as well and just looks for the player if he is close or within sight. Zombies also focus on destroying your structures whenever possible, so they prioritize based on which is the closest. Those are the main aspects of the game and how they work together.
 

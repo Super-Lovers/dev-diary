@@ -125,6 +125,7 @@ a.btn {
     background-position: center;
     background-size: cover;
     height: 180px;
+    border-radius: .25rem;
 }
 
 .games > .row > .col-12.col-md-6 > .card > .card-body {

@@ -138,39 +138,108 @@
                             on were made using <u>Unity3D</u>, <u>Phaser v2/3</u>, <u>CreateJS</u>, <u>Love2D</u> and <u>Twine</u>. The page of each game discusses some development aspects of it and talks about the choices I made, or didn&apos;t. <u>If you want to try each game, there&apos;s a link at the top of each game&apos;s page.</u></p>
                     </header>
                     <hr class="style14">
-                <div><div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block " src="../../../games-imgcompressed/ascii/take_back_the_seas/images/intro.png" alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block " src="../../../games-imgcompressed/ascii/take_back_the_seas/images/sidebar_1.png" alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block " src="../../../games-imgcompressed/ascii/take_back_the_seas/images/sidebar_2.png" alt="Third slide">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-<h3>Take Back the Seas</h3>
-<h5>Uploaded on 8th December, 2019. <em style="font-size:15px;color:lightslategray;"><i class="fas fa-hourglass-half"></i> Read time: 2m</em></h5>
+                <div><h3>Take Back the Seas</h3>
+<h5>Uploaded on 14th December, 2020. <em style="font-size:15px;color:lightslategray;"><i class="fas fa-hourglass-half"></i> Read time: 8m</em></h5>
 
 <p><span class="game-link"><i class="fas fa-link"></i> Game Page: <a href="https://back-body-hurts.itch.io/take-back-the-seas">https://back-body-hurts.itch.io/take-back-the-seas</a></span></p>
-<p class="description">Experience being in control of a naval fleet of two ships. Managing its crew, weapons and various parameters that make it stay afloat. Battle sea creatures such as kraken, octopods, isopods and so on! The game gives a lot of breathing room and the opportunity to explore different areas of the world in between combat. The combat itself is passive, as you manages a fleet and its potential combat capability, instead of the dictating how the battle is taking place. </p>
-<h6 id="controls">Controls</h6>
-<p>You play the game by using the WSAD or arrow keys to give your fleet a direction to sail in and you can stop the fleet from moving using the X or K buttons.</p></div></main>
+<p class="description">Experience being in control of a naval fleet of two ships. Managing its crew, weapons and various parameters that make it stay afloat. Battle sea creatures such as kraken, octopods, isopods and so on! The game gives a lot of breathing room and the opportunity to explore different areas of the world in between combat. The combat itself is passive, as you manages a fleet and its potential combat capability, instead of the dictating how the battle is taking place. I wanted to create an ASCII, rogue-like experience because I always thought it had a certain charm and a retro feel to it. Exploration is a mysteriously captivating and exciting concept and I focused on it for this game. Because of this, the game consists of a large ocean that can be filled with all sorts of interesting entities. You explore using an armada of ships that you micro/macro manage:</p>
+<video src="../../../games/ascii/take_back_the_seas/images/gameplay.mp4" controls autoplay loop style="display: block;"></video>
+<p>The ships in your armada have a crew you can expand the longer you play the game. Different classes of the crew work different jobs to maintain the ship&apos;s function. If all of your gunners are gone, no one will be able to fire the cannons or if your doctors are dead, no one will be able to heal the wounded crew and they will eventually die. All of this information is available in the Armada panel:</p>
+<p style="text-align: center;"><img class="img-fluid" src="../../../games-imgcompressed/ascii/take_back_the_seas/images/armada.png" alt="A pictures of the player&apos;s armada panel"></p>
+<p>The world generation is pretty simple, it uses a basic walking agents algorithm to create small pockets of islands on an empty array of water tiles:</p>
+<pre class="shadow-sm code-block"><code class="c# language-c#">private void GenerateWorld() {
+    // The dimensions of the world must first be retrieved before
+    // the generation process occurs.
+    int worldWidth = 0;
+    int worldDepth = 0;
+
+    switch (GameManager.Instance.WorldSize) {
+        case &quot;Small&quot;: worldWidth = 100; worldDepth = 100; break;
+        case &quot;Medium&quot;: worldWidth = 250; worldDepth = 250; break;
+        case &quot;Large&quot;: worldWidth = 400; worldDepth = 400; break;
+    }
+
+    // Think of sectors as continents or large bodies of mass on the
+    // planet. We need to populate those large sections in order to
+    // imitate the vast space of a planet and seperate them by names.
+    foreach (Sector sector in Sectors) {
+        GenerateOcean(sector, sector.Terrain, new int[worldWidth, worldDepth]);
+
+        // Once we find the sector that was last active in the game,
+        // we generate its environment.
+        if (sector.Active) {
+            GenerateHostiles(sector);
+        }
+    }
+}
+</code></pre>
+<p>The agents are created at random positions on the array and they go in directions until a good number of land tiles are created:</p>
+<pre class="shadow-sm code-block"><code class="c# language-c#">private void GenerateLand(Sector sector, int[,] terrain, int approximateSize) {
+    int currentSize = 0;
+
+    int maxWidth = terrain.GetLength(0);
+    int maxDepth = terrain.GetLength(1);
+
+    int minWidth = 0;
+    int minDepth = 0;
+
+    Vector2 randomMapPoint = new Vector2(
+        Random.Range(minWidth, maxWidth),
+        Random.Range(minDepth, maxDepth)
+    );
+
+    int x = (int)randomMapPoint.x;
+    int y = (int)randomMapPoint.y;
+
+    // Initial direction for the agent to start with
+    string newDirection = &quot;Forward&quot;;
+    string previousDirection = &quot;Forward&quot;;
+    while (currentSize &lt; approximateSize) {
+        if (newDirection == &quot;Forward&quot; &amp;&amp; y - 1 &gt; minWidth) { ... }
+        else if (newDirection == &quot;Backward&quot; &amp;&amp; y + 1 &lt; maxDepth) { ... }
+        else if (newDirection == &quot;Left&quot; &amp;&amp; x - 1 &gt; minWidth) { ... }
+        else if (newDirection == &quot;Right&quot; &amp;&amp; x + 1 &lt; maxWidth) { ... }
+
+        while (newDirection == previousDirection) {
+            // Getting a new direction for the next iteration of the
+            // agent&apos;s object population
+            int randomDirectionIndex = Random.Range(0, 4);
+            if (randomDirectionIndex == 0)
+                newDirection = &quot;Forward&quot;;
+            else if (randomDirectionIndex == 1)
+                newDirection = &quot;Backward&quot;;
+            else if (randomDirectionIndex == 2)
+                newDirection = &quot;Left&quot;;
+            else if (randomDirectionIndex == 3)
+                newDirection = &quot;Right&quot;;
+        }
+
+        currentSize++;
+    }
+
+    sector.Terrain = terrain;
+}
+</code></pre>
+<p style="text-align: center;"><img class="img-fluid" src="../../../games-imgcompressed/ascii/take_back_the_seas/images/map.png" alt="A pictures of one part of the generated map from the code above"></p>
+<p>After the world is generated, I populate it with sea creates (monsters) which are currently all hostile and fight the player whenever he is too close. That&apos;s the whole thing about the world generation. Of course, ships have some form of scouting, so I&apos;ve included a minimap that can also be expanded the more you progress:</p>
+<video src="../../../games/ascii/take_back_the_seas/images/minimap.mp4" controls autoplay loop style="display: block;"></video>
+<p>The minimap is basically a second camera that changes its properties based on the player&apos;s armada upgrades. Those were the most interesting aspects I wanted to touch on. I will be updating the game in the future or possibly re-writing it from scratch on a different engine or more suitable set of tools and libraries for it.</p>
+<div class="credits">
+  <p>... project created by</p>
+</div>
+<div class="card-deck">
+  <div class="card">
+    <div class="icon">
+      <i class="profession-icon fas fa-code"></i>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Nikolay Ivanov</h5>
+      <p class="card-text">Programmer and designer for the entire project.</p>
+    </div>
+  </div>
+  <div class="card" style="visibility:hidden;">
+  </div>
+</div></div></main>
                 <hr class="style14">
                 <footer>
                     <div>

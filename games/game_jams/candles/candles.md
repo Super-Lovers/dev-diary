@@ -1,5 +1,5 @@
 # Candles
-## Uploaded on 8th December, 2019
+## Uploaded on 14th September, 2020
 ## desktop gamejam all
 <span class="game-link"><i class="fas fa-link"></i> Game Page: <a href="https://back-body-hurts.itch.io/candles">https://back-body-hurts.itch.io/candles</a></span>
 

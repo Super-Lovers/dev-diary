@@ -38,15 +38,15 @@ h5 {
 }
 
 .credits {
-    margin: 1.625rem;
+    margin: 1.625rem 0 2rem 0;
     padding-top: 1.625rem;
     text-align: center;
 
     border-top: 1px dotted gray;
 }
 
-.card-deck {
-    margin: 2rem;
+.credits > p {
+    margin: 0;
 }
 
 .card > .card-body {
@@ -57,7 +57,16 @@ h5 {
 }
 
 .card {
+    margin: 2rem 0;
     box-shadow: 0 0 30px -23px rgba(0,0,0,0.35);
+    text-align: left;
+}
+
+.card-deck > .card.hidden-card {
+    max-height: 0;
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
 }
 
 .card-title {

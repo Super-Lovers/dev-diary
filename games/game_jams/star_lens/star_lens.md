@@ -75,40 +75,42 @@ These lens will follow the cursor of the player as long as its within the stars 
 
 <div class="credits">
   <p>... project created by</p>
-</div>
 
-<div class="card-deck">
-  <div class="card">
-    <div class="icon">
-      <i class="profession-icon fas fa-code"></i>
+  <div class="card-deck">
+    <div class="card">
+      <div class="icon">
+        <i class="profession-icon fas fa-code"></i>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Nikolay Ivanov</h5>
+        <p class="card-text">Programmer for the whole project and also helped design it.</p>
+      </div>
     </div>
-    <div class="card-body">
-      <h5 class="card-title">Nikolay Ivanov</h5>
-      <p class="card-text">Programmer for the whole project and also helped design it.</p>
-    </div>
-  </div>
-  <div class="card">
-    <div class="icon">
-      <i class="profession-icon fas fa-palette"></i>
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">Roger Recaldini</h5>
-      <p class="card-text">Responsible for all of the visual assets of the game and also worked on the design.</p>
-    </div>
-  </div>
-</div>
-<div class="card-deck">
-  <div class="card">
-    <div class="icon">
-      <i class="profession-icon fas fa-hand-holding-heart"></i>
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">Youri Mulder</h5>
-      <p class="card-text">Helped us during the brainstorming process in the beginning of the game jam.</p>
+    <div class="card">
+      <div class="icon">
+        <i class="profession-icon fas fa-palette"></i>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Roger Recaldini</h5>
+        <p class="card-text">Responsible for all of the visual assets of the game and also worked on the design.</p>
+      </div>
     </div>
   </div>
-  <div class="card" style="visibility:hidden;">
-    <div class="card-body">
+  
+  <div class="card-deck">
+    <div class="card">
+      <div class="icon">
+        <i class="profession-icon fas fa-hand-holding-heart"></i>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Youri Mulder</h5>
+        <p class="card-text">Helped us during the brainstorming process in the beginning of the game jam.</p>
+      </div>
+    </div>
+    <div class="card hidden-card">
+      <div class="card-body">
+      </div>
     </div>
   </div>
+
 </div>

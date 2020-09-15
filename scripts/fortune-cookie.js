@@ -9,7 +9,7 @@ $(document).ready(() => {
 		if (dice > 1) {
 			randomFortune = fortunes.small[Math.floor(Math.random() * fortunes.small.length)].text;
 		} else if (dice == 1) {
-			randomFortune = fortunes.medium[Math.floor(Math.random() * fortunes.small.length)].text;
+			randomFortune = fortunes.medium[Math.floor(Math.random() * fortunes.medium.length)].text;
 		}
 
 		$('.fortune-text').html(randomFortune);

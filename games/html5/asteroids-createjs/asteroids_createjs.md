@@ -79,7 +79,6 @@ function turnRocks() {
 
 <div class="credits">
   <p>... project created by</p>
-</div>
 
 <div class="card-deck">
   <div class="card">
@@ -91,7 +90,7 @@ function turnRocks() {
       <p class="card-text">Programmer for the project, solo project that took a few days.</p>
     </div>
   </div>
-  <div class="card" style="visibility:hidden;">
+  <div class="card hidden-card">
   </div>
 </div>
 </div>

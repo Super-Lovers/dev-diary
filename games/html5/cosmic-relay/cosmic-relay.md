@@ -111,7 +111,6 @@ What made it the best feeling for me was that one user from the game jam's itch.
 
 <div class="credits">
   <p>... project created by</p>
-</div>
 
 <div class="card-deck">
   <div class="card">

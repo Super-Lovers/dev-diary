@@ -23,7 +23,6 @@ Overall, unbelievably bad programming, but for a first game atleast it can play 
 
 <div class="credits">
   <p>... project created by</p>
-</div>
 
 <div class="card-deck">
   <div class="card">
@@ -55,8 +54,9 @@ Overall, unbelievably bad programming, but for a first game atleast it can play 
       <p class="card-text">Together with Roger, created the visuals for the game and wrote the narrative.</p>
     </div>
   </div>
-  <div class="card" style="visibility:hidden;">
+  <div class="card hidden-card">
     <div class="card-body">
     </div>
   </div>
+</div>
 </div>

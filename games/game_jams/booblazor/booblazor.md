@@ -160,7 +160,6 @@ That's mostly what the gameplay is about, collisions or boundary checks aren't a
 
 <div class="credits">
   <p>... project created by</p>
-</div>
 
 <div class="card-deck">
   <div class="card">

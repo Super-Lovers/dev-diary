@@ -37,7 +37,6 @@ The zombies AI is pretty simple as well and just looks for the player if he is c
 
 <div class="credits">
   <p>... project created by</p>
-</div>
 
 <div class="card-deck">
   <div class="card">
@@ -59,7 +58,6 @@ The zombies AI is pretty simple as well and just looks for the player if he is c
     </div>
   </div>
 </div>
-</div>
 
 <div class="card-deck">
   <div class="card">
@@ -80,7 +78,6 @@ The zombies AI is pretty simple as well and just looks for the player if he is c
       <p class="card-text">Responsible for the art, concepting and animation of zombies, worked on the environment and structures.</p>
     </div>
   </div>
-</div>
 </div>
 
 <div class="card-deck">

@@ -3,7 +3,7 @@
 ## desktop gamejam all
 <span class="game-link"><i class="fas fa-link"></i> Game Page: <a href="https://back-body-hurts.itch.io/candles">https://back-body-hurts.itch.io/candles</a></span>
 
-<p class="description">In Candles, You are a girl called Jane that is struggling with an unfortunate relationship with her family and to cope, she decides it is time to go, and so your adventure to escape begins. This game was made for the Global Game Jam 2019 in two days. In Candles, we wanted to capture a spooky vibe and create a narrative-based progression game. Naturally, we went the RPG Maker route but for the sake of development experience at working on a new genre, I decided to program it with Unity instead. The entire programming will be re-written in the future because it was one of my first games and I had little to no experience of what was right or wrong to do.</p>
+<p class="description"><span class="drop">I</span>n Candles, You are a girl called Jane that is struggling with an unfortunate relationship with her family and to cope, she decides it is time to go, and so your adventure to escape begins. This game was made for the Global Game Jam 2019 in two days. In Candles, we wanted to capture a spooky vibe and create a narrative-based progression game. Naturally, we went the RPG Maker route but for the sake of development experience at working on a new genre, I decided to program it with Unity instead. The entire programming will be re-written in the future because it was one of my first games and I had little to no experience of what was right or wrong to do.</p>
 
 <video src="../../../games/game_jams/candles/images/intro.mp4" controls="" autoplay="" loop="" style="display: block;"></video>
 
@@ -19,40 +19,40 @@ The player finishes the game when he finally escapes the haunted house and scary
 
 <div class="credits">
   <p>... project created by</p>
-</div>
 
-<div class="card-deck">
-  <div class="card">
-    <div class="icon">
-      <i class="profession-icon fas fa-code"></i>
+  <div class="card-deck">
+    <div class="card">
+      <div class="icon">
+        <i class="profession-icon fas fa-code"></i>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Nikolay Ivanov</h5>
+        <p class="card-text">Programmer for the project.</p>
+      </div>
     </div>
-    <div class="card-body">
-      <h5 class="card-title">Nikolay Ivanov</h5>
-      <p class="card-text">Programmer for the project.</p>
-    </div>
-  </div>
-  <div class="card">
-    <div class="icon">
-      <i class="profession-icon fas fa-palette"></i>
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">Roger Recaldini</h5>
-  <p class="card-text">Responsible for all the art assets of the game.</p>
-    </div>
-  </div>
-</div>
-<div class="card-deck">
-  <div class="card">
-    <div class="icon">
-      <i class="profession-icon fas fa-pencil-alt"></i>
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">Youri Mulder</h5>
-      <p class="card-text">Designer and narrative writer for the game.</p>
+    <div class="card">
+      <div class="icon">
+        <i class="profession-icon fas fa-palette"></i>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Roger Recaldini</h5>
+        <p class="card-text">Responsible for all the art assets of the game.</p>
+      </div>
     </div>
   </div>
-  <div class="card" style="visibility:hidden;">
-    <div class="card-body">
+  <div class="card-deck">
+    <div class="card">
+      <div class="icon">
+        <i class="profession-icon fas fa-pencil-alt"></i>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Youri Mulder</h5>
+        <p class="card-text">Designer and narrative writer for the game.</p>
+      </div>
+    </div>
+    <div class="card hidden-card">
+      <div class="card-body">
+      </div>
     </div>
   </div>
 </div>

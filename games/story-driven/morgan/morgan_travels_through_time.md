@@ -57,7 +57,6 @@ It worked really well on the outside, but debugging and testing it was an absolu
 
 <div class="credits">
   <p>... project created by</p>
-</div>
 
 <div class="card-deck">
   <div class="card">
@@ -79,7 +78,6 @@ It worked really well on the outside, but debugging and testing it was an absolu
     </div>
   </div>
 </div>
-</div>
 
 <div class="card-deck">
   <div class="card">
@@ -100,7 +98,6 @@ It worked really well on the outside, but debugging and testing it was an absolu
       <p class="card-text">Together with Roger, responsible for all the visuals of the game. Focused on the backgrounds and hidden puzzle.</p>
     </div>
   </div>
-</div>
 </div>
 
 <div class="card-deck">

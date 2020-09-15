@@ -132,7 +132,6 @@ private WaypointController GetRandomWaypoint(bool ignore_origin) {
 
 <div class="credits">
   <p>... project created by</p>
-</div>
 
 <div class="card-deck">
   <div class="card">

@@ -3,7 +3,7 @@
 ## desktop ascii all
 <span class="game-link"><i class="fas fa-link"></i> Game Page: <a href="https://back-body-hurts.itch.io/take-back-the-seas">https://back-body-hurts.itch.io/take-back-the-seas</a></span>
 
-<p class="description">Experience being in control of a naval fleet of two ships. Managing its crew, weapons and various parameters that make it stay afloat. Battle sea creatures such as kraken, octopods, isopods and so on! The game gives a lot of breathing room and the opportunity to explore different areas of the world in between combat. The combat itself is passive, as you manages a fleet and its potential combat capability, instead of the dictating how the battle is taking place. I wanted to create an ASCII, rogue-like experience because I always thought it had a certain charm and a retro feel to it. Exploration is a mysteriously captivating and exciting concept and I focused on it for this game. Because of this, the game consists of a large ocean that can be filled with all sorts of interesting entities. You explore using an armada of ships that you micro/macro manage:</p>
+<p class="description"><span class="drop">E</span>xperience being in control of a naval fleet of two ships. Managing its crew, weapons and various parameters that make it stay afloat. Battle sea creatures such as kraken, octopods, isopods and so on! The game gives a lot of breathing room and the opportunity to explore different areas of the world in between combat. The combat itself is passive, as you manages a fleet and its potential combat capability, instead of the dictating how the battle is taking place. I wanted to create an ASCII, rogue-like experience because I always thought it had a certain charm and a retro feel to it. Exploration is a mysteriously captivating and exciting concept and I focused on it for this game. Because of this, the game consists of a large ocean that can be filled with all sorts of interesting entities. You explore using an armada of ships that you micro/macro manage:</p>
 
 <video src="../../../games/ascii/take_back_the_seas/images/gameplay.mp4" controls="" autoplay="" loop="" style="display: block;"></video>
 
@@ -101,7 +101,6 @@ The minimap is basically a second camera that changes its properties based on th
 
 <div class="credits">
   <p>... project created by</p>
-</div>
 
 <div class="card-deck">
   <div class="card">
@@ -113,6 +112,7 @@ The minimap is basically a second camera that changes its properties based on th
       <p class="card-text">Programmer and designer for the entire project.</p>
     </div>
   </div>
-  <div class="card" style="visibility:hidden;">
+  <div class="card hidden-card">
   </div>
+</div>
 </div>

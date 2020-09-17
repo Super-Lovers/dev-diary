@@ -25,4 +25,12 @@ for (let i = 0; i < contents.length; i++) {
 	}
 }
 
+console.log(fortunes.small.length);
+console.log(fortunes.medium.length);
+console.log(fortunes.large.length);
+
+const sum_of_fortunes = fortunes.small.length + fortunes.medium.length + fortunes.large.length;
+
+console.log(fortunes.small.length + ' + ' + fortunes.medium.length + ' + ' + fortunes.large.length + ' = ' + sum_of_fortunes);
+
 fsExtra.writeFileSync('compiledFortunes.json', JSON.stringify(fortunes));

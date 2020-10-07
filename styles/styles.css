@@ -172,6 +172,7 @@ div > video {
 
 .card-body > p {
     text-align: justify;
+    margin: 0;
 }
 
 .card-body > .row > .col-1:nth-child(5) {
@@ -263,6 +264,7 @@ div > i {
 .fortune > div > p {
     margin: 0 0 0 5px;
     padding: 0;
+    min-height: 25px;
     text-align: left;
 }
 

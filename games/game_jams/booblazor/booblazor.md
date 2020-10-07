@@ -1,7 +1,7 @@
 # Booblazor
 ## Uploaded on 11th September, 2020
 ## desktop gamejam all
-<span class="game-link"><i class="fas fa-link"></i> Game Page: <a href="https://github.com/Super-Lovers/boobjam-submission-2020">https://github.com/Super-Lovers/boobjam-submission-2020</a></span>
+<span class="game-link"><i class="fas fa-link"></i> Game Page: <a href="https://back-body-hurts.itch.io/booblazor">https://back-body-hurts.itch.io/booblazor</a></span>
 
 <p class="description"><span class="drop">B</span>oobLazor was created for the 42 hour 2020 boob jam meant to support the prevention of breast cancer. You play as a robot injected into the breast of a patient with the goal of destroying the cancer cells using a lazer gun before they replicate and manifest it. The game was further developped completed after the initial 42 hours since I wanted to create the game in Love2D, with which I had no prior experience and I was learning in the go. Because of this, much of the code is experimentation or improvisation due to time limitations. I worked on the project even after the game jam in order to thoroughly complete the game from start to finish. Since Love2D doesn't have a lot of the nice things game engines like Unity3D do, I spent more time programming and testing them (drawing menus that scale, collisions, camera/world offset, animations and so on). I'll focus on the topic of gameplay, since drawing UI and dialogue isn't as much fun. In order to generate the world and store all the objects' information in it, I used one global world object. This world object is really useful for making all sorts of functionality like testing collision, detection of nearby entities, boundaries and so on:</p>
 

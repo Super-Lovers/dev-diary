@@ -6,9 +6,9 @@ $(document).ready(() => {
 		const dice = Math.floor((Math.random() * 2) + 1);
 		let randomFortune;
 
-		if (dice > 1) {
+		if (dice > 1 || fortunes.medium.length == 0) {
 			randomFortune = fortunes.small[Math.floor(Math.random() * fortunes.small.length)].text;
-		} else if (dice == 1) {
+		} else if (dice == 1 && fortunes.medium.length > 0) {
 			randomFortune = fortunes.medium[Math.floor(Math.random() * fortunes.medium.length)].text;
 		}
 

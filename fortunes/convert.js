@@ -13,15 +13,17 @@ for (let i = 0; i < contents.length; i++) {
 		text: contents[i],
 	};
 
-	if (fortuneObj.text.length <= 76) {
-		fortuneObj.length = 'small (<= 76)';
-		fortunes.small.push(fortuneObj);
-	} else if (fortuneObj.text.length > 76 && fortuneObj.text.length <= 114) {
-		fortuneObj.length = 'medium (> 76 && <= 114)';
-		fortunes.medium.push(fortuneObj);
-	} else {
-		fortuneObj.length = 'large (> 114)';
-		fortunes.large.push(fortuneObj);
+	if (fortuneObj.text != '') {
+		if (fortuneObj.text.length <= 76) {
+			fortuneObj.length = 'small (<= 76)';
+			fortunes.small.push(fortuneObj);
+		} else if (fortuneObj.text.length > 76 && fortuneObj.text.length <= 114) {
+			fortuneObj.length = 'medium (> 76 && <= 114)';
+			fortunes.medium.push(fortuneObj);
+		} else {
+			fortuneObj.length = 'large (> 114)';
+			fortunes.large.push(fortuneObj);
+		}
 	}
 }
 

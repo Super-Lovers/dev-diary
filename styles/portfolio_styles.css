@@ -125,7 +125,8 @@ a.btn {
     background-position: center;
     background-size: cover;
     height: 180px;
-    border-radius: .25rem;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
 }
 
 .games > .row > .col-12.col-md-6 > .card > .card-body {
@@ -133,4 +134,8 @@ a.btn {
     height: fit-content;
     height: -moz-max-content;
     height: -webkit-max-content;
+}
+
+.games > .row > .col-12.col-md-6 > .card > .card-body > a {
+    margin: 12px 0 0 0;
 }

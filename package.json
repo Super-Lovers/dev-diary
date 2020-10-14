@@ -19,7 +19,8 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2",
     "bootstrap": "^4.3.1",
-    "jquery": "^3.4.1"
+    "jquery": "^3.4.1",
+    "plyr": "^3.6.2"
   },
   "devDependencies": {
     "cheerio": "^1.0.0-rc.3",

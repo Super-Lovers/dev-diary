@@ -56,6 +56,10 @@ h5 {
     height: -webkit-max-content;
 }
 
+.card > .card-body > audio {
+    border-radius: 5px;
+}
+
 .card {
     margin: 2rem 0;
     box-shadow: 0 0 30px -23px rgba(0,0,0,0.35);

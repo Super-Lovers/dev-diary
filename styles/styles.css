@@ -172,7 +172,11 @@ div > video {
 
 .card-body > p {
     text-align: justify;
-    margin: 0;
+    margin: 0 0 4px 0;
+}
+
+.aside > hr.style14:first-of-type {
+    margin-top: 0;
 }
 
 .card-body > .row > .col-1:nth-child(5) {
@@ -216,6 +220,10 @@ div > i {
     max-width: 300px;
 }
 
+.aside > .posts-container {
+    margin-top: 30px;
+}
+
 .posts-container>div>a>h6>b>em {
     font-size: 0.85rem;
 }
@@ -232,6 +240,18 @@ div > i {
 
 .posts-container>div>a:last-of-type>h6 {
     margin: 0 0 1.25rem 0;
+}
+
+.plyr {
+    /* white on black rgb(218, 215, 210) */
+    border-radius: 8px;
+
+    mix-blend-mode: luminosity;
+    --plyr-color-main: rgb(112, 128, 144);
+    --plyr-audio-controls-background: rgba(0, 0, 0, 0);
+    --plyr-menu-background: black;
+    --plyr-audio-control-color: rgb(112, 128, 144);
+    --plyr-audio-control-color-hover: white;
 }
 
 .fortune {

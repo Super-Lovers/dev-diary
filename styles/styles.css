@@ -65,6 +65,10 @@ pre > code > span {
     font-size: 0.84rem !important;
 }
 
+pre > code > span.empty-character {
+    opacity: 0.2;
+}
+
 h1,
 h2,
 h3,

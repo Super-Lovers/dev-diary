@@ -98,6 +98,10 @@ h5 {
     border: 1px solid #ccc;
 }
 
+.status-bar {
+    text-align: justify;
+}
+
 .status-bar > span {
     float: left;
     font-size: 2.2rem;
@@ -523,5 +527,6 @@ hr.style14 {
         display: block;
         font-size: 2.2rem;
         padding-bottom: 0.5rem;
+        padding-right: 0;
     }
 }

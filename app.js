@@ -253,6 +253,11 @@ for (let topicI = 0; topicI < topicsInstances.length; topicI++) {
 					}
 				});
 
+				// const og_image = $('meta[property=og:image]');
+				// og_image.attr('content', '../../../../' + encodeURI(og_image.attr('content')));
+				// const twitter_image = $('meta[property=twitter:image]');
+				// twitter_image.attr('content', '../../../../' + encodeURI(twitter_image.attr('content')));
+
 				$('.img-fluid').each(function() {
 					const currentHref = $(this).attr('href');
 					const currentSrc = $(this).attr('src');

@@ -39,6 +39,10 @@ const light_code = '#000000';
 const light_card = '#ffffff';
 const light_btn_background = '#f8f9fa';
 
+const light_status_background_color = '#d4edda';
+const light_status_border_color = '#c3e6cb';
+const light_status_text_color = '#155724';
+
 // Dark Theme
 const dark_background = '#181A1B';
 
@@ -61,6 +65,9 @@ const dark_code = '#ffffff';
 
 const dark_card = '#1D1F20';
 const dark_btn_background = '#181A1B';
+
+const dark_status_color = '#ffd700';
+const dark_status_background_color = 'transparent';
 
 // ****************************************
 
@@ -145,6 +152,13 @@ function updateElementClassColorTo(element, color) {
 	}
 }
 
+function updateElementClassBorderColorTo(element, color) {
+	const elements = document.getElementsByClassName(element);
+	for (let i = 0; i < elements.length; i++) {
+		elements[i].style.borderColor = color;
+	}
+}
+
 function updateElementClassBackgroundImageTo(element, value) {
 	const elements = document.getElementsByClassName(element);
 	for (let i = 0; i < elements.length; i++) {
@@ -190,6 +204,10 @@ function updateVisuals() {
 		updateElementClassColorTo('profession-icon', dark_a);
 		updateElementClassBackgroundTo('profession-icon', dark_background);
 
+		updateElementClassColorTo('status-bar', dark_status_color);
+		updateElementClassBackgroundTo('status-bar', dark_status_background_color);
+		updateElementClassBorderColorTo('status-bar', dark_status_color);
+
 	} else if (currentTheme == 'light') {
 		toggleElementByClassName('portrait', false);
 		toggleElementByClassName('portrait-video', true);
@@ -226,6 +244,10 @@ function updateVisuals() {
 
 		updateElementClassColorTo('profession-icon', light_a);
 		updateElementClassBackgroundTo('profession-icon', light_background);
+
+		updateElementClassColorTo('status-bar', light_status_text_color);
+		updateElementClassBackgroundTo('status-bar', light_status_background_color);
+		updateElementClassBorderColorTo('status-bar', light_status_border_color);
 	}
 
 	updateElementClassColorTo('pageNumber', '#808080');

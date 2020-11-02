@@ -93,8 +93,15 @@ h5 {
     margin-bottom: 1.25rem !important;
     color: #2f4f4f;
 }
+
 .img-border {
     border: 1px solid #ccc;
+}
+
+.status-bar > span {
+    float: left;
+    font-size: 2.2rem;
+    padding-right: 1rem;
 }
 
 blockquote {
@@ -508,5 +515,13 @@ hr.style14 {
 @media only screen and (max-width: 768px) {
     .fortune > div:first-of-type {
         margin: 0 0 5px 0;
+    }
+
+    .status-bar > span {
+        float: none;
+        text-align: center;
+        display: block;
+        font-size: 2.2rem;
+        padding-bottom: 0.5rem;
     }
 }

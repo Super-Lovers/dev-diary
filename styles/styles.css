@@ -99,13 +99,20 @@ h5 {
 }
 
 .status-bar {
+    position: absolute !important;
+    margin-bottom: 0 !important;
+    border-radius: 0px !important;
+
+    padding: 0 !important;
+    bottom: 0;
+    width: 100%;
     text-align: justify;
+    font-style: normal;
+    padding: 2px 0px 2px 15px !important;
 }
 
 .status-bar > span {
-    float: left;
-    font-size: 2.2rem;
-    padding-right: 1rem;
+    font-size: 1rem;
 }
 
 blockquote {
@@ -169,6 +176,10 @@ a>i {
     -webkit-transition: 0.2s;
     -o-transition: 0.2s;
     transition: 0.2s;
+}
+
+figure {
+    position: relative;
 }
 
 figure > video {
@@ -519,14 +530,5 @@ hr.style14 {
 @media only screen and (max-width: 768px) {
     .fortune > div:first-of-type {
         margin: 0 0 5px 0;
-    }
-
-    .status-bar > span {
-        float: none;
-        text-align: center;
-        display: block;
-        font-size: 2.2rem;
-        padding-bottom: 0.5rem;
-        padding-right: 0;
     }
 }

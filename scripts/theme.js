@@ -68,6 +68,7 @@ const dark_btn_background = '#181A1B';
 
 // const dark_status_color = '#ffd700';
 // const dark_status_background_color = 'transparent';
+const status_bar = document.getElementsByClassName("status-bar")[0];
 
 // ****************************************
 
@@ -170,6 +171,10 @@ function updateVisuals() {
 	if (currentTheme == 'dark') {
 		// toggleElementByClassName('portrait', true);
 		// toggleElementByClassName('portrait-video', false);
+		status_bar.classList.remove("alert-success");
+		status_bar.classList.add("alert-primary");
+		status_bar.classList.remove("border-success");
+		status_bar.classList.add("border-primary");
 
 		updateElementColorTo('h1', dark_h1);
 		updateElementColorTo('h3', dark_h3);
@@ -211,6 +216,10 @@ function updateVisuals() {
 	} else if (currentTheme == 'light') {
 		// toggleElementByClassName('portrait', false);
 		// toggleElementByClassName('portrait-video', true);
+		status_bar.classList.remove("alert-primary");
+		status_bar.classList.add("alert-success");
+		status_bar.classList.remove("border-primary");
+		status_bar.classList.add("border-success");
 
 		updateElementColorTo('h1', light_h1);
 		updateElementColorTo('h3', light_h3);

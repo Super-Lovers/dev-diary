@@ -39,7 +39,7 @@ for (let i = 0; i < yearItems.length; i++) {
 // Replaces all whitespace in code blocks with different character
 // for the sake of visibility
 const code_blocks = document.getElementsByTagName('code');
-console.log(code_blocks);
+// console.log(code_blocks);
 for (let i = 0; i < code_blocks.length; i++) {
 	let element = code_blocks[i];
 	const text = element.innerHTML;

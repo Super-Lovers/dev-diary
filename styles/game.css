@@ -50,7 +50,7 @@ h5 {
 }
 
 .card > .card-body {
-    padding: 0 0.9375rem 1.1rem 0.9375rem;
+    padding: .9375rem .9375rem 1.1rem .9375rem;;
     height: fit-content;
     height: -moz-max-content;
     height: -webkit-max-content;

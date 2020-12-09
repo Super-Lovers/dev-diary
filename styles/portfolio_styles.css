@@ -95,6 +95,10 @@ a.btn {
     box-shadow: 0 0 30px -23px rgba(0,0,0,0.35);
 }
 
+.games > .row > .col-12.col-md-6 > .card > .card-body {
+    margin-top: 0;
+}
+
 .games > .row > .col-12.col-md-6 > .card > .icon {
 	position: absolute;
 	margin: 0 auto;
@@ -130,7 +134,7 @@ a.btn {
 }
 
 .games > .row > .col-12.col-md-6 > .card > .card-body {
-    padding: 0 0.9375rem 1.1rem 0.9375rem;
+    padding: .9375rem .9375rem 1.1rem .9375rem;;
     height: fit-content;
     height: -moz-max-content;
     height: -webkit-max-content;

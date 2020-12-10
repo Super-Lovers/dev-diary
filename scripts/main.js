@@ -1,8 +1,4 @@
 /* eslint-disable no-undef */
-const player = new Plyr('audio', {
-	settings: [],
-	autoplay: false
-});
 const yearItems = document.getElementsByClassName('yearLabel');
 
 for (let i = 0; i < yearItems.length; i++) {

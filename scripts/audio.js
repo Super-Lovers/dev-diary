@@ -1,29 +1,43 @@
 /* eslint-disable no-undef */
-const audio = document.getElementById('audioPlayer');
-audio.volume = 0.001;
+const player = new Plyr('#audio-player', {
+	settings: [],
+	autoplay: false
+});
 
 const session = window.sessionStorage;
-let timeOfMusic = session.getItem('timeOfMusic');
+let isPlaying;
+let timeOfMusic;
+let songDuration;
+let isPlayerOn;
 
-if (timeOfMusic == null) {
-	session.setItem('timeOfMusic', 0);
-	audio.play();
-	// console.log('Started ' + timeOfMusic);
-} else {
-	audio.currentTime = timeOfMusic + 1;
-	audio.play();
-}
+player.on('ready', () => {
+	timeOfMusic = session.getItem('timeOfMusic');
+	isPlaying = session.getItem('isPlaying');
 
-const songDuration = audio.duration;
+	if (isPlaying == 'true') { player.play(); }
+	else { player.stop(); }
+
+	if (timeOfMusic == null) {
+		session.setItem('timeOfMusic', 0);
+	} else {
+		player.currentTime = parseFloat(timeOfMusic);
+	}
+
+	songDuration = player.duration;
+	isPlayerOn = true;
+});
+
+player.on('pause', () => { session.setItem('isPlaying', false); });
+player.on('play', () => { session.setItem('isPlaying', true); });
+
 setInterval(() => {
-	if (audio.paused == false) {
-		timeOfMusic = audio.currentTime;
+	if (isPlayerOn && player.paused == false) {
+		timeOfMusic = player.currentTime;
 
 		if (timeOfMusic == songDuration) {
 			timeOfMusic = 0;
 		}
 
-		// console.log("Current music time: " + timeOfMusic);
 		session.setItem('timeOfMusic', timeOfMusic);
 	}
-}, 1000);
+}, 500);

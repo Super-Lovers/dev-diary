@@ -140,7 +140,7 @@ for (let topic = 0; topic < topicsInstances.length; topic++) {
 						const converter = new showdown.Converter();
 						const postHtml = converter.makeHtml(postContents);
 						$ = cheerio.load(postHtml);
-						$('.posts>div>h1').after('<h3>' + $('.posts>div>h1').text() + '</h3>').remove();
+						$('.posts>div>h1').after('<h3><i class="fas fa-feather-alt quill"></i> ' + $('.posts>div>h1').text() + '</h3>').remove();
 						$('.posts>div>h2').after('<h5>' + $('.posts>div>h2').text() + '</h5>').remove();
 
 						const postName = $('h1').text();
@@ -293,7 +293,8 @@ for (let topicI = 0; topicI < topicsInstances.length; topicI++) {
 					$(this).addClass('shadow-sm code-block');
 				});
 
-				$('.posts>div>h1').after('<h3>' + $('.posts>div>h1').text() + '</h3>').remove();
+				// Adds a quill icon before the heading too
+				$('.posts>div>h1').after('<h3><i class="fas fa-feather-alt quill"></i> ' + $('.posts>div>h1').text() + '</h3>').remove();
 				$('.posts>div>h2').after('<h5>' + $('.posts>div>h2').text() + '</h5>').remove();
 
 				const newText = $('h5').text() + '. <em style="font-size:15px;color:lightslategray;"></i><i class="fas fa-hourglass-half"></i> Read time: ' +

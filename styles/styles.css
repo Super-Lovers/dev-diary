@@ -100,9 +100,9 @@ h5 {
 
 .status-bar {
     position: relative;
-    margin-bottom: 0 !important;
+    margin-bottom: 0px !important;
     border-radius: 0px !important;
-    top: -10px;
+    top: -8px;
 
     width: 100%;
     text-align: justify;
@@ -158,6 +158,10 @@ blockquote {
     margin: -1.25rem 0.3125rem -1.5625rem 0;
 }
 
+.quill {
+    font-size: .9em;
+}
+
 .card-body > .row > .col-1 > a {
     color: #708090;
     font-size: 0.9rem;
@@ -183,7 +187,6 @@ figure {
 
 figure > video {
     height: 100%;
-    background-image: url(../images/niko_anim.png);
     background-repeat: no-repeat;
     background-size: auto;
 }
@@ -269,6 +272,7 @@ div > i {
 
 .plyr {
     /* white on black rgb(218, 215, 210) */
+    padding: 0px 0 !important;
     border-radius: 8px;
 
     mix-blend-mode: luminosity;
@@ -377,7 +381,7 @@ div.col-1 {
 }
 
 .header > figure {
-    height: 274px;
+    height: 276px;
     background: rgba(0, 0, 0, 0) !important;
 }
 

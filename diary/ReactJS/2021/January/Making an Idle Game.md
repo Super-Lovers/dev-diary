@@ -1,7 +1,7 @@
 # Making an idle game with ReactJS
 ## Uploaded on 26th January, 2021
 
-<span class="drop">F</span>To take my mind off of university for a short moment, I did what I usually do when I have room in my thoughts for anything else. If you didn't guess judging from my past posts, I entered a chill game jam to learn how to make an incremental/idle/autoclicker prototype. I don't like to use the word 'game' during jams/competitions since the approach I have is to try and learn something new as quickly as possible rather than making a rushed, finished product. After the event is when I decide whether pursuing the concept is worth it or not. The game jam was hosted at [itch.io](https://itch.io/jam/coding-blocks-2021) by the speakers of the Coding Blocks podcast which I like to listen to in my free time.
+<span class="drop">T</span>o take my mind off of university for a short moment, I did what I usually do when I have room in my thoughts for anything else. If you didn't guess judging from my past posts, I entered a chill game jam to learn how to make an incremental/idle/autoclicker prototype. I don't like to use the word 'game' during jams/competitions since the approach I have is to try and learn something new as quickly as possible rather than making a rushed, finished product. After the event is when I decide whether pursuing the concept is worth it or not. The game jam was hosted at [itch.io](https://itch.io/jam/coding-blocks-2021) by the speakers of the Coding Blocks podcast which I like to listen to in my free time.
 
 <img src="../../../../diary-imgcompressed/ReactJS/2021/January/images/coding-blocks-logo.png" alt="logo of coding blocks podcast/site" />
 

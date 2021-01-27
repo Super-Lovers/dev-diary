@@ -72,7 +72,7 @@ fsExtra.readdirSync(path)
 							$('.game').append('<div>' + postHtml + '</div>');
 
 							const game_title = $('.game>div>h1').text();
-							$('.game>div>h1').after('<h3><i class="fas fa-feather-alt quill"></i> ' + game_title + '</h3>').remove();
+							$('.game>div>h1').after('<h3><i class="fas fa-pencil-alt quill"></i> ' + game_title + '</h3>').remove();
 
 							// Removes the tags after the date heading
 							$('.game>div>h2:first-of-type').after('<h5>' + $('.game>div>h2:first-of-type').text() + '</h5>').remove();

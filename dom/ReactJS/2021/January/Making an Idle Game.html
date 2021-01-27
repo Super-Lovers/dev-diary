@@ -149,16 +149,103 @@
 
                 <main class="container-fluid posts">
 
-                <div><h3><i class="fas fa-pencil-alt quill"></i> Creating a bookmarks CLI app</h3>
-<h5>Uploaded on 21st February, 2020. <em style="font-size:15px;color:lightslategray;"><i class="fas fa-hourglass-half"></i> Read time: 4m</em></h5>
-<p><span class="drop">W</span>hen you bookmark online pages like me all the time and switch browsers a lot, it becomes irritating to get used to every browser&apos;s different implementation of a bookmarks viewer interface. That&apos;s why I decided to make one called SLBMS where it won&apos;t matter what browser I&apos;m using. When you use Linux, Mac or Windows, the one thing that stays constant is having a console, which is why I thought about making my bookmarks application a CLI in Node.js. I&apos;m not very good at Node.js so the implementation is not great and is fairly simple in design, which is why I call it a viewer rather than a manager app. </p>
-<p>SLBMS uses the bookmarks html files that browsers allow you to export as a backup to give you different actions to explore your bookmarks. As of this post&apos;s release, the viewer lets you group bookmarks by domains, so if I had ten bookmarks of any youtube video, it would group them inside a youtube folder which you can explore:</p>
-<p style="text-align: center;"><img class="img-fluid" src="../../../../diary/Web/2020/February/images/grouping.gif" alt="Here is an animated video of the user looking at bookmarks under the folder of a domain"></p>
-<p>As you can see, there is grouping, sorting and searching by using keywords. Depending on what you intend to look for and if you know what you are looking for in the first place, you can use the respective methods of searching. Sorting allows you to sort by newest or oldest bookmarks that were added:</p>
-<p style="text-align: center;"><img class="img-fluid" src="../../../../diary/Web/2020/February/images/sorting.gif" alt="Here is an animated video of the user looking at the oldest or newest bookmarks he added"></p>
-<p>The keywords search uses a fuzzy algorithm extended by the Fuse.js library. Aside from that, there is an option in the settings menu which refreshes the bookmarks if you added a new file or replaced the existing one from the bookmarks html files folder:</p>
-<p style="text-align: center;"><img class="img-fluid" src="../../../../diary/Web/2020/February/images/keywords-settings.gif" alt="Here is an animated video of the user searching for bookmarks using keywords and after that refreshing his bookmarks lists"></p>
-<p>Naturally, when you press enter on a bookmark entry, it will automatically open the page using the default browser setting of your operating system. An application like this took me two days, but for an experienced web developer, you can make this in less than a day and it&apos;ll provide a lot more flexibility between workstations. It was a cool challenge to make a CLI, so I recommend it to any new web developer. It just feels weird having to use CLIs so much without having tried to make one yourself.</p></div></main>
+                <div><h3><i class="fas fa-pencil-alt quill"></i> Making an idle game with ReactJS</h3>
+<h5>Uploaded on 26th January, 2021. <em style="font-size:15px;color:lightslategray;"><i class="fas fa-hourglass-half"></i> Read time: 13m</em></h5>
+<p><span class="drop">F</span>To take my mind off of university for a short moment, I did what I usually do when I have room in my thoughts for anything else. If you didn&apos;t guess judging from my past posts, I entered a chill game jam to learn how to make an incremental/idle/autoclicker prototype. I don&apos;t like to use the word &apos;game&apos; during jams/competitions since the approach I have is to try and learn something new as quickly as possible rather than making a rushed, finished product. After the event is when I decide whether pursuing the concept is worth it or not. The game jam was hosted at <a href="https://itch.io/jam/coding-blocks-2021">itch.io</a> by the speakers of the Coding Blocks podcast which I like to listen to in my free time.</p>
+<p style="text-align: center;"><img src="../../../../diary-imgcompressed/ReactJS/2021/January/images/coding-blocks-logo.png" alt="logo of coding blocks podcast/site"></p>
+<p>I think it was while I was playing cookie clicker and the Kittens Game by bloodrizer that I developed an interest in that genre, and that was a while back. It also kind of reminded me of the Facebook games like Farmville and Ikariam, although there was more interaction and complexity there. Generally you wait until you perform actions and accumulate currency while doing so while in the former games I mentioned it&apos;s a whole lot different gameplay. The game jam was for around five days and had a USA-centered time zone, so I was more relaxed. On top of that, I wasn&apos;t interested in the theme because I needed the jam as an excuse for making something new with a deadline to keep it in check. Since a lot of idle games are made for the web platform, I thought I might go for that as well and tried out ReactJS to designing the game around since I heard good things about it. I was also going for a clear interface look similar to that of Swarm Simulator (which is really cool).</p>
+<p style="text-align: center;"><img class="img-fluid" src="../../../../diary-imgcompressed/ReactJS/2021/January/images/game_1.png" alt="picture of game interface"></p>
+<p>The game&apos;s theme is that you&apos;re helping this programmer bango cat type on the keyboard to write lines of code (LoC) and by writing more code you can get to upgrade the cat&apos;s ability to write code. You can also reach milestones for the cat having written a whole lot of code. It&apos;s really simple and doesn&apos;t have anything outstanding which made it achievable for a few days with little to no experience with ReactJS. In terms of design, I got to play around with excel tables and looking at how other games or frameworks implement rates of accumulating currency relative to tiers and the player&apos;s progression such as Idle Game Maker and Cookie Clicker&apos;s <a href="https://cookieclicker.fandom.com/wiki/Building">Wikipedia page about buildings</a>. </p>
+<p style="text-align: center;"><img class="img-fluid" src="../../../../diary-imgcompressed/ReactJS/2021/January/images/excel_table.png" alt="picture of the excel sheet of the rates for upgrades"></p>
+<p>I was learning React on the go, so I had an interesting experience for those first five days. You know how in courses they teach you the old and &quot;classic&quot; way of doing things and then show you how green the grass is these days and that you shouldn&apos;t do the old stuff anymore. Well the courses I was looking up and the books (Fullstack React - The Complete Guide..) taught classes first, then hooks. So I spent an evening learning how to do the same things twice but obviously how to do it better the second time (&#x300D;&#xB0;&#x30ED;&#xB0;)&#x300D;. I learned about JSX, classes, state, hooks, how to use components, a <em>little</em> about context, structuring my project/components, React ecosystem and so on. It was really fun and making a game with a UI/view? centered framework with JS was harder than how I think I would do it in Unity, but of course, there is a lot of options for creating interfaces with web tools compared to Unity which is why I think many developers first try that route. Also probably because that genre was born out of web/flash games of old. The root of my project React is as such:</p>
+<pre class="shadow-sm code-block"><code class="javascript language-javascript">// Dependancies
+import React from &apos;react&apos;;
+import ReactDOM from &apos;react-dom&apos;;
+
+// Fontawesome
+import { library } from &apos;@fortawesome/fontawesome-svg-core&apos;;
+import { fab } from &apos;@fortawesome/free-brands-svg-icons&apos;;
+import { faCode } from &apos;@fortawesome/free-solid-svg-icons&apos;;
+
+// Source code
+import App from &apos;./app/App&apos;;
+
+// Semantic-ui and CSS
+import &apos;semantic-ui-css/semantic.min.css&apos;
+import &apos;./index.css&apos;;
+
+library.add(fab, faCode);
+
+ReactDOM.render(
+    &lt;React.StrictMode&gt;
+        &lt;App&gt;&lt;/App&gt;
+    &lt;/React.StrictMode&gt;,
+    document.getElementById(&apos;root&apos;)
+);
+</code></pre>
+<p>App tag is where the application core is initialized and is then rendered to the #root tag in the html:</p>
+<pre class="shadow-sm code-block"><code class="html language-html">  &lt;body&gt;
+    &lt;noscript&gt;You need to enable JavaScript to run this app.&lt;/noscript&gt;
+    &lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
+  &lt;/body&gt;
+</code></pre>
+<p>It&apos;s very neat and &quot;tidy&quot; since you can use React component tags to create your DOM/tree and have it change dynamically. ReactDOM will then go on to render <code>&lt;App /&gt;</code> which renders the following:</p>
+<pre class="shadow-sm code-block"><code class="jsx language-jsx">return (
+    &lt;div&gt;
+        &lt;div className=&apos;app ui grid container&apos;&gt;
+            &lt;CodeContext.Provider value={{
+                total_lines_of_code,
+                lines_of_code,
+                lines_of_code_per_second,
+                incrementLinesOfCodeOnClick,
+                decrementLinesOfCode,
+                updateLinesOfCodePerSecond,
+                fetchUpgrades,
+                pushMilestoneNotification,
+                pushUpgradeNotification,
+                }
+            }&gt;
+                &lt;Milestones /&gt;
+                &lt;Programmer /&gt;
+                &lt;Upgrades /&gt;
+            &lt;/CodeContext.Provider&gt;
+        &lt;/div&gt;
+    &lt;ToastContainer /&gt;
+    &lt;/div&gt;
+    );
+};
+</code></pre>
+<p>Basically <code>&lt;Milestones /&gt;</code> renders the milestones list, <code>&lt;Upgrades /&gt;</code> the upgrades and so on, you get the point. Each of these components contains logic, so basically they&apos;re controllers which have their own views for the lists (<code>&lt;Milestone /&gt;</code> and <code>&lt;Upgrade /&gt;</code>) and they manage that logic while <code>&lt;App /&gt;</code> manages the global logic such as notifications and the currency. I feel like the structure and how state is managed in this prototype is not efficient and although it works, I wouldn&apos;t do it exactly the same given my insights. Views like <code>&lt;Notification /&gt;</code> are simple (warning: syntax highlighting for JSX?):</p>
+<pre class="shadow-sm code-block"><code class="jsx language-jsx">const Notification = (
+    { closeToast, title, description, icon, lines_of_code, role }) =&gt; {
+
+    const color = role === &apos;success&apos; ? &apos;green&apos; : &apos;red&apos;;
+    const button_text = role === &apos;success&apos; ? &apos;Sweet!&apos; : &apos;Close&apos;
+
+    return &lt;div className=&apos;notification&apos;&gt;
+        &lt;div className=&apos;content&apos;&gt;
+            &lt;div className=&apos;icon&apos;&gt;{icon}&lt;/div&gt;
+            &lt;div className=&apos;header&apos;&gt;
+                &lt;div className=&apos;title&apos;&gt;{title}&lt;/div&gt;
+                &lt;div className=&apos;meta&apos;&gt;{lines_of_code}&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div className=&apos;description&apos;&gt;
+                {description}
+            &lt;/div&gt;
+            &lt;div className=&apos;extra content&apos;&gt;
+                &lt;div className=&apos;ui buttons&apos;&gt;
+                    &lt;div
+                        className={`ui inverted ${color} button`}
+                        onClick={closeToast}&gt;
+                        {button_text}
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+};
+</code></pre>
+<p>but the <code>&lt;Upgrade /&gt;</code> and <code>&lt;Milestone /&gt;</code> are many lines of code and feel dirty to look at since they have to handle pointer/tap input and update button parameters dynamically. I struggled the most with state logic, since I have little experience in creating React apps and I don&apos;t know how appropriate they are for idle games compared to other frameworks or simply going vanilla and a lot of times it depends on how fast or efficient and elegant you want it done and if others tried it already. My state/render logic is all over the place and is not very optimized, but I&apos;m glad I was able to make things work somewhat.</p></div></main>
                 <hr class="style14">
                 <footer>
                     <div>

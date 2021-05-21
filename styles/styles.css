@@ -506,6 +506,18 @@ hr.style14 {
     background-image: -o-linear-gradient(left, #ffffff, #bcbcbc, #ffffff);
 }
 
+.notes {
+    position: relative;
+}
+
+.notes > .bg-bookmark {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    font-size: 18em;
+    opacity: 0.1;
+}
+
 @media only screen and (max-width: 1250px) {
     .container {
         border: none;
@@ -513,6 +525,10 @@ hr.style14 {
 }
 
 @media only screen and (max-width: 960px) {
+    .notes > .bg-bookmark {
+        display: block;
+    }
+
     .container-fluid > .row > .col-md-9,
     .container-fluid > .row > .col-md-11 {
         padding-left: 0;
@@ -533,5 +549,9 @@ hr.style14 {
 @media only screen and (max-width: 768px) {
     .fortune > div:first-of-type {
         margin: 0 0 5px 0;
+    }
+
+    .notes > .bg-bookmark {
+        display: none;
     }
 }

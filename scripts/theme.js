@@ -195,6 +195,7 @@ function updateVisuals() {
 
 		updateElementClassBackgroundTo('code-block', dark_pre);
 		updateElementColorTo('code', dark_code);
+		updateElementClassColorTo('notes-block', dark_p);
 
 		// Game pages
 		updateElementClassBackgroundTo('card', dark_card);
@@ -240,6 +241,7 @@ function updateVisuals() {
 
 		updateElementClassBackgroundTo('code-block', light_pre);
 		updateElementColorTo('code', light_code);
+		updateElementClassColorTo('notes-block', light_p);
 
 		// Game pages
 		updateElementClassBackgroundTo('card', light_card);

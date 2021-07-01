@@ -59,10 +59,10 @@
 						<video class="portrait-video-night link" src="../../../images/night.mp4" autoplay loop></video>
                         <figcaption style="background-color: #2f4f4f;">
                             <h2>Nikolay Vaskov Ivanov</h2>
-                            <p class="portrait-description">Born in 3rd of march, 1998 in the Bulgarian city Pazardzhik, I studied in the school
-                                &quot;Prof. Ivan Batakliev&quot; until 8th grade and completed the specialty
-                                &quot;System Programming&quot; when I graduated 12th grade. Currently studying for a
-                                Bachelor&apos;s degree in the Netherlands.</p>
+							<p class="portrait-description">Born in 3rd of march, 1998 in the Bulgarian city Pazardzhik, I studied in the school
+								&quot;Prof. Ivan Batakliev&quot; until 8th grade and completed the specialty
+								&quot;System Programming&quot; when I graduated 12th grade. Soon after, I graduated with a
+								Bachelor&apos;s degree in the Netherlands.</p>
                         </figcaption>
                     </figure>
 					<div class="alert alert-success status-bar border-success rounded-bottom">
@@ -85,8 +85,7 @@
                             </div>
                             <div class="col-7"></div>
                         </div>
-                        <p>Student in Game Design and Development
-                            at Hanze University of Applied Sciences in Groningen, previously Game Programmer intern at &amp;ranj.</p>
+						<p>Graduate of Game Design &amp; Development at Hanze University of Applied Sciences in Groningen, previously intern as game programmer at &amp;ranj and Grendel Games.</p>
                         <audio id="audio-player" loop>
                             <source class="link" src="../../../audio/Ana_kiss.mp3" type="audio/mp3">
                         </audio>
@@ -141,10 +140,10 @@
                             </div>
                         </div>
                         <p>Below, you will find some of the games that I have worked on during my <u>free time</u> and a few others created during my <u>studies</u>. Aside from that, I have also worked on games at
-                            &amp;ranj where I interned for five months but they will not be displayed publicly. The
-                            <u>source code</u> for all games can be found on my <a href="https://github.com/Super-Lovers">Github <i class="fab fa-github-alt"></i></a>.</p>
+                            &amp;ranj and Grendel Games where I interned for five months each but they will not be displayed publicly. The
+                            <u>source code</u> for all available games can be found on my <a href="https://github.com/Super-Lovers">Github <i class="fab fa-github-alt"></i></a>.</p>
                         <p>This portfolio is strictly for game development. Web development or other projects
-                            that I have done can only be found on my Github or by asking me personally. Games I have worked
+                            that I have done can only be found on my Github or by asking me for such personally. Games I have worked
                             on were made using <u>Unity3D</u>, <u>Phaser v2/3</u>, <u>CreateJS</u>, <u>Love2D</u> and <u>Twine</u>. The page of each game discusses some development aspects of it and talks about the choices I made, or didn&apos;t. <u>If you want to try each game, there&apos;s a link at the top of each game&apos;s page.</u></p>
                     </header>
                     <hr class="style14">
@@ -156,7 +155,7 @@
 <h5>Uploaded on 11th September, 2020. <em style="font-size:15px;color:lightslategray;"><i class="fas fa-hourglass-half"></i> Read time: 11m</em></h5>
 
 <p><span class="game-link"><i class="fas fa-link"></i> Game Page: <a href="https://back-body-hurts.itch.io/cosmic-relay">https://back-body-hurts.itch.io/cosmic-relay</a></span></p>
-<p class="description"><span class="drop">A</span> short interactive pick your path game created for the I Can&apos;t Write But Want To Tell A Story Jam of 2020.In Cosmic Relay you play as an unfortunate traveler trying to pick the right choices to make it out alive. &quot;Right&quot; being a relative term. You have to help your character survive through the dangerous space filled with pirates and aliens waiting just around the corner using just your screen and console. I had a lot of fun working on this game because it was clear what we wanted and it was simple to develop. Twine is comfortable to collaborate with other people (in my case with Roger) and on top of that I got to practice some web development. I already talked about this game on one of my diary posts, so I&apos;ll touch on some aspects that I couldn&apos;t on it. Much of the game is centered around this screen:</p>
+<p class="description"><span class="drop">A</span> short interactive pick your path game created for the I Can&apos;t Write But Want To Tell A Story Jam of 2020. In Cosmic Relay you play as an unfortunate traveler trying to pick the right choices to make it out alive. &quot;Right&quot; being a relative term. You have to help your character survive through the dangerous space filled with pirates and aliens waiting just around the corner using just your screen and console. I had a lot of fun working on this game because it was clear what we wanted and it was simple to develop. Twine is comfortable to collaborate with other people (in my case with Roger) and on top of that I got to practice some web development. I already talked about this game on one of my diary posts, so I&apos;ll touch on some aspects that I couldn&apos;t on it. Much of the game is centered around this screen:</p>
 <p style="text-align: center;"><img class="img-fluid" src="../../../games-imgcompressed/html5/cosmic-relay/images/screen.png" alt="A pictures of the game&apos;s main screen"></p>
 <p>Since fiction games, in my opinion, should be complemented with a lot of visuals and effects, I focused on making twine adapt the interface as much as possible dialogue to dialogue. Firstly, I moved all the dialogue from twine&apos;s current passage container to one with my own design/markup, so that its easier to manipulate the DOM and add visuals:</p>
 <pre class="shadow-sm code-block"><code class="javascript language-javascript">$passage_content = $(&apos;#console-screen&gt;.passage-content&apos;);

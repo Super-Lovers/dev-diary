@@ -12,6 +12,8 @@ themeToggleButton.addEventListener('click', () => {
 	changeTheme();
 });
 
+const root_html = document.getElementsByTagName('html')[0];
+
 // ****************************************
 // COLORS LEGEND
 // ****************************************
@@ -169,6 +171,7 @@ function updateElementClassBackgroundImageTo(element, value) {
 
 function updateVisuals() {
 	if (currentTheme == 'dark') {
+		root_html.style.colorScheme = 'dark';
 		toggleElementByClassName('portrait-video-day', false);
 		toggleElementByClassName('portrait-video-night', true);
 		status_bar.classList.remove('alert-success');
@@ -215,6 +218,7 @@ function updateVisuals() {
 		// updateElementClassBorderColorTo('status-bar', dark_status_color);
 
 	} else if (currentTheme == 'light') {
+		root_html.style.colorScheme = 'light';
 		toggleElementByClassName('portrait-video-day', true);
 		toggleElementByClassName('portrait-video-night', false);
 		status_bar.classList.remove('alert-primary');
